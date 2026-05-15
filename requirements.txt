@@ -6,6 +6,5 @@ scenedetect[opencv]
 rapidfuzz
 rich
 
-# approach_2 (LLM-in-the-loop)
+# LLM pipeline
 groq
-google-generativeai

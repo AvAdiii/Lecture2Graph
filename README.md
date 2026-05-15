@@ -1,6 +1,6 @@
-# Code-Mixed Pedagogical Flow Extractor
-Extracting pedagogical concept prerequisite DAGs
-from code-mixed (Hindi/Telugu + English) video lectures using multimodal NLP.
+# Lecture2Graph
+Generate pedagogical concept prerequisite DAGs
+from code-mixed (Hindi/Telugu + English) lecture videos using multimodal NLP.
 
 ## Quick Start
 
@@ -8,39 +8,38 @@ from code-mixed (Hindi/Telugu + English) video lectures using multimodal NLP.
 # activate the virtual environment
 source venv/bin/activate  # or activate.fish for fish shell
 
-# ─── Approach 1 (regex-based) ───
+# ─── Regex pipeline (pattern-based) ───
 
 # interactive demo (recommended)
-python demo.py
+python scripts/demo.py
 
 # or run directly on a video
-cd approach_1
-python pipeline.py "https://www.youtube.com/watch?v=VIDEO_ID"
+python -m lecture2graph.regex_pipeline.pipeline "https://www.youtube.com/watch?v=VIDEO_ID"
 
 # force re-run from a specific stage (e.g., to re-translate)
-python pipeline.py "https://www.youtube.com/watch?v=VIDEO_ID" --force-from m2
+python -m lecture2graph.regex_pipeline.pipeline "https://www.youtube.com/watch?v=VIDEO_ID" --force-from m2
 
-# ─── Approach 2 (LLM-based) ───
+# ─── LLM pipeline (Groq) ───
 
 # run on a single video (requires Groq API key)
-python -m approach_2.pipeline "https://www.youtube.com/watch?v=VIDEO_ID" \
+python -m lecture2graph.llm_pipeline.pipeline "https://www.youtube.com/watch?v=VIDEO_ID" \
   --api-key YOUR_GROQ_API_KEY
 
 # or set env var and omit --api-key
 export GROQ_API_KEY=YOUR_GROQ_API_KEY
-python -m approach_2.pipeline "https://www.youtube.com/watch?v=VIDEO_ID"
+python -m lecture2graph.llm_pipeline.pipeline "https://www.youtube.com/watch?v=VIDEO_ID"
 
 # batch run all test videos
-python run_approach2.py
+python scripts/run_llm_batch.py
 ```
 
 ## Architecture
 
-### Two Approaches
+### Two Pipelines
 
-This project implements **two independent approaches** to concept extraction:
+This project implements **two independent pipelines** for concept extraction:
 
-| | Approach 1 (Regex) | Approach 2 (LLM) |
+| | Regex pipeline | LLM pipeline |
 |---|---|---|
 | **M3** | Heavy normalization + fuzzy OCR correction | Simplified cleanup (LLM handles noise) |
 | **M4** | ~100 regex patterns + OCR keyword map | Groq LLM (llama-3.3-70b) semantic extraction |
@@ -48,9 +47,9 @@ This project implements **two independent approaches** to concept extraction:
 | **Strengths** | High recall, structural detail | High precision, discovers novel concepts |
 | **Weaknesses** | Temporal edge padding, domain-locked | Rate limits, fewer structural details |
 
-Both approaches share **M1** (ingest), **M2** (ASR+OCR), and **M6** (visualize).
+Both pipelines share **M1** (ingest), **M2** (ASR+OCR), and **M6** (visualize).
 
-### Pipeline Overview (Approach 1 - Regex)
+### Pipeline Overview (Regex Pipeline)
 
 ```
 YouTube URL
@@ -86,19 +85,19 @@ YouTube URL
 └─────────────────┘
 ```
 
-### Pipeline Overview (Approach 2 - LLM-in-the-loop)
+### Pipeline Overview (LLM Pipeline)
 
 ```
 YouTube URL
     │
     ▼
 ┌──────────────────────────┐
-│  M1: Ingestion           │  <- reused from approach_1
+│  M1: Ingestion           │  <- reused from regex pipeline
 └────────┬─────────────────┘
          │
          ▼
 ┌──────────────────────────┐
-│  M2: ASR + OCR           │  <- reused from approach_1
+│  M2: ASR + OCR           │  <- reused from regex pipeline
 └────────┬─────────────────┘
          │
          ▼
@@ -118,7 +117,7 @@ YouTube URL
          │
          ▼
 ┌──────────────────────────┐
-│  M6: Visualize           │  <- reused from approach_1
+│  M6: Visualize           │  <- reused from regex pipeline
 └──────────────────────────┘
 ```
 
@@ -158,45 +157,28 @@ rich in English CS terms regardless of source language.
 ## File Structure
 
 ```
-irel_task/
-├── approach_1/              # regex-based pipeline (all 5 videos)
-│   ├── __init__.py
-│   ├── m1_ingest.py         # M1: video download + audio/frame extraction
-│   ├── m2_extract.py        # M2: whisper ASR (translate) + tesseract OCR
-│   ├── m3_normalize.py      # M3: text normalization + hallucination filter
-│   ├── m4_concepts.py       # M4: concept extraction via regex patterns
-│   ├── m5_prereqs.py        # M5: prerequisite edge mining + DAG
-│   ├── m6_visualize.py      # M6: custom HTML visualization + report
-│   ├── pipeline.py          # orchestrator with progress callbacks
-│   └── HARDCODED.md         # inventory of hardcoded elements per video
-├── approach_2/              # LLM-based pipeline (3 of 5 videos)
-│   ├── __init__.py          # docs: motivation, results, comparison
-│   ├── m3_normalize.py      # M3: simplified cleanup (LLM handles noise)
-│   ├── m4_concepts.py       # M4: Groq LLM concept extraction
-│   ├── m5_prereqs.py        # M5: Groq LLM prerequisite reasoning
-│   └── pipeline.py          # orchestrator reusing M1/M2/M6 from approach_1
-├── demo.py                  # interactive terminal demo (rich UI)
-├── run_approach2.py         # batch runner for approach_2
-├── data/                    # approach_1 output data per video
-│   ├── XRcC7bAtL3c/         # tree traversal (english)
-│   ├── N2P7w22tN9c/         # BFS/DFS (english)
-│   ├── Tp37HXfekNo/         # DBMS primary keys (hindi)
-│   ├── azXr6nTaD9M/         # recursion & stack (hindi)
-│   └── eXWl-Uor75o/         # sorting & merge sort (telugu)
-├── data_a2/                 # approach_2 output data (3 videos)
-│   ├── XRcC7bAtL3c/         # symlinks M1/M2 from data/, fresh M3-M6
-│   ├── N2P7w22tN9c/
-│   └── azXr6nTaD9M/
+Lecture2Graph/
+├── lecture2graph/
+│   ├── regex_pipeline/          # regex-based pipeline (M1-M6)
+│   └── llm_pipeline/            # LLM-based pipeline (M3-M5 + reuse M1/M2/M6)
+├── scripts/
+│   ├── demo.py                  # interactive terminal demo (rich UI)
+│   └── run_llm_batch.py         # batch runner for LLM pipeline
+├── docs/
+│   └── hardcoded-elements.md    # inventory of hardcoded rules (regex pipeline)
+├── outputs/                     # generated artifacts (gitignored)
+│   ├── regex/
+│   └── llm/
 ├── requirements.txt
 ├── README.md
 ├── CHANGELOG.md
 └── .gitignore
 ```
 
-### Data Directory (per video)
+### Output Directory (per video)
 
 ```
-data/<video_id>/
+outputs/regex/<video_id>/
 ├── video.mp4                 # downloaded video
 ├── audio.wav                 # extracted audio (16kHz mono)
 ├── frames/                   # keyframes at 1fps
@@ -213,6 +195,8 @@ data/<video_id>/
 ├── report.md                 # markdown summary report
 └── pipeline_summary.json     # timing & result metrics
 ```
+
+LLM pipeline outputs use the same layout under `outputs/llm/<video_id>/`.
 
 ## Module Details
 
@@ -258,7 +242,7 @@ data/<video_id>/
 
 ## Demo Interface
 
-The `demo.py` script provides an interactive terminal UI:
+The `scripts/demo.py` script provides an interactive terminal UI:
 - Accepts YouTube URL or video ID
 - Shows real-time progress for all 6 pipeline stages
 - Displays live log output capture
@@ -267,17 +251,24 @@ The `demo.py` script provides an interactive terminal UI:
 - Falls back to basic output if `rich` is not installed
 
 ```bash
-python demo.py
+python scripts/demo.py
 ```
+
+## Suggested Screenshots
+
+If you want visuals in the README, these are the most compelling:
+- `graph.html` interactive DAG view (dark theme + concept details sidebar)
+- Terminal demo UI showing live pipeline progress
+- Report excerpt (`report.md`) showing topological order and edge table
+- Timeline heatmap panel from the HTML visualization
 
 ## Dependencies
 
 - **whisper** (openai-whisper): ASR with translate mode
 - **pytesseract**: OCR on keyframes
 - **yt-dlp**: YouTube video download
-- **rapidfuzz**: Fuzzy string matching for OCR correction (approach_1)
-- **groq**: Groq API SDK for LLM inference (approach_2)
-- **google-generativeai**: Gemini SDK (approach_2, attempted but rate limited)
+- **rapidfuzz**: Fuzzy string matching for OCR correction (regex pipeline)
+- **groq**: Groq API SDK for LLM inference (LLM pipeline)
 - **rich**: Terminal UI for demo
 - **Pillow**: Image processing for OCR
 - **scenedetect**: (optional) scene detection
@@ -286,7 +277,7 @@ System requirements: `ffmpeg`, `tesseract-ocr` (with eng+hin language data)
 
 ## Tested Videos
 
-### Approach 1 (Regex) - All 5 Videos
+### Regex Pipeline - All 5 Videos
 
 | Video ID | Topic | Language | Concepts | Edges | Topo |
 |----------|-------|----------|----------|-------|------|
@@ -296,7 +287,7 @@ System requirements: `ffmpeg`, `tesseract-ocr` (with eng+hin language data)
 | azXr6nTaD9M | Recursion & Stack | Hindi | 7 | 16 | 7/7 |
 | eXWl-Uor75o | Sorting & Merge Sort | Telugu | 8 | 21 | 8/8 |
 
-### Approach 2 (LLM) - implemented on 3 of 5 Videos (rate limited)
+### LLM Pipeline - implemented on 3 of 5 Videos (rate limited)
 
 | Video ID | Topic | Language | Concepts | Edges | Topo |
 |----------|-------|----------|----------|-------|------|
@@ -306,9 +297,9 @@ System requirements: `ffmpeg`, `tesseract-ocr` (with eng+hin language data)
 | Tp37HXfekNo | DBMS Primary Keys | Hindi | - | - | ❌ rate limited |
 | eXWl-Uor75o | Sorting & Merge Sort | Telugu | - | - | ❌ rate limited |
 
-### Comparison of the two approaches
+### Comparison of the two pipelines
 
-| Metric | Approach 1 (Regex) | Approach 2 (LLM) |
+| Metric | Regex pipeline | LLM pipeline |
 |--------|-------------------|------------------|
 | Total concepts | 33 | 26 |
 | Total edges | 108 | 23 |
@@ -321,8 +312,10 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed per-video comparison.
 ## Limitations
 
 1. **Whisper small on Telugu**: May produce lower quality translations. Can consider using `--model medium` for Telugu videos.
-2. **Domain coverage (approach_1)**: M4 regex patterns cover trees, graphs, BFS/DFS, DBMS, sorting. New CS domains require extending the pattern list manually.
-3. **Rate limits (approach_2)**: Both Gemini free tier and Groq free tier have request/token limits. Only 3 of 5 videos completed. Production deployment needs a paid API plan or locally hosted LLM.
-4. **LLM granularity (approach_2)**: LLMs abstract away structural sub-concepts (left_subtree, node, children) in favor of higher-level terms.
+2. **Domain coverage (regex pipeline)**: M4 regex patterns cover trees, graphs, BFS/DFS, DBMS, sorting. New CS domains require extending the pattern list manually.
+3. **Rate limits (LLM pipeline)**: Groq free tier has request/token limits. Only 3 of 5 videos completed. Production deployment needs a paid API plan or locally hosted LLM.
+4. **LLM granularity (LLM pipeline)**: LLMs abstract away structural sub-concepts (left_subtree, node, children) in favor of higher-level terms.
 5. **OCR quality**: Heavily depends on video resolution and text clarity.
 6. **Processing time**: Whisper ASR is CPU-intensive. Two passes (transcribe + translate) for non-English videos doubles the ASR time.
+
+See [docs/hardcoded-elements.md](docs/hardcoded-elements.md) for the full regex inventory.

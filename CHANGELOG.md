@@ -1,8 +1,12 @@
 # Changelog
 
-All notable changes to the Code-Mixed Pedagogical Flow Extractor.
+All notable changes to Lecture2Graph.
 
-## Approach 1: Standard approach
+## Unreleased
+- Renamed the project to Lecture2Graph and reorganized the repository layout.
+- Consolidated docs under `docs/` and moved outputs under `outputs/`.
+
+## Regex pipeline
 
 ### Modules
 - M1: Video download + audio/frame extraction
@@ -69,11 +73,11 @@ Hindi), mostly nonsensical.
 - eXWl-Uor75o (Telugu): 8 concepts, 21 edges ✓
 
 
-## Approach 2: LLM-in-the-loop
+## LLM pipeline
 
 ### Motivation
 
-Approach 1 relied on ~100 handcrafted regex patterns and ~80 domain rules to
+The regex pipeline relied on ~100 handcrafted regex patterns and ~80 domain rules to
 extract concepts and prerequisites. While effective for known CS topics (trees,
 graphs, DBMS), this approach:
 - Cannot discover novel/unexpected concepts outside the pattern list
@@ -81,7 +85,7 @@ graphs, DBMS), this approach:
 - Requires manual rule authoring for each new domain
 - Cannot reason about *why* A is a prerequisite of B
 
-Approach 2 replaces M3–M5 with LLM calls, sending the transcript to a language
+The LLM pipeline replaces M3–M5 with LLM calls, sending the transcript to a language
 model that can semantically understand CS concepts and reason about prerequisite
 relationships.
 
@@ -103,7 +107,7 @@ relationships.
 
 ### Changes Made
 
-#### New: `approach_2/` directory
+#### New: `lecture2graph/llm_pipeline/` directory
 - `m3_normalize.py` - Simplified normalization (no fuzzy correction, no heavy
   hallucination filter). LLMs handle noisy/misspelled text well, so only basic
   garbage removal (empty, punctuation-only, repeated phrases) is needed.
@@ -117,19 +121,19 @@ relationships.
   to determine genuine prerequisite relationships. Classifies edges as
   `domain_rule` or `causal`. Includes DAG verification (Kahn's algorithm)
   to detect and break cycles if the LLM produces any.
-- `pipeline.py` - Orchestrator that reuses M1/M2 from approach_1, runs new
-  M3–M5, and reuses M6 from approach_1.
-- `run_approach2.py` - Batch runner that symlinks M1/M2 artifacts from
-  approach_1's `data/` into `data_a2/` to avoid re-downloading videos.
+- `pipeline.py` - Orchestrator that reuses M1/M2 from the regex pipeline, runs new
+  M3–M5, and reuses M6 from the regex pipeline.
+- `run_llm_batch.py` - Batch runner that symlinks M1/M2 artifacts from
+  `outputs/regex/` into `outputs/llm/` to avoid re-downloading videos.
 
-#### Reused from approach_1 (unchanged)
+#### Reused from regex pipeline (unchanged)
 - `m1_ingest.py` - Video download, audio extraction, keyframe extraction
 - `m2_extract.py` - Whisper ASR (translate mode) + Tesseract OCR
 - `m6_visualize.py` - vis.js hierarchical DAG HTML + markdown report
 
 ### Results: 3 of 5 Videos Completed
 
-| Video | Language | A2 Concepts | A2 Edges | Status |
+| Video | Language | LLM Concepts | LLM Edges | Status |
 |-------|----------|-------------|----------|--------|
 | XRcC7bAtL3c | English | 7 | 6 | Complete |
 | N2P7w22tN9c | English | 10 | 9 | Complete |
@@ -137,18 +141,18 @@ relationships.
 | Tp37HXfekNo | Hindi | - | - | Rate limited |
 | eXWl-Uor75o | Telugu | - | - | Rate limited |
 
-### Comparison: Approach 1 (Regex) vs Approach 2 (LLM)
+### Comparison: Regex pipeline vs LLM pipeline
 
 #### Video: XRcC7bAtL3c - Tree Traversal (English)
 
-| Metric | Approach 1 | Approach 2 |
+| Metric | Regex | LLM |
 |--------|-----------|-----------|
 | Concepts | 14 | 7 |
 | Edges | 51 | 6 |
 | Edge types | temporal(20), prerequisite(27), refines(3), part_of(1) | domain_rule(6) |
 
-**Approach 1 only** (7): tree, left_subtree, right_subtree, node, traversal_technique, children, dummy_node <br>
-**Approach 2 only** (0): all LLM concepts had regex counterparts<br>
+**Regex only** (7): tree, left_subtree, right_subtree, node, traversal_technique, children, dummy_node <br>
+**LLM only** (0): all LLM concepts had regex counterparts<br>
 **Both** (7): tree_traversal, pre_order, in_order, post_order, binary_tree, leaf_node, root_node<br>
 
 *Analysis*: Regex captured more low-level structural components (subtrees, nodes)
@@ -158,14 +162,14 @@ padding.
 
 #### Video: N2P7w22tN9c - BFS/DFS Graph Traversal (English)
 
-| Metric | Approach 1 | Approach 2 |
+| Metric | Regex | LLM |
 |--------|-----------|-----------|
 | Concepts | 12 | 10 |
 | Edges | 41 | 9 |
 | Edge types | temporal(28), prerequisite(10), refines(3) | domain_rule(6), causal(3) |
 
-**Approach 1 only** (5): graph, tree, visited, pre_order_traversal, traversal_technique
-**Approach 2 only** (3): time_complexity, web_crawler, minimum_cost_spanning_tree
+**Regex only** (5): graph, tree, visited, pre_order_traversal, traversal_technique
+**LLM only** (3): time_complexity, web_crawler, minimum_cost_spanning_tree
 **Both** (7): graph_traversal, bfs, dfs, stack, tree_traversal, vertex, edge
 
 *Analysis*: LLM discovered application-level concepts (web_crawler as BFS
@@ -176,14 +180,14 @@ prerequisite language.
 
 #### Video: azXr6nTaD9M - Recursion & Stack (Hindi)
 
-| Metric | Approach 1 | Approach 2 |
+| Metric | Regex | LLM |
 |--------|-----------|-----------|
 | Concepts | 7 | 9 |
 | Edges | 16 | 8 |
 | Edge types | temporal(14), refines(2) | domain_rule(6), causal(2) |
 
-**Approach 1 only** (2): data_structure, pointer
-**Approach 2 only** (4): activation_record, call_by_value, instruction_pointer, factorial
+**Regex only** (2): data_structure, pointer
+**LLM only** (4): activation_record, call_by_value, instruction_pointer, factorial
 **Both** (5): recursion, stack, time_complexity, space_complexity, tree
 
 *Analysis*: **LLM's strongest showing.** Found 4 unique concepts that are
@@ -193,7 +197,7 @@ patterns. This is the case where LLM understanding beats pattern matching.
 
 #### Aggregate Comparison
 
-| Metric | Approach 1 (Regex) | Approach 2 (LLM) |
+| Metric | Regex pipeline | LLM pipeline |
 |--------|-------------------|------------------|
 | Total concepts (3 videos) | 33 | 26 |
 | Total edges (3 videos) | 108 | 23 |
@@ -206,13 +210,13 @@ patterns. This is the case where LLM understanding beats pattern matching.
 
 ### Key Findings
 
-1. Approach 1 extracts more concepts (higher
-   recall) but includes structural noise (left_subtree, dummy_node). Approach 2
+1. The regex pipeline extracts more concepts (higher
+   recall) but includes structural noise (left_subtree, dummy_node). The LLM pipeline
    is more precise, focusing on pedagogically meaningful concepts.
 
-2. Approach 2 produces 4.7× fewer edges but every edge has a
-   semantic justification. Approach 1's edges are 57% temporal ("mentioned first"),
-   which are low-confidence heuristics. Approach 2's edges are 100% domain_rule
+2. The LLM pipeline produces 4.7× fewer edges but every edge has a
+   semantic justification. The regex pipeline's edges are 57% temporal ("mentioned first"),
+   which are low-confidence heuristics. The LLM pipeline's edges are 100% domain_rule
    or causal.
 
 3. activation_record, web_crawler,
@@ -223,4 +227,3 @@ patterns. This is the case where LLM understanding beats pattern matching.
    children - fine-grained structural concepts that LLMs tend to omit in favor
    of higher-level abstractions.
 ---
-
