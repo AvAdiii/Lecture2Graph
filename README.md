@@ -1,6 +1,5 @@
 # Code-Mixed Pedagogical Flow Extractor
-
-**iREL Recruitment Task 2026** - Extracting pedagogical concept prerequisite DAGs
+Extracting pedagogical concept prerequisite DAGs
 from code-mixed (Hindi/Telugu + English) video lectures using multimodal NLP.
 
 ## Quick Start
