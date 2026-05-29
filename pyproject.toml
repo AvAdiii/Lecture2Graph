@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lecture2graph"
+version = "0.1.0"
+description = "Turn YouTube lectures into interactive concept graphs and learning paths."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Lecture2Graph contributors" }
+]
+dependencies = [
+  "openai-whisper",
+  "Pillow",
+  "pydantic>=2.7,<3.0",
+  "pytesseract",
+  "rapidfuzz",
+  "streamlit>=1.45,<2.0",
+  "yt-dlp",
+]
+
+[project.optional-dependencies]
+llm = [
+  "google-genai>=0.3,<1.0",
+  "groq>=0.9,<1.0",
+  "openai>=1.30,<2.0",
+]
+gemini = [
+  "google-genai>=0.3,<1.0",
+]
+openai = [
+  "openai>=1.30,<2.0",
+]
+dev = [
+  "httpx>=0.27,<1.0",
+  "pytest>=8.2,<9.0",
+]
+
+[project.scripts]
+lecture2graph = "lecture2graph.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "core"}
+
+[tool.setuptools.packages.find]
+where = ["core"]

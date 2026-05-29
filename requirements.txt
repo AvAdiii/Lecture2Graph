@@ -1,11 +1,4 @@
-yt-dlp
-openai-whisper
-pytesseract
-Pillow
-scenedetect[opencv]
-rapidfuzz
-rich
+-e .
 
-# approach_2 (LLM-in-the-loop)
-groq
-google-generativeai
+# Optional provider extras
+# pip install -e ".[llm]"

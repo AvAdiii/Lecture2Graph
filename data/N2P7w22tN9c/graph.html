@@ -1,217 +1,520 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Concept DAG — N2P7w22tN9c</title>
-<script src="https://unpkg.com/vis-network@9.1.6/standalone/umd/vis-network.min.js"></script>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --bg: #0d1117; --surface: #161b22; --border: #30363d;
-    --text: #e6edf3; --text-dim: #8b949e; --accent: #58a6ff;
-    --green: #3fb950; --orange: #d29922; --red: #f85149;
-    --purple: #bc8cff; --cyan: #39d353;
-  }
-  html, body {
-    height: 100%; overflow: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-    background: var(--bg); color: var(--text); line-height: 1.5;
-  }
-  body { display: flex; flex-direction: column; }
-  .header {
-    flex-shrink: 0;
-    padding: 16px 24px; background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; gap: 16px;
-  }
-  .header h1 { font-size: 18px; font-weight: 600; }
-  .header .badge {
-    padding: 2px 10px; border-radius: 12px; font-size: 12px;
-    background: var(--accent); color: var(--bg); font-weight: 600;
-  }
-  .header .lang-badge { background: var(--purple); }
-  .stats {
-    flex-shrink: 0;
-    display: flex; gap: 24px; padding: 12px 24px;
-    background: var(--surface); border-bottom: 1px solid var(--border); font-size: 13px;
-  }
-  .stat { display: flex; align-items: center; gap: 6px; }
-  .stat-value { font-weight: 700; color: var(--accent); font-size: 16px; }
-  .stat-label { color: var(--text-dim); }
-  .main { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 320px; }
-  #graph { background: var(--bg); border-right: 1px solid var(--border); height: 100%; }
-  .sidebar { background: var(--surface); overflow-y: auto; height: 100%; }
-  .sidebar-section { padding: 12px 16px; border-bottom: 1px solid var(--border); }
-  .sidebar-section h3 {
-    font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
-    color: var(--text-dim); margin-bottom: 8px;
-  }
-  .node-detail { display: none; }
-  .node-detail.active { display: block; }
-  .node-name { font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
-  .node-meta { font-size: 12px; color: var(--text-dim); margin-bottom: 8px; }
-  .mentions-list { list-style: none; max-height: 200px; overflow-y: auto; }
-  .mentions-list li { padding: 4px 0; font-size: 12px; border-bottom: 1px solid var(--border); }
-  .mention-time { color: var(--green); font-family: monospace; margin-right: 6px; }
-  .mention-src {
-    padding: 1px 4px; border-radius: 3px; font-size: 10px;
-    background: var(--border); color: var(--text-dim);
-  }
-  .topo-list { list-style: none; counter-reset: topo; }
-  .topo-list li { counter-increment: topo; padding: 3px 0; font-size: 13px; cursor: pointer; }
-  .topo-list li:hover { color: var(--accent); }
-  .topo-list li::before {
-    content: counter(topo) "."; color: var(--text-dim);
-    margin-right: 8px; font-size: 11px; font-family: monospace;
-  }
-  .legend-item { display: flex; align-items: center; gap: 8px; padding: 2px 0; font-size: 12px; }
-  .legend-line { width: 24px; height: 2px; border-radius: 1px; }
-  .timeline { display: flex; gap: 1px; height: 20px; margin-top: 6px; }
-  .timeline-bar {
-    flex: 1; border-radius: 2px; min-width: 3px; position: relative; cursor: pointer;
-  }
-  .timeline-bar:hover::after {
-    content: attr(data-tip); position: absolute; bottom: 100%;
-    left: 50%; transform: translateX(-50%);
-    background: var(--surface); border: 1px solid var(--border);
-    padding: 2px 6px; font-size: 10px; white-space: nowrap; border-radius: 3px;
-  }
-  .no-select { font-size: 13px; color: var(--text-dim); padding: 8px 0; }
-  @media (max-width: 768px) {
-    .main { grid-template-columns: 1fr; grid-template-rows: 60vh 1fr; }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lecture2Graph | https://www.youtube.com/watch?v=N2P7w22tN9c</title>
+  <script src="https://unpkg.com/vis-network@9.1.6/standalone/umd/vis-network.min.js"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+    :root {
+      --bg: #07131f;
+      --panel: rgba(8, 25, 39, 0.88);
+      --panel-solid: #0d2235;
+      --line: rgba(141, 184, 213, 0.14);
+      --text: #eaf4ff;
+      --muted: #8ca2b8;
+      --accent: #7ce0c3;
+      --accent-2: #ffc670;
+      --accent-3: #89b4ff;
+      --danger: #ff8d8d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124, 224, 195, 0.18), transparent 26%),
+        radial-gradient(circle at top right, rgba(137, 180, 255, 0.12), transparent 24%),
+        linear-gradient(180deg, #04101a 0%, #07131f 60%, #07131f 100%);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+    }
+    a { color: inherit; }
+    .shell {
+      width: min(1440px, calc(100vw - 32px));
+      margin: 16px auto;
+      padding: 16px;
+      display: grid;
+      gap: 16px;
+    }
+    .hero {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 24px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 24px 90px rgba(0, 0, 0, 0.28);
+    }
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(124, 224, 195, 0.08);
+      border: 1px solid rgba(124, 224, 195, 0.18);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 16px 0 10px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.03;
+    }
+    .lede {
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .stats {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .stat {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+    }
+    .stat .value {
+      display: block;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--accent-2);
+    }
+    .stat .label {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(320px, 0.9fr);
+      gap: 16px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 20px 12px;
+    }
+    .panel-title {
+      font-size: 0.94rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .panel-hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    #graph {
+      height: 74vh;
+      min-height: 560px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0)),
+        radial-gradient(circle at 20% 20%, rgba(124,224,195,0.08), transparent 30%),
+        #07131f;
+    }
+    .sidebar {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+      padding: 0 0 16px;
+    }
+    .sidebar-card {
+      padding: 18px 20px;
+      border-top: 1px solid var(--line);
+    }
+    .sidebar-card:first-of-type {
+      border-top: 0;
+    }
+    .pill {
+      display: inline-flex;
+      padding: 5px 10px;
+      margin: 0 6px 6px 0;
+      border-radius: 999px;
+      background: rgba(137, 180, 255, 0.1);
+      color: var(--accent-3);
+      font-size: 0.8rem;
+    }
+    .concept-name {
+      font-size: 1.5rem;
+      margin: 0 0 8px;
+    }
+    .concept-copy {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+    .timestamp-list, .path-list, .transcript-list {
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .timestamp-list a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 16px;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+    }
+    .mono {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--accent);
+      font-size: 0.88rem;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .path-list li {
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--line);
+    }
+    .path-step {
+      color: var(--accent-2);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .path-title {
+      font-size: 1rem;
+      margin-top: 4px;
+    }
+    .path-copy {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .tabs {
+      display: inline-flex;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+    }
+    .tabs button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+    }
+    .tabs button.active {
+      background: rgba(124, 224, 195, 0.12);
+      color: var(--accent);
+    }
+    .transcript-list li {
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .transcript-list strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent-3);
+    }
+    @media (max-width: 1024px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+      #graph {
+        height: 58vh;
+        min-height: 460px;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="header">
-  <h1>Concept DAG</h1>
-  <span class="badge">N2P7w22tN9c</span>
-  <span class="badge lang-badge">English</span>
-</div>
-<div class="stats">
-  <div class="stat"><span class="stat-value">12</span><span class="stat-label">concepts</span></div>
-  <div class="stat"><span class="stat-value">41</span><span class="stat-label">edges</span></div>
-  <div class="stat"><span class="stat-value">12/12</span><span class="stat-label">topo order</span></div>
-  <div class="stat"><span class="stat-value">140</span><span class="stat-label">segments</span></div>
-</div>
-<div class="main">
-  <div id="graph"></div>
-  <div class="sidebar">
-    <div class="sidebar-section node-detail" id="node-detail">
-      <h3>Selected Concept</h3>
-      <div class="node-name" id="detail-name"></div>
-      <div class="node-meta" id="detail-meta"></div>
-      <h3 style="margin-top:12px">Mentions</h3>
-      <ul class="mentions-list" id="detail-mentions"></ul>
-      <h3 style="margin-top:12px">Connections</h3>
-      <div id="detail-edges" style="font-size:12px"></div>
-    </div>
-    <div class="sidebar-section" id="no-select-panel">
-      <p class="no-select">Click a node to see details</p>
-    </div>
-    <div class="sidebar-section">
-      <h3>Topological Order</h3>
-      <ol class="topo-list" id="topo-list"><li data-nid="edge">Edge</li><li data-nid="vertex">Vertex</li><li data-nid="graph">Graph</li><li data-nid="graph traversal">Graph Traversal</li><li data-nid="tree">Tree</li><li data-nid="tree traversal">Tree Traversal</li><li data-nid="visited">Visited</li><li data-nid="stack">Stack</li><li data-nid="depth first search">Depth First Search</li><li data-nid="traversal technique">Traversal Technique</li><li data-nid="pre-order traversal">Pre-Order Traversal</li><li data-nid="breadth first search">Breadth First Search</li></ol>
-    </div>
-    <div class="sidebar-section">
-      <h3>Edge Types</h3>
-      <div class="legend-item"><div class="legend-line" style="border-top:2px solid #d29922;background:none"></div><span>Domain knowledge rule</span></div><div class="legend-item"><div class="legend-line" style="border-top:2px solid #f85149;background:none"></div><span>Causal language pattern</span></div><div class="legend-item"><div class="legend-line" style="border-top:2px dashed #8b949e;background:none"></div><span>Temporal ordering</span></div><div class="legend-item"><div class="legend-line" style="border-top:2px solid #bc8cff;background:none"></div><span>Co-occurrence proximity</span></div>
-    </div>
-    <div class="sidebar-section">
-      <h3>Mention Timeline</h3>
-      <div class="timeline"><div class="timeline-bar" data-tip="00:00-00:33: 6 segs" style="background:var(--accent);height:7px;opacity:0.56;align-self:flex-end"></div><div class="timeline-bar" data-tip="00:33-01:07: 7 segs" style="background:var(--accent);height:8px;opacity:0.61;align-self:flex-end"></div><div class="timeline-bar" data-tip="01:07-01:41: 10 segs" style="background:var(--accent);height:12px;opacity:0.74;align-self:flex-end"></div><div class="timeline-bar" data-tip="01:41-02:15: 3 segs" style="background:var(--accent);height:3px;opacity:0.43;align-self:flex-end"></div><div class="timeline-bar" data-tip="02:15-02:48: 11 segs" style="background:var(--accent);height:13px;opacity:0.78;align-self:flex-end"></div><div class="timeline-bar" data-tip="02:48-03:22: 6 segs" style="background:var(--accent);height:7px;opacity:0.56;align-self:flex-end"></div><div class="timeline-bar" data-tip="03:22-03:56: 4 segs" style="background:var(--accent);height:5px;opacity:0.47;align-self:flex-end"></div><div class="timeline-bar" data-tip="03:56-04:30: 5 segs" style="background:var(--accent);height:6px;opacity:0.52;align-self:flex-end"></div><div class="timeline-bar" data-tip="04:30-05:04: 8 segs" style="background:var(--accent);height:10px;opacity:0.65;align-self:flex-end"></div><div class="timeline-bar" data-tip="05:04-05:37: 4 segs" style="background:var(--accent);height:5px;opacity:0.47;align-self:flex-end"></div><div class="timeline-bar" data-tip="05:37-06:11: 7 segs" style="background:var(--accent);height:8px;opacity:0.61;align-self:flex-end"></div><div class="timeline-bar" data-tip="06:11-06:45: 9 segs" style="background:var(--accent);height:11px;opacity:0.69;align-self:flex-end"></div><div class="timeline-bar" data-tip="06:45-07:19: 4 segs" style="background:var(--accent);height:5px;opacity:0.47;align-self:flex-end"></div><div class="timeline-bar" data-tip="07:19-07:52: 16 segs" style="background:var(--accent);height:20px;opacity:1.00;align-self:flex-end"></div><div class="timeline-bar" data-tip="07:52-08:26: 10 segs" style="background:var(--accent);height:12px;opacity:0.74;align-self:flex-end"></div><div class="timeline-bar" data-tip="08:26-09:00: 5 segs" style="background:var(--accent);height:6px;opacity:0.52;align-self:flex-end"></div><div class="timeline-bar" data-tip="09:00-09:34: 6 segs" style="background:var(--accent);height:7px;opacity:0.56;align-self:flex-end"></div><div class="timeline-bar" data-tip="09:34-10:08: 6 segs" style="background:var(--accent);height:7px;opacity:0.56;align-self:flex-end"></div><div class="timeline-bar" data-tip="10:08-10:41: 6 segs" style="background:var(--accent);height:7px;opacity:0.56;align-self:flex-end"></div><div class="timeline-bar" data-tip="10:41-11:15: 7 segs" style="background:var(--accent);height:8px;opacity:0.61;align-self:flex-end"></div></div>
-    </div>
+  <div class="shell">
+    <section class="hero">
+      <div class="eyebrow">
+        <span>Lecture2Graph</span>
+        <span>English</span>
+        <span>RULES</span>
+      </div>
+      <h1>https://www.youtube.com/watch?v=N2P7w22tN9c</h1>
+      <p class="lede">Understand the lecture instantly: inspect the concept graph, follow the learning path, and jump back to the exact video moments where each idea is introduced.</p>
+      <div class="stats">
+        <div class="stat"><span class="value">15</span><span class="label">Concepts</span></div>
+        <div class="stat"><span class="value">29</span><span class="label">Dependencies</span></div>
+        <div class="stat"><span class="value">15</span><span class="label">Learning steps</span></div>
+        <div class="stat"><span class="value">143</span><span class="label">Transcript segments</span></div>
+      </div>
+    </section>
+    <section class="workspace">
+      <article class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Interactive Concept Graph</div>
+          <div class="panel-hint">Pan, zoom, and click a node to highlight dependencies.</div>
+        </div>
+        <div id="graph"></div>
+      </article>
+      <aside class="panel sidebar">
+        <div class="sidebar-card">
+          <div class="panel-title">Selected Concept</div>
+          <h2 class="concept-name" id="concept-name">Pick a node</h2>
+          <p class="concept-copy" id="concept-description">The sidebar will show the concept summary, timestamps, prerequisites, and dependents.</p>
+          <div class="row" id="concept-badges"></div>
+        </div>
+        <div class="sidebar-card">
+          <div class="panel-title">Timestamps</div>
+          <ul class="timestamp-list" id="timestamp-list"></ul>
+        </div>
+        <div class="sidebar-card">
+          <div class="panel-title">Connections</div>
+          <div class="concept-copy" id="connections-copy">Select a concept to inspect its graph neighborhood.</div>
+        </div>
+        <div class="sidebar-card">
+          <div class="panel-title">Learning Path</div>
+          <ol class="path-list" id="learning-path"></ol>
+        </div>
+        <div class="sidebar-card">
+          <div class="panel-header" style="padding:0 0 12px">
+            <div class="panel-title">Transcripts</div>
+            <div class="tabs">
+              <button id="tab-translated" class="active">Translated</button>
+              <button id="tab-original">Original</button>
+            </div>
+          </div>
+          <ul class="transcript-list" id="transcript-list"></ul>
+        </div>
+      </aside>
+    </section>
   </div>
-</div>
-<script>
-const graphData = {"nodes": [{"id": "graph", "label": "Graph", "color": "#3fb950", "border": "#2ea043"}, {"id": "graph traversal", "label": "Graph Traversal", "color": "#d29922", "border": "#9e6a03"}, {"id": "tree", "label": "Tree", "color": "#58a6ff", "border": "#388bfd"}, {"id": "tree traversal", "label": "Tree Traversal", "color": "#8b949e", "border": "#6e7681"}, {"id": "vertex", "label": "Vertex", "color": "#58a6ff", "border": "#388bfd"}, {"id": "edge", "label": "Edge", "color": "#d29922", "border": "#9e6a03"}, {"id": "depth first search", "label": "Depth First Search", "color": "#d29922", "border": "#9e6a03"}, {"id": "visited", "label": "Visited", "color": "#8b949e", "border": "#6e7681"}, {"id": "stack", "label": "Stack", "color": "#d29922", "border": "#9e6a03"}, {"id": "pre-order traversal", "label": "Pre-Order Traversal", "color": "#8b949e", "border": "#6e7681"}, {"id": "traversal technique", "label": "Traversal Technique", "color": "#8b949e", "border": "#6e7681"}, {"id": "breadth first search", "label": "Breadth First Search", "color": "#8b949e", "border": "#6e7681"}], "edges": [{"from": "tree", "to": "tree traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "tree traversal", "to": "pre-order traversal", "type": "refines", "rule": ""}, {"from": "traversal technique", "to": "pre-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "graph", "to": "graph traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "vertex", "to": "graph", "type": "is_prerequisite_for", "rule": ""}, {"from": "edge", "to": "graph", "type": "is_prerequisite_for", "rule": ""}, {"from": "graph traversal", "to": "breadth first search", "type": "refines", "rule": ""}, {"from": "graph traversal", "to": "depth first search", "type": "refines", "rule": ""}, {"from": "graph", "to": "breadth first search", "type": "is_prerequisite_for", "rule": ""}, {"from": "graph", "to": "depth first search", "type": "is_prerequisite_for", "rule": ""}, {"from": "stack", "to": "depth first search", "type": "is_prerequisite_for", "rule": ""}, {"from": "visited", "to": "breadth first search", "type": "is_prerequisite_for", "rule": ""}, {"from": "visited", "to": "depth first search", "type": "is_prerequisite_for", "rule": ""}, {"from": "graph", "to": "tree", "type": "temporal_precedence", "rule": ""}, {"from": "graph", "to": "tree traversal", "type": "temporal_precedence", "rule": ""}, {"from": "graph", "to": "visited", "type": "temporal_precedence", "rule": ""}, {"from": "graph traversal", "to": "visited", "type": "temporal_precedence", "rule": ""}, {"from": "graph traversal", "to": "stack", "type": "temporal_precedence", "rule": ""}, {"from": "graph traversal", "to": "pre-order traversal", "type": "temporal_precedence", "rule": ""}, {"from": "tree", "to": "depth first search", "type": "temporal_precedence", "rule": ""}, {"from": "tree", "to": "visited", "type": "temporal_precedence", "rule": ""}, {"from": "tree", "to": "stack", "type": "temporal_precedence", "rule": ""}, {"from": "tree traversal", "to": "depth first search", "type": "temporal_precedence", "rule": ""}, {"from": "tree traversal", "to": "visited", "type": "temporal_precedence", "rule": ""}, {"from": "tree traversal", "to": "stack", "type": "temporal_precedence", "rule": ""}, {"from": "vertex", "to": "visited", "type": "temporal_precedence", "rule": ""}, {"from": "vertex", "to": "stack", "type": "temporal_precedence", "rule": ""}, {"from": "vertex", "to": "pre-order traversal", "type": "temporal_precedence", "rule": ""}, {"from": "edge", "to": "visited", "type": "temporal_precedence", "rule": ""}, {"from": "edge", "to": "stack", "type": "temporal_precedence", "rule": ""}, {"from": "edge", "to": "pre-order traversal", "type": "temporal_precedence", "rule": ""}, {"from": "depth first search", "to": "pre-order traversal", "type": "temporal_precedence", "rule": ""}, {"from": "depth first search", "to": "traversal technique", "type": "temporal_precedence", "rule": ""}, {"from": "depth first search", "to": "breadth first search", "type": "temporal_precedence", "rule": ""}, {"from": "visited", "to": "stack", "type": "temporal_precedence", "rule": ""}, {"from": "visited", "to": "pre-order traversal", "type": "temporal_precedence", "rule": ""}, {"from": "visited", "to": "traversal technique", "type": "temporal_precedence", "rule": ""}, {"from": "stack", "to": "pre-order traversal", "type": "temporal_precedence", "rule": ""}, {"from": "stack", "to": "traversal technique", "type": "temporal_precedence", "rule": ""}, {"from": "stack", "to": "breadth first search", "type": "temporal_precedence", "rule": ""}, {"from": "pre-order traversal", "to": "breadth first search", "type": "temporal_precedence", "rule": ""}]};
-const conceptMeta = {"graph": {"label": "Graph", "mentions": 12, "first_seen": "00:02", "mention_list": [{"time": "00:02", "source": "?", "text": ""}, {"time": "00:22", "source": "?", "text": ""}, {"time": "00:36", "source": "?", "text": ""}, {"time": "00:41", "source": "?", "text": ""}, {"time": "00:47", "source": "?", "text": ""}, {"time": "00:51", "source": "?", "text": ""}, {"time": "00:56", "source": "?", "text": ""}, {"time": "01:01", "source": "?", "text": ""}, {"time": "01:06", "source": "?", "text": ""}, {"time": "01:20", "source": "?", "text": ""}, {"time": "01:31", "source": "?", "text": ""}, {"time": "11:02", "source": "?", "text": ""}], "edges": ["\u2192 graph traversal (is_prerequisite_for)", "vertex \u2192 this (is_prerequisite_for)", "edge \u2192 this (is_prerequisite_for)", "\u2192 breadth first search (is_prerequisite_for)", "\u2192 depth first search (is_prerequisite_for)", "\u2192 tree (temporal_precedence)", "\u2192 tree traversal (temporal_precedence)", "\u2192 visited (temporal_precedence)"]}, "graph traversal": {"label": "Graph Traversal", "mentions": 3, "first_seen": "00:36", "mention_list": [{"time": "00:36", "source": "?", "text": ""}, {"time": "00:41", "source": "?", "text": ""}, {"time": "00:47", "source": "?", "text": ""}], "edges": ["graph \u2192 this (is_prerequisite_for)", "\u2192 breadth first search (refines)", "\u2192 depth first search (refines)", "\u2192 visited (temporal_precedence)", "\u2192 stack (temporal_precedence)", "\u2192 pre-order traversal (temporal_precedence)"]}, "tree": {"label": "Tree", "mentions": 4, "first_seen": "00:47", "mention_list": [{"time": "00:47", "source": "?", "text": ""}, {"time": "00:51", "source": "?", "text": ""}, {"time": "00:56", "source": "?", "text": ""}, {"time": "11:02", "source": "?", "text": ""}], "edges": ["\u2192 tree traversal (is_prerequisite_for)", "graph \u2192 this (temporal_precedence)", "\u2192 depth first search (temporal_precedence)", "\u2192 visited (temporal_precedence)", "\u2192 stack (temporal_precedence)"]}, "tree traversal": {"label": "Tree Traversal", "mentions": 1, "first_seen": "00:47", "mention_list": [{"time": "00:47", "source": "?", "text": ""}], "edges": ["tree \u2192 this (is_prerequisite_for)", "\u2192 pre-order traversal (refines)", "graph \u2192 this (temporal_precedence)", "\u2192 depth first search (temporal_precedence)", "\u2192 visited (temporal_precedence)", "\u2192 stack (temporal_precedence)"]}, "vertex": {"label": "Vertex", "mentions": 5, "first_seen": "01:06", "mention_list": [{"time": "01:06", "source": "?", "text": ""}, {"time": "01:14", "source": "?", "text": ""}, {"time": "01:22", "source": "?", "text": ""}, {"time": "10:38", "source": "?", "text": ""}, {"time": "10:43", "source": "?", "text": ""}], "edges": ["\u2192 graph (is_prerequisite_for)", "\u2192 visited (temporal_precedence)", "\u2192 stack (temporal_precedence)", "\u2192 pre-order traversal (temporal_precedence)"]}, "edge": {"label": "Edge", "mentions": 3, "first_seen": "01:14", "mention_list": [{"time": "01:14", "source": "?", "text": ""}, {"time": "10:38", "source": "?", "text": ""}, {"time": "10:43", "source": "?", "text": ""}], "edges": ["\u2192 graph (is_prerequisite_for)", "\u2192 visited (temporal_precedence)", "\u2192 stack (temporal_precedence)", "\u2192 pre-order traversal (temporal_precedence)"]}, "depth first search": {"label": "Depth First Search", "mentions": 3, "first_seen": "02:54", "mention_list": [{"time": "02:54", "source": "?", "text": ""}, {"time": "04:21", "source": "?", "text": ""}, {"time": "11:07", "source": "?", "text": ""}], "edges": ["graph traversal \u2192 this (refines)", "graph \u2192 this (is_prerequisite_for)", "stack \u2192 this (is_prerequisite_for)", "visited \u2192 this (is_prerequisite_for)", "tree \u2192 this (temporal_precedence)", "tree traversal \u2192 this (temporal_precedence)", "\u2192 pre-order traversal (temporal_precedence)", "\u2192 traversal technique (temporal_precedence)", "\u2192 breadth first search (temporal_precedence)"]}, "visited": {"label": "Visited", "mentions": 1, "first_seen": "05:03", "mention_list": [{"time": "05:03", "source": "?", "text": ""}], "edges": ["\u2192 breadth first search (is_prerequisite_for)", "\u2192 depth first search (is_prerequisite_for)", "graph \u2192 this (temporal_precedence)", "graph traversal \u2192 this (temporal_precedence)", "tree \u2192 this (temporal_precedence)", "tree traversal \u2192 this (temporal_precedence)", "vertex \u2192 this (temporal_precedence)", "edge \u2192 this (temporal_precedence)", "\u2192 stack (temporal_precedence)", "\u2192 pre-order traversal (temporal_precedence)", "\u2192 traversal technique (temporal_precedence)"]}, "stack": {"label": "Stack", "mentions": 3, "first_seen": "07:04", "mention_list": [{"time": "07:04", "source": "?", "text": ""}, {"time": "07:10", "source": "?", "text": ""}, {"time": "09:53", "source": "?", "text": ""}], "edges": ["\u2192 depth first search (is_prerequisite_for)", "graph traversal \u2192 this (temporal_precedence)", "tree \u2192 this (temporal_precedence)", "tree traversal \u2192 this (temporal_precedence)", "vertex \u2192 this (temporal_precedence)", "edge \u2192 this (temporal_precedence)", "visited \u2192 this (temporal_precedence)", "\u2192 pre-order traversal (temporal_precedence)", "\u2192 traversal technique (temporal_precedence)", "\u2192 breadth first search (temporal_precedence)"]}, "pre-order traversal": {"label": "Pre-Order Traversal", "mentions": 1, "first_seen": "08:29", "mention_list": [{"time": "08:29", "source": "?", "text": ""}], "edges": ["tree traversal \u2192 this (refines)", "traversal technique \u2192 this (is_prerequisite_for)", "graph traversal \u2192 this (temporal_precedence)", "vertex \u2192 this (temporal_precedence)", "edge \u2192 this (temporal_precedence)", "depth first search \u2192 this (temporal_precedence)", "visited \u2192 this (temporal_precedence)", "stack \u2192 this (temporal_precedence)", "\u2192 breadth first search (temporal_precedence)"]}, "traversal technique": {"label": "Traversal Technique", "mentions": 1, "first_seen": "10:38", "mention_list": [{"time": "10:38", "source": "?", "text": ""}], "edges": ["\u2192 pre-order traversal (is_prerequisite_for)", "depth first search \u2192 this (temporal_precedence)", "visited \u2192 this (temporal_precedence)", "stack \u2192 this (temporal_precedence)"]}, "breadth first search": {"label": "Breadth First Search", "mentions": 1, "first_seen": "11:07", "mention_list": [{"time": "11:07", "source": "?", "text": ""}], "edges": ["graph traversal \u2192 this (refines)", "graph \u2192 this (is_prerequisite_for)", "visited \u2192 this (is_prerequisite_for)", "depth first search \u2192 this (temporal_precedence)", "stack \u2192 this (temporal_precedence)", "pre-order traversal \u2192 this (temporal_precedence)"]}};
-
-window.addEventListener('load', function() {
-  const nodes = new vis.DataSet(graphData.nodes.map(n => ({
-    id: n.id, label: n.label,
-    color: { background: n.color || '#58a6ff', border: n.border || '#388bfd',
-             highlight: { background: '#79c0ff', border: '#58a6ff' } },
-    font: { color: '#e6edf3', size: 14, face: '-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif' },
-    shape: 'box', margin: { top: 10, bottom: 10, left: 14, right: 14 },
-    borderWidth: 2, borderWidthSelected: 3,
-    shadow: { enabled: true, color: 'rgba(0,0,0,0.3)', size: 6, x: 2, y: 2 },
-  })));
-  const edgeColors = {'domain_rule':'#d29922','temporal':'#8b949e','causal':'#f85149','co-occurrence':'#bc8cff'};
-  const edges = new vis.DataSet(graphData.edges.map((e, i) => ({
-    id: i, from: e.from, to: e.to, arrows: { to: { enabled: true, scaleFactor: 0.7 } },
-    color: { color: edgeColors[e.type] || '#30363d', highlight: '#58a6ff' },
-    width: e.type === 'domain_rule' ? 2.5 : 1.5,
-    dashes: e.type === 'temporal',
-    smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 },
-    title: e.type + (e.rule ? ' (' + e.rule + ')' : ''),
-  })));
-
-  const container = document.getElementById('graph');
-  const network = new vis.Network(container, { nodes, edges }, {
-    layout: {
-      hierarchical: {
-        enabled: true,
-        direction: 'UD',
-        sortMethod: 'directed',
-        levelSeparation: 100,
-        nodeSpacing: 170,
-        treeSpacing: 200,
-        blockShifting: true,
-        edgeMinimization: true,
-        parentCentralization: true,
-      }
-    },
-    physics: { enabled: false },
-    interaction: {
-      dragNodes: false,
-      dragView: false,
-      zoomView: false,
-      selectable: true,
-      hover: true,
-      tooltipDelay: 100,
-    },
-  });
-
-  network.once('afterDrawing', function() {
-    network.fit({ animation: false });
-  });
-
-  network.on('click', function(params) {
-    const detail = document.getElementById('node-detail');
-    const noSelect = document.getElementById('no-select-panel');
-    if (params.nodes.length > 0) {
-      const nid = params.nodes[0];
-      const meta = conceptMeta[nid];
-      if (!meta) return;
-      document.getElementById('detail-name').textContent = meta.label;
-      document.getElementById('detail-meta').textContent =
-        meta.mentions + ' mentions · first at ' + meta.first_seen;
-      const ml = document.getElementById('detail-mentions');
-      ml.innerHTML = (meta.mention_list || []).map(m =>
-        '<li><span class="mention-time">' + m.time + '</span>' +
-        '<span class="mention-src">' + m.source + '</span> ' + m.text + '</li>'
-      ).join('');
-      const el = document.getElementById('detail-edges');
-      el.innerHTML = (meta.edges || []).map(e =>
-        '<div style="padding:2px 0">' + e + '</div>'
-      ).join('');
-      detail.classList.add('active');
-      noSelect.style.display = 'none';
-    } else {
-      detail.classList.remove('active');
-      noSelect.style.display = 'block';
-    }
-  });
-
-  document.querySelectorAll('.topo-list li').forEach(li => {
-    li.addEventListener('click', () => {
-      const nid = li.dataset.nid;
-      if (nid) { network.selectNodes([nid]); network.focus(nid, {scale:1.2, animation:true}); }
+  <script>
+    const payload = {"video": {"video_id": "N2P7w22tN9c", "watch_url": "https://www.youtube.com/watch?v=N2P7w22tN9c", "source_language": "en", "source_language_label": "English", "engine": "rules", "generated_at": "2026-05-19T06:13:54.912583"}, "stats": {"concept_count": 15, "edge_count": 29, "learning_path_length": 15, "transcript_segment_count": 143, "topological_coverage": "15/15"}, "transcripts": {"original": [{"start": 0.0, "end": 2.0, "text": "\u0926\u0947\u0936\u094d\u091f\u0942\u0921\u090f\u0901\u0921\u093c \u0916\u093e\u0926\u092c\u093e\u0930\u094d\u091f\u094d\u091f\u093e\u0926\u0964", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 2.0, "end": 4.0, "text": "\u0907\u0938\u094d\u0935\u0940\u091f\u093f\u092e \u090f\u0915\u0936\u094d\u092a\u0932\u0947\u0928 \u0915\u0930\u0928\u0947 \u091c\u093e\u0930\u0942\u0942\u0964", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 4.0, "end": 8.0, "text": "\u0917\u094d\u0930\u093e\u092b\u094d\u091f \u0930\u093e\u0935\u0930\u094d\u0937\u0932 \u092e\u0947\u091f\u0936\u094d\u091f\u0942\u0921\u093c \u091c\u093f\u0938 \u092e\u0947\u0902 \u0906\u092a \u0926\u094b \u0938\u092c\u0938\u0947 \u0928\u0947\u092a\u093e\u091f\u094d\u091f\u094d\u091f\u093f\u090f\u0902 \u092e\u0947\u091f\u0936\u094d\u091f\u0942\u0921\u093c \u091c\u093e\u0924\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 8.0, "end": 21.200000000000003, "text": "\u0905\u0930\u0940\u0938\u0940\u092f, \u092c\u094d\u0930\u0939\u0947\u0902\u0917\u094d\u0936 \u0915\u0947 Gregory is charging for the", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 21.200000000000003, "end": 22.200000000000003, "text": "\u0935\u0938\u0947.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 22.200000000000003, "end": 36.24, "text": "\u0905\u0930\u093e \u0907\u0938\u094d\u0935\u0940\u0928 \u0907\u0938\u094d\u092a\u0932\u0947 \u0921\u094b\u0902\u0917\u0940 \u091c\u092c\u0940\u0902 \u091c\u093e\u0930\u0942\u0964 \u0925\u093e\u092e \u091a\u094d\u092f\u093e\u092b\u0924\u093f\u0924\u093e \u0916\u093e\u0911\u092a\u092e \u0915\u0947UU", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 36.24, "end": 40.84, "text": "\u0924\u094b \u091a\u0932\u0940, start \u0915\u0930\u0924\u0947 \u0939\u0948, first of all what is the definition of graph traversal,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 41.04, "end": 47.64, "text": "the process of visiting and exploring a graph for processing is called a graph traversal.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 47.84, "end": 51.34, "text": "\u0905\u092a, graph traversal \u0915\u0940 \u092d\u0940 \u092c\u093e\u0924 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u094b, tree traversal \u0915\u0940 \u0935\u094b \u0932\u094b\u091c \u0938\u0915\u0924\u0947 \u0939\u094b,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 51.440000000000005, "end": 56.040000000000006, "text": "because every graph is a tree, but tree may or may not be a graph,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 56.24, "end": 61.540000000000006, "text": "but every graph is what a tree, because in that graph there are cycles allowed but not in tree,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 61.54, "end": 66.34, "text": "so graph is a victim, \u0924\u094b \u0926\u0947\u0916\u094b \u092f\u093e\u0901\u092a\u0947 \u0906\u092e \u0932\u094b\u0917 \u0924\u094b \u092e\u0947\u0902 \u091a\u0940\u091c\u094b\u0902 \u0915\u0940 \u0935\u094b \u092a\u094b\u0916\u091f \u0915\u0930 \u0930\u0939\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 66.53999999999999, "end": 74.53999999999999, "text": "\u090f\u0915 \u0924\u094b, visiting a vertex, \u0914\u0930 \u0926\u0941\u0938\u094d\u0930\u093e, exploring a vertex, \u092e\u0924\u0932\u0917 \u091c\u094b \u0917\u094d\u0930\u093e\u092b \u0939\u094b\u0924\u093e \u0909\u0938\u0915\u0947 \u0905\u0902\u0926\u0930 \u0906\u092a \u0915\u094b \u092a\u0924\u093e \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 74.74, "end": 78.34, "text": "\u0915\u0940 vertex \u0939\u094b\u0924\u0947 \u0939\u0948, edges \u0939\u094b\u0924\u0947 \u0939\u0948, \u0924\u0940\u0915\u0947 \u0906\u092a \u092e\u0947\u0902\u0915\u094b \u0915\u0930\u0928\u093e \u0915\u094d\u092f\u093e \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 79.34, "end": 80.64, "text": "\u0909\u0938\u094d\u0935\u0947\u0921\u093f\u0928 \u092a\u094d\u0930 \u092e\u0947\u0902 \u0935\u0939\u0930\u093e\u092f\u0131l\u0131, \u0906 jurisd The naughts are two things which I will do,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 80.84, "end": 82.4, "text": "\u0908\u0915 \u0924\u094b, visitor\u043a\u043e\u043b\u044c\u043a\u0443 \u0909 jouer \ubc31\u092f\u093e \u091c\u094b, me19 do,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 82.60000000000001, "end": 84.24000000000001, "text": "://board.d powiedzia\u0142 \u0909\u0928\u0949\u0917 \u0938\u0915\u0947 \u0915\u0930 \u0928\u0947\u0902 You're resiting onto that vertex devotion.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 84.44, "end": 86.32000000000001, "text": "\u0906\u0915\u0941\u0924\u0947 \u0939\u0948, \u092e v\u00ed\u0917 \u0915\u0930\u0938\u0947 \u0925\u093e \u0939\u0948 \u0936 hazards make to reach onto that vertexetzung Nanak,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 86.52000000000001, "end": 91.46000000000001, "text": "\u090f\u0915 \u0924\u094b \u0935\u0940\u091c\u093f\u0921 \u0915\u0930 \u0939\u0941\ufffd embracing \u091c\u093e \u0926 \uc4f0\uace0 \u091a\u0917 \u0930\u0939\u0940 \u0939\u0948 \u091c\u093e according to which shall I send it.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 91.66, "end": 92.86, "text": "\u0941\u092e\u0928\u0947\u0915 \u092d\u093e\u091a \u0924\u094b \u092f\u0939 \u0930\u0908's Tale it.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 92.86, "end": 96.58, "text": "\u0909\u0938\u0915\u0947 \u0928\u0947\u092c\u0930\u094d\u0938 \u0915\u094b\u0928 \u0939\u0948, \u0924\u094b \u092f\u0947 \u0926\u094b \u091a\u0940\u091c\u0947 \u0939\u0940 \u0906\u092a\u0915\u0940 \u092e\u0947\u0902 \u091c\u0940\u0917\u0947,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 96.58, "end": 99.18, "text": "\u0924\u094b \u092f\u0939\u093e\u0901 \u092a\u0947 \u0928 \u0926\u094b\u0928\u094b \u0915\u094b \u090f\u0915 \u090f\u0915 \u0917\u0930 \u0915\u0947 \u0926\u093f\u0915\u0924\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 99.18, "end": 103.86, "text": "\u0924\u094b \u0938\u092c \u0938\u0947 \u092a\u0939\u0932\u0947 \u0905\u0917\u0930 \u0928 \u092c\u093e\u0926 \u0915\u0930\u0947, \u092c\u094d\u0930\u0947\u091f\u094d\u091f\u094d\u092b\u0930\u094d \u0938\u0930\u094d\u091a \u0905\u0917 \u0926\u0947\u092a\u094d\u091f\u094d\u092b\u0930\u094d \u0938\u0930\u094d\u091a \u092e\u0947\u0902", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 103.86, "end": 125.86, "text": "\u092c\u094d\u0930\u0947\u091f\u094d\u091f\u094d\u092b\u0930 \u0938\u0930\u094d\u091a \u092f\u0939\u093e\u0901 \u092c\u093e\u0926 \u0915\u0930\u0947, \u092f\u0939\u093e\u0901 \u092c\u093e\u0926 \u0915\u0930\u0947, \u092c\u094d\u0930\u0947\u091f\u094d\u091f\u094d\u092b\u0930 \u0938\u0930\u094d\u091a \u0915\u0940, \u0924\u094b \u0935\u094b \u0915\u0948\u0938\u0947 \u091a\u0932\u0924\u093e \u0939\u0948, \u0935\u094b \u092c\u094d\u0930\u0947\u091f\u094d\u091f\u094d\u092b\u093e\u0907\u0938 \u091a\u0932\u0924\u093e \u0939\u0948, \u091a\u094b\u0921\u093e\u090f\u0908 \u0935\u093e\u0908\u0938 \u092f\u0938 \u0924\u0930\u0940\u0915\u0947 \u0938\u0947,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 126.06, "end": 133.18, "text": "\u0914\u0930 \u092b\u093f\u0930 \u090f\u0915 \u090f\u0915 \u0915\u0930\u0915\u0947 \u0932\u0947\u0935\u0932 \u0915\u094b \u0915\u0935\u0930 \u0915\u0930\u0924\u0947, \u0924\u094b \u0926\u093f\u092f\u093e\u0928 \u0926\u0915\u0928\u093e, \u090f\u0915 \u0932\u0947\u0935\u0932 \u0915\u094b \u092a\u0939\u0932\u0947 \u0915\u0935\u0930 \u0915\u0930\u0947\u0917\u093e,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 133.18, "end": 137.86, "text": "\u091c\u092c \u0935\u094b \u0932\u0947\u0935\u0932 \u0915\u092e\u092a\u094d\u0932\u093f\u0924 \u0939\u094b\u0917\u092f\u093e, \u0924\u092c \u0924\u0941\u0938\u0930\u0947 \u0932\u0947\u0935\u0932 \u092a\u0947 \u091c\u093e\u090f\u0917\u093e,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 137.86, "end": 143.46, "text": "\u0914\u0930 \u0926\u0947\u092a\u094d\u091f\u094d\u092b\u0930 \u0938\u0930\u094d\u091a \u092e\u0924\u0932\u092c \u0926\u0947\u092a\u094d\u091f \u0915\u0940 \u0924\u0930\u092b, \u092e\u0932\u0917\u093c, \u0928\u0940\u091a\u0947 \u0917\u0939\u0930\u093e\u0908 \u0915\u0940 \u0924\u0930\u092b \u0906\u092a \u0915\u094b \u091c\u093e\u0928\u0947,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 143.86, "end": 147.42000000000002, "text": "\u0924\u094b \u0924\u0930 \u0924\u0947\u092a\u094d\u091f\u092b\u0930 \u0938\u0930\u094d\u091a \u0915\u0940 \u092c\u093e\u092f\u0924 \u0915\u0930\u0947, \u0924\u094b \u0939\u092e \u092f\u0938 \u0924\u0930\u0940\u0915\u0947 \u0938\u0947 \u091a\u093e\u0932\u0924\u0947 \u0939\u0948\u0902,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 147.42000000000002, "end": 150.62, "text": "\u092f\u0939\u0947\u0902\u0916\u0930 \u091a\u0932\u0928\u093e \u0938\u094d\u0925\u093e\u0930\u094d\u091f \u0915\u0940 \u0906, \u0924\u094b \u0907\u0915 \u0926\u0947\u092a\u094d\u091f\u092b\u0930 \u091a\u0932\u0928 \u092e\u0947\u0902 \u0917\u092f \u0917\u092f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 150.62, "end": 154.5, "text": "\u0909\u0938\u0915\u0947 \u092d\u093e\u091b \u092b\u093f\u0930 \u0928\u0940\u091a\u0947 \u0917\u092f, \u0909\u0938 \u0916\u0947 \u092c\u0917\u091b \u092b\u093f\u0930 \u0928\u0940\u091a\u0947 \u0917\u092f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 154.5, "end": 156.08, "text": "\u0908\u0941\u0915\u094d\u091b\u093e\u0939 \u0938\u0947 \u092a\u093e\u0915\u0924\u093e \u0939\u094c\u0901 \u0938\u0940 \u0938\u0928\u093e\u0917\u0940 \u0917\u0947 \u091c requirement", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 156.08, "end": 157.34, "text": "\u0924\u0947\u0915\u0903\uc6a9 \u0938\u093e\u0935\u0915 ficar you will understand my SUPER", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 157.34, "end": 158.66, "text": "\u091c\u092c\u0938\u0947 \ufffd\u0422\u092c \u0938 Putin", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 158.66, "end": 159.74, "text": "\u0906\u092a\u0928\u0947 \u092a\u093e\u0915\u0947 \u0938\u0915\u0924\u0947 \u0939\u0941 \u0930\u0939\u0940\u0902 \u0939\u0942\u0901", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 159.74, "end": 160.54, "text": "\u0909\u092a\u0928\u0947 Prul", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 160.54, "end": 161.84, "text": "\u092e\u0947\u0902 \u0938\u093e\u0935 \u092a\u093e\u0930\u0940\u0902 \u0939\u093e\u0930\u0940 \u0939\u0948, \u092d\u093e\u03b9\u03ba\u0932\u0940ihood,forth rigor", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 161.84, "end": 162.42, "text": "\u0906\u092a \u092e\u0947\u0902 \u0906\u092a\u0928\u0947 \u0938 \uc788\uac70\ub4e0\uc694\u0917\u0947 \u0915 prevention", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 162.42, "end": 174.38, "text": "\u0903\u092b \u092e\u0939\u093e\u0901 \u0938\u0915\u0924\u0947 \u0939\u0948\u0964 and also", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 174.38, "end": 181.38, "text": "\u0924\u094b \u0926\u0947\u0916\u094b \u0905\u0917\u0930 \u0906\u092a\u0928\u0947 DFS \u0915\u094b \u0938\u092e\u091c\u0928 \u0906\u092a \u0924\u094b \u0938\u093f\u0902\u092a\u0932\u094d\u0938\u0940 \u092b\u0928\u094d\u091f \u0906\u092a \u091c\u0948\u0938\u0947 \u0906\u092e \u0932\u094b\u0917 \u092a\u0932\u0938\u094d\u091f\u0942 \u0915\u0940 \u0928\u093e\u0901\u0928 \u092e\u0947\u091f\u093f\u0915\u0932 \u092c\u0928\u0947 \u0932\u0947\u0928\u0940.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 181.38, "end": 185.38, "text": "\u0924\u0947\u0916\u0947 \u0905\u092a \u0909\u0938\u0915\u0947 \u092c\u093e\u0926 \u092e\u0930\u0947\u0902\u0917\u094b \u092a\u0924\u093e \u0939\u0948 \u092e\u0947\u0902 \u092a\u093e\u090f\u0926 \u091a\u0942\u0901\u0938 \u0915\u0930 \u0932\u093f\u092f\u093e \u0932\u0947\u091f \u0938\u0947 B-TEC-C-SE.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 185.38, "end": 190.38, "text": "\u0909\u0938\u0915\u0947 \u092c\u093e\u0926 \u092e\u0947\u0902 \u092a\u0924\u093e \u0939\u0948 \u092e\u0947\u0902 \u0906\u0917\u0947 \u0915\u094d\u092f\u093e \u0915\u0930 \u0932\u093f\u092f\u093e \u0932\u0947\u091f \u0938\u0947 Software engineering \u0915\u0940 job \u0938\u0932\u0947\u0915\u094d\u0924 \u0915\u0930 \u0932\u093f\u090f.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 190.38, "end": 192.38, "text": "\u0924\u094b \u092e\u0941\u0932\u094d\u0932\u094b\u0902 \u092e\u0948\u0902 \u090f\u0915 \u092f\u0947 \u0921\u0947\u0936\u094d\u091f\u093f\u0928 \u092e\u0947\u0902 \u091a\u0932\u0924\u093e \u091c\u093e\u0930\u0942\u0902.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 192.38, "end": 197.38, "text": "All the plus two \u092e\u0947\u0902 non-medical \u0915\u0947 \u0938\u093e\u0938\u0924 \u0906\u092a\u0915\u0947 \u092a\u0938 \u0915\u0941\u092e\u0930\u094d\u0938 \u092d\u0940 \u0925\u0947 Arts \u092d\u0940 \u0925\u0940", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 198.38, "end": 203.38, "text": "\u0905\u0917\u0930 \u0905\u092e \u092c\u093e\u0926 \u0915\u0930\u0947 B-TEC-C-SE \u0915\u0947 \u092c\u093e\u0926 \u0906\u092a MDA \u092d\u0940 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0925\u0947 UPS-C \u0915\u0940 \u0924\u0947\u0930\u0947 \u092d\u0940 \u0915\u0930 \u0938\u0915\u0924\u0947 \u092c\u094b\u091a\u094d\u091f\u093f\u0928 \u0938\u0947", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 203.38, "end": 209.38, "text": "\u0932\u0947\u0915\u0947 \u092e\u0948\u0902 \u090f\u0915 \u0926\u0947\u0936\u094d\u091f\u093f\u0928 \u092e\u0947\u0902 \u091a\u0932\u0924\u093e \u091c\u093e\u0930\u0942\u0902. \u0914\u0930 \u091c\u092c \u092e\u0941\u091d\u0947 \u0932\u0915\u0924\u093e \u0915\u0940 \u0926\u0947\u091f \u0926\u0947\u0936\u094d\u091f\u093f\u0928 \u0926\u093e\u0917\u092f\u093e \u0924\u092c \u092e\u0948\u0902 \u0915\u094d\u092f\u093e \u0915\u0930\u0924\u093e \u0939\u0942\u0901\u0964", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 210.38, "end": 220.38, "text": "\u0924\u094b \u092c\u0938 \u092f\u0939 \u0938\u093f\u0902\u092a\u0932 \u0938\u0940 \u0915\u093e\u0928\u0940 \u0939\u0948\u0964 \u0914\u0930 \u0905\u0917\u0930 \u0905\u092e \u0932\u0947 B-F-L \u0915\u094b \u0938\u092e\u0947\u0902 \u0906\u092a \u0924\u094b \u0907\u0938\u0915\u093e \u0938\u093f\u0902\u092a\u0932 \u0938\u0947 \u0907\u091c\u092e\u094d\u092a\u0932 \u0905\u0917\u0930 \u0905\u092e \u092e\u0948\u0930\u093f\u0938 \u0915\u0940 \u0905\u0917\u0930 \u090f\u0915 \u090f\u0915 \u0905\u092a \u090f\u0915 \u090f\u0915 \u091c\u093e\u0924\u0947 \u0939\u094b \u0916\u093e\u0928\u0947 \u092a\u0940\u0928\u0947 \u0915\u0940 \u0936\u094d\u091f\u094b\u0932 \u092a\u0947.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 221.38, "end": 227.38, "text": "\u0909\u0906\u092a \u092f\u0939 \u0906\u092a \u090f\u0915 \u0926\u0947\u0936\u094d\u091f\u093f\u0928 \u092e\u0947\u0902 \u0932\u093f\u091c\u093e\u0924\u0947 \u0939\u0948, \u0935\u0939\u093e\u0902 \u092a\u0947 \u090f\u0915 \u0935\u0939\u093e\u090f \u0925\u0947 \u0939\u0948, \u092a\u0939\u0932\u0947 \u090f\u0915 \u0935\u0939\u093e\u090f \u092a\u0947 \u090f\u0915 \u091a\u094d\u091f\u094b\u0932 \u092a\u0947, \u092c\u0939\u0932 \u090f\u0915 \u0936\u094d\u0928\u0947\u0915\u094d\u0938 \u0935\u0932\u0940 \u092a\u0947 \u0917\u092f\u0947 \u0909\u0938\u0915\u094b \u0915\u092epl \u091f\u0940\u091f \u0915\u0940 \u0939\u0948\u0964", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 227.38, "end": 244.38, "text": "\u0924\u094b \u0935\u0939\u093e \u092a\u0947 \u090f\u0915 \u0935\u0939\u093e\u090f \u0925\u0947 \u0939\u0948, \u092c\u094d\u0930\u0947\u0925\u0935\u093e\u090f\u0936 \u091a\u0932 \u0930\u0939\u0947 \u0939\u0948, \u0930\u0921\u0930 \u0926\u0930 \u0926\u0930 \u0926\u0947\u092a\u091a\u0935\u093e\u090f\u0936, \u0915\u0940 \u090f\u0915 \u091a\u0940\u091c \u0915\u094b \u092e\u0948\u0902 \u0916\u093e\u0930\u093e\u0942\u0901, \u0914\u0930 \u0909\u0938\u0940 \u0938\u0947 \u092a\u0947\u091f \u092c\u0930\u0932\u0940 \u090f\u0915 \u0906\u092b \u0906\u092a \u090f\u0915 \u0935\u0939\u093e\u090f\u0936 \u091a\u0932\u0924\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 245.38, "end": 251.38, "text": "\u0924\u094b \u0935\u0939\u093e\u090f\u0936 \u0905\u092a\u0915\u094b \u0938\u092e\u091d\u093e\u0930 \u0939\u094b, \u0935\u0939\u093e\u090f\u0936 \u092c\u094d\u0930\u0947\u0925\u0935\u093e\u090f\u0936 \u0914\u0930 \u092f\u0939\u093e\u090f\u0936 \u092c\u094d\u0926\u0947\u092a\u091a\u0935\u093e\u090f\u0936 \u0907\u0938 \u0924\u0930\u0940\u0915\u0947 \u0938\u0947 \u0915\u093e\u092e \u0915\u0930\u0924\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 251.38, "end": 257.38, "text": "\u092c\u0938 \u092f\u0939 \u092e\u0947\u0902 \u0926\u093f\u0916\u0930\u0947\u0902\u0938 \u0939\u0948, \u0924\u094b \u0907\u0938\u0947 \u0932\u093f\u090f \u092c\u094d\u092b\u0947\u0936 \u0939\u094b\u0924\u093e \u0939\u0948, \u0909\u0938\u0915\u094b \u0932\u0947\u0935\u0932 \u092c\u093e\u090f \u0932\u0947\u0935\u0932 \u092f\u0939 \u0932\u0947\u0935\u0932 \u0905\u0921\u0930\u093f\u0902\u0917 \u092d\u0940 \u092c\u094b\u0932\u0924\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 258.38, "end": 261.38, "text": "\u0924\u094b \u092f\u0939 \u090f\u0915 \u0932\u0947\u0935\u0932 \u091c\u092c \u0916\u091f\u092e \u0939\u094b\u0924\u093e \u0939\u0948, \u0924\u092c \u092d\u0940 \u0926\u0941\u0938\u0930\u0947 \u0932\u0947\u0935\u0932 \u092a\u0947 \u091c\u093e\u0924\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 261.38, "end": 265.38, "text": "DFS \u092e\u0947\u0902 \u092f\u0939 \u092f\u0939 \u092f\u0939 \u092a\u0940 \u0924\u094b \u0917\u0930\u093e\u090f \u092e\u0947\u0902 \u091c\u093e\u0924\u0947 \u0930\u094b \u091c\u093e\u0924\u0947 \u0930\u094b,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 265.38, "end": 269.38, "text": "\u0914\u0930 \u0905\u092c \u0939\u092e \u092f\u0939 \u092a\u0947 \u090f\u0915 \u0914\u0930 \u090f\u0915 \u0905\u092a\u0915\u094b \u090f\u0915 \u0905\u092a\u0915\u094b \u090f\u0915 \u0905\u091a\u094d\u091a\u0932 \u092e\u0947\u0902 \u0915\u0930 \u0915\u0947 \u0932\u093f\u090f \u0917\u093e\u0924\u093e \u0939\u094b,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 270.38, "end": 275.38, "text": "\u0906\u0915\u0902\u091a\u091b\u093e\u00e4tzlich \u092e\u0947\u0902 \u0939\u0941\u0908, \u0936\u093e\u0921\u094b\u0902 \u0925\u093e \u091c\u0947 \u092f h\u1ecdc\u0920\u093e \u0932\u0947\u0935 \u0932\u0947\u0935 \u092e \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 275.38, "end": 276.38, "text": "\u0930\u0930 \u0915\u093f\u0930\u0947 \u092e\u093f\u0928 \ufffd beneficiaries \u0932\u0940\u0915\u0947 \u0924 firmly Jie Chink dictatorship manifestors in K confident", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 276.38, "end": 290.2, "text": "\u0906\u0926\u0947 \u0915\u0930\u092e\u093e\u0930\u0940 \u0915ulators because of the", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 290.2, "end": 292.38, "text": "\u0906\u0926\u0947 \u0935\u0940 \u0916camp \u0965 \u0921\u0947\u0916\u093e\u0924\u094d\u0939 \u0939\u0940 \u0930\u0939\u093e \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 292.38, "end": 295.52, "text": "\u092d\u0947 \u0920\u093e\u0928\u0947 \u0935\u0947\u0905\u0930\u0947 \u092c\u0935\u0947\u0902 \u0935\u0947\u0902 \u0933looked\u0924\u093e \u092c\u0930\u093e \u090f\u0915 \u0906\u091c\u093c\u093e \u0915\u0947 \u0930\u0939\u093e \u0915\u093f \u0907\u092e\u0924\u093e \u092e\u094d\u0928 \u0915\u094b\u0908", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 295.52, "end": 299.52, "text": "pulley rakh dyaya. Koi to visit karenge na, kahi se to start karenge ye apna source koi na hoga", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 299.52, "end": 303.52, "text": "to humara source jo hain jo hai wo kya hai one hai. To logi hain je humne one se start kr dia.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 303.52, "end": 307.52, "text": "Now one se start kr diya, ap main kaya kar hoon, one pe madh me have visited kr liya.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 307.52, "end": 313.02, "text": "Visit kr liya to ab hisko bahar nikalno ab hisko explore khwaro, explore madh maaast", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 313.02, "end": 317.02, "text": "hiske saath kon kon connected hai. Kon kon connected hai, 2 & 3.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 317.02, "end": 320.52, "text": "Aap kisi bhi order mein likshakti hoon, chahi 2 pehle likto 3 pehle likto koi haru pharekh nipata.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 320.52, "end": 348.52, "text": "\u0906\u0902 \u0928 JENLAYS KINAH L97S", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 348.52, "end": 350.52, "text": "\u090f\u0915 \u0930\u0939\u093e \u0924\u0940 \u0915\u0947 \u0938\u093e\u0925 \u0915\u094b\u0901 \u0916\u0928\u0947\u0915\u094d\u0924\u093f\u0921 \u0939\u0948, 4 & 7", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 350.52, "end": 354.52, "text": "\u0925\u094b 4 \u0914\u0930 \u0926\u0940 \u0921\u093e\u0932 \u0930\u0939\u093e \u0939\u0948, 7 \u0906\u092a\u0928\u0947 \u092a\u093f\u091a\u0947 \u0938\u0947 \u0921\u093e\u0932 \u0925\u0940 \u0939\u0948", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 354.52, "end": 357.52, "text": "\u0924\u0940 \u0915\u0947, \u0905\u092a\u0928\u0947 next, \u0935\u094b 4, next \u0915\u094b\u0901 \u0938\u093e\u0925 \u0906\u0917\u093e 4", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 357.52, "end": 361.52, "text": "\u0924\u094b 4 \u0915\u094b \u090f\u0915 \u0936\u094d\u092a\u0932\u094b\u0930 \u0915\u0930\u094b, 4 \u0915\u0947 \u0938\u093e\u0925 \u0915\u094b\u0901 \u0916\u0928\u0947\u0915\u094d\u0924\u093f\u0921 \u0939\u0948, 5 & 6", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 361.52, "end": 364.52, "text": "\u0924\u094b \u091c\u094b \u092d\u0940 \u0916\u0928\u0947\u0915\u094d\u0924\u093f\u0921 \u0939\u0948, \u0909\u0928\u0915\u094b \u0906\u092a \u0928 \u0921\u093e\u0932 \u0917\u094b.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 364.52, "end": 368.97999999999996, "text": "next company will have 7 9 draw 7 executing Fuji and do another one", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 369.0, "end": 372.32, "text": "and explore this when you have x containers", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 372.35999999999996, "end": 374.68, "text": "when you have nothing in stock solamente\u4e88 screaming", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 374.68, "end": 375.59999999999997, "text": "any numbers are available as five", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 375.64, "end": 378.59999999999997, "text": "any signals are no", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 378.59999999999997, "end": 379.71999999999997, "text": "if you are Yes let me know", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 379.82, "end": 380.96, "text": "list of !", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 388.52, "end": 391.68, "text": "Brodel", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 391.68, "end": 396.52, "text": "\u0905\u0917\u0930 \u0906\u092a 3-2 \u0915\u0930\u0924\u0947 \u0924\u094b \u0930\u091c\u0947\u0917\u093e \u0906\u091c\u0940 \u092e\u0948\u0902 \u0906\u0917\u0947 5-6 \u0921\u093c\u093e\u0932\u093e 6-5 \u0915\u0930\u0924\u0947 \u0924\u094b \u0930\u091c\u0947\u0917\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 396.72, "end": 401.88, "text": "\u092c\u0938 \u092e\u0947\u0902 \u0915\u0939\u0928\u0940 \u0906\u091c\u0940 \u0915\u094b \u0938\u092e\u091c\u0928\u093e, \u0907\u0938\u0915\u0940 \u0935\u0930\u0915\u093f\u0902\u0915\u094b \u0938\u092e\u091d\u0928\u093e, \u0924\u094b \u092f\u0947 \u091c\u094b \u0939\u0948 \u0935\u094b \u0932\u0947\u0935\u0932 \u092c\u093e\u0908 \u0932\u0947\u0935\u0932", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 402.08, "end": 406.0, "text": "\u0926\u0947\u0916\u094b \u092a\u0939\u0932\u0947 \u0906\u092e\u0928\u0947 \u0935\u0928 \u0915\u094b \u0915\u093f\u092f\u093e, \u0909\u0938\u0915\u0947 \u092c\u093e\u0908 2-3 \u0915\u094b \u0915\u0935\u0930 \u0915\u093f\u092f\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 406.04, "end": 424.76, "text": "forgiving", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 424.76, "end": 429.98, "text": "DATA \u0b8e\u0646ric isminute the data structure that is stack stack.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 430.15999999999997, "end": 435.21999999999997, "text": "Now the stack is new both in theLet's start once start.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 435.42, "end": 439.36, "text": "So I started at once Fastest First First One a This Visit Now", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 439.56, "end": 444.96, "text": "After visiting One What I do? Exploring There are two options", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 445.15999999999997, "end": 448.56, "text": "Two or Three are there But you have to if you go at any place", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 448.76, "end": 453.96, "text": "you have to run at the two Once\u90a3\u4e2a Here So I was going to have 2", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 453.96, "end": 455.47999999999996, "text": "\u092f\u0939\u0930\u093e\u0908 \u092e\u0947\u0902 \u091c\u093e\u090f\u093c\u0941\u0917 \u0926\u0947\u0916\u0927 \u092e\u0947\u0902", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 455.58, "end": 457.21999999999997, "text": "\u0924\u094b \u0935\u0928 \u0938\u0947 \u091c\u092c \u0924\u0942\u092c \u0920\u0932\u093e \u0917\u092f\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 457.44, "end": 458.59999999999997, "text": "\u0924\u094b \u0935\u0928 \u0938\u0947 \u0924\u0942\u092c \u0920\u0932\u093e \u0917\u092f\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 458.59999999999997, "end": 459.52, "text": "\u0924\u0942\u092c \u0920\u0932\u093e \u0917\u092f\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 459.79999999999995, "end": 461.76, "text": "\u0924\u094b \u0935\u0928 \u090f\u0915 \u0924\u0930\u0947 \u0916\u093c\u093e\u092f \u091c\u093e\u090f\u093c", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 462.12, "end": 462.9, "text": "\u0938\u0941\u0938\u092a\u094d\u092a\u0928\u094d\u0921 \u0932\u094b\u0917\u092f\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 462.9, "end": 463.68, "text": "\u0907\u0928 \u0905\u0915\u094d\u091f\u093f\u092c \u0939\u0941\u0917\u092f\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 463.91999999999996, "end": 465.65999999999997, "text": "\u0924\u0940\u0915 \u0906\u0908, \u0924\u094b \u0939\u092e \u0928\u0947 \u0909\u0938\u0915\u094b \u0915\u0948 \u0917\u0930 \u0925\u0940\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 465.66, "end": 467.66, "text": "\u0928\u0939\u0940\u0902 \u092c\u0928\u093e \u0938\u0947\u0926\u093e\u0928 \u0938\u0940 seekers worth as the manger focus knows", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 467.66, "end": 470.14000000000004, "text": "code there is a word to slash that now", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 470.14000000000004, "end": 471.62, "text": "for the", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 471.62, "end": 472.14000000000004, "text": "lift", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 472.64000000000004, "end": 474.28000000000003, "text": "if the", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 477.88000000000005, "end": 478.42, "text": "ride", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 480.3, "end": 482.22, "text": "that", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 482.22, "end": 483.94000000000005, "text": "nope", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 484.14000000000004, "end": 487.52000000000004, "text": "that", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 487.52000000000004, "end": 489.28000000000003, "text": "I'm", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 489.28, "end": 492.88, "text": "\u092d\u0940\u0924\u0940 \u0915\u0930\u0921\u0928 \u0938\u0941\u0908 Suddenly, we went out on the side, when we gone to the fifth,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 492.9, "end": 493.79999999999995, "text": "AND 3rd part, the\u4e86\u5427 \u092c\u092a\u094d\u092f\u092a\u0947 acet\u092d\u093e\u0908 \u0924\u0941 \u0935\u0940\u092a\u0947Etta, then 4th part in addition,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 493.82, "end": 494.88, "text": "\u092c\u092a\u094d\u092f\u0915\u0947 \u0928\u0938\u0930\u094d\u091c \u0939\u0948\u0964 Such a thing, granted in such a super- Ottawa.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 494.9, "end": 495.96, "text": "\u0924\u0930\u0940 \u0915\u0930\u0921\u0928 \u0938\u0942\u0908 \u0915\u0947 \u092e\u0947\u0902 \u092driends\u0964 After 5, you have no options.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 496.0, "end": 498.67999999999995, "text": "\u0924\u0915 \u092f\u092f\u093e \u0906\u092a\u0915\u094d\u0915\u0947 \u0906\u092a\u0915\u0947 \u092a\u094d\u092f\u092c \u0915\u094d\u0938\u0930\u0941\u092c \u0925\u094d\u092f\u092f\u0947\u0964 You dont have any options after 5,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 498.68, "end": 508.12, "text": "\u0924\u094b \u092f\u093e\u0928 \u0917\u092c \u0906\u092a \u0924\u092c\u091f\u094d\u091f\u0930\u0947\u0915 \u092e\u0947\u0940 \u0935\u094b \u092a\u091a\u093f\u091f\u0915\u094b\u0939\u0964", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 509.12, "end": 514.28, "text": "\u0906\u092a \u0905\u092a inf\u8fd9\u6837 \u0921\u093e\u0924\u0915 \u092a\u0939\u0928\u0947 \u0915\u094b\u0932 \u092e\u0947\u0902 \u092e\u0941 oysters", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 514.78, "end": 516.32, "text": "\u0914\u0930 \u0922\u093c\u093f\u0bb5\u093c longer encouraging", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 521.28, "end": 521.46, "text": "\ufffdachi", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 525.08, "end": 525.48, "text": "\u0925\u093e.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 528.68, "end": 535.68, "text": "last in first out. So from 4 we got to know in last we went to 4 and we reached back to 4", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 535.68, "end": 540.68, "text": "and what is the option I have from 4? There is 6 option. So from 4 where I went?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 540.68, "end": 545.68, "text": "It went to 6. From 4 where I went? It went to 6. So what happened? It was suspended.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 545.68, "end": 552.68, "text": "So again put it back. We put 6 in the sequence. So from 4 I went to 6.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 552.68, "end": 557.68, "text": "So I suspended 4 and it went back to 6. Now there is no option from 6.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 557.68, "end": 562.68, "text": "Now there is no option from 6. So what will I do? I will backtrack from 6 again.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 562.68, "end": 569.68, "text": "How I know where I was last? Last check again on 4. Now again I came back to 4 and stood.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 569.68, "end": 577.68, "text": "Now see there is an option. Yes from 4 I can go to 3 because 2 is done. So from 4 I went to 3.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 577.68, "end": 583.68, "text": "So from 4 I went to whom? I went to 3. Now again suspended 4. So put it back again.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 583.68, "end": 588.68, "text": "Because from 4 you went to 3. So write in sequence and with 7 suspend 4.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 588.68, "end": 593.68, "text": "Now there is another option from 3. Yes there is option from 3 to 7. So what happened?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 593.68, "end": 599.68, "text": "It was suspended. So put the suspended one in the stack. Ok we reached 7.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 599.68, "end": 605.68, "text": "Now what we have to do? After 7 there is no option. So what will I do? I will backtrack.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 605.68, "end": 610.68, "text": "I know backtrack is after 7. This is visible in diagram. But what is the algorithm?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 610.68, "end": 616.68, "text": "The algorithm says that you check it. So from this I went to 3. After 3 there is no other option.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 616.68, "end": 622.68, "text": "There is no other option. So obviously I went to 4. So there is no new option from 4.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 622.68, "end": 627.68, "text": "Then I reached 2. So there is no other option from 2. So I went to 1.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 627.68, "end": 633.68, "text": "Finally your sequence is ready. So what we are doing here? We are going to go to depth wise.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 634.68, "end": 638.68, "text": "Although both the time complexity is same here. Order of V plus E.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 638.68, "end": 643.68, "text": "Because what we are doing? All the vertex and all the edges are traversing.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 643.68, "end": 649.68, "text": "So maximum what can be the order of V plus total number of vertex and total number of edges.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 649.68, "end": 653.68, "text": "So both the stories are important to understand the difference between them.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 653.68, "end": 656.68, "text": "Because their real life applications are very much.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 656.68, "end": 661.68, "text": "Talk about web crawlers, social media, facebook etc. Talk about networking.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 662.68, "end": 667.68, "text": "You have to check if there is cycle in graph or not. You have to check minimum cost spanning tree.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 667.68, "end": 671.68, "text": "So all the things are used by DFS and BFS techniques.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 671.68, "end": 675.68, "text": "There are many real life applications of this. Thank you.", "source": "unknown", "lang": "en", "source_lang": "en"}], "translated": [{"start": 0.0, "end": 2.0, "text": "\u0926\u0947\u0936\u094d\u091f\u0942\u0921\u090f\u0901\u0921\u093c \u0916\u093e\u0926\u092c\u093e\u0930\u094d\u091f\u094d\u091f\u093e\u0926\u0964", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 2.0, "end": 4.0, "text": "\u0907\u0938\u094d\u0935\u0940\u091f\u093f\u092e \u090f\u0915\u0936\u094d\u092a\u0932\u0947\u0928 \u0915\u0930\u0928\u0947 \u091c\u093e\u0930\u0942\u0942\u0964", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 4.0, "end": 8.0, "text": "\u0917\u094d\u0930\u093e\u092b\u094d\u091f \u0930\u093e\u0935\u0930\u094d\u0937\u0932 \u092e\u0947\u091f\u0936\u094d\u091f\u0942\u0921\u093c \u091c\u093f\u0938 \u092e\u0947\u0902 \u0906\u092a \u0926\u094b \u0938\u092c\u0938\u0947 \u0928\u0947\u092a\u093e\u091f\u094d\u091f\u094d\u091f\u093f\u090f\u0902 \u092e\u0947\u091f\u0936\u094d\u091f\u0942\u0921\u093c \u091c\u093e\u0924\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 8.0, "end": 21.200000000000003, "text": "\u0905\u0930\u0940\u0938\u0940\u092f, \u092c\u094d\u0930\u0939\u0947\u0902\u0917\u094d\u0936 \u0915\u0947 Gregory is charging for the", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 21.200000000000003, "end": 22.200000000000003, "text": "\u0935\u0938\u0947.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 22.200000000000003, "end": 36.24, "text": "\u0905\u0930\u093e \u0907\u0938\u094d\u0935\u0940\u0928 \u0907\u0938\u094d\u092a\u0932\u0947 \u0921\u094b\u0902\u0917\u0940 \u091c\u092c\u0940\u0902 \u091c\u093e\u0930\u0942\u0964 \u0925\u093e\u092e \u091a\u094d\u092f\u093e\u092b\u0924\u093f\u0924\u093e \u0916\u093e\u0911\u092a\u092e \u0915\u0947UU", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 36.24, "end": 40.84, "text": "\u0924\u094b \u091a\u0932\u0940, start \u0915\u0930\u0924\u0947 \u0939\u0948, first of all what is the definition of graph traversal,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 41.04, "end": 47.64, "text": "the process of visiting and exploring a graph for processing is called a graph traversal.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 47.84, "end": 51.34, "text": "\u0905\u092a, graph traversal \u0915\u0940 \u092d\u0940 \u092c\u093e\u0924 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u094b, tree traversal \u0915\u0940 \u0935\u094b \u0932\u094b\u091c \u0938\u0915\u0924\u0947 \u0939\u094b,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 51.440000000000005, "end": 56.040000000000006, "text": "because every graph is a tree, but tree may or may not be a graph,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 56.24, "end": 61.540000000000006, "text": "but every graph is what a tree, because in that graph there are cycles allowed but not in tree,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 61.54, "end": 66.34, "text": "so graph is a victim, \u0924\u094b \u0926\u0947\u0916\u094b \u092f\u093e\u0901\u092a\u0947 \u0906\u092e \u0932\u094b\u0917 \u0924\u094b \u092e\u0947\u0902 \u091a\u0940\u091c\u094b\u0902 \u0915\u0940 \u0935\u094b \u092a\u094b\u0916\u091f \u0915\u0930 \u0930\u0939\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 66.53999999999999, "end": 74.53999999999999, "text": "\u090f\u0915 \u0924\u094b, visiting a vertex, \u0914\u0930 \u0926\u0941\u0938\u094d\u0930\u093e, exploring a vertex, \u092e\u0924\u0932\u0917 \u091c\u094b \u0917\u094d\u0930\u093e\u092b \u0939\u094b\u0924\u093e \u0909\u0938\u0915\u0947 \u0905\u0902\u0926\u0930 \u0906\u092a \u0915\u094b \u092a\u0924\u093e \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 74.74, "end": 78.34, "text": "\u0915\u0940 vertex \u0939\u094b\u0924\u0947 \u0939\u0948, edges \u0939\u094b\u0924\u0947 \u0939\u0948, \u0924\u0940\u0915\u0947 \u0906\u092a \u092e\u0947\u0902\u0915\u094b \u0915\u0930\u0928\u093e \u0915\u094d\u092f\u093e \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 79.34, "end": 80.64, "text": "\u0909\u0938\u094d\u0935\u0947\u0921\u093f\u0928 \u092a\u094d\u0930 \u092e\u0947\u0902 \u0935\u0939\u0930\u093e\u092f\u0131l\u0131, \u0906 jurisd The naughts are two things which I will do,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 80.84, "end": 82.4, "text": "\u0908\u0915 \u0924\u094b, visitor\u043a\u043e\u043b\u044c\u043a\u0443 \u0909 jouer \ubc31\u092f\u093e \u091c\u094b, me19 do,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 82.60000000000001, "end": 84.24000000000001, "text": "://board.d powiedzia\u0142 \u0909\u0928\u0949\u0917 \u0938\u0915\u0947 \u0915\u0930 \u0928\u0947\u0902 You're resiting onto that vertex devotion.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 84.44, "end": 86.32000000000001, "text": "\u0906\u0915\u0941\u0924\u0947 \u0939\u0948, \u092e v\u00ed\u0917 \u0915\u0930\u0938\u0947 \u0925\u093e \u0939\u0948 \u0936 hazards make to reach onto that vertexetzung Nanak,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 86.52000000000001, "end": 91.46000000000001, "text": "\u090f\u0915 \u0924\u094b \u0935\u0940\u091c\u093f\u0921 \u0915\u0930 \u0939\u0941\ufffd embracing \u091c\u093e \u0926 \uc4f0\uace0 \u091a\u0917 \u0930\u0939\u0940 \u0939\u0948 \u091c\u093e according to which shall I send it.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 91.66, "end": 92.86, "text": "\u0941\u092e\u0928\u0947\u0915 \u092d\u093e\u091a \u0924\u094b \u092f\u0939 \u0930\u0908's Tale it.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 92.86, "end": 96.58, "text": "\u0909\u0938\u0915\u0947 \u0928\u0947\u092c\u0930\u094d\u0938 \u0915\u094b\u0928 \u0939\u0948, \u0924\u094b \u092f\u0947 \u0926\u094b \u091a\u0940\u091c\u0947 \u0939\u0940 \u0906\u092a\u0915\u0940 \u092e\u0947\u0902 \u091c\u0940\u0917\u0947,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 96.58, "end": 99.18, "text": "\u0924\u094b \u092f\u0939\u093e\u0901 \u092a\u0947 \u0928 \u0926\u094b\u0928\u094b \u0915\u094b \u090f\u0915 \u090f\u0915 \u0917\u0930 \u0915\u0947 \u0926\u093f\u0915\u0924\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 99.18, "end": 103.86, "text": "\u0924\u094b \u0938\u092c \u0938\u0947 \u092a\u0939\u0932\u0947 \u0905\u0917\u0930 \u0928 \u092c\u093e\u0926 \u0915\u0930\u0947, \u092c\u094d\u0930\u0947\u091f\u094d\u091f\u094d\u092b\u0930\u094d \u0938\u0930\u094d\u091a \u0905\u0917 \u0926\u0947\u092a\u094d\u091f\u094d\u092b\u0930\u094d \u0938\u0930\u094d\u091a \u092e\u0947\u0902", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 103.86, "end": 125.86, "text": "\u092c\u094d\u0930\u0947\u091f\u094d\u091f\u094d\u092b\u0930 \u0938\u0930\u094d\u091a \u092f\u0939\u093e\u0901 \u092c\u093e\u0926 \u0915\u0930\u0947, \u092f\u0939\u093e\u0901 \u092c\u093e\u0926 \u0915\u0930\u0947, \u092c\u094d\u0930\u0947\u091f\u094d\u091f\u094d\u092b\u0930 \u0938\u0930\u094d\u091a \u0915\u0940, \u0924\u094b \u0935\u094b \u0915\u0948\u0938\u0947 \u091a\u0932\u0924\u093e \u0939\u0948, \u0935\u094b \u092c\u094d\u0930\u0947\u091f\u094d\u091f\u094d\u092b\u093e\u0907\u0938 \u091a\u0932\u0924\u093e \u0939\u0948, \u091a\u094b\u0921\u093e\u090f\u0908 \u0935\u093e\u0908\u0938 \u092f\u0938 \u0924\u0930\u0940\u0915\u0947 \u0938\u0947,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 126.06, "end": 133.18, "text": "\u0914\u0930 \u092b\u093f\u0930 \u090f\u0915 \u090f\u0915 \u0915\u0930\u0915\u0947 \u0932\u0947\u0935\u0932 \u0915\u094b \u0915\u0935\u0930 \u0915\u0930\u0924\u0947, \u0924\u094b \u0926\u093f\u092f\u093e\u0928 \u0926\u0915\u0928\u093e, \u090f\u0915 \u0932\u0947\u0935\u0932 \u0915\u094b \u092a\u0939\u0932\u0947 \u0915\u0935\u0930 \u0915\u0930\u0947\u0917\u093e,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 133.18, "end": 137.86, "text": "\u091c\u092c \u0935\u094b \u0932\u0947\u0935\u0932 \u0915\u092e\u092a\u094d\u0932\u093f\u0924 \u0939\u094b\u0917\u092f\u093e, \u0924\u092c \u0924\u0941\u0938\u0930\u0947 \u0932\u0947\u0935\u0932 \u092a\u0947 \u091c\u093e\u090f\u0917\u093e,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 137.86, "end": 143.46, "text": "\u0914\u0930 \u0926\u0947\u092a\u094d\u091f\u094d\u092b\u0930 \u0938\u0930\u094d\u091a \u092e\u0924\u0932\u092c \u0926\u0947\u092a\u094d\u091f \u0915\u0940 \u0924\u0930\u092b, \u092e\u0932\u0917\u093c, \u0928\u0940\u091a\u0947 \u0917\u0939\u0930\u093e\u0908 \u0915\u0940 \u0924\u0930\u092b \u0906\u092a \u0915\u094b \u091c\u093e\u0928\u0947,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 143.86, "end": 147.42000000000002, "text": "\u0924\u094b \u0924\u0930 \u0924\u0947\u092a\u094d\u091f\u092b\u0930 \u0938\u0930\u094d\u091a \u0915\u0940 \u092c\u093e\u092f\u0924 \u0915\u0930\u0947, \u0924\u094b \u0939\u092e \u092f\u0938 \u0924\u0930\u0940\u0915\u0947 \u0938\u0947 \u091a\u093e\u0932\u0924\u0947 \u0939\u0948\u0902,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 147.42000000000002, "end": 150.62, "text": "\u092f\u0939\u0947\u0902\u0916\u0930 \u091a\u0932\u0928\u093e \u0938\u094d\u0925\u093e\u0930\u094d\u091f \u0915\u0940 \u0906, \u0924\u094b \u0907\u0915 \u0926\u0947\u092a\u094d\u091f\u092b\u0930 \u091a\u0932\u0928 \u092e\u0947\u0902 \u0917\u092f \u0917\u092f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 150.62, "end": 154.5, "text": "\u0909\u0938\u0915\u0947 \u092d\u093e\u091b \u092b\u093f\u0930 \u0928\u0940\u091a\u0947 \u0917\u092f, \u0909\u0938 \u0916\u0947 \u092c\u0917\u091b \u092b\u093f\u0930 \u0928\u0940\u091a\u0947 \u0917\u092f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 154.5, "end": 156.08, "text": "\u0908\u0941\u0915\u094d\u091b\u093e\u0939 \u0938\u0947 \u092a\u093e\u0915\u0924\u093e \u0939\u094c\u0901 \u0938\u0940 \u0938\u0928\u093e\u0917\u0940 \u0917\u0947 \u091c requirement", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 156.08, "end": 157.34, "text": "\u0924\u0947\u0915\u0903\uc6a9 \u0938\u093e\u0935\u0915 ficar you will understand my SUPER", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 157.34, "end": 158.66, "text": "\u091c\u092c\u0938\u0947 \ufffd\u0422\u092c \u0938 Putin", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 158.66, "end": 159.74, "text": "\u0906\u092a\u0928\u0947 \u092a\u093e\u0915\u0947 \u0938\u0915\u0924\u0947 \u0939\u0941 \u0930\u0939\u0940\u0902 \u0939\u0942\u0901", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 159.74, "end": 160.54, "text": "\u0909\u092a\u0928\u0947 Prul", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 160.54, "end": 161.84, "text": "\u092e\u0947\u0902 \u0938\u093e\u0935 \u092a\u093e\u0930\u0940\u0902 \u0939\u093e\u0930\u0940 \u0939\u0948, \u092d\u093e\u03b9\u03ba\u0932\u0940ihood,forth rigor", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 161.84, "end": 162.42, "text": "\u0906\u092a \u092e\u0947\u0902 \u0906\u092a\u0928\u0947 \u0938 \uc788\uac70\ub4e0\uc694\u0917\u0947 \u0915 prevention", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 162.42, "end": 174.38, "text": "\u0903\u092b \u092e\u0939\u093e\u0901 \u0938\u0915\u0924\u0947 \u0939\u0948\u0964 and also", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 174.38, "end": 181.38, "text": "\u0924\u094b \u0926\u0947\u0916\u094b \u0905\u0917\u0930 \u0906\u092a\u0928\u0947 DFS \u0915\u094b \u0938\u092e\u091c\u0928 \u0906\u092a \u0924\u094b \u0938\u093f\u0902\u092a\u0932\u094d\u0938\u0940 \u092b\u0928\u094d\u091f \u0906\u092a \u091c\u0948\u0938\u0947 \u0906\u092e \u0932\u094b\u0917 \u092a\u0932\u0938\u094d\u091f\u0942 \u0915\u0940 \u0928\u093e\u0901\u0928 \u092e\u0947\u091f\u093f\u0915\u0932 \u092c\u0928\u0947 \u0932\u0947\u0928\u0940.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 181.38, "end": 185.38, "text": "\u0924\u0947\u0916\u0947 \u0905\u092a \u0909\u0938\u0915\u0947 \u092c\u093e\u0926 \u092e\u0930\u0947\u0902\u0917\u094b \u092a\u0924\u093e \u0939\u0948 \u092e\u0947\u0902 \u092a\u093e\u090f\u0926 \u091a\u0942\u0901\u0938 \u0915\u0930 \u0932\u093f\u092f\u093e \u0932\u0947\u091f \u0938\u0947 B-TEC-C-SE.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 185.38, "end": 190.38, "text": "\u0909\u0938\u0915\u0947 \u092c\u093e\u0926 \u092e\u0947\u0902 \u092a\u0924\u093e \u0939\u0948 \u092e\u0947\u0902 \u0906\u0917\u0947 \u0915\u094d\u092f\u093e \u0915\u0930 \u0932\u093f\u092f\u093e \u0932\u0947\u091f \u0938\u0947 Software engineering \u0915\u0940 job \u0938\u0932\u0947\u0915\u094d\u0924 \u0915\u0930 \u0932\u093f\u090f.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 190.38, "end": 192.38, "text": "\u0924\u094b \u092e\u0941\u0932\u094d\u0932\u094b\u0902 \u092e\u0948\u0902 \u090f\u0915 \u092f\u0947 \u0921\u0947\u0936\u094d\u091f\u093f\u0928 \u092e\u0947\u0902 \u091a\u0932\u0924\u093e \u091c\u093e\u0930\u0942\u0902.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 192.38, "end": 197.38, "text": "All the plus two \u092e\u0947\u0902 non-medical \u0915\u0947 \u0938\u093e\u0938\u0924 \u0906\u092a\u0915\u0947 \u092a\u0938 \u0915\u0941\u092e\u0930\u094d\u0938 \u092d\u0940 \u0925\u0947 Arts \u092d\u0940 \u0925\u0940", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 198.38, "end": 203.38, "text": "\u0905\u0917\u0930 \u0905\u092e \u092c\u093e\u0926 \u0915\u0930\u0947 B-TEC-C-SE \u0915\u0947 \u092c\u093e\u0926 \u0906\u092a MDA \u092d\u0940 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0925\u0947 UPS-C \u0915\u0940 \u0924\u0947\u0930\u0947 \u092d\u0940 \u0915\u0930 \u0938\u0915\u0924\u0947 \u092c\u094b\u091a\u094d\u091f\u093f\u0928 \u0938\u0947", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 203.38, "end": 209.38, "text": "\u0932\u0947\u0915\u0947 \u092e\u0948\u0902 \u090f\u0915 \u0926\u0947\u0936\u094d\u091f\u093f\u0928 \u092e\u0947\u0902 \u091a\u0932\u0924\u093e \u091c\u093e\u0930\u0942\u0902. \u0914\u0930 \u091c\u092c \u092e\u0941\u091d\u0947 \u0932\u0915\u0924\u093e \u0915\u0940 \u0926\u0947\u091f \u0926\u0947\u0936\u094d\u091f\u093f\u0928 \u0926\u093e\u0917\u092f\u093e \u0924\u092c \u092e\u0948\u0902 \u0915\u094d\u092f\u093e \u0915\u0930\u0924\u093e \u0939\u0942\u0901\u0964", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 210.38, "end": 220.38, "text": "\u0924\u094b \u092c\u0938 \u092f\u0939 \u0938\u093f\u0902\u092a\u0932 \u0938\u0940 \u0915\u093e\u0928\u0940 \u0939\u0948\u0964 \u0914\u0930 \u0905\u0917\u0930 \u0905\u092e \u0932\u0947 B-F-L \u0915\u094b \u0938\u092e\u0947\u0902 \u0906\u092a \u0924\u094b \u0907\u0938\u0915\u093e \u0938\u093f\u0902\u092a\u0932 \u0938\u0947 \u0907\u091c\u092e\u094d\u092a\u0932 \u0905\u0917\u0930 \u0905\u092e \u092e\u0948\u0930\u093f\u0938 \u0915\u0940 \u0905\u0917\u0930 \u090f\u0915 \u090f\u0915 \u0905\u092a \u090f\u0915 \u090f\u0915 \u091c\u093e\u0924\u0947 \u0939\u094b \u0916\u093e\u0928\u0947 \u092a\u0940\u0928\u0947 \u0915\u0940 \u0936\u094d\u091f\u094b\u0932 \u092a\u0947.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 221.38, "end": 227.38, "text": "\u0909\u0906\u092a \u092f\u0939 \u0906\u092a \u090f\u0915 \u0926\u0947\u0936\u094d\u091f\u093f\u0928 \u092e\u0947\u0902 \u0932\u093f\u091c\u093e\u0924\u0947 \u0939\u0948, \u0935\u0939\u093e\u0902 \u092a\u0947 \u090f\u0915 \u0935\u0939\u093e\u090f \u0925\u0947 \u0939\u0948, \u092a\u0939\u0932\u0947 \u090f\u0915 \u0935\u0939\u093e\u090f \u092a\u0947 \u090f\u0915 \u091a\u094d\u091f\u094b\u0932 \u092a\u0947, \u092c\u0939\u0932 \u090f\u0915 \u0936\u094d\u0928\u0947\u0915\u094d\u0938 \u0935\u0932\u0940 \u092a\u0947 \u0917\u092f\u0947 \u0909\u0938\u0915\u094b \u0915\u092epl \u091f\u0940\u091f \u0915\u0940 \u0939\u0948\u0964", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 227.38, "end": 244.38, "text": "\u0924\u094b \u0935\u0939\u093e \u092a\u0947 \u090f\u0915 \u0935\u0939\u093e\u090f \u0925\u0947 \u0939\u0948, \u092c\u094d\u0930\u0947\u0925\u0935\u093e\u090f\u0936 \u091a\u0932 \u0930\u0939\u0947 \u0939\u0948, \u0930\u0921\u0930 \u0926\u0930 \u0926\u0930 \u0926\u0947\u092a\u091a\u0935\u093e\u090f\u0936, \u0915\u0940 \u090f\u0915 \u091a\u0940\u091c \u0915\u094b \u092e\u0948\u0902 \u0916\u093e\u0930\u093e\u0942\u0901, \u0914\u0930 \u0909\u0938\u0940 \u0938\u0947 \u092a\u0947\u091f \u092c\u0930\u0932\u0940 \u090f\u0915 \u0906\u092b \u0906\u092a \u090f\u0915 \u0935\u0939\u093e\u090f\u0936 \u091a\u0932\u0924\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 245.38, "end": 251.38, "text": "\u0924\u094b \u0935\u0939\u093e\u090f\u0936 \u0905\u092a\u0915\u094b \u0938\u092e\u091d\u093e\u0930 \u0939\u094b, \u0935\u0939\u093e\u090f\u0936 \u092c\u094d\u0930\u0947\u0925\u0935\u093e\u090f\u0936 \u0914\u0930 \u092f\u0939\u093e\u090f\u0936 \u092c\u094d\u0926\u0947\u092a\u091a\u0935\u093e\u090f\u0936 \u0907\u0938 \u0924\u0930\u0940\u0915\u0947 \u0938\u0947 \u0915\u093e\u092e \u0915\u0930\u0924\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 251.38, "end": 257.38, "text": "\u092c\u0938 \u092f\u0939 \u092e\u0947\u0902 \u0926\u093f\u0916\u0930\u0947\u0902\u0938 \u0939\u0948, \u0924\u094b \u0907\u0938\u0947 \u0932\u093f\u090f \u092c\u094d\u092b\u0947\u0936 \u0939\u094b\u0924\u093e \u0939\u0948, \u0909\u0938\u0915\u094b \u0932\u0947\u0935\u0932 \u092c\u093e\u090f \u0932\u0947\u0935\u0932 \u092f\u0939 \u0932\u0947\u0935\u0932 \u0905\u0921\u0930\u093f\u0902\u0917 \u092d\u0940 \u092c\u094b\u0932\u0924\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 258.38, "end": 261.38, "text": "\u0924\u094b \u092f\u0939 \u090f\u0915 \u0932\u0947\u0935\u0932 \u091c\u092c \u0916\u091f\u092e \u0939\u094b\u0924\u093e \u0939\u0948, \u0924\u092c \u092d\u0940 \u0926\u0941\u0938\u0930\u0947 \u0932\u0947\u0935\u0932 \u092a\u0947 \u091c\u093e\u0924\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 261.38, "end": 265.38, "text": "DFS \u092e\u0947\u0902 \u092f\u0939 \u092f\u0939 \u092f\u0939 \u092a\u0940 \u0924\u094b \u0917\u0930\u093e\u090f \u092e\u0947\u0902 \u091c\u093e\u0924\u0947 \u0930\u094b \u091c\u093e\u0924\u0947 \u0930\u094b,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 265.38, "end": 269.38, "text": "\u0914\u0930 \u0905\u092c \u0939\u092e \u092f\u0939 \u092a\u0947 \u090f\u0915 \u0914\u0930 \u090f\u0915 \u0905\u092a\u0915\u094b \u090f\u0915 \u0905\u092a\u0915\u094b \u090f\u0915 \u0905\u091a\u094d\u091a\u0932 \u092e\u0947\u0902 \u0915\u0930 \u0915\u0947 \u0932\u093f\u090f \u0917\u093e\u0924\u093e \u0939\u094b,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 270.38, "end": 275.38, "text": "\u0906\u0915\u0902\u091a\u091b\u093e\u00e4tzlich \u092e\u0947\u0902 \u0939\u0941\u0908, \u0936\u093e\u0921\u094b\u0902 \u0925\u093e \u091c\u0947 \u092f h\u1ecdc\u0920\u093e \u0932\u0947\u0935 \u0932\u0947\u0935 \u092e \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 275.38, "end": 276.38, "text": "\u0930\u0930 \u0915\u093f\u0930\u0947 \u092e\u093f\u0928 \ufffd beneficiaries \u0932\u0940\u0915\u0947 \u0924 firmly Jie Chink dictatorship manifestors in K confident", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 276.38, "end": 290.2, "text": "\u0906\u0926\u0947 \u0915\u0930\u092e\u093e\u0930\u0940 \u0915ulators because of the", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 290.2, "end": 292.38, "text": "\u0906\u0926\u0947 \u0935\u0940 \u0916camp \u0965 \u0921\u0947\u0916\u093e\u0924\u094d\u0939 \u0939\u0940 \u0930\u0939\u093e \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 292.38, "end": 295.52, "text": "\u092d\u0947 \u0920\u093e\u0928\u0947 \u0935\u0947\u0905\u0930\u0947 \u092c\u0935\u0947\u0902 \u0935\u0947\u0902 \u0933looked\u0924\u093e \u092c\u0930\u093e \u090f\u0915 \u0906\u091c\u093c\u093e \u0915\u0947 \u0930\u0939\u093e \u0915\u093f \u0907\u092e\u0924\u093e \u092e\u094d\u0928 \u0915\u094b\u0908", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 295.52, "end": 299.52, "text": "pulley rakh dyaya. Koi to visit karenge na, kahi se to start karenge ye apna source koi na hoga", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 299.52, "end": 303.52, "text": "to humara source jo hain jo hai wo kya hai one hai. To logi hain je humne one se start kr dia.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 303.52, "end": 307.52, "text": "Now one se start kr diya, ap main kaya kar hoon, one pe madh me have visited kr liya.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 307.52, "end": 313.02, "text": "Visit kr liya to ab hisko bahar nikalno ab hisko explore khwaro, explore madh maaast", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 313.02, "end": 317.02, "text": "hiske saath kon kon connected hai. Kon kon connected hai, 2 & 3.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 317.02, "end": 320.52, "text": "Aap kisi bhi order mein likshakti hoon, chahi 2 pehle likto 3 pehle likto koi haru pharekh nipata.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 320.52, "end": 348.52, "text": "\u0906\u0902 \u0928 JENLAYS KINAH L97S", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 348.52, "end": 350.52, "text": "\u090f\u0915 \u0930\u0939\u093e \u0924\u0940 \u0915\u0947 \u0938\u093e\u0925 \u0915\u094b\u0901 \u0916\u0928\u0947\u0915\u094d\u0924\u093f\u0921 \u0939\u0948, 4 & 7", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 350.52, "end": 354.52, "text": "\u0925\u094b 4 \u0914\u0930 \u0926\u0940 \u0921\u093e\u0932 \u0930\u0939\u093e \u0939\u0948, 7 \u0906\u092a\u0928\u0947 \u092a\u093f\u091a\u0947 \u0938\u0947 \u0921\u093e\u0932 \u0925\u0940 \u0939\u0948", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 354.52, "end": 357.52, "text": "\u0924\u0940 \u0915\u0947, \u0905\u092a\u0928\u0947 next, \u0935\u094b 4, next \u0915\u094b\u0901 \u0938\u093e\u0925 \u0906\u0917\u093e 4", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 357.52, "end": 361.52, "text": "\u0924\u094b 4 \u0915\u094b \u090f\u0915 \u0936\u094d\u092a\u0932\u094b\u0930 \u0915\u0930\u094b, 4 \u0915\u0947 \u0938\u093e\u0925 \u0915\u094b\u0901 \u0916\u0928\u0947\u0915\u094d\u0924\u093f\u0921 \u0939\u0948, 5 & 6", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 361.52, "end": 364.52, "text": "\u0924\u094b \u091c\u094b \u092d\u0940 \u0916\u0928\u0947\u0915\u094d\u0924\u093f\u0921 \u0939\u0948, \u0909\u0928\u0915\u094b \u0906\u092a \u0928 \u0921\u093e\u0932 \u0917\u094b.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 364.52, "end": 368.97999999999996, "text": "next company will have 7 9 draw 7 executing Fuji and do another one", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 369.0, "end": 372.32, "text": "and explore this when you have x containers", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 372.35999999999996, "end": 374.68, "text": "when you have nothing in stock solamente\u4e88 screaming", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 374.68, "end": 375.59999999999997, "text": "any numbers are available as five", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 375.64, "end": 378.59999999999997, "text": "any signals are no", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 378.59999999999997, "end": 379.71999999999997, "text": "if you are Yes let me know", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 379.82, "end": 380.96, "text": "list of !", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 388.52, "end": 391.68, "text": "Brodel", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 391.68, "end": 396.52, "text": "\u0905\u0917\u0930 \u0906\u092a 3-2 \u0915\u0930\u0924\u0947 \u0924\u094b \u0930\u091c\u0947\u0917\u093e \u0906\u091c\u0940 \u092e\u0948\u0902 \u0906\u0917\u0947 5-6 \u0921\u093c\u093e\u0932\u093e 6-5 \u0915\u0930\u0924\u0947 \u0924\u094b \u0930\u091c\u0947\u0917\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 396.72, "end": 401.88, "text": "\u092c\u0938 \u092e\u0947\u0902 \u0915\u0939\u0928\u0940 \u0906\u091c\u0940 \u0915\u094b \u0938\u092e\u091c\u0928\u093e, \u0907\u0938\u0915\u0940 \u0935\u0930\u0915\u093f\u0902\u0915\u094b \u0938\u092e\u091d\u0928\u093e, \u0924\u094b \u092f\u0947 \u091c\u094b \u0939\u0948 \u0935\u094b \u0932\u0947\u0935\u0932 \u092c\u093e\u0908 \u0932\u0947\u0935\u0932", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 402.08, "end": 406.0, "text": "\u0926\u0947\u0916\u094b \u092a\u0939\u0932\u0947 \u0906\u092e\u0928\u0947 \u0935\u0928 \u0915\u094b \u0915\u093f\u092f\u093e, \u0909\u0938\u0915\u0947 \u092c\u093e\u0908 2-3 \u0915\u094b \u0915\u0935\u0930 \u0915\u093f\u092f\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 406.04, "end": 424.76, "text": "forgiving", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 424.76, "end": 429.98, "text": "DATA \u0b8e\u0646ric isminute the data structure that is stack stack.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 430.15999999999997, "end": 435.21999999999997, "text": "Now the stack is new both in theLet's start once start.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 435.42, "end": 439.36, "text": "So I started at once Fastest First First One a This Visit Now", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 439.56, "end": 444.96, "text": "After visiting One What I do? Exploring There are two options", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 445.15999999999997, "end": 448.56, "text": "Two or Three are there But you have to if you go at any place", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 448.76, "end": 453.96, "text": "you have to run at the two Once\u90a3\u4e2a Here So I was going to have 2", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 453.96, "end": 455.47999999999996, "text": "\u092f\u0939\u0930\u093e\u0908 \u092e\u0947\u0902 \u091c\u093e\u090f\u093c\u0941\u0917 \u0926\u0947\u0916\u0927 \u092e\u0947\u0902", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 455.58, "end": 457.21999999999997, "text": "\u0924\u094b \u0935\u0928 \u0938\u0947 \u091c\u092c \u0924\u0942\u092c \u0920\u0932\u093e \u0917\u092f\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 457.44, "end": 458.59999999999997, "text": "\u0924\u094b \u0935\u0928 \u0938\u0947 \u0924\u0942\u092c \u0920\u0932\u093e \u0917\u092f\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 458.59999999999997, "end": 459.52, "text": "\u0924\u0942\u092c \u0920\u0932\u093e \u0917\u092f\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 459.79999999999995, "end": 461.76, "text": "\u0924\u094b \u0935\u0928 \u090f\u0915 \u0924\u0930\u0947 \u0916\u093c\u093e\u092f \u091c\u093e\u090f\u093c", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 462.12, "end": 462.9, "text": "\u0938\u0941\u0938\u092a\u094d\u092a\u0928\u094d\u0921 \u0932\u094b\u0917\u092f\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 462.9, "end": 463.68, "text": "\u0907\u0928 \u0905\u0915\u094d\u091f\u093f\u092c \u0939\u0941\u0917\u092f\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 463.91999999999996, "end": 465.65999999999997, "text": "\u0924\u0940\u0915 \u0906\u0908, \u0924\u094b \u0939\u092e \u0928\u0947 \u0909\u0938\u0915\u094b \u0915\u0948 \u0917\u0930 \u0925\u0940\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 465.66, "end": 467.66, "text": "\u0928\u0939\u0940\u0902 \u092c\u0928\u093e \u0938\u0947\u0926\u093e\u0928 \u0938\u0940 seekers worth as the manger focus knows", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 467.66, "end": 470.14000000000004, "text": "code there is a word to slash that now", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 470.14000000000004, "end": 471.62, "text": "for the", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 471.62, "end": 472.14000000000004, "text": "lift", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 472.64000000000004, "end": 474.28000000000003, "text": "if the", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 477.88000000000005, "end": 478.42, "text": "ride", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 480.3, "end": 482.22, "text": "that", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 482.22, "end": 483.94000000000005, "text": "nope", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 484.14000000000004, "end": 487.52000000000004, "text": "that", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 487.52000000000004, "end": 489.28000000000003, "text": "I'm", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 489.28, "end": 492.88, "text": "\u092d\u0940\u0924\u0940 \u0915\u0930\u0921\u0928 \u0938\u0941\u0908 Suddenly, we went out on the side, when we gone to the fifth,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 492.9, "end": 493.79999999999995, "text": "AND 3rd part, the\u4e86\u5427 \u092c\u092a\u094d\u092f\u092a\u0947 acet\u092d\u093e\u0908 \u0924\u0941 \u0935\u0940\u092a\u0947Etta, then 4th part in addition,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 493.82, "end": 494.88, "text": "\u092c\u092a\u094d\u092f\u0915\u0947 \u0928\u0938\u0930\u094d\u091c \u0939\u0948\u0964 Such a thing, granted in such a super- Ottawa.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 494.9, "end": 495.96, "text": "\u0924\u0930\u0940 \u0915\u0930\u0921\u0928 \u0938\u0942\u0908 \u0915\u0947 \u092e\u0947\u0902 \u092driends\u0964 After 5, you have no options.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 496.0, "end": 498.67999999999995, "text": "\u0924\u0915 \u092f\u092f\u093e \u0906\u092a\u0915\u094d\u0915\u0947 \u0906\u092a\u0915\u0947 \u092a\u094d\u092f\u092c \u0915\u094d\u0938\u0930\u0941\u092c \u0925\u094d\u092f\u092f\u0947\u0964 You dont have any options after 5,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 498.68, "end": 508.12, "text": "\u0924\u094b \u092f\u093e\u0928 \u0917\u092c \u0906\u092a \u0924\u092c\u091f\u094d\u091f\u0930\u0947\u0915 \u092e\u0947\u0940 \u0935\u094b \u092a\u091a\u093f\u091f\u0915\u094b\u0939\u0964", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 509.12, "end": 514.28, "text": "\u0906\u092a \u0905\u092a inf\u8fd9\u6837 \u0921\u093e\u0924\u0915 \u092a\u0939\u0928\u0947 \u0915\u094b\u0932 \u092e\u0947\u0902 \u092e\u0941 oysters", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 514.78, "end": 516.32, "text": "\u0914\u0930 \u0922\u093c\u093f\u0bb5\u093c longer encouraging", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 521.28, "end": 521.46, "text": "\ufffdachi", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 525.08, "end": 525.48, "text": "\u0925\u093e.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 528.68, "end": 535.68, "text": "last in first out. So from 4 we got to know in last we went to 4 and we reached back to 4", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 535.68, "end": 540.68, "text": "and what is the option I have from 4? There is 6 option. So from 4 where I went?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 540.68, "end": 545.68, "text": "It went to 6. From 4 where I went? It went to 6. So what happened? It was suspended.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 545.68, "end": 552.68, "text": "So again put it back. We put 6 in the sequence. So from 4 I went to 6.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 552.68, "end": 557.68, "text": "So I suspended 4 and it went back to 6. Now there is no option from 6.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 557.68, "end": 562.68, "text": "Now there is no option from 6. So what will I do? I will backtrack from 6 again.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 562.68, "end": 569.68, "text": "How I know where I was last? Last check again on 4. Now again I came back to 4 and stood.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 569.68, "end": 577.68, "text": "Now see there is an option. Yes from 4 I can go to 3 because 2 is done. So from 4 I went to 3.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 577.68, "end": 583.68, "text": "So from 4 I went to whom? I went to 3. Now again suspended 4. So put it back again.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 583.68, "end": 588.68, "text": "Because from 4 you went to 3. So write in sequence and with 7 suspend 4.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 588.68, "end": 593.68, "text": "Now there is another option from 3. Yes there is option from 3 to 7. So what happened?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 593.68, "end": 599.68, "text": "It was suspended. So put the suspended one in the stack. Ok we reached 7.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 599.68, "end": 605.68, "text": "Now what we have to do? After 7 there is no option. So what will I do? I will backtrack.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 605.68, "end": 610.68, "text": "I know backtrack is after 7. This is visible in diagram. But what is the algorithm?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 610.68, "end": 616.68, "text": "The algorithm says that you check it. So from this I went to 3. After 3 there is no other option.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 616.68, "end": 622.68, "text": "There is no other option. So obviously I went to 4. So there is no new option from 4.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 622.68, "end": 627.68, "text": "Then I reached 2. So there is no other option from 2. So I went to 1.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 627.68, "end": 633.68, "text": "Finally your sequence is ready. So what we are doing here? We are going to go to depth wise.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 634.68, "end": 638.68, "text": "Although both the time complexity is same here. Order of V plus E.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 638.68, "end": 643.68, "text": "Because what we are doing? All the vertex and all the edges are traversing.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 643.68, "end": 649.68, "text": "So maximum what can be the order of V plus total number of vertex and total number of edges.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 649.68, "end": 653.68, "text": "So both the stories are important to understand the difference between them.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 653.68, "end": 656.68, "text": "Because their real life applications are very much.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 656.68, "end": 661.68, "text": "Talk about web crawlers, social media, facebook etc. Talk about networking.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 662.68, "end": 667.68, "text": "You have to check if there is cycle in graph or not. You have to check minimum cost spanning tree.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 667.68, "end": 671.68, "text": "So all the things are used by DFS and BFS techniques.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 671.68, "end": 675.68, "text": "There are many real life applications of this. Thank you.", "source": "unknown", "lang": "en", "source_lang": "en"}]}, "concepts": [{"id": "graph", "name": "Graph", "slug": "graph", "description": "A data structure made of vertices connected by edges.", "mention_count": 12, "first_seen": 2.0, "last_seen": 667.7, "sources": ["asr", "asr+ocr", "ocr"], "timestamps": [{"seconds": 2.0, "label": "00:02", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=2s", "source": "ocr"}, {"seconds": 22.2, "label": "00:22", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=22s", "source": "ocr"}, {"seconds": 36.24, "label": "00:36", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=36s", "source": "asr+ocr"}, {"seconds": 41.04, "label": "00:41", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=41s", "source": "asr+ocr"}, {"seconds": 47.84, "label": "00:47", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=47s", "source": "asr+ocr"}, {"seconds": 51.44, "label": "00:51", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=51s", "source": "asr+ocr"}, {"seconds": 56.24, "label": "00:56", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=56s", "source": "asr+ocr"}, {"seconds": 61.54, "label": "01:01", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=61s", "source": "asr"}, {"seconds": 66.54, "label": "01:06", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=66s", "source": "ocr"}, {"seconds": 80.84, "label": "01:20", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=80s", "source": "ocr"}, {"seconds": 91.66, "label": "01:31", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=91s", "source": "ocr"}, {"seconds": 662.68, "label": "11:02", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=662s", "source": "asr"}], "prerequisites": [{"id": "data-structure", "name": "Data Structure"}, {"id": "vertex", "name": "Vertex"}, {"id": "edge", "name": "Edge"}], "dependents": [{"id": "graph-traversal", "name": "Graph Traversal"}, {"id": "breadth-first-search", "name": "Breadth First Search"}, {"id": "depth-first-search", "name": "Depth First Search"}, {"id": "tree-traversal", "name": "Tree Traversal"}, {"id": "tree", "name": "Tree"}]}, {"id": "graph-traversal", "name": "Graph Traversal", "slug": "graph-traversal", "description": "A method for systematically visiting nodes in a graph.", "mention_count": 3, "first_seen": 36.2, "last_seen": 51.3, "sources": ["asr"], "timestamps": [{"seconds": 36.24, "label": "00:36", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=36s", "source": "asr"}, {"seconds": 41.04, "label": "00:41", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=41s", "source": "asr"}, {"seconds": 47.84, "label": "00:47", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=47s", "source": "asr"}], "prerequisites": [{"id": "graph", "name": "Graph"}], "dependents": [{"id": "breadth-first-search", "name": "Breadth First Search"}, {"id": "depth-first-search", "name": "Depth First Search"}]}, {"id": "tree-traversal", "name": "Tree Traversal", "slug": "tree-traversal", "description": "A strategy for visiting every node in a tree in a specific order.", "mention_count": 1, "first_seen": 47.8, "last_seen": 51.3, "sources": ["asr"], "timestamps": [{"seconds": 47.84, "label": "00:47", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=47s", "source": "asr"}], "prerequisites": [{"id": "tree", "name": "Tree"}, {"id": "graph", "name": "Graph"}], "dependents": [{"id": "pre-order-traversal", "name": "Pre Order Traversal"}, {"id": "depth-first-search", "name": "Depth First Search"}]}, {"id": "tree", "name": "Tree", "slug": "tree", "description": "A hierarchical data structure made of connected nodes.", "mention_count": 4, "first_seen": 47.8, "last_seen": 667.7, "sources": ["asr"], "timestamps": [{"seconds": 47.84, "label": "00:47", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=47s", "source": "asr"}, {"seconds": 51.44, "label": "00:51", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=51s", "source": "asr"}, {"seconds": 56.24, "label": "00:56", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=56s", "source": "asr"}, {"seconds": 662.68, "label": "11:02", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=662s", "source": "asr"}], "prerequisites": [{"id": "data-structure", "name": "Data Structure"}, {"id": "graph", "name": "Graph"}], "dependents": [{"id": "tree-traversal", "name": "Tree Traversal"}, {"id": "depth-first-search", "name": "Depth First Search"}]}, {"id": "vertex", "name": "Vertex", "slug": "vertex", "description": "A single node in a graph.", "mention_count": 5, "first_seen": 66.5, "last_seen": 649.7, "sources": ["asr"], "timestamps": [{"seconds": 66.54, "label": "01:06", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=66s", "source": "asr"}, {"seconds": 74.74, "label": "01:14", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=74s", "source": "asr"}, {"seconds": 82.6, "label": "01:22", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=82s", "source": "asr"}, {"seconds": 638.68, "label": "10:38", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=638s", "source": "asr"}, {"seconds": 643.68, "label": "10:43", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=643s", "source": "asr"}], "prerequisites": [], "dependents": [{"id": "graph", "name": "Graph"}]}, {"id": "edge", "name": "Edge", "slug": "edge", "description": "A connection between two vertices in a graph.", "mention_count": 3, "first_seen": 74.7, "last_seen": 649.7, "sources": ["asr"], "timestamps": [{"seconds": 74.74, "label": "01:14", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=74s", "source": "asr"}, {"seconds": 638.68, "label": "10:38", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=638s", "source": "asr"}, {"seconds": 643.68, "label": "10:43", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=643s", "source": "asr"}], "prerequisites": [], "dependents": [{"id": "graph", "name": "Graph"}]}, {"id": "depth-first-search", "name": "Depth First Search", "slug": "depth-first-search", "description": "A traversal that goes as deep as possible before backtracking.", "mention_count": 3, "first_seen": 174.4, "last_seen": 671.7, "sources": ["asr"], "timestamps": [{"seconds": 174.38, "label": "02:54", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=174s", "source": "asr"}, {"seconds": 261.38, "label": "04:21", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=261s", "source": "asr"}, {"seconds": 667.68, "label": "11:07", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=667s", "source": "asr"}], "prerequisites": [{"id": "graph-traversal", "name": "Graph Traversal"}, {"id": "graph", "name": "Graph"}, {"id": "stack", "name": "Stack"}, {"id": "visited", "name": "Visited"}, {"id": "tree-traversal", "name": "Tree Traversal"}, {"id": "tree", "name": "Tree"}], "dependents": []}, {"id": "visited", "name": "Visited", "slug": "visited", "description": "A record of nodes already explored during traversal.", "mention_count": 1, "first_seen": 303.5, "last_seen": 307.5, "sources": ["asr"], "timestamps": [{"seconds": 303.52, "label": "05:03", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=303s", "source": "asr"}], "prerequisites": [], "dependents": [{"id": "breadth-first-search", "name": "Breadth First Search"}, {"id": "depth-first-search", "name": "Depth First Search"}, {"id": "stack", "name": "Stack"}, {"id": "data-structure", "name": "Data Structure"}]}, {"id": "stack", "name": "Stack", "slug": "stack", "description": "A last-in, first-out data structure.", "mention_count": 3, "first_seen": 424.8, "last_seen": 599.7, "sources": ["asr"], "timestamps": [{"seconds": 424.76, "label": "07:04", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=424s", "source": "asr"}, {"seconds": 430.16, "label": "07:10", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=430s", "source": "asr"}, {"seconds": 593.68, "label": "09:53", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=593s", "source": "asr"}], "prerequisites": [{"id": "data-structure", "name": "Data Structure"}, {"id": "visited", "name": "Visited"}], "dependents": [{"id": "depth-first-search", "name": "Depth First Search"}, {"id": "pre-order-traversal", "name": "Pre Order Traversal"}, {"id": "algorithm", "name": "Algorithm"}]}, {"id": "data-structure", "name": "Data Structure", "slug": "data-structure", "description": "A way of organizing data so operations are efficient and understandable.", "mention_count": 1, "first_seen": 424.8, "last_seen": 430.0, "sources": ["asr"], "timestamps": [{"seconds": 424.76, "label": "07:04", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=424s", "source": "asr"}], "prerequisites": [{"id": "visited", "name": "Visited"}], "dependents": [{"id": "stack", "name": "Stack"}, {"id": "tree", "name": "Tree"}, {"id": "graph", "name": "Graph"}, {"id": "algorithm", "name": "Algorithm"}]}, {"id": "pre-order-traversal", "name": "Pre Order Traversal", "slug": "pre-order-traversal", "description": "Visit the root first, then the left subtree, then the right subtree.", "mention_count": 1, "first_seen": 509.1, "last_seen": 514.3, "sources": ["ocr"], "timestamps": [{"seconds": 509.12, "label": "08:29", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=509s", "source": "ocr"}], "prerequisites": [{"id": "tree-traversal", "name": "Tree Traversal"}, {"id": "traversal-technique", "name": "Traversal Technique"}, {"id": "stack", "name": "Stack"}], "dependents": [{"id": "algorithm", "name": "Algorithm"}, {"id": "time-complexity", "name": "Time Complexity"}, {"id": "breadth-first-search", "name": "Breadth First Search"}]}, {"id": "algorithm", "name": "Algorithm", "slug": "algorithm", "description": "A step-by-step procedure for solving a computational problem.", "mention_count": 2, "first_seen": 605.7, "last_seen": 616.7, "sources": ["asr"], "timestamps": [{"seconds": 605.68, "label": "10:05", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=605s", "source": "asr"}, {"seconds": 610.68, "label": "10:10", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=610s", "source": "asr"}], "prerequisites": [{"id": "stack", "name": "Stack"}, {"id": "data-structure", "name": "Data Structure"}, {"id": "pre-order-traversal", "name": "Pre Order Traversal"}], "dependents": [{"id": "time-complexity", "name": "Time Complexity"}]}, {"id": "time-complexity", "name": "Time Complexity", "slug": "time-complexity", "description": "How running time grows as input size increases.", "mention_count": 1, "first_seen": 634.7, "last_seen": 638.7, "sources": ["asr"], "timestamps": [{"seconds": 634.68, "label": "10:34", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=634s", "source": "asr"}], "prerequisites": [{"id": "algorithm", "name": "Algorithm"}, {"id": "pre-order-traversal", "name": "Pre Order Traversal"}], "dependents": []}, {"id": "traversal-technique", "name": "Traversal Technique", "slug": "traversal-technique", "description": "A general method for visiting nodes in a data structure.", "mention_count": 1, "first_seen": 638.7, "last_seen": 643.7, "sources": ["asr"], "timestamps": [{"seconds": 638.68, "label": "10:38", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=638s", "source": "asr"}], "prerequisites": [], "dependents": [{"id": "pre-order-traversal", "name": "Pre Order Traversal"}]}, {"id": "breadth-first-search", "name": "Breadth First Search", "slug": "breadth-first-search", "description": "A traversal that explores neighbors level by level using a queue.", "mention_count": 1, "first_seen": 667.7, "last_seen": 671.7, "sources": ["asr"], "timestamps": [{"seconds": 667.68, "label": "11:07", "url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=667s", "source": "asr"}], "prerequisites": [{"id": "graph-traversal", "name": "Graph Traversal"}, {"id": "graph", "name": "Graph"}, {"id": "visited", "name": "Visited"}, {"id": "pre-order-traversal", "name": "Pre Order Traversal"}], "dependents": []}], "graph": {"nodes": [{"id": "graph", "label": "Graph", "mention_count": 12, "level": 5, "first_seen": 2.0, "description": "A data structure made of vertices connected by edges."}, {"id": "graph-traversal", "label": "Graph Traversal", "mention_count": 3, "level": 7, "first_seen": 36.2, "description": "A method for systematically visiting nodes in a graph."}, {"id": "tree-traversal", "label": "Tree Traversal", "mention_count": 1, "level": 9, "first_seen": 47.8, "description": "A strategy for visiting every node in a tree in a specific order."}, {"id": "tree", "label": "Tree", "mention_count": 4, "level": 8, "first_seen": 47.8, "description": "A hierarchical data structure made of connected nodes."}, {"id": "vertex", "label": "Vertex", "mention_count": 5, "level": 2, "first_seen": 66.5, "description": "A single node in a graph."}, {"id": "edge", "label": "Edge", "mention_count": 3, "level": 0, "first_seen": 74.7, "description": "A connection between two vertices in a graph."}, {"id": "depth-first-search", "label": "Depth First Search", "mention_count": 3, "level": 10, "first_seen": 174.4, "description": "A traversal that goes as deep as possible before backtracking."}, {"id": "visited", "label": "Visited", "mention_count": 1, "level": 3, "first_seen": 303.5, "description": "A record of nodes already explored during traversal."}, {"id": "stack", "label": "Stack", "mention_count": 3, "level": 6, "first_seen": 424.8, "description": "A last-in, first-out data structure."}, {"id": "data-structure", "label": "Data Structure", "mention_count": 1, "level": 4, "first_seen": 424.8, "description": "A way of organizing data so operations are efficient and understandable."}, {"id": "pre-order-traversal", "label": "Pre Order Traversal", "mention_count": 1, "level": 11, "first_seen": 509.1, "description": "Visit the root first, then the left subtree, then the right subtree."}, {"id": "algorithm", "label": "Algorithm", "mention_count": 2, "level": 12, "first_seen": 605.7, "description": "A step-by-step procedure for solving a computational problem."}, {"id": "time-complexity", "label": "Time Complexity", "mention_count": 1, "level": 14, "first_seen": 634.7, "description": "How running time grows as input size increases."}, {"id": "traversal-technique", "label": "Traversal Technique", "mention_count": 1, "level": 1, "first_seen": 638.7, "description": "A general method for visiting nodes in a data structure."}, {"id": "breadth-first-search", "label": "Breadth First Search", "mention_count": 1, "level": 13, "first_seen": 667.7, "description": "A traversal that explores neighbors level by level using a queue."}], "edges": [{"source": "tree", "target": "tree-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Traversal builds on the basic idea of a tree."}, {"source": "tree-traversal", "target": "pre-order-traversal", "evidence": "domain_rule", "relation": "refines", "confidence": 0.8, "reason": "Pre-order is one traversal strategy."}, {"source": "graph", "target": "graph-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Traversal builds on understanding what a graph is."}, {"source": "graph-traversal", "target": "breadth-first-search", "evidence": "domain_rule", "relation": "refines", "confidence": 0.8, "reason": "BFS is a graph traversal method."}, {"source": "graph-traversal", "target": "depth-first-search", "evidence": "domain_rule", "relation": "refines", "confidence": 0.8, "reason": "DFS is a graph traversal method."}, {"source": "graph", "target": "breadth-first-search", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "BFS is taught over graphs."}, {"source": "graph", "target": "depth-first-search", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "DFS is taught over graphs."}, {"source": "stack", "target": "depth-first-search", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "DFS relies on stack behavior, explicit or implicit."}, {"source": "data-structure", "target": "stack", "evidence": "domain_rule", "relation": "refines", "confidence": 0.8, "reason": "Stacks are a specific data structure."}, {"source": "data-structure", "target": "tree", "evidence": "domain_rule", "relation": "refines", "confidence": 0.8, "reason": "Trees are a specific data structure."}, {"source": "data-structure", "target": "graph", "evidence": "domain_rule", "relation": "refines", "confidence": 0.8, "reason": "Graphs are a specific data structure."}, {"source": "traversal-technique", "target": "pre-order-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Pre-order is taught as a traversal technique."}, {"source": "vertex", "target": "graph", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Graphs are defined in terms of vertices."}, {"source": "edge", "target": "graph", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Graphs are defined in terms of edges."}, {"source": "visited", "target": "breadth-first-search", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "BFS needs visited-state tracking."}, {"source": "visited", "target": "depth-first-search", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "DFS needs visited-state tracking."}, {"source": "algorithm", "target": "time-complexity", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Complexity analysis builds on algorithmic thinking."}, {"source": "graph", "target": "tree-traversal", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 45 seconds earlier in the lecture."}, {"source": "graph", "target": "tree", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 45 seconds earlier in the lecture."}, {"source": "tree-traversal", "target": "depth-first-search", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 126 seconds earlier in the lecture."}, {"source": "tree", "target": "depth-first-search", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 126 seconds earlier in the lecture."}, {"source": "visited", "target": "stack", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 121 seconds earlier in the lecture."}, {"source": "visited", "target": "data-structure", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 121 seconds earlier in the lecture."}, {"source": "stack", "target": "pre-order-traversal", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 84 seconds earlier in the lecture."}, {"source": "stack", "target": "algorithm", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 180 seconds earlier in the lecture."}, {"source": "data-structure", "target": "algorithm", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 180 seconds earlier in the lecture."}, {"source": "pre-order-traversal", "target": "algorithm", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 96 seconds earlier in the lecture."}, {"source": "pre-order-traversal", "target": "time-complexity", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 125 seconds earlier in the lecture."}, {"source": "pre-order-traversal", "target": "breadth-first-search", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 158 seconds earlier in the lecture."}], "topological_order": ["edge", "traversal-technique", "vertex", "visited", "data-structure", "graph", "stack", "graph-traversal", "tree", "tree-traversal", "depth-first-search", "pre-order-traversal", "algorithm", "breadth-first-search", "time-complexity"]}, "learning_path": [{"step": 1, "concept_id": "edge", "title": "Edge", "description": "A connection between two vertices in a graph.", "prerequisite_ids": [], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=74s"}, {"step": 2, "concept_id": "traversal-technique", "title": "Traversal Technique", "description": "A general method for visiting nodes in a data structure.", "prerequisite_ids": [], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=638s"}, {"step": 3, "concept_id": "vertex", "title": "Vertex", "description": "A single node in a graph.", "prerequisite_ids": [], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=66s"}, {"step": 4, "concept_id": "visited", "title": "Visited", "description": "A record of nodes already explored during traversal.", "prerequisite_ids": [], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=303s"}, {"step": 5, "concept_id": "data-structure", "title": "Data Structure", "description": "A way of organizing data so operations are efficient and understandable.", "prerequisite_ids": ["visited"], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=424s"}, {"step": 6, "concept_id": "graph", "title": "Graph", "description": "A data structure made of vertices connected by edges.", "prerequisite_ids": ["data-structure", "vertex", "edge"], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=2s"}, {"step": 7, "concept_id": "stack", "title": "Stack", "description": "A last-in, first-out data structure.", "prerequisite_ids": ["data-structure", "visited"], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=424s"}, {"step": 8, "concept_id": "graph-traversal", "title": "Graph Traversal", "description": "A method for systematically visiting nodes in a graph.", "prerequisite_ids": ["graph"], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=36s"}, {"step": 9, "concept_id": "tree", "title": "Tree", "description": "A hierarchical data structure made of connected nodes.", "prerequisite_ids": ["data-structure", "graph"], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=47s"}, {"step": 10, "concept_id": "tree-traversal", "title": "Tree Traversal", "description": "A strategy for visiting every node in a tree in a specific order.", "prerequisite_ids": ["tree", "graph"], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=47s"}, {"step": 11, "concept_id": "depth-first-search", "title": "Depth First Search", "description": "A traversal that goes as deep as possible before backtracking.", "prerequisite_ids": ["graph-traversal", "graph", "stack", "visited", "tree-traversal", "tree"], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=174s"}, {"step": 12, "concept_id": "pre-order-traversal", "title": "Pre Order Traversal", "description": "Visit the root first, then the left subtree, then the right subtree.", "prerequisite_ids": ["tree-traversal", "traversal-technique", "stack"], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=509s"}, {"step": 13, "concept_id": "algorithm", "title": "Algorithm", "description": "A step-by-step procedure for solving a computational problem.", "prerequisite_ids": ["stack", "data-structure", "pre-order-traversal"], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=605s"}, {"step": 14, "concept_id": "breadth-first-search", "title": "Breadth First Search", "description": "A traversal that explores neighbors level by level using a queue.", "prerequisite_ids": ["graph-traversal", "graph", "visited", "pre-order-traversal"], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=667s"}, {"step": 15, "concept_id": "time-complexity", "title": "Time Complexity", "description": "How running time grows as input size increases.", "prerequisite_ids": ["algorithm", "pre-order-traversal"], "timestamp_url": "https://www.youtube.com/watch?v=N2P7w22tN9c&t=634s"}], "artifacts": {"data_dir": "D:\\work\\Lecture2Graph\\data\\N2P7w22tN9c", "graph_html": "D:\\work\\Lecture2Graph\\data\\N2P7w22tN9c\\graph.html", "notes_md": "D:\\work\\Lecture2Graph\\data\\N2P7w22tN9c\\notes.md", "bundle_json": "D:\\work\\Lecture2Graph\\data\\N2P7w22tN9c\\lecture2graph.json", "concepts_json": "D:\\work\\Lecture2Graph\\data\\N2P7w22tN9c\\concepts.json", "graph_json": "D:\\work\\Lecture2Graph\\data\\N2P7w22tN9c\\graph.json"};
+    const conceptMap = Object.fromEntries(payload.concepts.map(concept => [concept.id, concept]));
+    const prerequisitesByTarget = {};
+    const dependentsBySource = {};
+    payload.graph.edges.forEach(edge => {
+      prerequisitesByTarget[edge.target] = prerequisitesByTarget[edge.target] || [];
+      prerequisitesByTarget[edge.target].push(edge);
+      dependentsBySource[edge.source] = dependentsBySource[edge.source] || [];
+      dependentsBySource[edge.source].push(edge);
     });
-  });
-});
-</script>
+
+    const baseNodes = payload.graph.nodes.map(node => {
+      const mentions = node.mention_count || 1;
+      let color = "#89b4ff";
+      if (mentions >= 8) color = "#7ce0c3";
+      else if (mentions >= 4) color = "#ffc670";
+      return {
+        id: node.id,
+        label: node.label,
+        shape: "box",
+        font: { color: "#eaf4ff", face: "Space Grotesk", size: 16 },
+        borderWidth: 1.5,
+        color: {
+          background: color,
+          border: color,
+          highlight: { background: "#ffffff", border: "#7ce0c3" }
+        },
+        margin: 14
+      };
+    });
+
+    const baseEdges = payload.graph.edges.map((edge, index) => {
+      const colors = {
+        domain_rule: "#ffc670",
+        causal: "#ff8d8d",
+        temporal: "#8ca2b8",
+        llm: "#7ce0c3"
+      };
+      return {
+        id: index,
+        from: edge.source,
+        to: edge.target,
+        arrows: "to",
+        width: edge.evidence === "domain_rule" ? 2.4 : 1.6,
+        dashes: edge.evidence === "temporal",
+        color: { color: colors[edge.evidence] || "#89b4ff", opacity: 0.85 },
+        title: `${edge.evidence}: ${edge.reason || edge.relation}`,
+        smooth: { type: "cubicBezier", forceDirection: "vertical", roundness: 0.42 }
+      };
+    });
+
+    const nodes = new vis.DataSet(baseNodes);
+    const edges = new vis.DataSet(baseEdges);
+    const network = new vis.Network(
+      document.getElementById("graph"),
+      { nodes, edges },
+      {
+        autoResize: true,
+        layout: {
+          hierarchical: {
+            enabled: true,
+            direction: "UD",
+            levelSeparation: 120,
+            nodeSpacing: 180,
+            treeSpacing: 210,
+            blockShifting: true,
+            edgeMinimization: true,
+            parentCentralization: true
+          }
+        },
+        physics: false,
+        interaction: {
+          dragView: true,
+          zoomView: true,
+          hover: true,
+          navigationButtons: true
+        }
+      }
+    );
+
+    function graphNeighborhood(nodeId) {
+      const ancestors = new Set();
+      const descendants = new Set();
+      const incoming = prerequisitesByTarget[nodeId] || [];
+      const outgoing = dependentsBySource[nodeId] || [];
+
+      function walkIncoming(current) {
+        (prerequisitesByTarget[current] || []).forEach(edge => {
+          if (!ancestors.has(edge.source)) {
+            ancestors.add(edge.source);
+            walkIncoming(edge.source);
+          }
+        });
+      }
+
+      function walkOutgoing(current) {
+        (dependentsBySource[current] || []).forEach(edge => {
+          if (!descendants.has(edge.target)) {
+            descendants.add(edge.target);
+            walkOutgoing(edge.target);
+          }
+        });
+      }
+
+      walkIncoming(nodeId);
+      walkOutgoing(nodeId);
+      return { ancestors, descendants, incoming, outgoing };
+    }
+
+    function resetGraph() {
+      nodes.update(baseNodes);
+      edges.update(baseEdges);
+    }
+
+    function renderConcept(nodeId) {
+      const concept = conceptMap[nodeId];
+      if (!concept) return;
+
+      const neighborhood = graphNeighborhood(nodeId);
+      document.getElementById("concept-name").textContent = concept.name;
+      document.getElementById("concept-description").textContent = concept.description;
+      document.getElementById("concept-badges").innerHTML = [
+        `<span class="pill">${concept.mention_count} mentions</span>`,
+        `<span class="pill">${concept.sources.join(", ")}</span>`
+      ].join("");
+
+      document.getElementById("timestamp-list").innerHTML = concept.timestamps.map(item => `
+        <li>
+          <a href="${item.url}" target="_blank" rel="noreferrer">
+            <span class="mono">${item.label}</span>
+            <span>${item.source}</span>
+          </a>
+        </li>
+      `).join("");
+
+      const prerequisiteNames = concept.prerequisites.map(item => item.name).join(", ") || "None";
+      const dependentNames = concept.dependents.map(item => item.name).join(", ") || "None";
+      document.getElementById("connections-copy").innerHTML = `
+        <div><strong>Prerequisites:</strong> ${prerequisiteNames}</div>
+        <div style="margin-top:8px"><strong>Unlocks:</strong> ${dependentNames}</div>
+      `;
+
+      const nodeUpdates = baseNodes.map(node => {
+        if (node.id === nodeId) {
+          return { ...node, color: { ...node.color, background: "#ffffff", border: "#7ce0c3" } };
+        }
+        if (neighborhood.ancestors.has(node.id)) {
+          return { ...node, color: { ...node.color, background: "#ffc670", border: "#ffc670" } };
+        }
+        if (neighborhood.descendants.has(node.id)) {
+          return { ...node, color: { ...node.color, background: "#7ce0c3", border: "#7ce0c3" } };
+        }
+        return { ...node, color: { ...node.color, background: "rgba(90, 111, 129, 0.22)", border: "rgba(90, 111, 129, 0.32)" }, font: { ...node.font, color: "#8ca2b8" } };
+      });
+      nodes.update(nodeUpdates);
+
+      const edgeUpdates = baseEdges.map(edge => {
+        if (edge.from === nodeId || edge.to === nodeId || neighborhood.ancestors.has(edge.from) || neighborhood.descendants.has(edge.to)) {
+          return { ...edge, color: { ...edge.color, opacity: 1 }, width: edge.width + 0.8 };
+        }
+        return { ...edge, color: { ...edge.color, opacity: 0.16 }, width: Math.max(1, edge.width - 0.4) };
+      });
+      edges.update(edgeUpdates);
+    }
+
+    function renderLearningPath() {
+      document.getElementById("learning-path").innerHTML = payload.learning_path.map(step => `
+        <li>
+          <div class="path-step">Step ${step.step}</div>
+          <div class="path-title">${step.title}</div>
+          <div class="path-copy">${step.description}</div>
+        </li>
+      `).join("");
+    }
+
+    const translatedTranscript = payload.transcripts.translated;
+    const originalTranscript = payload.transcripts.original.length ? payload.transcripts.original : payload.transcripts.translated;
+
+    function renderTranscript(mode) {
+      const items = mode === "original" ? originalTranscript : translatedTranscript;
+      document.getElementById("transcript-list").innerHTML = items.slice(0, 24).map(item => `
+        <li>
+          <strong>${new Date(item.start * 1000).toISOString().substr(14, 5)} · ${item.source}</strong>
+          <span>${item.text}</span>
+        </li>
+      `).join("");
+      document.getElementById("tab-translated").classList.toggle("active", mode !== "original");
+      document.getElementById("tab-original").classList.toggle("active", mode === "original");
+    }
+
+    network.on("click", event => {
+      if (!event.nodes.length) {
+        resetGraph();
+        return;
+      }
+      renderConcept(event.nodes[0]);
+    });
+
+    document.getElementById("tab-translated").addEventListener("click", () => renderTranscript("translated"));
+    document.getElementById("tab-original").addEventListener("click", () => renderTranscript("original"));
+
+    renderLearningPath();
+    renderTranscript("translated");
+    network.fit({ animation: true });
+  </script>
 </body>
 </html>

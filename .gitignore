@@ -35,3 +35,9 @@ Thumbs.db
 # logs
 *.log
 batch_log.txt
+
+# streamlit
+.streamlit/secrets.toml
+
+# python packaging
+*.egg

@@ -1,217 +1,520 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Concept DAG — XRcC7bAtL3c</title>
-<script src="https://unpkg.com/vis-network@9.1.6/standalone/umd/vis-network.min.js"></script>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --bg: #0d1117; --surface: #161b22; --border: #30363d;
-    --text: #e6edf3; --text-dim: #8b949e; --accent: #58a6ff;
-    --green: #3fb950; --orange: #d29922; --red: #f85149;
-    --purple: #bc8cff; --cyan: #39d353;
-  }
-  html, body {
-    height: 100%; overflow: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-    background: var(--bg); color: var(--text); line-height: 1.5;
-  }
-  body { display: flex; flex-direction: column; }
-  .header {
-    flex-shrink: 0;
-    padding: 16px 24px; background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; gap: 16px;
-  }
-  .header h1 { font-size: 18px; font-weight: 600; }
-  .header .badge {
-    padding: 2px 10px; border-radius: 12px; font-size: 12px;
-    background: var(--accent); color: var(--bg); font-weight: 600;
-  }
-  .header .lang-badge { background: var(--purple); }
-  .stats {
-    flex-shrink: 0;
-    display: flex; gap: 24px; padding: 12px 24px;
-    background: var(--surface); border-bottom: 1px solid var(--border); font-size: 13px;
-  }
-  .stat { display: flex; align-items: center; gap: 6px; }
-  .stat-value { font-weight: 700; color: var(--accent); font-size: 16px; }
-  .stat-label { color: var(--text-dim); }
-  .main { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 320px; }
-  #graph { background: var(--bg); border-right: 1px solid var(--border); height: 100%; }
-  .sidebar { background: var(--surface); overflow-y: auto; height: 100%; }
-  .sidebar-section { padding: 12px 16px; border-bottom: 1px solid var(--border); }
-  .sidebar-section h3 {
-    font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
-    color: var(--text-dim); margin-bottom: 8px;
-  }
-  .node-detail { display: none; }
-  .node-detail.active { display: block; }
-  .node-name { font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
-  .node-meta { font-size: 12px; color: var(--text-dim); margin-bottom: 8px; }
-  .mentions-list { list-style: none; max-height: 200px; overflow-y: auto; }
-  .mentions-list li { padding: 4px 0; font-size: 12px; border-bottom: 1px solid var(--border); }
-  .mention-time { color: var(--green); font-family: monospace; margin-right: 6px; }
-  .mention-src {
-    padding: 1px 4px; border-radius: 3px; font-size: 10px;
-    background: var(--border); color: var(--text-dim);
-  }
-  .topo-list { list-style: none; counter-reset: topo; }
-  .topo-list li { counter-increment: topo; padding: 3px 0; font-size: 13px; cursor: pointer; }
-  .topo-list li:hover { color: var(--accent); }
-  .topo-list li::before {
-    content: counter(topo) "."; color: var(--text-dim);
-    margin-right: 8px; font-size: 11px; font-family: monospace;
-  }
-  .legend-item { display: flex; align-items: center; gap: 8px; padding: 2px 0; font-size: 12px; }
-  .legend-line { width: 24px; height: 2px; border-radius: 1px; }
-  .timeline { display: flex; gap: 1px; height: 20px; margin-top: 6px; }
-  .timeline-bar {
-    flex: 1; border-radius: 2px; min-width: 3px; position: relative; cursor: pointer;
-  }
-  .timeline-bar:hover::after {
-    content: attr(data-tip); position: absolute; bottom: 100%;
-    left: 50%; transform: translateX(-50%);
-    background: var(--surface); border: 1px solid var(--border);
-    padding: 2px 6px; font-size: 10px; white-space: nowrap; border-radius: 3px;
-  }
-  .no-select { font-size: 13px; color: var(--text-dim); padding: 8px 0; }
-  @media (max-width: 768px) {
-    .main { grid-template-columns: 1fr; grid-template-rows: 60vh 1fr; }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lecture2Graph | https://www.youtube.com/watch?v=XRcC7bAtL3c</title>
+  <script src="https://unpkg.com/vis-network@9.1.6/standalone/umd/vis-network.min.js"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+    :root {
+      --bg: #07131f;
+      --panel: rgba(8, 25, 39, 0.88);
+      --panel-solid: #0d2235;
+      --line: rgba(141, 184, 213, 0.14);
+      --text: #eaf4ff;
+      --muted: #8ca2b8;
+      --accent: #7ce0c3;
+      --accent-2: #ffc670;
+      --accent-3: #89b4ff;
+      --danger: #ff8d8d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124, 224, 195, 0.18), transparent 26%),
+        radial-gradient(circle at top right, rgba(137, 180, 255, 0.12), transparent 24%),
+        linear-gradient(180deg, #04101a 0%, #07131f 60%, #07131f 100%);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+    }
+    a { color: inherit; }
+    .shell {
+      width: min(1440px, calc(100vw - 32px));
+      margin: 16px auto;
+      padding: 16px;
+      display: grid;
+      gap: 16px;
+    }
+    .hero {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 24px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 24px 90px rgba(0, 0, 0, 0.28);
+    }
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(124, 224, 195, 0.08);
+      border: 1px solid rgba(124, 224, 195, 0.18);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 16px 0 10px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.03;
+    }
+    .lede {
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .stats {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .stat {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+    }
+    .stat .value {
+      display: block;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--accent-2);
+    }
+    .stat .label {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(320px, 0.9fr);
+      gap: 16px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 20px 12px;
+    }
+    .panel-title {
+      font-size: 0.94rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .panel-hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    #graph {
+      height: 74vh;
+      min-height: 560px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0)),
+        radial-gradient(circle at 20% 20%, rgba(124,224,195,0.08), transparent 30%),
+        #07131f;
+    }
+    .sidebar {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+      padding: 0 0 16px;
+    }
+    .sidebar-card {
+      padding: 18px 20px;
+      border-top: 1px solid var(--line);
+    }
+    .sidebar-card:first-of-type {
+      border-top: 0;
+    }
+    .pill {
+      display: inline-flex;
+      padding: 5px 10px;
+      margin: 0 6px 6px 0;
+      border-radius: 999px;
+      background: rgba(137, 180, 255, 0.1);
+      color: var(--accent-3);
+      font-size: 0.8rem;
+    }
+    .concept-name {
+      font-size: 1.5rem;
+      margin: 0 0 8px;
+    }
+    .concept-copy {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+    .timestamp-list, .path-list, .transcript-list {
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .timestamp-list a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 16px;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+    }
+    .mono {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--accent);
+      font-size: 0.88rem;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .path-list li {
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--line);
+    }
+    .path-step {
+      color: var(--accent-2);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .path-title {
+      font-size: 1rem;
+      margin-top: 4px;
+    }
+    .path-copy {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .tabs {
+      display: inline-flex;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+    }
+    .tabs button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+    }
+    .tabs button.active {
+      background: rgba(124, 224, 195, 0.12);
+      color: var(--accent);
+    }
+    .transcript-list li {
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .transcript-list strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent-3);
+    }
+    @media (max-width: 1024px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+      #graph {
+        height: 58vh;
+        min-height: 460px;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="header">
-  <h1>Concept DAG</h1>
-  <span class="badge">XRcC7bAtL3c</span>
-  <span class="badge lang-badge">English</span>
-</div>
-<div class="stats">
-  <div class="stat"><span class="stat-value">14</span><span class="stat-label">concepts</span></div>
-  <div class="stat"><span class="stat-value">51</span><span class="stat-label">edges</span></div>
-  <div class="stat"><span class="stat-value">14/14</span><span class="stat-label">topo order</span></div>
-  <div class="stat"><span class="stat-value">80</span><span class="stat-label">segments</span></div>
-</div>
-<div class="main">
-  <div id="graph"></div>
-  <div class="sidebar">
-    <div class="sidebar-section node-detail" id="node-detail">
-      <h3>Selected Concept</h3>
-      <div class="node-name" id="detail-name"></div>
-      <div class="node-meta" id="detail-meta"></div>
-      <h3 style="margin-top:12px">Mentions</h3>
-      <ul class="mentions-list" id="detail-mentions"></ul>
-      <h3 style="margin-top:12px">Connections</h3>
-      <div id="detail-edges" style="font-size:12px"></div>
-    </div>
-    <div class="sidebar-section" id="no-select-panel">
-      <p class="no-select">Click a node to see details</p>
-    </div>
-    <div class="sidebar-section">
-      <h3>Topological Order</h3>
-      <ol class="topo-list" id="topo-list"><li data-nid="tree">Tree</li><li data-nid="node">Node</li><li data-nid="root node">Root Node</li><li data-nid="children">Children</li><li data-nid="left subtree">Left Subtree</li><li data-nid="right subtree">Right Subtree</li><li data-nid="binary tree">Binary Tree</li><li data-nid="dummy node">Dummy Node</li><li data-nid="tree traversal">Tree Traversal</li><li data-nid="traversal technique">Traversal Technique</li><li data-nid="in-order traversal">In-Order Traversal</li><li data-nid="post-order traversal">Post-Order Traversal</li><li data-nid="pre-order traversal">Pre-Order Traversal</li><li data-nid="leaf node">Leaf Node</li></ol>
-    </div>
-    <div class="sidebar-section">
-      <h3>Edge Types</h3>
-      <div class="legend-item"><div class="legend-line" style="border-top:2px solid #d29922;background:none"></div><span>Domain knowledge rule</span></div><div class="legend-item"><div class="legend-line" style="border-top:2px solid #f85149;background:none"></div><span>Causal language pattern</span></div><div class="legend-item"><div class="legend-line" style="border-top:2px dashed #8b949e;background:none"></div><span>Temporal ordering</span></div><div class="legend-item"><div class="legend-line" style="border-top:2px solid #bc8cff;background:none"></div><span>Co-occurrence proximity</span></div>
-    </div>
-    <div class="sidebar-section">
-      <h3>Mention Timeline</h3>
-      <div class="timeline"><div class="timeline-bar" data-tip="00:00-00:25: 6 segs" style="background:var(--accent);height:17px;opacity:0.90;align-self:flex-end"></div><div class="timeline-bar" data-tip="00:25-00:50: 5 segs" style="background:var(--accent);height:14px;opacity:0.80;align-self:flex-end"></div><div class="timeline-bar" data-tip="00:50-01:16: 6 segs" style="background:var(--accent);height:17px;opacity:0.90;align-self:flex-end"></div><div class="timeline-bar" data-tip="01:16-01:41: 6 segs" style="background:var(--accent);height:17px;opacity:0.90;align-self:flex-end"></div><div class="timeline-bar" data-tip="01:41-02:06: 7 segs" style="background:var(--accent);height:20px;opacity:1.00;align-self:flex-end"></div><div class="timeline-bar" data-tip="02:06-02:32: 6 segs" style="background:var(--accent);height:17px;opacity:0.90;align-self:flex-end"></div><div class="timeline-bar" data-tip="02:32-02:57: 7 segs" style="background:var(--accent);height:20px;opacity:1.00;align-self:flex-end"></div><div class="timeline-bar" data-tip="02:57-03:23: 5 segs" style="background:var(--accent);height:14px;opacity:0.80;align-self:flex-end"></div><div class="timeline-bar" data-tip="03:23-03:48: 7 segs" style="background:var(--accent);height:20px;opacity:1.00;align-self:flex-end"></div><div class="timeline-bar" data-tip="03:48-04:13: 5 segs" style="background:var(--accent);height:14px;opacity:0.80;align-self:flex-end"></div><div class="timeline-bar" data-tip="04:13-04:39: 6 segs" style="background:var(--accent);height:17px;opacity:0.90;align-self:flex-end"></div><div class="timeline-bar" data-tip="04:39-05:04: 1 segs" style="background:var(--accent);height:3px;opacity:0.40;align-self:flex-end"></div><div class="timeline-bar" data-tip="05:04-05:30: 2 segs" style="background:var(--accent);height:5px;opacity:0.50;align-self:flex-end"></div><div class="timeline-bar" data-tip="05:30-05:55: 6 segs" style="background:var(--accent);height:17px;opacity:0.90;align-self:flex-end"></div><div class="timeline-bar" data-tip="05:55-06:20: 2 segs" style="background:var(--accent);height:5px;opacity:0.50;align-self:flex-end"></div><div class="timeline-bar" data-tip="06:20-06:46: 3 segs" style="background:var(--accent);height:8px;opacity:0.60;align-self:flex-end"></div></div>
-    </div>
+  <div class="shell">
+    <section class="hero">
+      <div class="eyebrow">
+        <span>Lecture2Graph</span>
+        <span>English</span>
+        <span>RULES</span>
+      </div>
+      <h1>https://www.youtube.com/watch?v=XRcC7bAtL3c</h1>
+      <p class="lede">Understand the lecture instantly: inspect the concept graph, follow the learning path, and jump back to the exact video moments where each idea is introduced.</p>
+      <div class="stats">
+        <div class="stat"><span class="value">16</span><span class="label">Concepts</span></div>
+        <div class="stat"><span class="value">33</span><span class="label">Dependencies</span></div>
+        <div class="stat"><span class="value">16</span><span class="label">Learning steps</span></div>
+        <div class="stat"><span class="value">93</span><span class="label">Transcript segments</span></div>
+      </div>
+    </section>
+    <section class="workspace">
+      <article class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Interactive Concept Graph</div>
+          <div class="panel-hint">Pan, zoom, and click a node to highlight dependencies.</div>
+        </div>
+        <div id="graph"></div>
+      </article>
+      <aside class="panel sidebar">
+        <div class="sidebar-card">
+          <div class="panel-title">Selected Concept</div>
+          <h2 class="concept-name" id="concept-name">Pick a node</h2>
+          <p class="concept-copy" id="concept-description">The sidebar will show the concept summary, timestamps, prerequisites, and dependents.</p>
+          <div class="row" id="concept-badges"></div>
+        </div>
+        <div class="sidebar-card">
+          <div class="panel-title">Timestamps</div>
+          <ul class="timestamp-list" id="timestamp-list"></ul>
+        </div>
+        <div class="sidebar-card">
+          <div class="panel-title">Connections</div>
+          <div class="concept-copy" id="connections-copy">Select a concept to inspect its graph neighborhood.</div>
+        </div>
+        <div class="sidebar-card">
+          <div class="panel-title">Learning Path</div>
+          <ol class="path-list" id="learning-path"></ol>
+        </div>
+        <div class="sidebar-card">
+          <div class="panel-header" style="padding:0 0 12px">
+            <div class="panel-title">Transcripts</div>
+            <div class="tabs">
+              <button id="tab-translated" class="active">Translated</button>
+              <button id="tab-original">Original</button>
+            </div>
+          </div>
+          <ul class="transcript-list" id="transcript-list"></ul>
+        </div>
+      </aside>
+    </section>
   </div>
-</div>
-<script>
-const graphData = {"nodes": [{"id": "pre-order traversal", "label": "Pre-Order Traversal", "color": "#3fb950", "border": "#2ea043"}, {"id": "root node", "label": "Root Node", "color": "#3fb950", "border": "#2ea043"}, {"id": "tree", "label": "Tree", "color": "#3fb950", "border": "#2ea043"}, {"id": "tree traversal", "label": "Tree Traversal", "color": "#d29922", "border": "#9e6a03"}, {"id": "in-order traversal", "label": "In-Order Traversal", "color": "#3fb950", "border": "#2ea043"}, {"id": "post-order traversal", "label": "Post-Order Traversal", "color": "#3fb950", "border": "#2ea043"}, {"id": "left subtree", "label": "Left Subtree", "color": "#3fb950", "border": "#2ea043"}, {"id": "node", "label": "Node", "color": "#3fb950", "border": "#2ea043"}, {"id": "right subtree", "label": "Right Subtree", "color": "#3fb950", "border": "#2ea043"}, {"id": "traversal technique", "label": "Traversal Technique", "color": "#58a6ff", "border": "#388bfd"}, {"id": "binary tree", "label": "Binary Tree", "color": "#d29922", "border": "#9e6a03"}, {"id": "children", "label": "Children", "color": "#58a6ff", "border": "#388bfd"}, {"id": "leaf node", "label": "Leaf Node", "color": "#d29922", "border": "#9e6a03"}, {"id": "dummy node", "label": "Dummy Node", "color": "#d29922", "border": "#9e6a03"}], "edges": [{"from": "tree", "to": "binary tree", "type": "is_prerequisite_for", "rule": ""}, {"from": "tree", "to": "tree traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "binary tree", "to": "tree traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "node", "to": "root node", "type": "is_prerequisite_for", "rule": ""}, {"from": "node", "to": "leaf node", "type": "is_prerequisite_for", "rule": ""}, {"from": "root node", "to": "tree traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "children", "to": "left subtree", "type": "is_prerequisite_for", "rule": ""}, {"from": "children", "to": "right subtree", "type": "is_prerequisite_for", "rule": ""}, {"from": "tree traversal", "to": "pre-order traversal", "type": "refines", "rule": ""}, {"from": "tree traversal", "to": "in-order traversal", "type": "refines", "rule": ""}, {"from": "tree traversal", "to": "post-order traversal", "type": "refines", "rule": ""}, {"from": "traversal technique", "to": "pre-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "traversal technique", "to": "in-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "traversal technique", "to": "post-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "left subtree", "to": "pre-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "right subtree", "to": "pre-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "left subtree", "to": "in-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "right subtree", "to": "in-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "left subtree", "to": "post-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "right subtree", "to": "post-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "dummy node", "to": "traversal technique", "type": "is_part_of", "rule": ""}, {"from": "root node", "to": "right subtree", "type": "is_prerequisite_for", "rule": ""}, {"from": "root node", "to": "left subtree", "type": "is_prerequisite_for", "rule": ""}, {"from": "node", "to": "right subtree", "type": "is_prerequisite_for", "rule": ""}, {"from": "node", "to": "left subtree", "type": "is_prerequisite_for", "rule": ""}, {"from": "root node", "to": "pre-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "node", "to": "pre-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "root node", "to": "in-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "root node", "to": "post-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "node", "to": "post-order traversal", "type": "is_prerequisite_for", "rule": ""}, {"from": "tree", "to": "node", "type": "is_prerequisite_for", "rule": ""}, {"from": "pre-order traversal", "to": "leaf node", "type": "temporal_precedence", "rule": ""}, {"from": "root node", "to": "traversal technique", "type": "temporal_precedence", "rule": ""}, {"from": "root node", "to": "binary tree", "type": "temporal_precedence", "rule": ""}, {"from": "root node", "to": "children", "type": "temporal_precedence", "rule": ""}, {"from": "tree", "to": "traversal technique", "type": "temporal_precedence", "rule": ""}, {"from": "tree", "to": "children", "type": "temporal_precedence", "rule": ""}, {"from": "tree", "to": "dummy node", "type": "temporal_precedence", "rule": ""}, {"from": "tree traversal", "to": "traversal technique", "type": "temporal_precedence", "rule": ""}, {"from": "tree traversal", "to": "leaf node", "type": "temporal_precedence", "rule": ""}, {"from": "in-order traversal", "to": "leaf node", "type": "temporal_precedence", "rule": ""}, {"from": "post-order traversal", "to": "leaf node", "type": "temporal_precedence", "rule": ""}, {"from": "left subtree", "to": "traversal technique", "type": "temporal_precedence", "rule": ""}, {"from": "left subtree", "to": "binary tree", "type": "temporal_precedence", "rule": ""}, {"from": "left subtree", "to": "leaf node", "type": "temporal_precedence", "rule": ""}, {"from": "node", "to": "traversal technique", "type": "temporal_precedence", "rule": ""}, {"from": "node", "to": "binary tree", "type": "temporal_precedence", "rule": ""}, {"from": "node", "to": "children", "type": "temporal_precedence", "rule": ""}, {"from": "right subtree", "to": "binary tree", "type": "temporal_precedence", "rule": ""}, {"from": "right subtree", "to": "leaf node", "type": "temporal_precedence", "rule": ""}, {"from": "right subtree", "to": "dummy node", "type": "temporal_precedence", "rule": ""}]};
-const conceptMeta = {"pre-order traversal": {"label": "Pre-Order Traversal", "mentions": 13, "first_seen": "00:00", "mention_list": [{"time": "00:00", "source": "?", "text": ""}, {"time": "00:06", "source": "?", "text": ""}, {"time": "00:12", "source": "?", "text": ""}, {"time": "00:36", "source": "?", "text": ""}, {"time": "00:43", "source": "?", "text": ""}, {"time": "02:38", "source": "?", "text": ""}, {"time": "02:42", "source": "?", "text": ""}, {"time": "03:06", "source": "?", "text": ""}, {"time": "03:19", "source": "?", "text": ""}, {"time": "03:24", "source": "?", "text": ""}, {"time": "03:56", "source": "?", "text": ""}, {"time": "04:04", "source": "?", "text": ""}, {"time": "04:26", "source": "?", "text": ""}], "edges": ["tree traversal \u2192 this (refines)", "traversal technique \u2192 this (is_prerequisite_for)", "left subtree \u2192 this (is_prerequisite_for)", "right subtree \u2192 this (is_prerequisite_for)", "root node \u2192 this (is_prerequisite_for)", "node \u2192 this (is_prerequisite_for)", "\u2192 leaf node (temporal_precedence)"]}, "root node": {"label": "Root Node", "mentions": 34, "first_seen": "00:00", "mention_list": [{"time": "00:00", "source": "?", "text": ""}, {"time": "00:12", "source": "?", "text": ""}, {"time": "00:18", "source": "?", "text": ""}, {"time": "00:22", "source": "?", "text": ""}, {"time": "00:31", "source": "?", "text": ""}, {"time": "00:36", "source": "?", "text": ""}, {"time": "00:45", "source": "?", "text": ""}, {"time": "00:51", "source": "?", "text": ""}, {"time": "00:54", "source": "?", "text": ""}, {"time": "01:00", "source": "?", "text": ""}, {"time": "01:14", "source": "?", "text": ""}, {"time": "01:29", "source": "?", "text": ""}, {"time": "01:45", "source": "?", "text": ""}, {"time": "01:58", "source": "?", "text": ""}, {"time": "02:13", "source": "?", "text": ""}, {"time": "02:29", "source": "?", "text": ""}, {"time": "02:32", "source": "?", "text": ""}, {"time": "02:34", "source": "?", "text": ""}, {"time": "02:38", "source": "?", "text": ""}, {"time": "02:50", "source": "?", "text": ""}], "edges": ["node \u2192 this (is_prerequisite_for)", "\u2192 tree traversal (is_prerequisite_for)", "\u2192 right subtree (is_prerequisite_for)", "\u2192 left subtree (is_prerequisite_for)", "\u2192 pre-order traversal (is_prerequisite_for)", "\u2192 in-order traversal (is_prerequisite_for)", "\u2192 post-order traversal (is_prerequisite_for)", "\u2192 traversal technique (temporal_precedence)", "\u2192 binary tree (temporal_precedence)", "\u2192 children (temporal_precedence)"]}, "tree": {"label": "Tree", "mentions": 12, "first_seen": "00:03", "mention_list": [{"time": "00:03", "source": "?", "text": ""}, {"time": "00:06", "source": "?", "text": ""}, {"time": "00:29", "source": "?", "text": ""}, {"time": "00:31", "source": "?", "text": ""}, {"time": "01:00", "source": "?", "text": ""}, {"time": "01:06", "source": "?", "text": ""}, {"time": "01:10", "source": "?", "text": ""}, {"time": "01:21", "source": "?", "text": ""}, {"time": "01:35", "source": "?", "text": ""}, {"time": "01:39", "source": "?", "text": ""}, {"time": "01:45", "source": "?", "text": ""}, {"time": "02:23", "source": "?", "text": ""}], "edges": ["\u2192 binary tree (is_prerequisite_for)", "\u2192 tree traversal (is_prerequisite_for)", "\u2192 node (is_prerequisite_for)", "\u2192 traversal technique (temporal_precedence)", "\u2192 children (temporal_precedence)", "\u2192 dummy node (temporal_precedence)"]}, "tree traversal": {"label": "Tree Traversal", "mentions": 2, "first_seen": "00:03", "mention_list": [{"time": "00:03", "source": "?", "text": ""}, {"time": "00:06", "source": "?", "text": ""}], "edges": ["tree \u2192 this (is_prerequisite_for)", "binary tree \u2192 this (is_prerequisite_for)", "root node \u2192 this (is_prerequisite_for)", "\u2192 pre-order traversal (refines)", "\u2192 in-order traversal (refines)", "\u2192 post-order traversal (refines)", "\u2192 traversal technique (temporal_precedence)", "\u2192 leaf node (temporal_precedence)"]}, "in-order traversal": {"label": "In-Order Traversal", "mentions": 10, "first_seen": "00:06", "mention_list": [{"time": "00:06", "source": "?", "text": ""}, {"time": "00:18", "source": "?", "text": ""}, {"time": "00:45", "source": "?", "text": ""}, {"time": "02:38", "source": "?", "text": ""}, {"time": "02:47", "source": "?", "text": ""}, {"time": "03:32", "source": "?", "text": ""}, {"time": "03:51", "source": "?", "text": ""}, {"time": "04:09", "source": "?", "text": ""}, {"time": "04:22", "source": "?", "text": ""}, {"time": "04:30", "source": "?", "text": ""}], "edges": ["tree traversal \u2192 this (refines)", "traversal technique \u2192 this (is_prerequisite_for)", "left subtree \u2192 this (is_prerequisite_for)", "right subtree \u2192 this (is_prerequisite_for)", "root node \u2192 this (is_prerequisite_for)", "\u2192 leaf node (temporal_precedence)"]}, "post-order traversal": {"label": "Post-Order Traversal", "mentions": 17, "first_seen": "00:06", "mention_list": [{"time": "00:06", "source": "?", "text": ""}, {"time": "00:22", "source": "?", "text": ""}, {"time": "00:54", "source": "?", "text": ""}, {"time": "02:13", "source": "?", "text": ""}, {"time": "02:38", "source": "?", "text": ""}, {"time": "02:47", "source": "?", "text": ""}, {"time": "02:50", "source": "?", "text": ""}, {"time": "03:06", "source": "?", "text": ""}, {"time": "03:29", "source": "?", "text": ""}, {"time": "03:40", "source": "?", "text": ""}, {"time": "03:48", "source": "?", "text": ""}, {"time": "04:00", "source": "?", "text": ""}, {"time": "04:14", "source": "?", "text": ""}, {"time": "04:22", "source": "?", "text": ""}, {"time": "04:35", "source": "?", "text": ""}, {"time": "05:50", "source": "?", "text": ""}, {"time": "06:28", "source": "?", "text": ""}], "edges": ["tree traversal \u2192 this (refines)", "traversal technique \u2192 this (is_prerequisite_for)", "left subtree \u2192 this (is_prerequisite_for)", "right subtree \u2192 this (is_prerequisite_for)", "root node \u2192 this (is_prerequisite_for)", "node \u2192 this (is_prerequisite_for)", "\u2192 leaf node (temporal_precedence)"]}, "left subtree": {"label": "Left Subtree", "mentions": 29, "first_seen": "00:12", "mention_list": [{"time": "00:12", "source": "?", "text": ""}, {"time": "00:18", "source": "?", "text": ""}, {"time": "00:36", "source": "?", "text": ""}, {"time": "00:51", "source": "?", "text": ""}, {"time": "00:54", "source": "?", "text": ""}, {"time": "01:06", "source": "?", "text": ""}, {"time": "01:18", "source": "?", "text": ""}, {"time": "01:29", "source": "?", "text": ""}, {"time": "01:45", "source": "?", "text": ""}, {"time": "01:58", "source": "?", "text": ""}, {"time": "02:13", "source": "?", "text": ""}, {"time": "02:29", "source": "?", "text": ""}, {"time": "02:42", "source": "?", "text": ""}, {"time": "02:54", "source": "?", "text": ""}, {"time": "03:06", "source": "?", "text": ""}, {"time": "03:16", "source": "?", "text": ""}, {"time": "03:19", "source": "?", "text": ""}, {"time": "03:32", "source": "?", "text": ""}, {"time": "03:44", "source": "?", "text": ""}, {"time": "03:56", "source": "?", "text": ""}], "edges": ["children \u2192 this (is_prerequisite_for)", "\u2192 pre-order traversal (is_prerequisite_for)", "\u2192 in-order traversal (is_prerequisite_for)", "\u2192 post-order traversal (is_prerequisite_for)", "root node \u2192 this (is_prerequisite_for)", "node \u2192 this (is_prerequisite_for)", "\u2192 traversal technique (temporal_precedence)", "\u2192 binary tree (temporal_precedence)", "\u2192 leaf node (temporal_precedence)"]}, "node": {"label": "Node", "mentions": 11, "first_seen": "00:12", "mention_list": [{"time": "00:12", "source": "?", "text": ""}, {"time": "00:22", "source": "?", "text": ""}, {"time": "00:29", "source": "?", "text": ""}, {"time": "00:45", "source": "?", "text": ""}, {"time": "01:54", "source": "?", "text": ""}, {"time": "02:29", "source": "?", "text": ""}, {"time": "02:32", "source": "?", "text": ""}, {"time": "02:34", "source": "?", "text": ""}, {"time": "02:42", "source": "?", "text": ""}, {"time": "02:47", "source": "?", "text": ""}, {"time": "02:50", "source": "?", "text": ""}], "edges": ["\u2192 root node (is_prerequisite_for)", "\u2192 leaf node (is_prerequisite_for)", "\u2192 right subtree (is_prerequisite_for)", "\u2192 left subtree (is_prerequisite_for)", "\u2192 pre-order traversal (is_prerequisite_for)", "\u2192 post-order traversal (is_prerequisite_for)", "tree \u2192 this (is_prerequisite_for)", "\u2192 traversal technique (temporal_precedence)", "\u2192 binary tree (temporal_precedence)", "\u2192 children (temporal_precedence)"]}, "right subtree": {"label": "Right Subtree", "mentions": 13, "first_seen": "00:22", "mention_list": [{"time": "00:22", "source": "?", "text": ""}, {"time": "00:51", "source": "?", "text": ""}, {"time": "00:54", "source": "?", "text": ""}, {"time": "01:29", "source": "?", "text": ""}, {"time": "02:04", "source": "?", "text": ""}, {"time": "02:16", "source": "?", "text": ""}, {"time": "02:34", "source": "?", "text": ""}, {"time": "03:48", "source": "?", "text": ""}, {"time": "04:04", "source": "?", "text": ""}, {"time": "04:35", "source": "?", "text": ""}, {"time": "05:17", "source": "?", "text": ""}, {"time": "05:50", "source": "?", "text": ""}, {"time": "06:31", "source": "?", "text": ""}], "edges": ["children \u2192 this (is_prerequisite_for)", "\u2192 pre-order traversal (is_prerequisite_for)", "\u2192 in-order traversal (is_prerequisite_for)", "\u2192 post-order traversal (is_prerequisite_for)", "root node \u2192 this (is_prerequisite_for)", "node \u2192 this (is_prerequisite_for)", "\u2192 binary tree (temporal_precedence)", "\u2192 leaf node (temporal_precedence)", "\u2192 dummy node (temporal_precedence)"]}, "traversal technique": {"label": "Traversal Technique", "mentions": 4, "first_seen": "01:18", "mention_list": [{"time": "01:18", "source": "?", "text": ""}, {"time": "01:21", "source": "?", "text": ""}, {"time": "01:29", "source": "?", "text": ""}, {"time": "02:23", "source": "?", "text": ""}], "edges": ["\u2192 pre-order traversal (is_prerequisite_for)", "\u2192 in-order traversal (is_prerequisite_for)", "\u2192 post-order traversal (is_prerequisite_for)", "dummy node \u2192 this (is_part_of)", "root node \u2192 this (temporal_precedence)", "tree \u2192 this (temporal_precedence)", "tree traversal \u2192 this (temporal_precedence)", "left subtree \u2192 this (temporal_precedence)", "node \u2192 this (temporal_precedence)"]}, "binary tree": {"label": "Binary Tree", "mentions": 2, "first_seen": "01:39", "mention_list": [{"time": "01:39", "source": "?", "text": ""}, {"time": "01:45", "source": "?", "text": ""}], "edges": ["tree \u2192 this (is_prerequisite_for)", "\u2192 tree traversal (is_prerequisite_for)", "root node \u2192 this (temporal_precedence)", "left subtree \u2192 this (temporal_precedence)", "node \u2192 this (temporal_precedence)", "right subtree \u2192 this (temporal_precedence)"]}, "children": {"label": "Children", "mentions": 7, "first_seen": "01:45", "mention_list": [{"time": "01:45", "source": "?", "text": ""}, {"time": "01:50", "source": "?", "text": ""}, {"time": "01:52", "source": "?", "text": ""}, {"time": "01:54", "source": "?", "text": ""}, {"time": "01:58", "source": "?", "text": ""}, {"time": "02:00", "source": "?", "text": ""}, {"time": "02:16", "source": "?", "text": ""}], "edges": ["\u2192 left subtree (is_prerequisite_for)", "\u2192 right subtree (is_prerequisite_for)", "root node \u2192 this (temporal_precedence)", "tree \u2192 this (temporal_precedence)", "node \u2192 this (temporal_precedence)"]}, "leaf node": {"label": "Leaf Node", "mentions": 2, "first_seen": "01:54", "mention_list": [{"time": "01:54", "source": "?", "text": ""}, {"time": "01:58", "source": "?", "text": ""}], "edges": ["node \u2192 this (is_prerequisite_for)", "pre-order traversal \u2192 this (temporal_precedence)", "tree traversal \u2192 this (temporal_precedence)", "in-order traversal \u2192 this (temporal_precedence)", "post-order traversal \u2192 this (temporal_precedence)", "left subtree \u2192 this (temporal_precedence)", "right subtree \u2192 this (temporal_precedence)"]}, "dummy node": {"label": "Dummy Node", "mentions": 2, "first_seen": "02:00", "mention_list": [{"time": "02:00", "source": "?", "text": ""}, {"time": "02:16", "source": "?", "text": ""}], "edges": ["\u2192 traversal technique (is_part_of)", "tree \u2192 this (temporal_precedence)", "right subtree \u2192 this (temporal_precedence)"]}};
-
-window.addEventListener('load', function() {
-  const nodes = new vis.DataSet(graphData.nodes.map(n => ({
-    id: n.id, label: n.label,
-    color: { background: n.color || '#58a6ff', border: n.border || '#388bfd',
-             highlight: { background: '#79c0ff', border: '#58a6ff' } },
-    font: { color: '#e6edf3', size: 14, face: '-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif' },
-    shape: 'box', margin: { top: 10, bottom: 10, left: 14, right: 14 },
-    borderWidth: 2, borderWidthSelected: 3,
-    shadow: { enabled: true, color: 'rgba(0,0,0,0.3)', size: 6, x: 2, y: 2 },
-  })));
-  const edgeColors = {'domain_rule':'#d29922','temporal':'#8b949e','causal':'#f85149','co-occurrence':'#bc8cff'};
-  const edges = new vis.DataSet(graphData.edges.map((e, i) => ({
-    id: i, from: e.from, to: e.to, arrows: { to: { enabled: true, scaleFactor: 0.7 } },
-    color: { color: edgeColors[e.type] || '#30363d', highlight: '#58a6ff' },
-    width: e.type === 'domain_rule' ? 2.5 : 1.5,
-    dashes: e.type === 'temporal',
-    smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 },
-    title: e.type + (e.rule ? ' (' + e.rule + ')' : ''),
-  })));
-
-  const container = document.getElementById('graph');
-  const network = new vis.Network(container, { nodes, edges }, {
-    layout: {
-      hierarchical: {
-        enabled: true,
-        direction: 'UD',
-        sortMethod: 'directed',
-        levelSeparation: 100,
-        nodeSpacing: 170,
-        treeSpacing: 200,
-        blockShifting: true,
-        edgeMinimization: true,
-        parentCentralization: true,
-      }
-    },
-    physics: { enabled: false },
-    interaction: {
-      dragNodes: false,
-      dragView: false,
-      zoomView: false,
-      selectable: true,
-      hover: true,
-      tooltipDelay: 100,
-    },
-  });
-
-  network.once('afterDrawing', function() {
-    network.fit({ animation: false });
-  });
-
-  network.on('click', function(params) {
-    const detail = document.getElementById('node-detail');
-    const noSelect = document.getElementById('no-select-panel');
-    if (params.nodes.length > 0) {
-      const nid = params.nodes[0];
-      const meta = conceptMeta[nid];
-      if (!meta) return;
-      document.getElementById('detail-name').textContent = meta.label;
-      document.getElementById('detail-meta').textContent =
-        meta.mentions + ' mentions · first at ' + meta.first_seen;
-      const ml = document.getElementById('detail-mentions');
-      ml.innerHTML = (meta.mention_list || []).map(m =>
-        '<li><span class="mention-time">' + m.time + '</span>' +
-        '<span class="mention-src">' + m.source + '</span> ' + m.text + '</li>'
-      ).join('');
-      const el = document.getElementById('detail-edges');
-      el.innerHTML = (meta.edges || []).map(e =>
-        '<div style="padding:2px 0">' + e + '</div>'
-      ).join('');
-      detail.classList.add('active');
-      noSelect.style.display = 'none';
-    } else {
-      detail.classList.remove('active');
-      noSelect.style.display = 'block';
-    }
-  });
-
-  document.querySelectorAll('.topo-list li').forEach(li => {
-    li.addEventListener('click', () => {
-      const nid = li.dataset.nid;
-      if (nid) { network.selectNodes([nid]); network.focus(nid, {scale:1.2, animation:true}); }
+  <script>
+    const payload = {"video": {"video_id": "XRcC7bAtL3c", "watch_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c", "source_language": "en", "source_language_label": "English", "engine": "rules", "generated_at": "2026-05-19T06:17:31.956667"}, "stats": {"concept_count": 16, "edge_count": 33, "learning_path_length": 16, "transcript_segment_count": 93, "topological_coverage": "16/16"}, "transcripts": {"original": [{"start": 0.0, "end": 3.0, "text": "Hello friends, welcome to gait's measure.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 3.0, "end": 6.0, "text": "In this video we are going to discuss tree traversal techniques.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 6.0, "end": 12.0, "text": "So we have tree traversal techniques pre-order, in-order and post-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 12.0, "end": 18.0, "text": "Pre-order means first write root node, then left node, then right.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 18.0, "end": 22.0, "text": "In-order means root comes in between left and right.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 22.0, "end": 28.0, "text": "Post-order means first write right and then root node.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 29.0, "end": 31.0, "text": "Node means vertex of tree.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 31.0, "end": 36.0, "text": "So here if we see x, y, z, so x, y, z is a very simple graph, simple tree.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 36.0, "end": 43.0, "text": "So if we see root in pre-order case, x, y, z.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 43.0, "end": 45.0, "text": "So this will be the pre-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 45.0, "end": 51.0, "text": "Where we write root first, in-order means first write left, then write in-between,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 51.0, "end": 54.0, "text": "write root and write right element.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 54.0, "end": 60.0, "text": "And post-order means first left element, then right element and last is root element.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 60.0, "end": 66.0, "text": "So when we have tree very simple, then we know that we have to write it this way.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 66.0, "end": 70.0, "text": "But sometimes in exams we give very complex tree.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 70.0, "end": 74.0, "text": "So if you have very complex tree, then sometimes we make mistake in option.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 74.0, "end": 78.0, "text": "Or we don't know what the exact answer will be.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 78.0, "end": 80.0, "text": "So in this video I am telling you such technique.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 81.0, "end": 89.0, "text": "From this technique any tree, any complex tree, you can get very easy and very short answer.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 89.0, "end": 92.0, "text": "So definitely do this technique in UGC net gate exam.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 92.0, "end": 95.0, "text": "Its question is very common.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 95.0, "end": 99.0, "text": "So if we start here, we have a tree.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 99.0, "end": 104.0, "text": "So in binary tree what we have to do is, whenever you start tree,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 105.0, "end": 110.0, "text": "you ensure that every binary tree means, what is the meaning of every tree's two children.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 110.0, "end": 112.0, "text": "Is everyone's two children there?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 112.0, "end": 114.0, "text": "So see here everyone's two children are there.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 114.0, "end": 118.0, "text": "A is no children, so A is actually leaf node.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 118.0, "end": 120.0, "text": "So leaf has no children.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 120.0, "end": 124.0, "text": "So what you have to do is, make a dummy like this children.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 124.0, "end": 129.0, "text": "Make such CK also, make EK also, make HK also,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 130.0, "end": 133.0, "text": "A is left, A is right, so make A is right.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 133.0, "end": 136.0, "text": "G is left, so make G is left.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 136.0, "end": 143.0, "text": "So in this way you make dummy like this children so that every two children are there.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 143.0, "end": 149.0, "text": "Now after that what you have to do is traversing means, simple you have to go on the whole graph.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 149.0, "end": 152.0, "text": "So always we start with root node.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 152.0, "end": 154.0, "text": "So this is the root node.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 154.0, "end": 158.0, "text": "So when we start with root node, then what you have to do is,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 158.0, "end": 162.0, "text": "pre-order, in-order and post-order will be taken out, it is a simple way.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 162.0, "end": 167.0, "text": "When you are reaching any node for the first time, then it is pre-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 167.0, "end": 170.0, "text": "When you are reaching any node for the second time, in-order,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 170.0, "end": 174.0, "text": "when you are reaching any node for the third time, post-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 174.0, "end": 177.0, "text": "You have to do it in a very simple way, you see F.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 177.0, "end": 182.0, "text": "We have started from here, so as soon as we reach F, obviously we have to do it.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 183.0, "end": 186.0, "text": "So we have reached F, which time? First time we reached F,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 186.0, "end": 191.0, "text": "first time means pre-order, first time means pre-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 191.0, "end": 196.0, "text": "So as soon as we started from F, you have to traverse to the left and right.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 196.0, "end": 199.0, "text": "So in the left side what is the second element? B.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 199.0, "end": 204.0, "text": "So on B you reach for the first time, first time means pre-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 204.0, "end": 209.0, "text": "We come down, A, reach for the first time on A, so in pre-order you write.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 209.0, "end": 212.0, "text": "In A we reach for the first time, in A we have to traverse to the left,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 212.0, "end": 217.0, "text": "so second time we reach A, second time means in-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 217.0, "end": 220.0, "text": "See we have to traverse to the left, again we reach for the third time.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 220.0, "end": 224.0, "text": "First time was A, second time was A, third time was post-order,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 224.0, "end": 228.0, "text": "because third time means post. Now we are going up on B.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 228.0, "end": 231.0, "text": "On B we reached here for the first time, second time we reached here,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 231.0, "end": 236.0, "text": "second time means in-order. Next on D.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 236.0, "end": 240.0, "text": "On D we reached for the first time, so first time means pre-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 240.0, "end": 244.0, "text": "Just like this you have to walk. Next we reach for the first time on C,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 244.0, "end": 249.0, "text": "so pre-order, write. On C we see, we reach for the second time on the round,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 249.0, "end": 254.0, "text": "second time means in-order and from here we reached for the third time on C,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 254.0, "end": 259.0, "text": "third time means post-order. After that we reach for D.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 259.0, "end": 262.0, "text": "On D we reach for the second time, first time we came here and second time here.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 262.0, "end": 266.0, "text": "Second time means in-order of E,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 266.0, "end": 270.0, "text": "first time means pre-order on E.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 270.0, "end": 275.0, "text": "When reached on E for the second time, it means in-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 275.0, "end": 288.0, "text": "Now on E we reach for the third time, first, second and third time.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 288.0, "end": 294.2, "text": "3  \uceec\ub7ec  beispielsweise it is headquarters", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 296.2, "end": 299.44, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 299.44, "end": 301.7, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 301.7, "end": 304.18, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 304.18, "end": 305.54, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 305.54, "end": 306.54, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 306.54, "end": 307.32, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 307.32, "end": 308.22, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 308.22, "end": 309.18, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 309.18, "end": 310.06, "text": "work", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 310.06, "end": 311.34, "text": "work", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 311.42, "end": 313.24, "text": "work", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 313.24, "end": 316.28, "text": "work", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 316.28, "end": 317.22, "text": "work", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 317.22, "end": 327.22, "text": "\u0924\u094b \u0906\u0908 \u092a\u0947 \u092a\u094d\u0930\u0940 \u0905\u0921\u0930 \u092e\u0947\u0902, \u0909\u0938\u0915\u0947 \u0935\u0921\u093c \u0939\u092e \u090f\u091a \u092a\u0947 \u092a\u092c\u0932\u0940 \u092c\u093e\u0930 \u0906\u090f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 327.22, "end": 336.22, "text": "\u092f\u0939\u093e\u092a\u0947 \u0935\u092e \u090f\u091a \u092a\u0947 \u0939\u0940 \u0924\u0941\u0938\u0930\u0940 \u092c\u093e\u0930 \u0906\u090f, \u0914\u0930 \u092f\u0939\u093e\u092a\u0947 \u0935\u092e \u0915\u0947 \u090f\u091a \u092a\u0947 \u0939\u0940 \u0924\u0941\u0938\u0930\u0940 \u092c\u093e\u0930 \u0906\u090f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 337.22, "end": 340.04, "text": "\u0935\u0902\u0915\u0930\u094d\u0926 \u0938\u0947 \u0930\u0939\u0940 \u0938\u0947 \u0939\u092e \u0935\u092e \u0915\u0947 \u0905\u0908 \u092a\u0947 \u0935\u092e \u0921\u0942\u0938\u0930\u0940 \u092c\u093e\u0930 \u0906\u090f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 340.14000000000004, "end": 344.04, "text": "\u092e\u0924\u0932\u092a \u0906\u0908 \u092c\u091a\u0928 \u091c\u093e\u090f\u0917\u093e \u0907\u0928 \u0905\u0921\u0930 \u0926\u0942\u0924,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 344.14000000000004, "end": 347.04, "text": "\u0926\u093f\u0928 \u0906\u090f \u092a\u0947 \u0939\u093f \u0939\u092e \u0935\u092e \u0915\u0947 \u0924\u0940\u0938\u0930\u0940 \u092c\u093e\u0930 \u0906\u090f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 347.14000000000004, "end": 350.04, "text": "\u0924\u094b \u0906\u0908 \u092c\u0940 \u0926\u0947 \u092a\u093e\u0930\u091f \u0905\u092a \u092a\u0942\u0938\u094d\u0925\ufffd Jord.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 350.14000000000004, "end": 354.04, "text": "\u0924\u0947\u0928 \u0925\u0947 \u0917\u093f\u092a\u0947 \u0939\u092e \u0935\u094c\u092e \u0915\u0947 \u0924\u0941 \u092c\u093e\u0930\u093e \u0906\u090f \u092b\u093f\u0930 \u0925\u0940\u0938\u0930\u0940 \u092c\u093e\u0930 \u0906\u090f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 354.04, "end": 370.42, "text": "\u0924\u094b \u091c\u0940 \u092a my\u015bl\u0119 mein hasta g gayi", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 370.42, "end": 372.52000000000004, "text": "\u0905\u0930 already iOS", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 380.02000000000004, "end": 383.36, "text": "\u092a Guild", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 383.36, "end": 388.36, "text": "\u092f\u0947 \u0930\u0939\u0940\u091f \u0935\u093e\u0932 \u0939\u0948, \u0924\u094b \u092f\u0947 \u092c\u0939\u0941\u0924 \u092f\u0947 \u0938\u093f\u092e\u094d\u092a\u0932 \u0938\u0940 \u091f\u0947\u0915\u0928\u0940 \u0915\u0947 \u0914\u0930 \u092f\u0947 \u0939\u092e\u0947\u0936\u093e \u0915\u093e\u092e \u092f\u093e\u092c \u0930\u0939\u0947\u0917\u0940 \u0906\u092a\u0915\u094b", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 388.36, "end": 391.36, "text": "\u0935\u093f\u0926\u0928 \u092b\u093e\u0901 \u092e\u093f\u0928\u0947\u091f\u094d\u0938, \u0935\u093f\u0926\u0928 \u092b\u093e\u0901 \u092e\u093f\u0928\u0947\u091f\u094d\u0938 \u0906\u092a\u0915\u094b \u092f\u0947 \u091f\u0947\u0915\u0928\u0940\u0915 \u0938\u092e\u091d\u093e \u092f\u093e\u0917\u0940", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 391.36, "end": 406.2, "text": "\u0914\u0930 \u0906\u092a\u0915\u094b \u092f\u0947 \u092a\u094d\u091a\u093e\u0901\u0937\u0928 \u0906\u0924\u093e \u0924\u0941\u092b \u0938\u0947 \u0924\u0941\u092b \u092d\u0940 \u0905\u092a \u0935\u093f\u0926\u0928 \u0906\u092a \u092e\u093f\u0928\u0947\u091f\u094d\u0938 \u0915\u094b \u0938\u093e\u0901\u0932 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u094b, \u0924\u094b \u092a\u094d\u0932\u0940\u091c \u0917\u093e\u090f\u091c \u0907\u0938\u0915\u094b \u0905\u091a\u094d\u091b\u0947 \u0938\u0947 \u0915\u0930\u0915\u0947 \u091c\u093e\u0928\u093e, \u0907\u0928 \u0915\u0947 \u0907\u0938 \u0928\u0939\u0940\u0902 \u0938\u092e\u091d\u093e \u0930\u0939\u0940 \u0924\u094b \u0906\u092a \u092a\u094d\u0932\u0940\u091c \u0926\u0941\u092c\u093e\u0930\u093e\u0938 \u0907\u0938 \u0915\u094b \u091a\u0947\u0915 \u0915\u0930 \u0932\u094b, \u0924\u093e\u0916\u0940 \u0906\u092a\u0915\u094b \u092f\u0947 \u091f\u0947\u0915\u0928\u0940\u0915 \u0905\u091a\u094d\u091b\u0947 \u0938\u0947 \u092a\u0924\u093e \u0932", "source": "unknown", "lang": "en", "source_lang": "en"}], "translated": [{"start": 0.0, "end": 3.0, "text": "Hello friends, welcome to gait's measure.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 3.0, "end": 6.0, "text": "In this video we are going to discuss tree traversal techniques.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 6.0, "end": 12.0, "text": "So we have tree traversal techniques pre-order, in-order and post-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 12.0, "end": 18.0, "text": "Pre-order means first write root node, then left node, then right.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 18.0, "end": 22.0, "text": "In-order means root comes in between left and right.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 22.0, "end": 28.0, "text": "Post-order means first write right and then root node.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 29.0, "end": 31.0, "text": "Node means vertex of tree.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 31.0, "end": 36.0, "text": "So here if we see x, y, z, so x, y, z is a very simple graph, simple tree.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 36.0, "end": 43.0, "text": "So if we see root in pre-order case, x, y, z.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 43.0, "end": 45.0, "text": "So this will be the pre-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 45.0, "end": 51.0, "text": "Where we write root first, in-order means first write left, then write in-between,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 51.0, "end": 54.0, "text": "write root and write right element.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 54.0, "end": 60.0, "text": "And post-order means first left element, then right element and last is root element.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 60.0, "end": 66.0, "text": "So when we have tree very simple, then we know that we have to write it this way.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 66.0, "end": 70.0, "text": "But sometimes in exams we give very complex tree.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 70.0, "end": 74.0, "text": "So if you have very complex tree, then sometimes we make mistake in option.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 74.0, "end": 78.0, "text": "Or we don't know what the exact answer will be.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 78.0, "end": 80.0, "text": "So in this video I am telling you such technique.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 81.0, "end": 89.0, "text": "From this technique any tree, any complex tree, you can get very easy and very short answer.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 89.0, "end": 92.0, "text": "So definitely do this technique in UGC net gate exam.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 92.0, "end": 95.0, "text": "Its question is very common.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 95.0, "end": 99.0, "text": "So if we start here, we have a tree.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 99.0, "end": 104.0, "text": "So in binary tree what we have to do is, whenever you start tree,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 105.0, "end": 110.0, "text": "you ensure that every binary tree means, what is the meaning of every tree's two children.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 110.0, "end": 112.0, "text": "Is everyone's two children there?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 112.0, "end": 114.0, "text": "So see here everyone's two children are there.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 114.0, "end": 118.0, "text": "A is no children, so A is actually leaf node.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 118.0, "end": 120.0, "text": "So leaf has no children.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 120.0, "end": 124.0, "text": "So what you have to do is, make a dummy like this children.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 124.0, "end": 129.0, "text": "Make such CK also, make EK also, make HK also,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 130.0, "end": 133.0, "text": "A is left, A is right, so make A is right.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 133.0, "end": 136.0, "text": "G is left, so make G is left.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 136.0, "end": 143.0, "text": "So in this way you make dummy like this children so that every two children are there.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 143.0, "end": 149.0, "text": "Now after that what you have to do is traversing means, simple you have to go on the whole graph.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 149.0, "end": 152.0, "text": "So always we start with root node.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 152.0, "end": 154.0, "text": "So this is the root node.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 154.0, "end": 158.0, "text": "So when we start with root node, then what you have to do is,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 158.0, "end": 162.0, "text": "pre-order, in-order and post-order will be taken out, it is a simple way.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 162.0, "end": 167.0, "text": "When you are reaching any node for the first time, then it is pre-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 167.0, "end": 170.0, "text": "When you are reaching any node for the second time, in-order,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 170.0, "end": 174.0, "text": "when you are reaching any node for the third time, post-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 174.0, "end": 177.0, "text": "You have to do it in a very simple way, you see F.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 177.0, "end": 182.0, "text": "We have started from here, so as soon as we reach F, obviously we have to do it.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 183.0, "end": 186.0, "text": "So we have reached F, which time? First time we reached F,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 186.0, "end": 191.0, "text": "first time means pre-order, first time means pre-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 191.0, "end": 196.0, "text": "So as soon as we started from F, you have to traverse to the left and right.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 196.0, "end": 199.0, "text": "So in the left side what is the second element? B.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 199.0, "end": 204.0, "text": "So on B you reach for the first time, first time means pre-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 204.0, "end": 209.0, "text": "We come down, A, reach for the first time on A, so in pre-order you write.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 209.0, "end": 212.0, "text": "In A we reach for the first time, in A we have to traverse to the left,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 212.0, "end": 217.0, "text": "so second time we reach A, second time means in-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 217.0, "end": 220.0, "text": "See we have to traverse to the left, again we reach for the third time.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 220.0, "end": 224.0, "text": "First time was A, second time was A, third time was post-order,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 224.0, "end": 228.0, "text": "because third time means post. Now we are going up on B.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 228.0, "end": 231.0, "text": "On B we reached here for the first time, second time we reached here,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 231.0, "end": 236.0, "text": "second time means in-order. Next on D.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 236.0, "end": 240.0, "text": "On D we reached for the first time, so first time means pre-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 240.0, "end": 244.0, "text": "Just like this you have to walk. Next we reach for the first time on C,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 244.0, "end": 249.0, "text": "so pre-order, write. On C we see, we reach for the second time on the round,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 249.0, "end": 254.0, "text": "second time means in-order and from here we reached for the third time on C,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 254.0, "end": 259.0, "text": "third time means post-order. After that we reach for D.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 259.0, "end": 262.0, "text": "On D we reach for the second time, first time we came here and second time here.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 262.0, "end": 266.0, "text": "Second time means in-order of E,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 266.0, "end": 270.0, "text": "first time means pre-order on E.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 270.0, "end": 275.0, "text": "When reached on E for the second time, it means in-order.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 275.0, "end": 288.0, "text": "Now on E we reach for the third time, first, second and third time.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 288.0, "end": 294.2, "text": "3  \uceec\ub7ec  beispielsweise it is headquarters", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 296.2, "end": 299.44, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 299.44, "end": 301.7, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 301.7, "end": 304.18, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 304.18, "end": 305.54, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 305.54, "end": 306.54, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 306.54, "end": 307.32, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 307.32, "end": 308.22, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 308.22, "end": 309.18, "text": "labour", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 309.18, "end": 310.06, "text": "work", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 310.06, "end": 311.34, "text": "work", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 311.42, "end": 313.24, "text": "work", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 313.24, "end": 316.28, "text": "work", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 316.28, "end": 317.22, "text": "work", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 317.22, "end": 327.22, "text": "\u0924\u094b \u0906\u0908 \u092a\u0947 \u092a\u094d\u0930\u0940 \u0905\u0921\u0930 \u092e\u0947\u0902, \u0909\u0938\u0915\u0947 \u0935\u0921\u093c \u0939\u092e \u090f\u091a \u092a\u0947 \u092a\u092c\u0932\u0940 \u092c\u093e\u0930 \u0906\u090f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 327.22, "end": 336.22, "text": "\u092f\u0939\u093e\u092a\u0947 \u0935\u092e \u090f\u091a \u092a\u0947 \u0939\u0940 \u0924\u0941\u0938\u0930\u0940 \u092c\u093e\u0930 \u0906\u090f, \u0914\u0930 \u092f\u0939\u093e\u092a\u0947 \u0935\u092e \u0915\u0947 \u090f\u091a \u092a\u0947 \u0939\u0940 \u0924\u0941\u0938\u0930\u0940 \u092c\u093e\u0930 \u0906\u090f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 337.22, "end": 340.04, "text": "\u0935\u0902\u0915\u0930\u094d\u0926 \u0938\u0947 \u0930\u0939\u0940 \u0938\u0947 \u0939\u092e \u0935\u092e \u0915\u0947 \u0905\u0908 \u092a\u0947 \u0935\u092e \u0921\u0942\u0938\u0930\u0940 \u092c\u093e\u0930 \u0906\u090f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 340.14000000000004, "end": 344.04, "text": "\u092e\u0924\u0932\u092a \u0906\u0908 \u092c\u091a\u0928 \u091c\u093e\u090f\u0917\u093e \u0907\u0928 \u0905\u0921\u0930 \u0926\u0942\u0924,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 344.14000000000004, "end": 347.04, "text": "\u0926\u093f\u0928 \u0906\u090f \u092a\u0947 \u0939\u093f \u0939\u092e \u0935\u092e \u0915\u0947 \u0924\u0940\u0938\u0930\u0940 \u092c\u093e\u0930 \u0906\u090f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 347.14000000000004, "end": 350.04, "text": "\u0924\u094b \u0906\u0908 \u092c\u0940 \u0926\u0947 \u092a\u093e\u0930\u091f \u0905\u092a \u092a\u0942\u0938\u094d\u0925\ufffd Jord.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 350.14000000000004, "end": 354.04, "text": "\u0924\u0947\u0928 \u0925\u0947 \u0917\u093f\u092a\u0947 \u0939\u092e \u0935\u094c\u092e \u0915\u0947 \u0924\u0941 \u092c\u093e\u0930\u093e \u0906\u090f \u092b\u093f\u0930 \u0925\u0940\u0938\u0930\u0940 \u092c\u093e\u0930 \u0906\u090f,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 354.04, "end": 370.42, "text": "\u0924\u094b \u091c\u0940 \u092a my\u015bl\u0119 mein hasta g gayi", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 370.42, "end": 372.52000000000004, "text": "\u0905\u0930 already iOS", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 380.02000000000004, "end": 383.36, "text": "\u092a Guild", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 383.36, "end": 388.36, "text": "\u092f\u0947 \u0930\u0939\u0940\u091f \u0935\u093e\u0932 \u0939\u0948, \u0924\u094b \u092f\u0947 \u092c\u0939\u0941\u0924 \u092f\u0947 \u0938\u093f\u092e\u094d\u092a\u0932 \u0938\u0940 \u091f\u0947\u0915\u0928\u0940 \u0915\u0947 \u0914\u0930 \u092f\u0947 \u0939\u092e\u0947\u0936\u093e \u0915\u093e\u092e \u092f\u093e\u092c \u0930\u0939\u0947\u0917\u0940 \u0906\u092a\u0915\u094b", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 388.36, "end": 391.36, "text": "\u0935\u093f\u0926\u0928 \u092b\u093e\u0901 \u092e\u093f\u0928\u0947\u091f\u094d\u0938, \u0935\u093f\u0926\u0928 \u092b\u093e\u0901 \u092e\u093f\u0928\u0947\u091f\u094d\u0938 \u0906\u092a\u0915\u094b \u092f\u0947 \u091f\u0947\u0915\u0928\u0940\u0915 \u0938\u092e\u091d\u093e \u092f\u093e\u0917\u0940", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 391.36, "end": 406.2, "text": "\u0914\u0930 \u0906\u092a\u0915\u094b \u092f\u0947 \u092a\u094d\u091a\u093e\u0901\u0937\u0928 \u0906\u0924\u093e \u0924\u0941\u092b \u0938\u0947 \u0924\u0941\u092b \u092d\u0940 \u0905\u092a \u0935\u093f\u0926\u0928 \u0906\u092a \u092e\u093f\u0928\u0947\u091f\u094d\u0938 \u0915\u094b \u0938\u093e\u0901\u0932 \u0915\u0930 \u0938\u0915\u0924\u0947 \u0939\u094b, \u0924\u094b \u092a\u094d\u0932\u0940\u091c \u0917\u093e\u090f\u091c \u0907\u0938\u0915\u094b \u0905\u091a\u094d\u091b\u0947 \u0938\u0947 \u0915\u0930\u0915\u0947 \u091c\u093e\u0928\u093e, \u0907\u0928 \u0915\u0947 \u0907\u0938 \u0928\u0939\u0940\u0902 \u0938\u092e\u091d\u093e \u0930\u0939\u0940 \u0924\u094b \u0906\u092a \u092a\u094d\u0932\u0940\u091c \u0926\u0941\u092c\u093e\u0930\u093e\u0938 \u0907\u0938 \u0915\u094b \u091a\u0947\u0915 \u0915\u0930 \u0932\u094b, \u0924\u093e\u0916\u0940 \u0906\u092a\u0915\u094b \u092f\u0947 \u091f\u0947\u0915\u0928\u0940\u0915 \u0905\u091a\u094d\u091b\u0947 \u0938\u0947 \u092a\u0924\u093e \u0932", "source": "unknown", "lang": "en", "source_lang": "en"}]}, "concepts": [{"id": "root-node", "name": "Root Node", "slug": "root-node", "description": "The topmost node from which the tree starts.", "mention_count": 34, "first_seen": 0.0, "last_seen": 406.2, "sources": ["asr+ocr", "ocr"], "timestamps": [{"seconds": 0.0, "label": "00:00", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=0s", "source": "ocr"}, {"seconds": 12.0, "label": "00:12", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=12s", "source": "asr+ocr"}, {"seconds": 18.0, "label": "00:18", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=18s", "source": "asr+ocr"}, {"seconds": 22.0, "label": "00:22", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=22s", "source": "asr+ocr"}, {"seconds": 31.0, "label": "00:31", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=31s", "source": "ocr"}, {"seconds": 36.0, "label": "00:36", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=36s", "source": "asr+ocr"}, {"seconds": 45.0, "label": "00:45", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=45s", "source": "asr+ocr"}, {"seconds": 51.0, "label": "00:51", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=51s", "source": "asr+ocr"}, {"seconds": 54.0, "label": "00:54", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=54s", "source": "asr+ocr"}, {"seconds": 60.0, "label": "01:00", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=60s", "source": "ocr"}, {"seconds": 74.0, "label": "01:14", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=74s", "source": "ocr"}, {"seconds": 89.0, "label": "01:29", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=89s", "source": "ocr"}], "prerequisites": [{"id": "node", "name": "Node"}, {"id": "right-subtree", "name": "Right Subtree"}, {"id": "left-subtree", "name": "Left Subtree"}], "dependents": [{"id": "tree-traversal", "name": "Tree Traversal"}, {"id": "pre-order-traversal", "name": "Pre Order Traversal"}, {"id": "in-order-traversal", "name": "In Order Traversal"}, {"id": "post-order-traversal", "name": "Post Order Traversal"}]}, {"id": "pre-order-traversal", "name": "Pre Order Traversal", "slug": "pre-order-traversal", "description": "Visit the root first, then the left subtree, then the right subtree.", "mention_count": 13, "first_seen": 0.0, "last_seen": 270.0, "sources": ["asr", "asr+ocr", "ocr"], "timestamps": [{"seconds": 0.0, "label": "00:00", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=0s", "source": "ocr"}, {"seconds": 6.0, "label": "00:06", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=6s", "source": "asr"}, {"seconds": 12.0, "label": "00:12", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=12s", "source": "asr"}, {"seconds": 36.0, "label": "00:36", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=36s", "source": "asr"}, {"seconds": 43.0, "label": "00:43", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=43s", "source": "asr"}, {"seconds": 158.0, "label": "02:38", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=158s", "source": "asr"}, {"seconds": 162.0, "label": "02:42", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=162s", "source": "asr"}, {"seconds": 186.0, "label": "03:06", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=186s", "source": "asr"}, {"seconds": 199.0, "label": "03:19", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=199s", "source": "asr"}, {"seconds": 204.0, "label": "03:24", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=204s", "source": "asr"}, {"seconds": 236.0, "label": "03:56", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=236s", "source": "asr"}, {"seconds": 244.0, "label": "04:04", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=244s", "source": "asr"}], "prerequisites": [{"id": "tree-traversal", "name": "Tree Traversal"}, {"id": "node", "name": "Node"}, {"id": "root-node", "name": "Root Node"}, {"id": "traversal-technique", "name": "Traversal Technique"}, {"id": "left-subtree", "name": "Left Subtree"}, {"id": "right-subtree", "name": "Right Subtree"}], "dependents": []}, {"id": "tree", "name": "Tree", "slug": "tree", "description": "A hierarchical data structure made of connected nodes.", "mention_count": 11, "first_seen": 3.0, "last_seen": 110.0, "sources": ["asr"], "timestamps": [{"seconds": 3.0, "label": "00:03", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=3s", "source": "asr"}, {"seconds": 6.0, "label": "00:06", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=6s", "source": "asr"}, {"seconds": 29.0, "label": "00:29", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=29s", "source": "asr"}, {"seconds": 31.0, "label": "00:31", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=31s", "source": "asr"}, {"seconds": 60.0, "label": "01:00", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=60s", "source": "asr"}, {"seconds": 66.0, "label": "01:06", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=66s", "source": "asr"}, {"seconds": 70.0, "label": "01:10", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=70s", "source": "asr"}, {"seconds": 81.0, "label": "01:21", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=81s", "source": "asr"}, {"seconds": 95.0, "label": "01:35", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=95s", "source": "asr"}, {"seconds": 99.0, "label": "01:39", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=99s", "source": "asr"}, {"seconds": 105.0, "label": "01:45", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=105s", "source": "asr"}], "prerequisites": [], "dependents": [{"id": "binary-tree", "name": "Binary Tree"}, {"id": "tree-traversal", "name": "Tree Traversal"}, {"id": "node", "name": "Node"}]}, {"id": "tree-traversal", "name": "Tree Traversal", "slug": "tree-traversal", "description": "A strategy for visiting every node in a tree in a specific order.", "mention_count": 2, "first_seen": 3.0, "last_seen": 12.0, "sources": ["asr"], "timestamps": [{"seconds": 3.0, "label": "00:03", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=3s", "source": "asr"}, {"seconds": 6.0, "label": "00:06", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=6s", "source": "asr"}], "prerequisites": [{"id": "tree", "name": "Tree"}, {"id": "binary-tree", "name": "Binary Tree"}, {"id": "root-node", "name": "Root Node"}], "dependents": [{"id": "pre-order-traversal", "name": "Pre Order Traversal"}, {"id": "in-order-traversal", "name": "In Order Traversal"}, {"id": "post-order-traversal", "name": "Post Order Traversal"}]}, {"id": "in-order-traversal", "name": "In Order Traversal", "slug": "in-order-traversal", "description": "Visit the left subtree, then the root, then the right subtree.", "mention_count": 10, "first_seen": 6.0, "last_seen": 275.0, "sources": ["asr"], "timestamps": [{"seconds": 6.0, "label": "00:06", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=6s", "source": "asr"}, {"seconds": 18.0, "label": "00:18", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=18s", "source": "asr"}, {"seconds": 45.0, "label": "00:45", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=45s", "source": "asr"}, {"seconds": 158.0, "label": "02:38", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=158s", "source": "asr"}, {"seconds": 167.0, "label": "02:47", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=167s", "source": "asr"}, {"seconds": 212.0, "label": "03:32", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=212s", "source": "asr"}, {"seconds": 231.0, "label": "03:51", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=231s", "source": "asr"}, {"seconds": 249.0, "label": "04:09", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=249s", "source": "asr"}, {"seconds": 262.0, "label": "04:22", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=262s", "source": "asr"}, {"seconds": 270.0, "label": "04:30", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=270s", "source": "asr"}], "prerequisites": [{"id": "tree-traversal", "name": "Tree Traversal"}, {"id": "root-node", "name": "Root Node"}, {"id": "traversal-technique", "name": "Traversal Technique"}, {"id": "left-subtree", "name": "Left Subtree"}, {"id": "right-subtree", "name": "Right Subtree"}], "dependents": []}, {"id": "post-order-traversal", "name": "Post Order Traversal", "slug": "post-order-traversal", "description": "Visit the left subtree, then the right subtree, then the root.", "mention_count": 17, "first_seen": 6.0, "last_seen": 391.4, "sources": ["asr", "asr+ocr", "ocr"], "timestamps": [{"seconds": 6.0, "label": "00:06", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=6s", "source": "asr"}, {"seconds": 22.0, "label": "00:22", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=22s", "source": "asr"}, {"seconds": 54.0, "label": "00:54", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=54s", "source": "asr"}, {"seconds": 133.0, "label": "02:13", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=133s", "source": "ocr"}, {"seconds": 158.0, "label": "02:38", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=158s", "source": "asr+ocr"}, {"seconds": 167.0, "label": "02:47", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=167s", "source": "ocr"}, {"seconds": 170.0, "label": "02:50", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=170s", "source": "asr"}, {"seconds": 186.0, "label": "03:06", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=186s", "source": "ocr"}, {"seconds": 209.0, "label": "03:29", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=209s", "source": "ocr"}, {"seconds": 220.0, "label": "03:40", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=220s", "source": "asr"}, {"seconds": 228.0, "label": "03:48", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=228s", "source": "ocr"}, {"seconds": 240.0, "label": "04:00", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=240s", "source": "ocr"}], "prerequisites": [{"id": "tree-traversal", "name": "Tree Traversal"}, {"id": "root-node", "name": "Root Node"}, {"id": "node", "name": "Node"}, {"id": "traversal-technique", "name": "Traversal Technique"}, {"id": "left-subtree", "name": "Left Subtree"}, {"id": "right-subtree", "name": "Right Subtree"}], "dependents": []}, {"id": "node", "name": "Node", "slug": "node", "description": "A single element in a tree or graph structure.", "mention_count": 11, "first_seen": 12.0, "last_seen": 174.0, "sources": ["asr", "ocr"], "timestamps": [{"seconds": 12.0, "label": "00:12", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=12s", "source": "asr"}, {"seconds": 22.0, "label": "00:22", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=22s", "source": "asr"}, {"seconds": 29.0, "label": "00:29", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=29s", "source": "asr"}, {"seconds": 45.0, "label": "00:45", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=45s", "source": "ocr"}, {"seconds": 114.0, "label": "01:54", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=114s", "source": "asr"}, {"seconds": 149.0, "label": "02:29", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=149s", "source": "asr"}, {"seconds": 152.0, "label": "02:32", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=152s", "source": "asr"}, {"seconds": 154.0, "label": "02:34", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=154s", "source": "asr"}, {"seconds": 162.0, "label": "02:42", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=162s", "source": "asr"}, {"seconds": 167.0, "label": "02:47", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=167s", "source": "asr"}, {"seconds": 170.0, "label": "02:50", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=170s", "source": "asr"}], "prerequisites": [{"id": "tree", "name": "Tree"}, {"id": "vertex", "name": "Vertex"}, {"id": "right-subtree", "name": "Right Subtree"}, {"id": "left-subtree", "name": "Left Subtree"}], "dependents": [{"id": "root-node", "name": "Root Node"}, {"id": "leaf-node", "name": "Leaf Node"}, {"id": "pre-order-traversal", "name": "Pre Order Traversal"}, {"id": "post-order-traversal", "name": "Post Order Traversal"}]}, {"id": "left-subtree", "name": "Left Subtree", "slug": "left-subtree", "description": "The subtree reachable through the left child of a node.", "mention_count": 29, "first_seen": 12.0, "last_seen": 406.2, "sources": ["asr", "asr+ocr", "ocr"], "timestamps": [{"seconds": 12.0, "label": "00:12", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=12s", "source": "asr+ocr"}, {"seconds": 18.0, "label": "00:18", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=18s", "source": "ocr"}, {"seconds": 36.0, "label": "00:36", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=36s", "source": "ocr"}, {"seconds": 51.0, "label": "00:51", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=51s", "source": "ocr"}, {"seconds": 54.0, "label": "00:54", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=54s", "source": "asr+ocr"}, {"seconds": 66.0, "label": "01:06", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=66s", "source": "ocr"}, {"seconds": 78.0, "label": "01:18", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=78s", "source": "ocr"}, {"seconds": 89.0, "label": "01:29", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=89s", "source": "ocr"}, {"seconds": 105.0, "label": "01:45", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=105s", "source": "ocr"}, {"seconds": 118.0, "label": "01:58", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=118s", "source": "ocr"}, {"seconds": 133.0, "label": "02:13", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=133s", "source": "ocr"}, {"seconds": 149.0, "label": "02:29", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=149s", "source": "ocr"}], "prerequisites": [{"id": "children", "name": "Children"}], "dependents": [{"id": "pre-order-traversal", "name": "Pre Order Traversal"}, {"id": "in-order-traversal", "name": "In Order Traversal"}, {"id": "post-order-traversal", "name": "Post Order Traversal"}, {"id": "node", "name": "Node"}, {"id": "root-node", "name": "Root Node"}]}, {"id": "right-subtree", "name": "Right Subtree", "slug": "right-subtree", "description": "The subtree reachable through the right child of a node.", "mention_count": 13, "first_seen": 22.0, "last_seen": 406.2, "sources": ["asr", "asr+ocr", "ocr"], "timestamps": [{"seconds": 22.0, "label": "00:22", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=22s", "source": "ocr"}, {"seconds": 51.0, "label": "00:51", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=51s", "source": "asr"}, {"seconds": 54.0, "label": "00:54", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=54s", "source": "asr+ocr"}, {"seconds": 89.0, "label": "01:29", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=89s", "source": "ocr"}, {"seconds": 124.0, "label": "02:04", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=124s", "source": "ocr"}, {"seconds": 136.0, "label": "02:16", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=136s", "source": "ocr"}, {"seconds": 154.0, "label": "02:34", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=154s", "source": "ocr"}, {"seconds": 228.0, "label": "03:48", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=228s", "source": "ocr"}, {"seconds": 244.0, "label": "04:04", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=244s", "source": "ocr"}, {"seconds": 275.0, "label": "04:35", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=275s", "source": "ocr"}, {"seconds": 317.22, "label": "05:17", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=317s", "source": "ocr"}, {"seconds": 350.14000000000004, "label": "05:50", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=350s", "source": "ocr"}], "prerequisites": [{"id": "children", "name": "Children"}], "dependents": [{"id": "pre-order-traversal", "name": "Pre Order Traversal"}, {"id": "in-order-traversal", "name": "In Order Traversal"}, {"id": "post-order-traversal", "name": "Post Order Traversal"}, {"id": "node", "name": "Node"}, {"id": "root-node", "name": "Root Node"}]}, {"id": "vertex", "name": "Vertex", "slug": "vertex", "description": "A single node in a graph.", "mention_count": 1, "first_seen": 29.0, "last_seen": 31.0, "sources": ["asr"], "timestamps": [{"seconds": 29.0, "label": "00:29", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=29s", "source": "asr"}], "prerequisites": [], "dependents": [{"id": "node", "name": "Node"}, {"id": "graph", "name": "Graph"}]}, {"id": "graph", "name": "Graph", "slug": "graph", "description": "A data structure made of vertices connected by edges.", "mention_count": 2, "first_seen": 31.0, "last_seen": 149.0, "sources": ["asr"], "timestamps": [{"seconds": 31.0, "label": "00:31", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=31s", "source": "asr"}, {"seconds": 143.0, "label": "02:23", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=143s", "source": "asr"}], "prerequisites": [{"id": "vertex", "name": "Vertex"}], "dependents": []}, {"id": "traversal-technique", "name": "Traversal Technique", "slug": "traversal-technique", "description": "A general method for visiting nodes in a data structure.", "mention_count": 4, "first_seen": 78.0, "last_seen": 149.0, "sources": ["asr"], "timestamps": [{"seconds": 78.0, "label": "01:18", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=78s", "source": "asr"}, {"seconds": 81.0, "label": "01:21", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=81s", "source": "asr"}, {"seconds": 89.0, "label": "01:29", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=89s", "source": "asr"}, {"seconds": 143.0, "label": "02:23", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=143s", "source": "asr"}], "prerequisites": [{"id": "dummy-node", "name": "Dummy Node"}], "dependents": [{"id": "pre-order-traversal", "name": "Pre Order Traversal"}, {"id": "in-order-traversal", "name": "In Order Traversal"}, {"id": "post-order-traversal", "name": "Post Order Traversal"}]}, {"id": "binary-tree", "name": "Binary Tree", "slug": "binary-tree", "description": "A tree where each node has at most two children.", "mention_count": 2, "first_seen": 99.0, "last_seen": 110.0, "sources": ["asr"], "timestamps": [{"seconds": 99.0, "label": "01:39", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=99s", "source": "asr"}, {"seconds": 105.0, "label": "01:45", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=105s", "source": "asr"}], "prerequisites": [{"id": "tree", "name": "Tree"}], "dependents": [{"id": "tree-traversal", "name": "Tree Traversal"}]}, {"id": "children", "name": "Children", "slug": "children", "description": "Nodes directly below a parent node.", "mention_count": 7, "first_seen": 105.0, "last_seen": 143.0, "sources": ["asr"], "timestamps": [{"seconds": 105.0, "label": "01:45", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=105s", "source": "asr"}, {"seconds": 110.0, "label": "01:50", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=110s", "source": "asr"}, {"seconds": 112.0, "label": "01:52", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=112s", "source": "asr"}, {"seconds": 114.0, "label": "01:54", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=114s", "source": "asr"}, {"seconds": 118.0, "label": "01:58", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=118s", "source": "asr"}, {"seconds": 120.0, "label": "02:00", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=120s", "source": "asr"}, {"seconds": 136.0, "label": "02:16", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=136s", "source": "asr"}], "prerequisites": [], "dependents": [{"id": "left-subtree", "name": "Left Subtree"}, {"id": "right-subtree", "name": "Right Subtree"}]}, {"id": "leaf-node", "name": "Leaf Node", "slug": "leaf-node", "description": "A node with no children.", "mention_count": 2, "first_seen": 114.0, "last_seen": 120.0, "sources": ["asr"], "timestamps": [{"seconds": 114.0, "label": "01:54", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=114s", "source": "asr"}, {"seconds": 118.0, "label": "01:58", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=118s", "source": "asr"}], "prerequisites": [{"id": "node", "name": "Node"}], "dependents": []}, {"id": "dummy-node", "name": "Dummy Node", "slug": "dummy-node", "description": "An example or placeholder node used to illustrate a traversal rule.", "mention_count": 2, "first_seen": 120.0, "last_seen": 143.0, "sources": ["asr"], "timestamps": [{"seconds": 120.0, "label": "02:00", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=120s", "source": "asr"}, {"seconds": 136.0, "label": "02:16", "url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=136s", "source": "asr"}], "prerequisites": [], "dependents": [{"id": "traversal-technique", "name": "Traversal Technique"}]}], "graph": {"nodes": [{"id": "root-node", "label": "Root Node", "mention_count": 34, "level": 11, "first_seen": 0.0, "description": "The topmost node from which the tree starts."}, {"id": "pre-order-traversal", "label": "Pre Order Traversal", "mention_count": 13, "level": 15, "first_seen": 0.0, "description": "Visit the root first, then the left subtree, then the right subtree."}, {"id": "tree", "label": "Tree", "mention_count": 11, "level": 2, "first_seen": 3.0, "description": "A hierarchical data structure made of connected nodes."}, {"id": "tree-traversal", "label": "Tree Traversal", "mention_count": 2, "level": 12, "first_seen": 3.0, "description": "A strategy for visiting every node in a tree in a specific order."}, {"id": "in-order-traversal", "label": "In Order Traversal", "mention_count": 10, "level": 13, "first_seen": 6.0, "description": "Visit the left subtree, then the root, then the right subtree."}, {"id": "post-order-traversal", "label": "Post Order Traversal", "mention_count": 17, "level": 14, "first_seen": 6.0, "description": "Visit the left subtree, then the right subtree, then the root."}, {"id": "node", "label": "Node", "mention_count": 11, "level": 9, "first_seen": 12.0, "description": "A single element in a tree or graph structure."}, {"id": "left-subtree", "label": "Left Subtree", "mention_count": 29, "level": 4, "first_seen": 12.0, "description": "The subtree reachable through the left child of a node."}, {"id": "right-subtree", "label": "Right Subtree", "mention_count": 13, "level": 5, "first_seen": 22.0, "description": "The subtree reachable through the right child of a node."}, {"id": "vertex", "label": "Vertex", "mention_count": 1, "level": 3, "first_seen": 29.0, "description": "A single node in a graph."}, {"id": "graph", "label": "Graph", "mention_count": 2, "level": 8, "first_seen": 31.0, "description": "A data structure made of vertices connected by edges."}, {"id": "traversal-technique", "label": "Traversal Technique", "mention_count": 4, "level": 6, "first_seen": 78.0, "description": "A general method for visiting nodes in a data structure."}, {"id": "binary-tree", "label": "Binary Tree", "mention_count": 2, "level": 7, "first_seen": 99.0, "description": "A tree where each node has at most two children."}, {"id": "children", "label": "Children", "mention_count": 7, "level": 0, "first_seen": 105.0, "description": "Nodes directly below a parent node."}, {"id": "leaf-node", "label": "Leaf Node", "mention_count": 2, "level": 10, "first_seen": 114.0, "description": "A node with no children."}, {"id": "dummy-node", "label": "Dummy Node", "mention_count": 2, "level": 1, "first_seen": 120.0, "description": "An example or placeholder node used to illustrate a traversal rule."}], "edges": [{"source": "tree", "target": "binary-tree", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Binary trees are a specialized type of tree."}, {"source": "tree", "target": "tree-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Traversal builds on the basic idea of a tree."}, {"source": "binary-tree", "target": "tree-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "The lecture traverses a binary tree example."}, {"source": "node", "target": "root-node", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "A root node is a specific kind of node."}, {"source": "node", "target": "leaf-node", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Leaf nodes are defined as nodes with no children."}, {"source": "root-node", "target": "tree-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Traversal order is explained relative to the root."}, {"source": "tree-traversal", "target": "pre-order-traversal", "evidence": "domain_rule", "relation": "refines", "confidence": 0.8, "reason": "Pre-order is one traversal strategy."}, {"source": "tree-traversal", "target": "in-order-traversal", "evidence": "domain_rule", "relation": "refines", "confidence": 0.8, "reason": "In-order is one traversal strategy."}, {"source": "tree-traversal", "target": "post-order-traversal", "evidence": "domain_rule", "relation": "refines", "confidence": 0.8, "reason": "Post-order is one traversal strategy."}, {"source": "node", "target": "pre-order-traversal", "evidence": "causal", "relation": "prerequisite", "confidence": 0.74, "reason": "Pre-order means first write root node, then left node, then right."}, {"source": "root-node", "target": "pre-order-traversal", "evidence": "causal", "relation": "prerequisite", "confidence": 0.74, "reason": "Pre-order means first write root node, then left node, then right."}, {"source": "root-node", "target": "in-order-traversal", "evidence": "causal", "relation": "prerequisite", "confidence": 0.74, "reason": "In-order means root comes in between left and right."}, {"source": "root-node", "target": "post-order-traversal", "evidence": "causal", "relation": "prerequisite", "confidence": 0.74, "reason": "Post-order means first write right and then root node."}, {"source": "node", "target": "post-order-traversal", "evidence": "causal", "relation": "prerequisite", "confidence": 0.74, "reason": "Post-order means first write right and then root node."}, {"source": "tree", "target": "node", "evidence": "causal", "relation": "prerequisite", "confidence": 0.74, "reason": "Node means vertex of tree."}, {"source": "vertex", "target": "node", "evidence": "causal", "relation": "prerequisite", "confidence": 0.74, "reason": "Node means vertex of tree."}, {"source": "children", "target": "left-subtree", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Subtrees are explained through child relationships."}, {"source": "children", "target": "right-subtree", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Subtrees are explained through child relationships."}, {"source": "traversal-technique", "target": "pre-order-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Pre-order is taught as a traversal technique."}, {"source": "traversal-technique", "target": "in-order-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "In-order is taught as a traversal technique."}, {"source": "traversal-technique", "target": "post-order-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Post-order is taught as a traversal technique."}, {"source": "left-subtree", "target": "pre-order-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Pre-order depends on how the left subtree is visited."}, {"source": "right-subtree", "target": "pre-order-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Pre-order depends on how the right subtree is visited."}, {"source": "left-subtree", "target": "in-order-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "In-order depends on how the left subtree is visited."}, {"source": "right-subtree", "target": "in-order-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "In-order depends on how the right subtree is visited."}, {"source": "left-subtree", "target": "post-order-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Post-order depends on how the left subtree is visited."}, {"source": "right-subtree", "target": "post-order-traversal", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Post-order depends on how the right subtree is visited."}, {"source": "vertex", "target": "graph", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Graphs are defined in terms of vertices."}, {"source": "right-subtree", "target": "node", "evidence": "causal", "relation": "prerequisite", "confidence": 0.7, "reason": "Pre-order means first write root node, then left node, then right."}, {"source": "right-subtree", "target": "root-node", "evidence": "causal", "relation": "prerequisite", "confidence": 0.7, "reason": "Pre-order means first write root node, then left node, then right."}, {"source": "left-subtree", "target": "node", "evidence": "causal", "relation": "prerequisite", "confidence": 0.7, "reason": "Pre-order means first write root node, then left node, then right."}, {"source": "left-subtree", "target": "root-node", "evidence": "causal", "relation": "prerequisite", "confidence": 0.7, "reason": "Pre-order means first write root node, then left node, then right."}, {"source": "dummy-node", "target": "traversal-technique", "evidence": "domain_rule", "relation": "part_of", "confidence": 0.6, "reason": "Dummy nodes appear as part of the traversal illustration."}], "topological_order": ["children", "dummy-node", "tree", "vertex", "left-subtree", "right-subtree", "traversal-technique", "binary-tree", "graph", "node", "leaf-node", "root-node", "tree-traversal", "in-order-traversal", "post-order-traversal", "pre-order-traversal"]}, "learning_path": [{"step": 1, "concept_id": "children", "title": "Children", "description": "Nodes directly below a parent node.", "prerequisite_ids": [], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=105s"}, {"step": 2, "concept_id": "dummy-node", "title": "Dummy Node", "description": "An example or placeholder node used to illustrate a traversal rule.", "prerequisite_ids": [], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=120s"}, {"step": 3, "concept_id": "tree", "title": "Tree", "description": "A hierarchical data structure made of connected nodes.", "prerequisite_ids": [], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=3s"}, {"step": 4, "concept_id": "vertex", "title": "Vertex", "description": "A single node in a graph.", "prerequisite_ids": [], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=29s"}, {"step": 5, "concept_id": "left-subtree", "title": "Left Subtree", "description": "The subtree reachable through the left child of a node.", "prerequisite_ids": ["children"], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=12s"}, {"step": 6, "concept_id": "right-subtree", "title": "Right Subtree", "description": "The subtree reachable through the right child of a node.", "prerequisite_ids": ["children"], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=22s"}, {"step": 7, "concept_id": "traversal-technique", "title": "Traversal Technique", "description": "A general method for visiting nodes in a data structure.", "prerequisite_ids": ["dummy-node"], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=78s"}, {"step": 8, "concept_id": "binary-tree", "title": "Binary Tree", "description": "A tree where each node has at most two children.", "prerequisite_ids": ["tree"], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=99s"}, {"step": 9, "concept_id": "graph", "title": "Graph", "description": "A data structure made of vertices connected by edges.", "prerequisite_ids": ["vertex"], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=31s"}, {"step": 10, "concept_id": "node", "title": "Node", "description": "A single element in a tree or graph structure.", "prerequisite_ids": ["tree", "vertex", "right-subtree", "left-subtree"], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=12s"}, {"step": 11, "concept_id": "leaf-node", "title": "Leaf Node", "description": "A node with no children.", "prerequisite_ids": ["node"], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=114s"}, {"step": 12, "concept_id": "root-node", "title": "Root Node", "description": "The topmost node from which the tree starts.", "prerequisite_ids": ["node", "right-subtree", "left-subtree"], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=0s"}, {"step": 13, "concept_id": "tree-traversal", "title": "Tree Traversal", "description": "A strategy for visiting every node in a tree in a specific order.", "prerequisite_ids": ["tree", "binary-tree", "root-node"], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=3s"}, {"step": 14, "concept_id": "in-order-traversal", "title": "In Order Traversal", "description": "Visit the left subtree, then the root, then the right subtree.", "prerequisite_ids": ["tree-traversal", "root-node", "traversal-technique", "left-subtree", "right-subtree"], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=6s"}, {"step": 15, "concept_id": "post-order-traversal", "title": "Post Order Traversal", "description": "Visit the left subtree, then the right subtree, then the root.", "prerequisite_ids": ["tree-traversal", "root-node", "node", "traversal-technique", "left-subtree", "right-subtree"], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=6s"}, {"step": 16, "concept_id": "pre-order-traversal", "title": "Pre Order Traversal", "description": "Visit the root first, then the left subtree, then the right subtree.", "prerequisite_ids": ["tree-traversal", "node", "root-node", "traversal-technique", "left-subtree", "right-subtree"], "timestamp_url": "https://www.youtube.com/watch?v=XRcC7bAtL3c&t=0s"}], "artifacts": {"data_dir": "D:\\work\\Lecture2Graph\\data\\XRcC7bAtL3c", "graph_html": "D:\\work\\Lecture2Graph\\data\\XRcC7bAtL3c\\graph.html", "notes_md": "D:\\work\\Lecture2Graph\\data\\XRcC7bAtL3c\\notes.md", "bundle_json": "D:\\work\\Lecture2Graph\\data\\XRcC7bAtL3c\\lecture2graph.json", "concepts_json": "D:\\work\\Lecture2Graph\\data\\XRcC7bAtL3c\\concepts.json", "graph_json": "D:\\work\\Lecture2Graph\\data\\XRcC7bAtL3c\\graph.json"};
+    const conceptMap = Object.fromEntries(payload.concepts.map(concept => [concept.id, concept]));
+    const prerequisitesByTarget = {};
+    const dependentsBySource = {};
+    payload.graph.edges.forEach(edge => {
+      prerequisitesByTarget[edge.target] = prerequisitesByTarget[edge.target] || [];
+      prerequisitesByTarget[edge.target].push(edge);
+      dependentsBySource[edge.source] = dependentsBySource[edge.source] || [];
+      dependentsBySource[edge.source].push(edge);
     });
-  });
-});
-</script>
+
+    const baseNodes = payload.graph.nodes.map(node => {
+      const mentions = node.mention_count || 1;
+      let color = "#89b4ff";
+      if (mentions >= 8) color = "#7ce0c3";
+      else if (mentions >= 4) color = "#ffc670";
+      return {
+        id: node.id,
+        label: node.label,
+        shape: "box",
+        font: { color: "#eaf4ff", face: "Space Grotesk", size: 16 },
+        borderWidth: 1.5,
+        color: {
+          background: color,
+          border: color,
+          highlight: { background: "#ffffff", border: "#7ce0c3" }
+        },
+        margin: 14
+      };
+    });
+
+    const baseEdges = payload.graph.edges.map((edge, index) => {
+      const colors = {
+        domain_rule: "#ffc670",
+        causal: "#ff8d8d",
+        temporal: "#8ca2b8",
+        llm: "#7ce0c3"
+      };
+      return {
+        id: index,
+        from: edge.source,
+        to: edge.target,
+        arrows: "to",
+        width: edge.evidence === "domain_rule" ? 2.4 : 1.6,
+        dashes: edge.evidence === "temporal",
+        color: { color: colors[edge.evidence] || "#89b4ff", opacity: 0.85 },
+        title: `${edge.evidence}: ${edge.reason || edge.relation}`,
+        smooth: { type: "cubicBezier", forceDirection: "vertical", roundness: 0.42 }
+      };
+    });
+
+    const nodes = new vis.DataSet(baseNodes);
+    const edges = new vis.DataSet(baseEdges);
+    const network = new vis.Network(
+      document.getElementById("graph"),
+      { nodes, edges },
+      {
+        autoResize: true,
+        layout: {
+          hierarchical: {
+            enabled: true,
+            direction: "UD",
+            levelSeparation: 120,
+            nodeSpacing: 180,
+            treeSpacing: 210,
+            blockShifting: true,
+            edgeMinimization: true,
+            parentCentralization: true
+          }
+        },
+        physics: false,
+        interaction: {
+          dragView: true,
+          zoomView: true,
+          hover: true,
+          navigationButtons: true
+        }
+      }
+    );
+
+    function graphNeighborhood(nodeId) {
+      const ancestors = new Set();
+      const descendants = new Set();
+      const incoming = prerequisitesByTarget[nodeId] || [];
+      const outgoing = dependentsBySource[nodeId] || [];
+
+      function walkIncoming(current) {
+        (prerequisitesByTarget[current] || []).forEach(edge => {
+          if (!ancestors.has(edge.source)) {
+            ancestors.add(edge.source);
+            walkIncoming(edge.source);
+          }
+        });
+      }
+
+      function walkOutgoing(current) {
+        (dependentsBySource[current] || []).forEach(edge => {
+          if (!descendants.has(edge.target)) {
+            descendants.add(edge.target);
+            walkOutgoing(edge.target);
+          }
+        });
+      }
+
+      walkIncoming(nodeId);
+      walkOutgoing(nodeId);
+      return { ancestors, descendants, incoming, outgoing };
+    }
+
+    function resetGraph() {
+      nodes.update(baseNodes);
+      edges.update(baseEdges);
+    }
+
+    function renderConcept(nodeId) {
+      const concept = conceptMap[nodeId];
+      if (!concept) return;
+
+      const neighborhood = graphNeighborhood(nodeId);
+      document.getElementById("concept-name").textContent = concept.name;
+      document.getElementById("concept-description").textContent = concept.description;
+      document.getElementById("concept-badges").innerHTML = [
+        `<span class="pill">${concept.mention_count} mentions</span>`,
+        `<span class="pill">${concept.sources.join(", ")}</span>`
+      ].join("");
+
+      document.getElementById("timestamp-list").innerHTML = concept.timestamps.map(item => `
+        <li>
+          <a href="${item.url}" target="_blank" rel="noreferrer">
+            <span class="mono">${item.label}</span>
+            <span>${item.source}</span>
+          </a>
+        </li>
+      `).join("");
+
+      const prerequisiteNames = concept.prerequisites.map(item => item.name).join(", ") || "None";
+      const dependentNames = concept.dependents.map(item => item.name).join(", ") || "None";
+      document.getElementById("connections-copy").innerHTML = `
+        <div><strong>Prerequisites:</strong> ${prerequisiteNames}</div>
+        <div style="margin-top:8px"><strong>Unlocks:</strong> ${dependentNames}</div>
+      `;
+
+      const nodeUpdates = baseNodes.map(node => {
+        if (node.id === nodeId) {
+          return { ...node, color: { ...node.color, background: "#ffffff", border: "#7ce0c3" } };
+        }
+        if (neighborhood.ancestors.has(node.id)) {
+          return { ...node, color: { ...node.color, background: "#ffc670", border: "#ffc670" } };
+        }
+        if (neighborhood.descendants.has(node.id)) {
+          return { ...node, color: { ...node.color, background: "#7ce0c3", border: "#7ce0c3" } };
+        }
+        return { ...node, color: { ...node.color, background: "rgba(90, 111, 129, 0.22)", border: "rgba(90, 111, 129, 0.32)" }, font: { ...node.font, color: "#8ca2b8" } };
+      });
+      nodes.update(nodeUpdates);
+
+      const edgeUpdates = baseEdges.map(edge => {
+        if (edge.from === nodeId || edge.to === nodeId || neighborhood.ancestors.has(edge.from) || neighborhood.descendants.has(edge.to)) {
+          return { ...edge, color: { ...edge.color, opacity: 1 }, width: edge.width + 0.8 };
+        }
+        return { ...edge, color: { ...edge.color, opacity: 0.16 }, width: Math.max(1, edge.width - 0.4) };
+      });
+      edges.update(edgeUpdates);
+    }
+
+    function renderLearningPath() {
+      document.getElementById("learning-path").innerHTML = payload.learning_path.map(step => `
+        <li>
+          <div class="path-step">Step ${step.step}</div>
+          <div class="path-title">${step.title}</div>
+          <div class="path-copy">${step.description}</div>
+        </li>
+      `).join("");
+    }
+
+    const translatedTranscript = payload.transcripts.translated;
+    const originalTranscript = payload.transcripts.original.length ? payload.transcripts.original : payload.transcripts.translated;
+
+    function renderTranscript(mode) {
+      const items = mode === "original" ? originalTranscript : translatedTranscript;
+      document.getElementById("transcript-list").innerHTML = items.slice(0, 24).map(item => `
+        <li>
+          <strong>${new Date(item.start * 1000).toISOString().substr(14, 5)} · ${item.source}</strong>
+          <span>${item.text}</span>
+        </li>
+      `).join("");
+      document.getElementById("tab-translated").classList.toggle("active", mode !== "original");
+      document.getElementById("tab-original").classList.toggle("active", mode === "original");
+    }
+
+    network.on("click", event => {
+      if (!event.nodes.length) {
+        resetGraph();
+        return;
+      }
+      renderConcept(event.nodes[0]);
+    });
+
+    document.getElementById("tab-translated").addEventListener("click", () => renderTranscript("translated"));
+    document.getElementById("tab-original").addEventListener("click", () => renderTranscript("original"));
+
+    renderLearningPath();
+    renderTranscript("translated");
+    network.fit({ animation: true });
+  </script>
 </body>
 </html>
