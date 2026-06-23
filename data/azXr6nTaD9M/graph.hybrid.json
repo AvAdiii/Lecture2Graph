@@ -1,0 +1,144 @@
+{
+  "video_id": "azXr6nTaD9M",
+  "method": "hybrid",
+  "total_nodes": 12,
+  "total_edges": 10,
+  "nodes": [
+    {
+      "id": "activation_record"
+    },
+    {
+      "id": "binary_search_tree"
+    },
+    {
+      "id": "data_structure",
+      "first_mention": 32.0,
+      "mention_count": 1
+    },
+    {
+      "id": "depth_first_search"
+    },
+    {
+      "id": "instruction_pointer"
+    },
+    {
+      "id": "pointer",
+      "first_mention": 237.0,
+      "mention_count": 2
+    },
+    {
+      "id": "recursion",
+      "first_mention": 2.0,
+      "mention_count": 12
+    },
+    {
+      "id": "recursive_equation"
+    },
+    {
+      "id": "space_complexity",
+      "first_mention": 405.0,
+      "mention_count": 2
+    },
+    {
+      "id": "stack",
+      "first_mention": 2.0,
+      "mention_count": 15
+    },
+    {
+      "id": "time_complexity",
+      "first_mention": 412.0,
+      "mention_count": 3
+    },
+    {
+      "id": "tree",
+      "first_mention": 32.0,
+      "mention_count": 2
+    }
+  ],
+  "edges": [
+    {
+      "source": "recursion",
+      "target": "depth_first_search",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "data_structure",
+      "target": "stack",
+      "relation": "refines",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "recursion",
+      "target": "stack",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "recursion",
+      "target": "binary_search_tree",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "recursion",
+      "target": "time_complexity",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "recursion",
+      "target": "activation_record",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "data_structure",
+      "target": "tree",
+      "relation": "refines",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "stack",
+      "target": "activation_record",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "stack",
+      "target": "instruction_pointer",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "activation_record",
+      "target": "space_complexity",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    }
+  ],
+  "topological_order": [
+    "data_structure",
+    "pointer",
+    "recursion",
+    "binary_search_tree",
+    "depth_first_search",
+    "recursive_equation",
+    "stack",
+    "activation_record",
+    "instruction_pointer",
+    "space_complexity",
+    "time_complexity",
+    "tree"
+  ]
+}

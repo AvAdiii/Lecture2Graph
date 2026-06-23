@@ -1,0 +1,290 @@
+{
+  "video_id": "Tp37HXfekNo",
+  "total_nodes": 10,
+  "total_edges": 19,
+  "topological_order": [
+    "database",
+    "null",
+    "unique constraint",
+    "not null",
+    "relation",
+    "sql",
+    "attribute",
+    "candidate key",
+    "primary key",
+    "normalization"
+  ],
+  "nodes": [
+    {
+      "id": "primary key",
+      "mention_count": 191,
+      "first_mention": 0.0,
+      "last_mention": 689.0,
+      "sources": [
+        "asr",
+        "asr+ocr",
+        "ocr"
+      ]
+    },
+    {
+      "id": "database",
+      "mention_count": 13,
+      "first_mention": 6.0,
+      "last_mention": 689.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "not null",
+      "mention_count": 123,
+      "first_mention": 6.0,
+      "last_mention": 688.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "null",
+      "mention_count": 127,
+      "first_mention": 6.0,
+      "last_mention": 688.0,
+      "sources": [
+        "asr",
+        "asr+ocr"
+      ]
+    },
+    {
+      "id": "unique constraint",
+      "mention_count": 108,
+      "first_mention": 6.0,
+      "last_mention": 675.0,
+      "sources": [
+        "asr",
+        "asr+ocr"
+      ]
+    },
+    {
+      "id": "candidate key",
+      "mention_count": 6,
+      "first_mention": 23.0,
+      "last_mention": 654.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "normalization",
+      "mention_count": 1,
+      "first_mention": 27.0,
+      "last_mention": 34.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "sql",
+      "mention_count": 2,
+      "first_mention": 27.0,
+      "last_mention": 635.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "attribute",
+      "mention_count": 10,
+      "first_mention": 73.0,
+      "last_mention": 668.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "relation",
+      "mention_count": 2,
+      "first_mention": 73.0,
+      "last_mention": 88.0,
+      "sources": [
+        "asr"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "database",
+      "target": "relation",
+      "type": "is_prerequisite_for",
+      "confidence": 0.9
+    },
+    {
+      "source": "relation",
+      "target": "attribute",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "attribute",
+      "target": "candidate key",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "unique constraint",
+      "target": "candidate key",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "not null",
+      "target": "primary key",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "null",
+      "target": "not null",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "candidate key",
+      "target": "primary key",
+      "type": "is_prerequisite_for",
+      "confidence": 0.9
+    },
+    {
+      "source": "unique constraint",
+      "target": "primary key",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "relation",
+      "target": "normalization",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "primary key",
+      "target": "normalization",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "database",
+      "target": "sql",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "relation",
+      "target": "sql",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "not null",
+      "target": "attribute",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "not null",
+      "target": "relation",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "null",
+      "target": "attribute",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "null",
+      "target": "relation",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "unique constraint",
+      "target": "attribute",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "unique constraint",
+      "target": "relation",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "sql",
+      "target": "attribute",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    }
+  ],
+  "causal_anchors_detected": 4,
+  "causal_edges_created": 0,
+  "example_tree": {
+    "description": "binary tree example used in the lecture",
+    "node_labels": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z"
+    ],
+    "node_mention_counts": {
+      "A": 293,
+      "B": 47,
+      "C": 27,
+      "D": 98,
+      "E": 401,
+      "F": 103,
+      "G": 71,
+      "H": 138,
+      "I": 401,
+      "J": 29,
+      "K": 366,
+      "L": 206,
+      "M": 321,
+      "N": 408,
+      "O": 362,
+      "P": 360,
+      "Q": 177,
+      "R": 306,
+      "S": 96,
+      "T": 337,
+      "U": 318,
+      "V": 50,
+      "W": 53,
+      "X": 1,
+      "Y": 361,
+      "Z": 9
+    }
+  }
+}

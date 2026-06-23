@@ -1,0 +1,117 @@
+{
+  "video_id": "eXWl-Uor75o",
+  "method": "hybrid",
+  "total_nodes": 10,
+  "total_edges": 7,
+  "nodes": [
+    {
+      "id": "binary_search_tree"
+    },
+    {
+      "id": "bubble_sort",
+      "first_mention": 616.0,
+      "mention_count": 1
+    },
+    {
+      "id": "divide_and_conquer"
+    },
+    {
+      "id": "in_order_traversal",
+      "first_mention": 38.0,
+      "mention_count": 8
+    },
+    {
+      "id": "index",
+      "first_mention": 231.0,
+      "mention_count": 4
+    },
+    {
+      "id": "left_subtree",
+      "first_mention": 31.0,
+      "mention_count": 5
+    },
+    {
+      "id": "merge_sort",
+      "first_mention": 8.0,
+      "mention_count": 24
+    },
+    {
+      "id": "right_subtree",
+      "first_mention": 21.0,
+      "mention_count": 18
+    },
+    {
+      "id": "sorting",
+      "first_mention": 8.0,
+      "mention_count": 146
+    },
+    {
+      "id": "tree_traversal",
+      "first_mention": 123.0,
+      "mention_count": 4
+    }
+  ],
+  "edges": [
+    {
+      "source": "divide_and_conquer",
+      "target": "merge_sort",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "sorting",
+      "target": "merge_sort",
+      "relation": "refines",
+      "confidence": 0.81,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "tree_traversal",
+      "target": "in_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "sorting",
+      "target": "bubble_sort",
+      "relation": "refines",
+      "confidence": 0.81,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "left_subtree",
+      "target": "in_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "binary_search_tree",
+      "target": "divide_and_conquer",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "right_subtree",
+      "target": "in_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    }
+  ],
+  "topological_order": [
+    "binary_search_tree",
+    "divide_and_conquer",
+    "index",
+    "left_subtree",
+    "right_subtree",
+    "sorting",
+    "bubble_sort",
+    "merge_sort",
+    "tree_traversal",
+    "in_order_traversal"
+  ]
+}

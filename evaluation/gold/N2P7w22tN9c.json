@@ -1,0 +1,21 @@
+{
+  "video_id": "N2P7w22tN9c",
+  "title": "Graph Traversal: BFS / DFS",
+  "annotation": "Domain-authored gold prerequisite DAG.",
+  "concepts": ["graph", "vertex", "edge", "graph_traversal", "tree", "tree_traversal",
+               "breadth_first_search", "depth_first_search", "stack", "visited",
+               "time_complexity", "web_crawler", "minimum_cost_spanning_tree"],
+  "edges": [
+    {"source": "vertex", "target": "graph"},
+    {"source": "edge", "target": "graph"},
+    {"source": "graph", "target": "graph_traversal"},
+    {"source": "graph_traversal", "target": "breadth_first_search"},
+    {"source": "graph_traversal", "target": "depth_first_search"},
+    {"source": "stack", "target": "depth_first_search"},
+    {"source": "graph_traversal", "target": "visited"},
+    {"source": "tree", "target": "tree_traversal"},
+    {"source": "breadth_first_search", "target": "web_crawler"},
+    {"source": "graph_traversal", "target": "minimum_cost_spanning_tree"},
+    {"source": "graph_traversal", "target": "time_complexity"}
+  ]
+}

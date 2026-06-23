@@ -17,9 +17,11 @@ venv/
 .env.*
 !.env.example
 
-# media files (too large for git)
-data/*/video.mp4
-data/*/audio.wav
+# media files (too large for git) — keep only JSON/markdown artifacts
+data/*/*.mp4
+data/*/*.m4a
+data/*/*.webm
+data/*/*.wav
 data/*/frames/
 
 # IDE

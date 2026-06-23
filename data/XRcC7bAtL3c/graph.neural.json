@@ -1,0 +1,56 @@
+{
+  "edges": [
+    {
+      "from": "node",
+      "to": "tree_traversal",
+      "type": "causal",
+      "rule": "nodes are part of tree traversal"
+    },
+    {
+      "from": "tree_traversal",
+      "to": "pre_order_traversal",
+      "type": "causal",
+      "rule": "pre-order is a specific type of tree traversal"
+    },
+    {
+      "from": "tree_traversal",
+      "to": "in_order_traversal",
+      "type": "causal",
+      "rule": "in-order is a specific type of tree traversal"
+    },
+    {
+      "from": "tree_traversal",
+      "to": "post_order_traversal",
+      "type": "causal",
+      "rule": "post-order is a specific type of tree traversal"
+    },
+    {
+      "from": "binary_tree",
+      "to": "node",
+      "type": "domain_rule",
+      "rule": "nodes are part of binary trees"
+    },
+    {
+      "from": "binary_tree",
+      "to": "tree_traversal",
+      "type": "causal",
+      "rule": "traversing a binary tree requires understanding nodes"
+    },
+    {
+      "from": "leaf_node",
+      "to": "node",
+      "type": "domain_rule",
+      "rule": "leaf nodes are a specific type of node"
+    }
+  ],
+  "topological_order": [
+    "binary_search_tree",
+    "binary_tree",
+    "leaf_node",
+    "node",
+    "tree_traversal",
+    "in_order_traversal",
+    "post_order_traversal",
+    "pre_order_traversal"
+  ]
+}

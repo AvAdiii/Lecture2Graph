@@ -1,0 +1,156 @@
+{
+  "video_id": "Tp37HXfekNo",
+  "method": "hybrid",
+  "total_nodes": 10,
+  "total_edges": 12,
+  "nodes": [
+    {
+      "id": "attribute",
+      "first_mention": 73.0,
+      "mention_count": 10
+    },
+    {
+      "id": "candidate_key",
+      "first_mention": 23.0,
+      "mention_count": 6
+    },
+    {
+      "id": "database",
+      "first_mention": 6.0,
+      "mention_count": 13
+    },
+    {
+      "id": "normalization",
+      "first_mention": 27.0,
+      "mention_count": 1
+    },
+    {
+      "id": "not_null",
+      "first_mention": 6.0,
+      "mention_count": 123
+    },
+    {
+      "id": "null",
+      "first_mention": 6.0,
+      "mention_count": 127
+    },
+    {
+      "id": "primary_key",
+      "first_mention": 0.0,
+      "mention_count": 191
+    },
+    {
+      "id": "relation",
+      "first_mention": 73.0,
+      "mention_count": 2
+    },
+    {
+      "id": "sql",
+      "first_mention": 27.0,
+      "mention_count": 2
+    },
+    {
+      "id": "unique_constraint",
+      "first_mention": 6.0,
+      "mention_count": 108
+    }
+  ],
+  "edges": [
+    {
+      "source": "relation",
+      "target": "sql",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "attribute",
+      "target": "candidate_key",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "candidate_key",
+      "target": "primary_key",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.81,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "relation",
+      "target": "normalization",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "unique_constraint",
+      "target": "candidate_key",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "null",
+      "target": "not_null",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "relation",
+      "target": "attribute",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "database",
+      "target": "sql",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "primary_key",
+      "target": "normalization",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "not_null",
+      "target": "primary_key",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "unique_constraint",
+      "target": "primary_key",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "database",
+      "target": "relation",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.81,
+      "provenance": "symbolic"
+    }
+  ],
+  "topological_order": [
+    "database",
+    "null",
+    "not_null",
+    "relation",
+    "attribute",
+    "sql",
+    "unique_constraint",
+    "candidate_key",
+    "primary_key",
+    "normalization"
+  ]
+}

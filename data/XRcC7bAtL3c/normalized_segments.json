@@ -1,0 +1,4925 @@
+[
+  {
+    "start": 0.0,
+    "end": 3.0,
+    "spoken_text": "Hello friends, welcome to gait's measure.",
+    "spoken_tokens": [
+      {
+        "token": "Hello",
+        "lang": "en"
+      },
+      {
+        "token": "friends,",
+        "lang": "en"
+      },
+      {
+        "token": "welcome",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "gait's",
+        "lang": "en"
+      },
+      {
+        "token": "measure.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "preorder"
+    ],
+    "visual_text_raw": "५९००\nKoot\n(थी\nदि PHQOHJHL\nउप"
+  },
+  {
+    "start": 3.0,
+    "end": 6.0,
+    "spoken_text": "In this video we are going to discuss tree traversal techniques.",
+    "spoken_tokens": [
+      {
+        "token": "In",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "video",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "going",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "discuss",
+        "lang": "en"
+      },
+      {
+        "token": "tree",
+        "lang": "en"
+      },
+      {
+        "token": "traversal",
+        "lang": "en"
+      },
+      {
+        "token": "techniques.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 6.0,
+    "end": 12.0,
+    "spoken_text": "So we have tree traversal techniques pre-order, in-order and post-order.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "tree",
+        "lang": "en"
+      },
+      {
+        "token": "traversal",
+        "lang": "en"
+      },
+      {
+        "token": "techniques",
+        "lang": "en"
+      },
+      {
+        "token": "pre-order,",
+        "lang": "en"
+      },
+      {
+        "token": "in-order",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "post-order.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 12.0,
+    "end": 18.0,
+    "spoken_text": "Pre-order means first write root node, then left node, then right.",
+    "spoken_tokens": [
+      {
+        "token": "Pre-order",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "write",
+        "lang": "en"
+      },
+      {
+        "token": "root",
+        "lang": "en"
+      },
+      {
+        "token": "node,",
+        "lang": "en"
+      },
+      {
+        "token": "then",
+        "lang": "en"
+      },
+      {
+        "token": "left",
+        "lang": "en"
+      },
+      {
+        "token": "node,",
+        "lang": "en"
+      },
+      {
+        "token": "then",
+        "lang": "en"
+      },
+      {
+        "token": "right.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "lIhord",
+      "left"
+    ],
+    "visual_text_raw": "Koot\n(थी\nlIhord\nLeft Koot\nLeft"
+  },
+  {
+    "start": 18.0,
+    "end": 22.0,
+    "spoken_text": "In-order means root comes in between left and right.",
+    "spoken_tokens": [
+      {
+        "token": "In-order",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "root",
+        "lang": "en"
+      },
+      {
+        "token": "comes",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "between",
+        "lang": "en"
+      },
+      {
+        "token": "left",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "right.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "prd"
+    ],
+    "visual_text_raw": "९००६\n(००८\nदि\nRoo\nLeft Koot\n(थी\nprd"
+  },
+  {
+    "start": 22.0,
+    "end": 28.0,
+    "spoken_text": "Post-order means first write right and then root node.",
+    "spoken_tokens": [
+      {
+        "token": "Post-order",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "write",
+        "lang": "en"
+      },
+      {
+        "token": "right",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "then",
+        "lang": "en"
+      },
+      {
+        "token": "root",
+        "lang": "en"
+      },
+      {
+        "token": "node.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "Koo",
+      "Llff",
+      "left",
+      "right"
+    ],
+    "visual_text_raw": "९००६ (४८\nKoot\nदर Koo\n५९००६\nLlff Koot\n(थी\nLeft Kight"
+  },
+  {
+    "start": 29.0,
+    "end": 31.0,
+    "spoken_text": "Node means vertex of tree.",
+    "spoken_tokens": [
+      {
+        "token": "Node",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "vertex",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "tree.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 31.0,
+    "end": 36.0,
+    "spoken_text": "So here if we see x, y, z, so x, y, z is a very simple graph, simple tree.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "here",
+        "lang": "en"
+      },
+      {
+        "token": "if",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "see",
+        "lang": "en"
+      },
+      {
+        "token": "x,",
+        "lang": "en"
+      },
+      {
+        "token": "y,",
+        "lang": "en"
+      },
+      {
+        "token": "z,",
+        "lang": "en"
+      },
+      {
+        "token": "so",
+        "lang": "en"
+      },
+      {
+        "token": "x,",
+        "lang": "en"
+      },
+      {
+        "token": "y,",
+        "lang": "en"
+      },
+      {
+        "token": "z",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "very",
+        "lang": "en"
+      },
+      {
+        "token": "simple",
+        "lang": "en"
+      },
+      {
+        "token": "graph,",
+        "lang": "en"
+      },
+      {
+        "token": "simple",
+        "lang": "en"
+      },
+      {
+        "token": "tree.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "IIhOYd-UL",
+      "Llff",
+      "Ller"
+    ],
+    "visual_text_raw": "Root दि\nKoot\n(थी\nIIhOYd-UL\n५९००६\nLlff Koot\nथी\nLler Koot"
+  },
+  {
+    "start": 36.0,
+    "end": 43.0,
+    "spoken_text": "So if we see root in pre-order case, x, y, z.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "if",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "see",
+        "lang": "en"
+      },
+      {
+        "token": "root",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "pre-order",
+        "lang": "en"
+      },
+      {
+        "token": "case,",
+        "lang": "en"
+      },
+      {
+        "token": "x,",
+        "lang": "en"
+      },
+      {
+        "token": "y,",
+        "lang": "en"
+      },
+      {
+        "token": "z.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "left",
+      "root"
+    ],
+    "visual_text_raw": "५९००६\nLeft Koot\nथी\nता\nKoot\nLeft\nलि\n५९००६ (४८\n(थी Koot\nहै).\nकै..."
+  },
+  {
+    "start": 43.0,
+    "end": 45.0,
+    "spoken_text": "So this will be the pre-order.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "will",
+        "lang": "en"
+      },
+      {
+        "token": "be",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "pre-order.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 45.0,
+    "end": 51.0,
+    "spoken_text": "Where we write root first, in-order means first write left, then write in-between,",
+    "spoken_tokens": [
+      {
+        "token": "Where",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "write",
+        "lang": "en"
+      },
+      {
+        "token": "root",
+        "lang": "en"
+      },
+      {
+        "token": "first,",
+        "lang": "en"
+      },
+      {
+        "token": "in-order",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "write",
+        "lang": "en"
+      },
+      {
+        "token": "left,",
+        "lang": "en"
+      },
+      {
+        "token": "then",
+        "lang": "en"
+      },
+      {
+        "token": "write",
+        "lang": "en"
+      },
+      {
+        "token": "in-between,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "node",
+      "left",
+      "नशा",
+      "Btk"
+    ],
+    "visual_text_raw": "९००६\nKoot\nRuot\nके\n९००६ दि\node Left\n५९००६ (४८\nनशा\nBtk"
+  },
+  {
+    "start": 51.0,
+    "end": 54.0,
+    "spoken_text": "write root and write right element.",
+    "spoken_tokens": [
+      {
+        "token": "write",
+        "lang": "en"
+      },
+      {
+        "token": "root",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "write",
+        "lang": "en"
+      },
+      {
+        "token": "right",
+        "lang": "en"
+      },
+      {
+        "token": "element.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "node",
+      "left"
+    ],
+    "visual_text_raw": "Koot\nndee Left Koot\nथी\n५९००६\nLeft Koot\nLeft Roo"
+  },
+  {
+    "start": 54.0,
+    "end": 60.0,
+    "spoken_text": "And post-order means first left element, then right element and last is root element.",
+    "spoken_tokens": [
+      {
+        "token": "And",
+        "lang": "en"
+      },
+      {
+        "token": "post-order",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "left",
+        "lang": "en"
+      },
+      {
+        "token": "element,",
+        "lang": "en"
+      },
+      {
+        "token": "then",
+        "lang": "en"
+      },
+      {
+        "token": "right",
+        "lang": "en"
+      },
+      {
+        "token": "element",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "last",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "root",
+        "lang": "en"
+      },
+      {
+        "token": "element.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "left",
+      "root",
+      "first",
+      "right"
+    ],
+    "visual_text_raw": "९००६\n५००८\nLeft\nKoot\nFost\nके\nथी Koot\nLeft Right (०६\nरु"
+  },
+  {
+    "start": 60.0,
+    "end": 66.0,
+    "spoken_text": "So when we have tree very simple, then we know that we have to write it this way.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "when",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "tree",
+        "lang": "en"
+      },
+      {
+        "token": "very",
+        "lang": "en"
+      },
+      {
+        "token": "simple,",
+        "lang": "en"
+      },
+      {
+        "token": "then",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "know",
+        "lang": "en"
+      },
+      {
+        "token": "that",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "write",
+        "lang": "en"
+      },
+      {
+        "token": "it",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "way.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "९००६\nKoot\nLeft Ruot\n५९००६\nथी Koot\nLeft\n६००८"
+  },
+  {
+    "start": 66.0,
+    "end": 70.0,
+    "spoken_text": "But sometimes in exams we give very complex tree.",
+    "spoken_tokens": [
+      {
+        "token": "But",
+        "lang": "en"
+      },
+      {
+        "token": "sometimes",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "exams",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "give",
+        "lang": "en"
+      },
+      {
+        "token": "very",
+        "lang": "en"
+      },
+      {
+        "token": "complex",
+        "lang": "en"
+      },
+      {
+        "token": "tree.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "left",
+      "root"
+    ],
+    "visual_text_raw": "कि ना ५९००६\n५६००८\nLeft Roo"
+  },
+  {
+    "start": 70.0,
+    "end": 74.0,
+    "spoken_text": "So if you have very complex tree, then sometimes we make mistake in option.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "if",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "very",
+        "lang": "en"
+      },
+      {
+        "token": "complex",
+        "lang": "en"
+      },
+      {
+        "token": "tree,",
+        "lang": "en"
+      },
+      {
+        "token": "then",
+        "lang": "en"
+      },
+      {
+        "token": "sometimes",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "make",
+        "lang": "en"
+      },
+      {
+        "token": "mistake",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "option.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "Koot\nथी Koot\nLeft\n५००६\n६००८\nथे"
+  },
+  {
+    "start": 74.0,
+    "end": 78.0,
+    "spoken_text": "Or we don't know what the exact answer will be.",
+    "spoken_tokens": [
+      {
+        "token": "Or",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "don't",
+        "lang": "en"
+      },
+      {
+        "token": "know",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "exact",
+        "lang": "en"
+      },
+      {
+        "token": "answer",
+        "lang": "en"
+      },
+      {
+        "token": "will",
+        "lang": "en"
+      },
+      {
+        "token": "be.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "जगा",
+      "left"
+    ],
+    "visual_text_raw": "५००६\nKoot\n(थी\nजगा\nवर\n९००६\nLeft\nदि\nLeft Root"
+  },
+  {
+    "start": 78.0,
+    "end": 80.0,
+    "spoken_text": "So in this video I am telling you such technique.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "video",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "am",
+        "lang": "en"
+      },
+      {
+        "token": "telling",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "such",
+        "lang": "en"
+      },
+      {
+        "token": "technique.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "५९००६\nKoot\nLeft\n(तु)\nपद\nथी Koot"
+  },
+  {
+    "start": 81.0,
+    "end": 89.0,
+    "spoken_text": "From this technique any tree, any complex tree, you can get very easy and very short answer.",
+    "spoken_tokens": [
+      {
+        "token": "From",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "technique",
+        "lang": "en"
+      },
+      {
+        "token": "any",
+        "lang": "en"
+      },
+      {
+        "token": "tree,",
+        "lang": "en"
+      },
+      {
+        "token": "any",
+        "lang": "en"
+      },
+      {
+        "token": "complex",
+        "lang": "en"
+      },
+      {
+        "token": "tree,",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "can",
+        "lang": "en"
+      },
+      {
+        "token": "get",
+        "lang": "en"
+      },
+      {
+        "token": "very",
+        "lang": "en"
+      },
+      {
+        "token": "easy",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "very",
+        "lang": "en"
+      },
+      {
+        "token": "short",
+        "lang": "en"
+      },
+      {
+        "token": "answer.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "७८ Root\n६००८\nLeft\nपट\n९००६\nथी Koot\n(थी\n(9०९५"
+  },
+  {
+    "start": 89.0,
+    "end": 92.0,
+    "spoken_text": "So definitely do this technique in UGC net gate exam.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "definitely",
+        "lang": "en"
+      },
+      {
+        "token": "do",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "technique",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "UGC",
+        "lang": "en"
+      },
+      {
+        "token": "net",
+        "lang": "en"
+      },
+      {
+        "token": "gate",
+        "lang": "en"
+      },
+      {
+        "token": "exam.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "right"
+    ],
+    "visual_text_raw": "५९००६ (४८\nथी Koot\nथी Roo\n९००६\nLeft Kght"
+  },
+  {
+    "start": 92.0,
+    "end": 95.0,
+    "spoken_text": "Its question is very common.",
+    "spoken_tokens": [
+      {
+        "token": "Its",
+        "lang": "en"
+      },
+      {
+        "token": "question",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "very",
+        "lang": "en"
+      },
+      {
+        "token": "common.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "first"
+    ],
+    "visual_text_raw": "९००६ (४८\nथी Koot\nLeft ०६\n५९००६\nKoot\nFost Left"
+  },
+  {
+    "start": 95.0,
+    "end": 99.0,
+    "spoken_text": "So if we start here, we have a tree.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "if",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "start",
+        "lang": "en"
+      },
+      {
+        "token": "here,",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "tree.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "second",
+      "“पु"
+    ],
+    "visual_text_raw": "९००६\nKoot\n(थी Roo\nथी Koot\nLeft\nond ०८ Koot\n००८\nदल! (थी\n“पु"
+  },
+  {
+    "start": 99.0,
+    "end": 104.0,
+    "spoken_text": "So in binary tree what we have to do is, whenever you start tree,",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "binary",
+        "lang": "en"
+      },
+      {
+        "token": "tree",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "do",
+        "lang": "en"
+      },
+      {
+        "token": "is,",
+        "lang": "en"
+      },
+      {
+        "token": "whenever",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "start",
+        "lang": "en"
+      },
+      {
+        "token": "tree,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "९००६\nKoot\nRoo\nLeft Roo\nLeft"
+  },
+  {
+    "start": 105.0,
+    "end": 110.0,
+    "spoken_text": "you ensure that every binary tree means, what is the meaning of every tree's two children.",
+    "spoken_tokens": [
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "ensure",
+        "lang": "en"
+      },
+      {
+        "token": "that",
+        "lang": "en"
+      },
+      {
+        "token": "every",
+        "lang": "en"
+      },
+      {
+        "token": "binary",
+        "lang": "en"
+      },
+      {
+        "token": "tree",
+        "lang": "en"
+      },
+      {
+        "token": "means,",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "meaning",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "every",
+        "lang": "en"
+      },
+      {
+        "token": "tree's",
+        "lang": "en"
+      },
+      {
+        "token": "two",
+        "lang": "en"
+      },
+      {
+        "token": "children.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "lIHOYd"
+    ],
+    "visual_text_raw": "Koot\nथी Koot\nLeft Roo\nlIHOYd\n६००८\nLeft"
+  },
+  {
+    "start": 110.0,
+    "end": 112.0,
+    "spoken_text": "Is everyone's two children there?",
+    "spoken_tokens": [
+      {
+        "token": "Is",
+        "lang": "en"
+      },
+      {
+        "token": "everyone's",
+        "lang": "en"
+      },
+      {
+        "token": "two",
+        "lang": "en"
+      },
+      {
+        "token": "children",
+        "lang": "en"
+      },
+      {
+        "token": "there?",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "९००६\nKoot\nLeft\nपट\n(टी)"
+  },
+  {
+    "start": 112.0,
+    "end": 114.0,
+    "spoken_text": "So see here everyone's two children are there.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "see",
+        "lang": "en"
+      },
+      {
+        "token": "here",
+        "lang": "en"
+      },
+      {
+        "token": "everyone's",
+        "lang": "en"
+      },
+      {
+        "token": "two",
+        "lang": "en"
+      },
+      {
+        "token": "children",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "there.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 114.0,
+    "end": 118.0,
+    "spoken_text": "A is no children, so A is actually leaf node.",
+    "spoken_tokens": [
+      {
+        "token": "A",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "no",
+        "lang": "en"
+      },
+      {
+        "token": "children,",
+        "lang": "en"
+      },
+      {
+        "token": "so",
+        "lang": "en"
+      },
+      {
+        "token": "A",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "actually",
+        "lang": "en"
+      },
+      {
+        "token": "leaf",
+        "lang": "en"
+      },
+      {
+        "token": "node.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "Koot दि\n६००८\nLeft"
+  },
+  {
+    "start": 118.0,
+    "end": 120.0,
+    "spoken_text": "So leaf has no children.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "leaf",
+        "lang": "en"
+      },
+      {
+        "token": "has",
+        "lang": "en"
+      },
+      {
+        "token": "no",
+        "lang": "en"
+      },
+      {
+        "token": "children.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "lIhoYd"
+    ],
+    "visual_text_raw": "Koot\n६००८\nLeft Roo\nथी Koot\nLeft\nlIhoYd"
+  },
+  {
+    "start": 120.0,
+    "end": 124.0,
+    "spoken_text": "So what you have to do is, make a dummy like this children.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "do",
+        "lang": "en"
+      },
+      {
+        "token": "is,",
+        "lang": "en"
+      },
+      {
+        "token": "make",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "dummy",
+        "lang": "en"
+      },
+      {
+        "token": "like",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "children.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "lIhoYd"
+    ],
+    "visual_text_raw": "Koot\nथी Koot\nLeft\n९००६\nlIhoYd"
+  },
+  {
+    "start": 124.0,
+    "end": 129.0,
+    "spoken_text": "Make such CK also, make EK also, make HK also,",
+    "spoken_tokens": [
+      {
+        "token": "Make",
+        "lang": "en"
+      },
+      {
+        "token": "such",
+        "lang": "en"
+      },
+      {
+        "token": "CK",
+        "lang": "en"
+      },
+      {
+        "token": "also,",
+        "lang": "en"
+      },
+      {
+        "token": "make",
+        "lang": "en"
+      },
+      {
+        "token": "EK",
+        "lang": "en"
+      },
+      {
+        "token": "also,",
+        "lang": "en"
+      },
+      {
+        "token": "make",
+        "lang": "en"
+      },
+      {
+        "token": "HK",
+        "lang": "en"
+      },
+      {
+        "token": "also,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "lIHOYd",
+      "right"
+    ],
+    "visual_text_raw": "थी Koot\nLeft Roo\n(टी)\nlIHOYd\nKoot\n५००६\nLeft Right"
+  },
+  {
+    "start": 130.0,
+    "end": 133.0,
+    "spoken_text": "A is left, A is right, so make A is right.",
+    "spoken_tokens": [
+      {
+        "token": "A",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "left,",
+        "lang": "en"
+      },
+      {
+        "token": "A",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "right,",
+        "lang": "en"
+      },
+      {
+        "token": "so",
+        "lang": "en"
+      },
+      {
+        "token": "make",
+        "lang": "en"
+      },
+      {
+        "token": "A",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "right.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 133.0,
+    "end": 136.0,
+    "spoken_text": "G is left, so make G is left.",
+    "spoken_tokens": [
+      {
+        "token": "G",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "left,",
+        "lang": "en"
+      },
+      {
+        "token": "so",
+        "lang": "en"
+      },
+      {
+        "token": "make",
+        "lang": "en"
+      },
+      {
+        "token": "G",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "left.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "Post",
+      "left",
+      "Runt",
+      "lIhoYd"
+    ],
+    "visual_text_raw": "Koot\nPost Left Runt\nlIhoYd"
+  },
+  {
+    "start": 136.0,
+    "end": 143.0,
+    "spoken_text": "So in this way you make dummy like this children so that every two children are there.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "way",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "make",
+        "lang": "en"
+      },
+      {
+        "token": "dummy",
+        "lang": "en"
+      },
+      {
+        "token": "like",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "children",
+        "lang": "en"
+      },
+      {
+        "token": "so",
+        "lang": "en"
+      },
+      {
+        "token": "that",
+        "lang": "en"
+      },
+      {
+        "token": "every",
+        "lang": "en"
+      },
+      {
+        "token": "two",
+        "lang": "en"
+      },
+      {
+        "token": "children",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "there.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "Post",
+      "Z-jht",
+      "left",
+      "Zjhf",
+      "right"
+    ],
+    "visual_text_raw": "७८ Koot\nKoot\nPost\nKoot Z-jht\nथी Koot\nLeft\nKoot Zjhf\nLeft Kght Root\nLeft Koot\nहि).\nLeft Roo"
+  },
+  {
+    "start": 143.0,
+    "end": 149.0,
+    "spoken_text": "Now after that what you have to do is traversing means, simple you have to go on the whole graph.",
+    "spoken_tokens": [
+      {
+        "token": "Now",
+        "lang": "en"
+      },
+      {
+        "token": "after",
+        "lang": "en"
+      },
+      {
+        "token": "that",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "do",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "traversing",
+        "lang": "en"
+      },
+      {
+        "token": "means,",
+        "lang": "en"
+      },
+      {
+        "token": "simple",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "go",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "whole",
+        "lang": "en"
+      },
+      {
+        "token": "graph.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "lIhoYd"
+    ],
+    "visual_text_raw": "५९००६\nथी Koot\n(थी\nlIhoYd"
+  },
+  {
+    "start": 149.0,
+    "end": 152.0,
+    "spoken_text": "So always we start with root node.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "always",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "start",
+        "lang": "en"
+      },
+      {
+        "token": "with",
+        "lang": "en"
+      },
+      {
+        "token": "root",
+        "lang": "en"
+      },
+      {
+        "token": "node.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "Koot\nथी Koot\nLeft Roo\n९००६\nLeft"
+  },
+  {
+    "start": 152.0,
+    "end": 154.0,
+    "spoken_text": "So this is the root node.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "root",
+        "lang": "en"
+      },
+      {
+        "token": "node.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "first",
+      "left"
+    ],
+    "visual_text_raw": "९००६\nKoot\nFost Left"
+  },
+  {
+    "start": 154.0,
+    "end": 158.0,
+    "spoken_text": "So when we start with root node, then what you have to do is,",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "when",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "start",
+        "lang": "en"
+      },
+      {
+        "token": "with",
+        "lang": "en"
+      },
+      {
+        "token": "root",
+        "lang": "en"
+      },
+      {
+        "token": "node,",
+        "lang": "en"
+      },
+      {
+        "token": "then",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "do",
+        "lang": "en"
+      },
+      {
+        "token": "is,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "right"
+    ],
+    "visual_text_raw": "५००६\nKoot\nKght"
+  },
+  {
+    "start": 158.0,
+    "end": 162.0,
+    "spoken_text": "pre-order, in-order and post-order will be taken out, it is a simple way.",
+    "spoken_tokens": [
+      {
+        "token": "pre-order,",
+        "lang": "en"
+      },
+      {
+        "token": "in-order",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "post-order",
+        "lang": "en"
+      },
+      {
+        "token": "will",
+        "lang": "en"
+      },
+      {
+        "token": "be",
+        "lang": "en"
+      },
+      {
+        "token": "taken",
+        "lang": "en"
+      },
+      {
+        "token": "out,",
+        "lang": "en"
+      },
+      {
+        "token": "it",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "simple",
+        "lang": "en"
+      },
+      {
+        "token": "way.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "Post",
+      "Runt",
+      "right"
+    ],
+    "visual_text_raw": "Koot\nLeft Koot\n(थी\n९००६\nLeft Roo\n५९००६\nPost Left Runt\nLeft Kght"
+  },
+  {
+    "start": 162.0,
+    "end": 167.0,
+    "spoken_text": "When you are reaching any node for the first time, then it is pre-order.",
+    "spoken_tokens": [
+      {
+        "token": "When",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "reaching",
+        "lang": "en"
+      },
+      {
+        "token": "any",
+        "lang": "en"
+      },
+      {
+        "token": "node",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time,",
+        "lang": "en"
+      },
+      {
+        "token": "then",
+        "lang": "en"
+      },
+      {
+        "token": "it",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "pre-order.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "५९००६\nथी Koot\nLeft (०६\nहै"
+  },
+  {
+    "start": 167.0,
+    "end": 170.0,
+    "spoken_text": "When you are reaching any node for the second time, in-order,",
+    "spoken_tokens": [
+      {
+        "token": "When",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "reaching",
+        "lang": "en"
+      },
+      {
+        "token": "any",
+        "lang": "en"
+      },
+      {
+        "token": "node",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "time,",
+        "lang": "en"
+      },
+      {
+        "token": "in-order,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "Post",
+      "lIhord",
+      "left"
+    ],
+    "visual_text_raw": "९००६\nKoot\nPost\nlIhord\n९००६ दि\nLeft Roo"
+  },
+  {
+    "start": 170.0,
+    "end": 174.0,
+    "spoken_text": "when you are reaching any node for the third time, post-order.",
+    "spoken_tokens": [
+      {
+        "token": "when",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "reaching",
+        "lang": "en"
+      },
+      {
+        "token": "any",
+        "lang": "en"
+      },
+      {
+        "token": "node",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "third",
+        "lang": "en"
+      },
+      {
+        "token": "time,",
+        "lang": "en"
+      },
+      {
+        "token": "post-order.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "left",
+      "root",
+      "हूँ"
+    ],
+    "visual_text_raw": "९००६\n००८\nLeft\n५००६\nKoot\nहूँ"
+  },
+  {
+    "start": 174.0,
+    "end": 177.0,
+    "spoken_text": "You have to do it in a very simple way, you see F.",
+    "spoken_tokens": [
+      {
+        "token": "You",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "do",
+        "lang": "en"
+      },
+      {
+        "token": "it",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "very",
+        "lang": "en"
+      },
+      {
+        "token": "simple",
+        "lang": "en"
+      },
+      {
+        "token": "way,",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "see",
+        "lang": "en"
+      },
+      {
+        "token": "F.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "lIhowd"
+    ],
+    "visual_text_raw": "थी Koot\nLeft Roo\nRoot\nLeft\nlIhowd"
+  },
+  {
+    "start": 177.0,
+    "end": 182.0,
+    "spoken_text": "We have started from here, so as soon as we reach F, obviously we have to do it.",
+    "spoken_tokens": [
+      {
+        "token": "We",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "started",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "here,",
+        "lang": "en"
+      },
+      {
+        "token": "so",
+        "lang": "en"
+      },
+      {
+        "token": "as",
+        "lang": "en"
+      },
+      {
+        "token": "soon",
+        "lang": "en"
+      },
+      {
+        "token": "as",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reach",
+        "lang": "en"
+      },
+      {
+        "token": "F,",
+        "lang": "en"
+      },
+      {
+        "token": "obviously",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "do",
+        "lang": "en"
+      },
+      {
+        "token": "it.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "Post"
+    ],
+    "visual_text_raw": "Root\nथी Koot\nLeft\nLeft Roo\nKoot दि\nKoot\nPost"
+  },
+  {
+    "start": 183.0,
+    "end": 186.0,
+    "spoken_text": "So we have reached F, which time? First time we reached F,",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "reached",
+        "lang": "en"
+      },
+      {
+        "token": "F,",
+        "lang": "en"
+      },
+      {
+        "token": "which",
+        "lang": "en"
+      },
+      {
+        "token": "time?",
+        "lang": "en"
+      },
+      {
+        "token": "First",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reached",
+        "lang": "en"
+      },
+      {
+        "token": "F,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "first",
+      "left",
+      "lIhord"
+    ],
+    "visual_text_raw": "कि ना ९००६\nKoot\nFost Left\nlIhord\n९००६ दि\n९००६\n६००८\nLeft Roo"
+  },
+  {
+    "start": 186.0,
+    "end": 191.0,
+    "spoken_text": "first time means pre-order, first time means pre-order.",
+    "spoken_tokens": [
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "pre-order,",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "pre-order.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "Post",
+      "first"
+    ],
+    "visual_text_raw": "९००६\nथी Koot\nLeft\nकै\nKoot\nPost\n५९००६\n००८\nFost Left"
+  },
+  {
+    "start": 191.0,
+    "end": 196.0,
+    "spoken_text": "So as soon as we started from F, you have to traverse to the left and right.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "as",
+        "lang": "en"
+      },
+      {
+        "token": "soon",
+        "lang": "en"
+      },
+      {
+        "token": "as",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "started",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "F,",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "traverse",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "left",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "right.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "९००६\nKoot\nLeft\nथी Koot"
+  },
+  {
+    "start": 196.0,
+    "end": 199.0,
+    "spoken_text": "So in the left side what is the second element? B.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "left",
+        "lang": "en"
+      },
+      {
+        "token": "side",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "element?",
+        "lang": "en"
+      },
+      {
+        "token": "B.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 199.0,
+    "end": 204.0,
+    "spoken_text": "So on B you reach for the first time, first time means pre-order.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "B",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "reach",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time,",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "pre-order.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "left",
+      "root",
+      "शेर"
+    ],
+    "visual_text_raw": "Left Koot\nLeft\nके\nशेर\nकै\nKoot\n६००८\nLeft Roo"
+  },
+  {
+    "start": 204.0,
+    "end": 209.0,
+    "spoken_text": "We come down, A, reach for the first time on A, so in pre-order you write.",
+    "spoken_tokens": [
+      {
+        "token": "We",
+        "lang": "en"
+      },
+      {
+        "token": "come",
+        "lang": "en"
+      },
+      {
+        "token": "down,",
+        "lang": "en"
+      },
+      {
+        "token": "A,",
+        "lang": "en"
+      },
+      {
+        "token": "reach",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "A,",
+        "lang": "en"
+      },
+      {
+        "token": "so",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "pre-order",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "write.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "left",
+      "root",
+      "रूस",
+      "FBA"
+    ],
+    "visual_text_raw": "दि ५९००६\nLeft Koot\nLeft\nRoot\nKoot\nLeft Roo\nकै.\nरूस\nही\nजि\n९००६\nFBA"
+  },
+  {
+    "start": 209.0,
+    "end": 212.0,
+    "spoken_text": "In A we reach for the first time, in A we have to traverse to the left,",
+    "spoken_tokens": [
+      {
+        "token": "In",
+        "lang": "en"
+      },
+      {
+        "token": "A",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reach",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time,",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "A",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "traverse",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "left,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "Ltff",
+      "root",
+      "Post",
+      "Runt",
+      "FBA",
+      "left"
+    ],
+    "visual_text_raw": "९००६\nLtff Koot\nPost\nKoot\nPost Runt\nFBA\n६००८\nLeft Roo"
+  },
+  {
+    "start": 212.0,
+    "end": 217.0,
+    "spoken_text": "so second time we reach A, second time means in-order.",
+    "spoken_tokens": [
+      {
+        "token": "so",
+        "lang": "en"
+      },
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reach",
+        "lang": "en"
+      },
+      {
+        "token": "A,",
+        "lang": "en"
+      },
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "in-order.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "FBA"
+    ],
+    "visual_text_raw": "९००६\nथी Koot\nLeft Roo\nFBA\nKoot\n६००८\nथी\nकै\nजे\n(थी"
+  },
+  {
+    "start": 217.0,
+    "end": 220.0,
+    "spoken_text": "See we have to traverse to the left, again we reach for the third time.",
+    "spoken_tokens": [
+      {
+        "token": "See",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "traverse",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "left,",
+        "lang": "en"
+      },
+      {
+        "token": "again",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reach",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "third",
+        "lang": "en"
+      },
+      {
+        "token": "time.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "Llwa",
+      "root",
+      "FBA",
+      "left",
+      "Llva",
+      "Post"
+    ],
+    "visual_text_raw": "Llwa Koot\n(थी\nFBA\n९५\nRoot\n६००८\nLeft\nहै\nLlva Koot\nPost"
+  },
+  {
+    "start": 220.0,
+    "end": 224.0,
+    "spoken_text": "First time was A, second time was A, third time was post-order,",
+    "spoken_tokens": [
+      {
+        "token": "First",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "was",
+        "lang": "en"
+      },
+      {
+        "token": "A,",
+        "lang": "en"
+      },
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "was",
+        "lang": "en"
+      },
+      {
+        "token": "A,",
+        "lang": "en"
+      },
+      {
+        "token": "third",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "was",
+        "lang": "en"
+      },
+      {
+        "token": "post-order,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "Koot\n६००८\nLeft\nहै"
+  },
+  {
+    "start": 224.0,
+    "end": 228.0,
+    "spoken_text": "because third time means post. Now we are going up on B.",
+    "spoken_tokens": [
+      {
+        "token": "because",
+        "lang": "en"
+      },
+      {
+        "token": "third",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "post.",
+        "lang": "en"
+      },
+      {
+        "token": "Now",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "going",
+        "lang": "en"
+      },
+      {
+        "token": "up",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "B.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "Koot\n६००८\nLeft Roo\nपट\nRoot\nLeft\n१९"
+  },
+  {
+    "start": 228.0,
+    "end": 231.0,
+    "spoken_text": "On B we reached here for the first time, second time we reached here,",
+    "spoken_tokens": [
+      {
+        "token": "On",
+        "lang": "en"
+      },
+      {
+        "token": "B",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reached",
+        "lang": "en"
+      },
+      {
+        "token": "here",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time,",
+        "lang": "en"
+      },
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reached",
+        "lang": "en"
+      },
+      {
+        "token": "here,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "first",
+      "left",
+      "root",
+      "Post",
+      "right",
+      "FEA"
+    ],
+    "visual_text_raw": "९००६\n००८\nFost Left\nKoot\nPost Rght\nFEA"
+  },
+  {
+    "start": 231.0,
+    "end": 236.0,
+    "spoken_text": "second time means in-order. Next on D.",
+    "spoken_tokens": [
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "in-order.",
+        "lang": "en"
+      },
+      {
+        "token": "Next",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "D.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "left",
+      "Koht",
+      "root",
+      "FBA"
+    ],
+    "visual_text_raw": "९००६\n0०८\nLeft Koht\nKoot\nLeft Roo\nFBA\nLeft"
+  },
+  {
+    "start": 236.0,
+    "end": 240.0,
+    "spoken_text": "On D we reached for the first time, so first time means pre-order.",
+    "spoken_tokens": [
+      {
+        "token": "On",
+        "lang": "en"
+      },
+      {
+        "token": "D",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reached",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time,",
+        "lang": "en"
+      },
+      {
+        "token": "so",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "pre-order.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "Post",
+      "FEA",
+      "left",
+      "right",
+      "FBA"
+    ],
+    "visual_text_raw": "९००६\nKoot\nPost\nFEA\nथी Koot\n(थी Roo\nLeft Kght\nLeft Roo\nFBA"
+  },
+  {
+    "start": 240.0,
+    "end": 244.0,
+    "spoken_text": "Just like this you have to walk. Next we reach for the first time on C,",
+    "spoken_tokens": [
+      {
+        "token": "Just",
+        "lang": "en"
+      },
+      {
+        "token": "like",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "walk.",
+        "lang": "en"
+      },
+      {
+        "token": "Next",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reach",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "C,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "FBAD",
+      "FBEAD",
+      "Post"
+    ],
+    "visual_text_raw": "Koot\n६००८\nLeft Roo\nFBAD\nLeft\nFBEAD\n९००६\nPost\nपु"
+  },
+  {
+    "start": 244.0,
+    "end": 249.0,
+    "spoken_text": "so pre-order, write. On C we see, we reach for the second time on the round,",
+    "spoken_tokens": [
+      {
+        "token": "so",
+        "lang": "en"
+      },
+      {
+        "token": "pre-order,",
+        "lang": "en"
+      },
+      {
+        "token": "write.",
+        "lang": "en"
+      },
+      {
+        "token": "On",
+        "lang": "en"
+      },
+      {
+        "token": "C",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "see,",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reach",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "round,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "left",
+      "right",
+      "root"
+    ],
+    "visual_text_raw": "९००६\nLeft Right\n(थी\nKoot\n६००८\nLeft Roo\nLeft"
+  },
+  {
+    "start": 249.0,
+    "end": 254.0,
+    "spoken_text": "second time means in-order and from here we reached for the third time on C,",
+    "spoken_tokens": [
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "in-order",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "here",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reached",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "third",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "C,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "FBAD",
+      "Llff",
+      "first"
+    ],
+    "visual_text_raw": "दि\nथी Koot\nLeft\nFBAD\n(५९००६\nLlff Koot\nFost Left Roo\nKoot"
+  },
+  {
+    "start": 254.0,
+    "end": 259.0,
+    "spoken_text": "third time means post-order. After that we reach for D.",
+    "spoken_tokens": [
+      {
+        "token": "third",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "post-order.",
+        "lang": "en"
+      },
+      {
+        "token": "After",
+        "lang": "en"
+      },
+      {
+        "token": "that",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reach",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "D.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "left",
+      "root",
+      "AFEADIC",
+      "lIhord",
+      "FBAD",
+      "erv",
+      "and"
+    ],
+    "visual_text_raw": "५९००६\n६००८\nLeft Root\n५००६\nLeft\nAFEADIC\nRoot\nKoot\nlIhord\nFBAD\n११\n५१९\n९८ Root\nerv\nLeft Roo\nADc"
+  },
+  {
+    "start": 259.0,
+    "end": 262.0,
+    "spoken_text": "On D we reach for the second time, first time we came here and second time here.",
+    "spoken_tokens": [
+      {
+        "token": "On",
+        "lang": "en"
+      },
+      {
+        "token": "D",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reach",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "time,",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "came",
+        "lang": "en"
+      },
+      {
+        "token": "here",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "here.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "first",
+      "left",
+      "and",
+      "FBAD",
+      "FgADC"
+    ],
+    "visual_text_raw": "९००६ दि\nKoot\nFost Left ००६\nADc\nLeft\nFBAD\nथी Koot\nदल\nLeft Roo\nFgADC"
+  },
+  {
+    "start": 262.0,
+    "end": 266.0,
+    "spoken_text": "Second time means in-order of E,",
+    "spoken_tokens": [
+      {
+        "token": "Second",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "in-order",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "E,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "Post",
+      "FBAD",
+      "left",
+      "lIhovd"
+    ],
+    "visual_text_raw": "Koot\nPost\nFBAD\n९००६\nLeft\nही\nथी Koot\nlIhovd"
+  },
+  {
+    "start": 266.0,
+    "end": 270.0,
+    "spoken_text": "first time means pre-order on E.",
+    "spoken_tokens": [
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "pre-order",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "E.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "Post",
+      "FBAD",
+      "FBAN",
+      "left",
+      "preorder",
+      "FEA",
+      "FBA"
+    ],
+    "visual_text_raw": "Koot\nPost\nFBAD\nRoot दि\n(थी\nFBAN\nRost\nLeft Koot\nLeft\nNPQOHJJUL FEA\nसे\nFBA\nही"
+  },
+  {
+    "start": 270.0,
+    "end": 275.0,
+    "spoken_text": "When reached on E for the second time, it means in-order.",
+    "spoken_tokens": [
+      {
+        "token": "When",
+        "lang": "en"
+      },
+      {
+        "token": "reached",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "E",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "time,",
+        "lang": "en"
+      },
+      {
+        "token": "it",
+        "lang": "en"
+      },
+      {
+        "token": "means",
+        "lang": "en"
+      },
+      {
+        "token": "in-order.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "left",
+      "फ्री",
+      "root",
+      "FBA"
+    ],
+    "visual_text_raw": "९००६\nLeft ०६\nफ्री\n७८ Root\nLeft\nFBA\nRoot\nLeft Koot\nथी\nसर"
+  },
+  {
+    "start": 275.0,
+    "end": 288.0,
+    "spoken_text": "Now on E we reach for the third time, first, second and third time.",
+    "spoken_tokens": [
+      {
+        "token": "Now",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "E",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reach",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "third",
+        "lang": "en"
+      },
+      {
+        "token": "time,",
+        "lang": "en"
+      },
+      {
+        "token": "first,",
+        "lang": "en"
+      },
+      {
+        "token": "second",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "third",
+        "lang": "en"
+      },
+      {
+        "token": "time.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "right",
+      "Post",
+      "Runt",
+      "FEAD",
+      "FBADC"
+    ],
+    "visual_text_raw": "Root\nLeft Koot\nLeft\nKoot\n६००८\n९००६\nLeft Root Right\n५००६\nLeft Kght\n९००६ दि\nPost Runt\nFEAD\nLeft Roo\nFBADC"
+  },
+  {
+    "start": 288.0,
+    "end": 294.2,
+    "spoken_text": "3  컬러  beispielsweise it is headquarters",
+    "spoken_tokens": [
+      {
+        "token": "3",
+        "lang": "other"
+      },
+      {
+        "token": "컬러",
+        "lang": "other"
+      },
+      {
+        "token": "beispielsweise",
+        "lang": "en"
+      },
+      {
+        "token": "it",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "headquarters",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "Llff",
+      "FBAD"
+    ],
+    "visual_text_raw": "(५९००६\nKoot\nएन, Left\nLlff Koot\nLeft\n५९००६\n६००८\nFBAD"
+  },
+  {
+    "start": 317.22,
+    "end": 327.22,
+    "spoken_text": "तो आई पे प्री अडर में, उसके वड़ हम एच पे पबली बार आए,",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "आई",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "प्री",
+        "lang": "hi"
+      },
+      {
+        "token": "अडर",
+        "lang": "hi"
+      },
+      {
+        "token": "में,",
+        "lang": "hi"
+      },
+      {
+        "token": "उसके",
+        "lang": "hi"
+      },
+      {
+        "token": "वड़",
+        "lang": "hi"
+      },
+      {
+        "token": "हम",
+        "lang": "hi"
+      },
+      {
+        "token": "एच",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "पबली",
+        "lang": "hi"
+      },
+      {
+        "token": "बार",
+        "lang": "hi"
+      },
+      {
+        "token": "आए,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "left",
+      "root",
+      "right",
+      "प्र",
+      "FBAD",
+      "छि।",
+      "and"
+    ],
+    "visual_text_raw": "Left Koot\nLeft\n९००६\nKoot\nLeft Kght\n09८९८ ५००६\n६००८\nLeft Roo\nप्र\nपट\n८८\nRight\n(थी\nFBAD\nछि।\nKght\nADC"
+  },
+  {
+    "start": 327.22,
+    "end": 336.22,
+    "spoken_text": "यहापे वम एच पे ही तुसरी बार आए, और यहापे वम के एच पे ही तुसरी बार आए,",
+    "spoken_tokens": [
+      {
+        "token": "यहापे",
+        "lang": "hi"
+      },
+      {
+        "token": "वम",
+        "lang": "hi"
+      },
+      {
+        "token": "एच",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "ही",
+        "lang": "hi"
+      },
+      {
+        "token": "तुसरी",
+        "lang": "hi"
+      },
+      {
+        "token": "बार",
+        "lang": "hi"
+      },
+      {
+        "token": "आए,",
+        "lang": "hi"
+      },
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "यहापे",
+        "lang": "hi"
+      },
+      {
+        "token": "वम",
+        "lang": "hi"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "एच",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "ही",
+        "lang": "hi"
+      },
+      {
+        "token": "तुसरी",
+        "lang": "hi"
+      },
+      {
+        "token": "बार",
+        "lang": "hi"
+      },
+      {
+        "token": "आए,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "EGLH",
+      "“पु",
+      "IIhord",
+      "DCEGLH",
+      "right"
+    ],
+    "visual_text_raw": "Koot\nथी Koot\nLeft\nEGLH\nRoot\n६००८\nLeft Roo\nही\n९००६\n००८\n3३३\n(थी\n“पु\nIIhord\nDCEGLH\nLeft Root Right\n५९००६\nLeft Right"
+  },
+  {
+    "start": 337.22,
+    "end": 340.04,
+    "spoken_text": "वंकर्द से रही से हम वम के अई पे वम डूसरी बार आए,",
+    "spoken_tokens": [
+      {
+        "token": "वंकर्द",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "रही",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "हम",
+        "lang": "hi"
+      },
+      {
+        "token": "वम",
+        "lang": "hi"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "अई",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "वम",
+        "lang": "hi"
+      },
+      {
+        "token": "डूसरी",
+        "lang": "hi"
+      },
+      {
+        "token": "बार",
+        "lang": "hi"
+      },
+      {
+        "token": "आए,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "FBA"
+    ],
+    "visual_text_raw": "Koot\n६००८\nLeft\n(ले?\nFBA"
+  },
+  {
+    "start": 340.14000000000004,
+    "end": 344.04,
+    "spoken_text": "मतलप आई बचन जाएगा इन अडर दूत,",
+    "spoken_tokens": [
+      {
+        "token": "मतलप",
+        "lang": "hi"
+      },
+      {
+        "token": "आई",
+        "lang": "hi"
+      },
+      {
+        "token": "बचन",
+        "lang": "hi"
+      },
+      {
+        "token": "जाएगा",
+        "lang": "hi"
+      },
+      {
+        "token": "इन",
+        "lang": "hi"
+      },
+      {
+        "token": "अडर",
+        "lang": "hi"
+      },
+      {
+        "token": "दूत,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "and"
+    ],
+    "visual_text_raw": "Rost\nKoot\nLeft\n८८;\nLeft Koot\n९००६\nADc"
+  },
+  {
+    "start": 344.14000000000004,
+    "end": 347.04,
+    "spoken_text": "दिन आए पे हि हम वम के तीसरी बार आए,",
+    "spoken_tokens": [
+      {
+        "token": "दिन",
+        "lang": "hi"
+      },
+      {
+        "token": "आए",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "हि",
+        "lang": "hi"
+      },
+      {
+        "token": "हम",
+        "lang": "hi"
+      },
+      {
+        "token": "वम",
+        "lang": "hi"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "तीसरी",
+        "lang": "hi"
+      },
+      {
+        "token": "बार",
+        "lang": "hi"
+      },
+      {
+        "token": "आए,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "root",
+      "left"
+    ],
+    "visual_text_raw": "Koot\nLeft Koot\nLeft"
+  },
+  {
+    "start": 347.14000000000004,
+    "end": 350.04,
+    "spoken_text": "तो आई बी दे पारट अप पूस्थ� Jord.",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "आई",
+        "lang": "hi"
+      },
+      {
+        "token": "बी",
+        "lang": "hi"
+      },
+      {
+        "token": "दे",
+        "lang": "hi"
+      },
+      {
+        "token": "पारट",
+        "lang": "hi"
+      },
+      {
+        "token": "अप",
+        "lang": "hi"
+      },
+      {
+        "token": "पूस्थ�",
+        "lang": "hi"
+      },
+      {
+        "token": "Jord.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "root",
+      "FBAD",
+      "EGIH",
+      "CEGLH",
+      "left"
+    ],
+    "visual_text_raw": "९००६\nKoot\nथी\nFBAD\nEGIH\nथी ६००८\nCEGLH\nLeft Roo"
+  },
+  {
+    "start": 350.14000000000004,
+    "end": 354.04,
+    "spoken_text": "तेन थे गिपे हम वौम के तु बारा आए फिर थीसरी बार आए,",
+    "spoken_tokens": [
+      {
+        "token": "तेन",
+        "lang": "hi"
+      },
+      {
+        "token": "थे",
+        "lang": "hi"
+      },
+      {
+        "token": "गिपे",
+        "lang": "hi"
+      },
+      {
+        "token": "हम",
+        "lang": "hi"
+      },
+      {
+        "token": "वौम",
+        "lang": "hi"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "तु",
+        "lang": "hi"
+      },
+      {
+        "token": "बारा",
+        "lang": "hi"
+      },
+      {
+        "token": "आए",
+        "lang": "hi"
+      },
+      {
+        "token": "फिर",
+        "lang": "hi"
+      },
+      {
+        "token": "थीसरी",
+        "lang": "hi"
+      },
+      {
+        "token": "बार",
+        "lang": "hi"
+      },
+      {
+        "token": "आए,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "left",
+      "right",
+      "root",
+      "Post",
+      "Koht"
+    ],
+    "visual_text_raw": "९००६\nLeft Kght\nजय\nKoot\nPost\n(की\nयु Koot\nभू\nLeft Koht कट\n९३५\n२२\n३६९\nKoot दि\nLeft"
+  },
+  {
+    "start": 354.04,
+    "end": 370.42,
+    "spoken_text": "तो जी प myślę mein hasta g gayi",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "जी",
+        "lang": "hi"
+      },
+      {
+        "token": "प",
+        "lang": "hi"
+      },
+      {
+        "token": "myślę",
+        "lang": "en"
+      },
+      {
+        "token": "mein",
+        "lang": "en"
+      },
+      {
+        "token": "hasta",
+        "lang": "en"
+      },
+      {
+        "token": "g",
+        "lang": "en"
+      },
+      {
+        "token": "gayi",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "FBAD",
+      "छि।",
+      "root",
+      "left",
+      "Loy",
+      "and"
+    ],
+    "visual_text_raw": "६००८\n(थी\nFBAD\nछि।\nRoot\nKoot\n१४०\n0८८८:\nRost\nLeft Koot\nLeft\n८८:\nदर\n५९४३४\nकै\n५९००६\nKoot दि\nथी Koot\nRoo\n(9१७\n2०८\nLeft Roo\n९००६\nLeft (००८\nLoy\nथी\nना\nADC"
+  },
+  {
+    "start": 370.42,
+    "end": 372.52000000000004,
+    "spoken_text": "अर already iOS",
+    "spoken_tokens": [
+      {
+        "token": "अर",
+        "lang": "hi"
+      },
+      {
+        "token": "already",
+        "lang": "en"
+      },
+      {
+        "token": "iOS",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 380.02000000000004,
+    "end": 383.36,
+    "spoken_text": "प Guild",
+    "spoken_tokens": [
+      {
+        "token": "प",
+        "lang": "hi"
+      },
+      {
+        "token": "Guild",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "Dceg"
+    ],
+    "visual_text_raw": "९००६\nKoot\nलि\n५७51 Left Roo\nDceg\nKoot दि\n६००८\nLeft"
+  },
+  {
+    "start": 383.36,
+    "end": 388.36,
+    "spoken_text": "ये रहीट वाल है, तो ये बहुत ये सिम्पल सी टेकनी के और ये हमेशा काम याब रहेगी आपको",
+    "spoken_tokens": [
+      {
+        "token": "ये",
+        "lang": "hi"
+      },
+      {
+        "token": "रहीट",
+        "lang": "hi"
+      },
+      {
+        "token": "वाल",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "ये",
+        "lang": "hi"
+      },
+      {
+        "token": "बहुत",
+        "lang": "hi"
+      },
+      {
+        "token": "ये",
+        "lang": "hi"
+      },
+      {
+        "token": "सिम्पल",
+        "lang": "hi"
+      },
+      {
+        "token": "सी",
+        "lang": "hi"
+      },
+      {
+        "token": "टेकनी",
+        "lang": "hi"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "ये",
+        "lang": "hi"
+      },
+      {
+        "token": "हमेशा",
+        "lang": "hi"
+      },
+      {
+        "token": "काम",
+        "lang": "hi"
+      },
+      {
+        "token": "याब",
+        "lang": "hi"
+      },
+      {
+        "token": "रहेगी",
+        "lang": "hi"
+      },
+      {
+        "token": "आपको",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "IGMD"
+    ],
+    "visual_text_raw": "Koot\nLeft Koot\nLeft\nLeff\nRoot\nIGMD"
+  },
+  {
+    "start": 388.36,
+    "end": 391.36,
+    "spoken_text": "विदन फाँ मिनेट्स, विदन फाँ मिनेट्स आपको ये टेकनीक समझा यागी",
+    "spoken_tokens": [
+      {
+        "token": "विदन",
+        "lang": "hi"
+      },
+      {
+        "token": "फाँ",
+        "lang": "hi"
+      },
+      {
+        "token": "मिनेट्स,",
+        "lang": "hi"
+      },
+      {
+        "token": "विदन",
+        "lang": "hi"
+      },
+      {
+        "token": "फाँ",
+        "lang": "hi"
+      },
+      {
+        "token": "मिनेट्स",
+        "lang": "hi"
+      },
+      {
+        "token": "आपको",
+        "lang": "hi"
+      },
+      {
+        "token": "ये",
+        "lang": "hi"
+      },
+      {
+        "token": "टेकनीक",
+        "lang": "hi"
+      },
+      {
+        "token": "समझा",
+        "lang": "hi"
+      },
+      {
+        "token": "यागी",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "root",
+      "Post"
+    ],
+    "visual_text_raw": "५००६\nKoot\nPost\nतर.\n८८:"
+  },
+  {
+    "start": 391.36,
+    "end": 406.2,
+    "spoken_text": "और आपको ये प्चाँषन आता तुफ से तुफ भी अप विदन आप मिनेट्स को साँल कर सकते हो, तो प्लीज गाएज इसको अच्छे से करके जाना, इन के इस नहीं समझा रही तो आप प्लीज दुबारास इस को चेक कर लो, ताखी आपको ये टेकनीक अच्छे से पता ल",
+    "spoken_tokens": [
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "आपको",
+        "lang": "hi"
+      },
+      {
+        "token": "ये",
+        "lang": "hi"
+      },
+      {
+        "token": "प्चाँषन",
+        "lang": "hi"
+      },
+      {
+        "token": "आता",
+        "lang": "hi"
+      },
+      {
+        "token": "तुफ",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "तुफ",
+        "lang": "hi"
+      },
+      {
+        "token": "भी",
+        "lang": "hi"
+      },
+      {
+        "token": "अप",
+        "lang": "hi"
+      },
+      {
+        "token": "विदन",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "मिनेट्स",
+        "lang": "hi"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "साँल",
+        "lang": "hi"
+      },
+      {
+        "token": "कर",
+        "lang": "hi"
+      },
+      {
+        "token": "सकते",
+        "lang": "hi"
+      },
+      {
+        "token": "हो,",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "प्लीज",
+        "lang": "hi"
+      },
+      {
+        "token": "गाएज",
+        "lang": "hi"
+      },
+      {
+        "token": "इसको",
+        "lang": "hi"
+      },
+      {
+        "token": "अच्छे",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "करके",
+        "lang": "hi"
+      },
+      {
+        "token": "जाना,",
+        "lang": "hi"
+      },
+      {
+        "token": "इन",
+        "lang": "hi"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "इस",
+        "lang": "hi"
+      },
+      {
+        "token": "नहीं",
+        "lang": "hi"
+      },
+      {
+        "token": "समझा",
+        "lang": "hi"
+      },
+      {
+        "token": "रही",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "प्लीज",
+        "lang": "hi"
+      },
+      {
+        "token": "दुबारास",
+        "lang": "hi"
+      },
+      {
+        "token": "इस",
+        "lang": "hi"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "चेक",
+        "lang": "hi"
+      },
+      {
+        "token": "कर",
+        "lang": "hi"
+      },
+      {
+        "token": "लो,",
+        "lang": "hi"
+      },
+      {
+        "token": "ताखी",
+        "lang": "hi"
+      },
+      {
+        "token": "आपको",
+        "lang": "hi"
+      },
+      {
+        "token": "ये",
+        "lang": "hi"
+      },
+      {
+        "token": "टेकनीक",
+        "lang": "hi"
+      },
+      {
+        "token": "अच्छे",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "पता",
+        "lang": "hi"
+      },
+      {
+        "token": "ल",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "root",
+      "left",
+      "right",
+      "first",
+      "Post",
+      "FBAD"
+    ],
+    "visual_text_raw": "Koot दि\nथी Koot\nLeft Kght\nROof\n(००८\nLeft\n८८,\nKoot\nFost Left\n६००८\nना\nया\nLeft Koot\n(थी\nपट\nगए\nलव Rost\nPost Rght\nLeft Root\n९००६\nसच\nFBAD\nटी\nKoot (4५८ दि\nLeft Root Right"
+  }
+]

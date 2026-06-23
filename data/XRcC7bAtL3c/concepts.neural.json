@@ -1,0 +1,77 @@
+{
+  "video_id": "XRcC7bAtL3c",
+  "concepts": [
+    {
+      "name": "binary_search_tree",
+      "mentions": 11,
+      "first_seen": 99.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "pre_order_traversal",
+      "mentions": 6,
+      "first_seen": 36.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "in_order_traversal",
+      "mentions": 5,
+      "first_seen": 18.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "post_order_traversal",
+      "mentions": 4,
+      "first_seen": 29.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "node",
+      "mentions": 3,
+      "first_seen": 29.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "tree_traversal",
+      "mentions": 4,
+      "first_seen": 12.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "leaf_node",
+      "mentions": 3,
+      "first_seen": 114.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "binary_tree",
+      "mentions": 2,
+      "first_seen": 99.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    }
+  ]
+}

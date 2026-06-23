@@ -1,0 +1,23 @@
+{
+  "edges": [
+    {
+      "from": "stack",
+      "to": "depth_first_search",
+      "type": "domain_rule",
+      "rule": "depth-first search uses a stack"
+    },
+    {
+      "from": "stack",
+      "to": "breadth_first_search",
+      "type": "causal",
+      "rule": "breadth-first search does not directly use a stack, but the concept of a stack is foundational"
+    }
+  ],
+  "topological_order": [
+    "binary_search_tree",
+    "graph_traversal",
+    "stack",
+    "breadth_first_search",
+    "depth_first_search"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "edges": [
+    {
+      "from": "recursion",
+      "to": "binary_search_tree",
+      "type": "causal",
+      "rule": "Binary search tree is discussed after recursion"
+    },
+    {
+      "from": "recursion",
+      "to": "activation_record",
+      "type": "causal",
+      "rule": "Activation record is introduced in the context of recursion"
+    },
+    {
+      "from": "recursion",
+      "to": "stack",
+      "type": "causal",
+      "rule": "Stack is used to trace recursion"
+    },
+    {
+      "from": "recursion",
+      "to": "depth_first_search",
+      "type": "domain_rule",
+      "rule": "Depth first search uses stack, which is introduced in the context of recursion"
+    },
+    {
+      "from": "stack",
+      "to": "activation_record",
+      "type": "causal",
+      "rule": "Activation record is created within the stack context"
+    },
+    {
+      "from": "stack",
+      "to": "instruction_pointer",
+      "type": "domain_rule",
+      "rule": "Instruction pointer helps in understanding stack operations, which are used to trace recursion"
+    },
+    {
+      "from": "activation_record",
+      "to": "space_complexity",
+      "type": "causal",
+      "rule": "Space complexity is discussed after activation record is introduced"
+    },
+    {
+      "from": "recursion",
+      "to": "time_complexity",
+      "type": "domain_rule",
+      "rule": "Time complexity and recursive equation are discussed in the context of recursion"
+    }
+  ],
+  "topological_order": [
+    "recursion",
+    "recursive_equation",
+    "binary_search_tree",
+    "depth_first_search",
+    "stack",
+    "time_complexity",
+    "activation_record",
+    "instruction_pointer",
+    "space_complexity"
+  ]
+}

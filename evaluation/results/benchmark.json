@@ -1,0 +1,309 @@
+{
+  "per_video": {
+    "N2P7w22tN9c": {
+      "gold_edges": 11,
+      "gold_nodes": 13,
+      "methods": {
+        "symbolic": {
+          "node_precision": 0.9090909090909091,
+          "node_recall": 0.7692307692307693,
+          "node_f1": 0.8333333333333333,
+          "edge_precision": 0.5833333333333334,
+          "edge_recall": 0.6363636363636364,
+          "edge_f1": 0.6086956521739131,
+          "edge_tp": 7,
+          "edge_pred": 12,
+          "edge_gold": 11,
+          "prereq_order_accuracy": 1.0,
+          "order_considered": 8,
+          "graph_edit_distance": 13
+        },
+        "neural": {
+          "node_precision": 0.8,
+          "node_recall": 0.3076923076923077,
+          "node_f1": 0.4444444444444444,
+          "edge_precision": 0.5,
+          "edge_recall": 0.09090909090909091,
+          "edge_f1": 0.15384615384615385,
+          "edge_tp": 1,
+          "edge_pred": 2,
+          "edge_gold": 11,
+          "prereq_order_accuracy": 1.0,
+          "order_considered": 3,
+          "graph_edit_distance": 21
+        },
+        "hybrid": {
+          "node_precision": 0.8333333333333334,
+          "node_recall": 0.7692307692307693,
+          "node_f1": 0.8,
+          "edge_precision": 0.5384615384615384,
+          "edge_recall": 0.6363636363636364,
+          "edge_f1": 0.5833333333333334,
+          "edge_tp": 7,
+          "edge_pred": 13,
+          "edge_gold": 11,
+          "prereq_order_accuracy": 1.0,
+          "order_considered": 8,
+          "graph_edit_distance": 15
+        }
+      }
+    },
+    "Tp37HXfekNo": {
+      "gold_edges": 10,
+      "gold_nodes": 10,
+      "methods": {
+        "symbolic": {
+          "node_precision": 1.0,
+          "node_recall": 1.0,
+          "node_f1": 1.0,
+          "edge_precision": 0.8333333333333334,
+          "edge_recall": 1.0,
+          "edge_f1": 0.9090909090909091,
+          "edge_tp": 10,
+          "edge_pred": 12,
+          "edge_gold": 10,
+          "prereq_order_accuracy": 1.0,
+          "order_considered": 10,
+          "graph_edit_distance": 2
+        },
+        "neural": {
+          "node_precision": 1.0,
+          "node_recall": 0.2,
+          "node_f1": 0.33333333333333337,
+          "edge_precision": 0.0,
+          "edge_recall": 0.0,
+          "edge_f1": 0.0,
+          "edge_tp": 0,
+          "edge_pred": 1,
+          "edge_gold": 10,
+          "prereq_order_accuracy": 0.0,
+          "order_considered": 1,
+          "graph_edit_distance": 19
+        },
+        "hybrid": {
+          "node_precision": 1.0,
+          "node_recall": 1.0,
+          "node_f1": 1.0,
+          "edge_precision": 0.8333333333333334,
+          "edge_recall": 1.0,
+          "edge_f1": 0.9090909090909091,
+          "edge_tp": 10,
+          "edge_pred": 12,
+          "edge_gold": 10,
+          "prereq_order_accuracy": 1.0,
+          "order_considered": 10,
+          "graph_edit_distance": 2
+        }
+      }
+    },
+    "XRcC7bAtL3c": {
+      "gold_edges": 14,
+      "gold_nodes": 12,
+      "methods": {
+        "symbolic": {
+          "node_precision": 0.9230769230769231,
+          "node_recall": 1.0,
+          "node_f1": 0.9600000000000001,
+          "edge_precision": 0.42857142857142855,
+          "edge_recall": 0.8571428571428571,
+          "edge_f1": 0.5714285714285714,
+          "edge_tp": 12,
+          "edge_pred": 28,
+          "edge_gold": 14,
+          "prereq_order_accuracy": 0.8571428571428571,
+          "order_considered": 14,
+          "graph_edit_distance": 19
+        },
+        "neural": {
+          "node_precision": 0.875,
+          "node_recall": 0.5833333333333334,
+          "node_f1": 0.7000000000000001,
+          "edge_precision": 0.5714285714285714,
+          "edge_recall": 0.2857142857142857,
+          "edge_f1": 0.38095238095238093,
+          "edge_tp": 4,
+          "edge_pred": 7,
+          "edge_gold": 14,
+          "prereq_order_accuracy": 0.8,
+          "order_considered": 5,
+          "graph_edit_distance": 19
+        },
+        "hybrid": {
+          "node_precision": 0.8571428571428571,
+          "node_recall": 1.0,
+          "node_f1": 0.923076923076923,
+          "edge_precision": 0.36666666666666664,
+          "edge_recall": 0.7857142857142857,
+          "edge_f1": 0.5,
+          "edge_tp": 11,
+          "edge_pred": 30,
+          "edge_gold": 14,
+          "prereq_order_accuracy": 0.7857142857142857,
+          "order_considered": 14,
+          "graph_edit_distance": 24
+        }
+      }
+    },
+    "azXr6nTaD9M": {
+      "gold_edges": 10,
+      "gold_nodes": 10,
+      "methods": {
+        "symbolic": {
+          "node_precision": 0.8571428571428571,
+          "node_recall": 0.6,
+          "node_f1": 0.7058823529411764,
+          "edge_precision": 0.5,
+          "edge_recall": 0.1,
+          "edge_f1": 0.16666666666666669,
+          "edge_tp": 1,
+          "edge_pred": 2,
+          "edge_gold": 10,
+          "prereq_order_accuracy": 0.75,
+          "order_considered": 4,
+          "graph_edit_distance": 15
+        },
+        "neural": {
+          "node_precision": 0.6666666666666666,
+          "node_recall": 0.6,
+          "node_f1": 0.631578947368421,
+          "edge_precision": 0.375,
+          "edge_recall": 0.3,
+          "edge_f1": 0.33333333333333326,
+          "edge_tp": 3,
+          "edge_pred": 8,
+          "edge_gold": 10,
+          "prereq_order_accuracy": 0.8333333333333334,
+          "order_considered": 6,
+          "graph_edit_distance": 19
+        },
+        "hybrid": {
+          "node_precision": 0.6666666666666666,
+          "node_recall": 0.8,
+          "node_f1": 0.7272727272727272,
+          "edge_precision": 0.4,
+          "edge_recall": 0.4,
+          "edge_f1": 0.4000000000000001,
+          "edge_tp": 4,
+          "edge_pred": 10,
+          "edge_gold": 10,
+          "prereq_order_accuracy": 0.875,
+          "order_considered": 8,
+          "graph_edit_distance": 18
+        }
+      }
+    },
+    "eXWl-Uor75o": {
+      "gold_edges": 4,
+      "gold_nodes": 4,
+      "methods": {
+        "symbolic": {
+          "node_precision": 0.5,
+          "node_recall": 1.0,
+          "node_f1": 0.6666666666666666,
+          "edge_precision": 0.4,
+          "edge_recall": 0.5,
+          "edge_f1": 0.4444444444444445,
+          "edge_tp": 2,
+          "edge_pred": 5,
+          "edge_gold": 4,
+          "prereq_order_accuracy": 1.0,
+          "order_considered": 4,
+          "graph_edit_distance": 9
+        },
+        "neural": {
+          "node_precision": 0.3333333333333333,
+          "node_recall": 0.25,
+          "node_f1": 0.28571428571428575,
+          "edge_precision": 0.0,
+          "edge_recall": 0.0,
+          "edge_f1": 0.0,
+          "edge_tp": 0,
+          "edge_pred": 2,
+          "edge_gold": 4,
+          "prereq_order_accuracy": 0.0,
+          "order_considered": 0,
+          "graph_edit_distance": 11
+        },
+        "hybrid": {
+          "node_precision": 0.4,
+          "node_recall": 1.0,
+          "node_f1": 0.5714285714285715,
+          "edge_precision": 0.2857142857142857,
+          "edge_recall": 0.5,
+          "edge_f1": 0.36363636363636365,
+          "edge_tp": 2,
+          "edge_pred": 7,
+          "edge_gold": 4,
+          "prereq_order_accuracy": 1.0,
+          "order_considered": 4,
+          "graph_edit_distance": 13
+        }
+      }
+    }
+  },
+  "summary": {
+    "symbolic": {
+      "edge_precision": 0.549,
+      "edge_recall": 0.619,
+      "edge_f1": 0.54,
+      "node_f1": 0.833,
+      "prereq_order_accuracy": 0.921,
+      "graph_edit_distance": 11.6,
+      "videos": 5
+    },
+    "neural": {
+      "edge_precision": 0.289,
+      "edge_recall": 0.135,
+      "edge_f1": 0.174,
+      "node_f1": 0.479,
+      "prereq_order_accuracy": 0.527,
+      "graph_edit_distance": 17.8,
+      "videos": 5
+    },
+    "hybrid": {
+      "edge_precision": 0.485,
+      "edge_recall": 0.664,
+      "edge_f1": 0.551,
+      "node_f1": 0.804,
+      "prereq_order_accuracy": 0.932,
+      "graph_edit_distance": 14.4,
+      "videos": 5
+    }
+  },
+  "summary_common": {
+    "symbolic": {
+      "edge_precision": 0.549,
+      "edge_recall": 0.619,
+      "edge_f1": 0.54,
+      "node_f1": 0.833,
+      "prereq_order_accuracy": 0.921,
+      "graph_edit_distance": 11.6,
+      "videos": 5
+    },
+    "neural": {
+      "edge_precision": 0.289,
+      "edge_recall": 0.135,
+      "edge_f1": 0.174,
+      "node_f1": 0.479,
+      "prereq_order_accuracy": 0.527,
+      "graph_edit_distance": 17.8,
+      "videos": 5
+    },
+    "hybrid": {
+      "edge_precision": 0.485,
+      "edge_recall": 0.664,
+      "edge_f1": 0.551,
+      "node_f1": 0.804,
+      "prereq_order_accuracy": 0.932,
+      "graph_edit_distance": 14.4,
+      "videos": 5
+    }
+  },
+  "common_videos": [
+    "N2P7w22tN9c",
+    "Tp37HXfekNo",
+    "XRcC7bAtL3c",
+    "azXr6nTaD9M",
+    "eXWl-Uor75o"
+  ]
+}

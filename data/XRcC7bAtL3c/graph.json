@@ -1,0 +1,494 @@
+{
+  "video_id": "XRcC7bAtL3c",
+  "total_nodes": 14,
+  "total_edges": 51,
+  "topological_order": [
+    "tree",
+    "node",
+    "root node",
+    "children",
+    "left subtree",
+    "right subtree",
+    "binary tree",
+    "dummy node",
+    "tree traversal",
+    "traversal technique",
+    "in-order traversal",
+    "post-order traversal",
+    "pre-order traversal",
+    "leaf node"
+  ],
+  "nodes": [
+    {
+      "id": "pre-order traversal",
+      "mention_count": 13,
+      "first_mention": 0.0,
+      "last_mention": 270.0,
+      "sources": [
+        "asr",
+        "asr+ocr",
+        "ocr"
+      ]
+    },
+    {
+      "id": "root node",
+      "mention_count": 34,
+      "first_mention": 0.0,
+      "last_mention": 406.2,
+      "sources": [
+        "asr+ocr",
+        "ocr"
+      ]
+    },
+    {
+      "id": "tree",
+      "mention_count": 12,
+      "first_mention": 3.0,
+      "last_mention": 149.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "tree traversal",
+      "mention_count": 2,
+      "first_mention": 3.0,
+      "last_mention": 12.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "in-order traversal",
+      "mention_count": 10,
+      "first_mention": 6.0,
+      "last_mention": 275.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "post-order traversal",
+      "mention_count": 17,
+      "first_mention": 6.0,
+      "last_mention": 391.4,
+      "sources": [
+        "asr",
+        "asr+ocr",
+        "ocr"
+      ]
+    },
+    {
+      "id": "left subtree",
+      "mention_count": 29,
+      "first_mention": 12.0,
+      "last_mention": 406.2,
+      "sources": [
+        "asr",
+        "asr+ocr",
+        "ocr"
+      ]
+    },
+    {
+      "id": "node",
+      "mention_count": 11,
+      "first_mention": 12.0,
+      "last_mention": 174.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "id": "right subtree",
+      "mention_count": 13,
+      "first_mention": 22.0,
+      "last_mention": 406.2,
+      "sources": [
+        "asr",
+        "asr+ocr",
+        "ocr"
+      ]
+    },
+    {
+      "id": "traversal technique",
+      "mention_count": 4,
+      "first_mention": 78.0,
+      "last_mention": 149.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "binary tree",
+      "mention_count": 2,
+      "first_mention": 99.0,
+      "last_mention": 110.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "children",
+      "mention_count": 7,
+      "first_mention": 105.0,
+      "last_mention": 143.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "leaf node",
+      "mention_count": 2,
+      "first_mention": 114.0,
+      "last_mention": 120.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "dummy node",
+      "mention_count": 2,
+      "first_mention": 120.0,
+      "last_mention": 143.0,
+      "sources": [
+        "asr"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "tree",
+      "target": "binary tree",
+      "type": "is_prerequisite_for",
+      "confidence": 0.9
+    },
+    {
+      "source": "tree",
+      "target": "tree traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.9
+    },
+    {
+      "source": "binary tree",
+      "target": "tree traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.9
+    },
+    {
+      "source": "node",
+      "target": "root node",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "node",
+      "target": "leaf node",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "root node",
+      "target": "tree traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "children",
+      "target": "left subtree",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "children",
+      "target": "right subtree",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "tree traversal",
+      "target": "pre-order traversal",
+      "type": "refines",
+      "confidence": 0.9
+    },
+    {
+      "source": "tree traversal",
+      "target": "in-order traversal",
+      "type": "refines",
+      "confidence": 0.9
+    },
+    {
+      "source": "tree traversal",
+      "target": "post-order traversal",
+      "type": "refines",
+      "confidence": 0.9
+    },
+    {
+      "source": "traversal technique",
+      "target": "pre-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "traversal technique",
+      "target": "in-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "traversal technique",
+      "target": "post-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "left subtree",
+      "target": "pre-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "right subtree",
+      "target": "pre-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "left subtree",
+      "target": "in-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7999999999999999
+    },
+    {
+      "source": "right subtree",
+      "target": "in-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7999999999999999
+    },
+    {
+      "source": "left subtree",
+      "target": "post-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7999999999999999
+    },
+    {
+      "source": "right subtree",
+      "target": "post-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7999999999999999
+    },
+    {
+      "source": "dummy node",
+      "target": "traversal technique",
+      "type": "is_part_of",
+      "confidence": 0.6
+    },
+    {
+      "source": "root node",
+      "target": "right subtree",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "root node",
+      "target": "left subtree",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "node",
+      "target": "right subtree",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "node",
+      "target": "left subtree",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "root node",
+      "target": "pre-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.75
+    },
+    {
+      "source": "node",
+      "target": "pre-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.75
+    },
+    {
+      "source": "root node",
+      "target": "in-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.75
+    },
+    {
+      "source": "root node",
+      "target": "post-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.75
+    },
+    {
+      "source": "node",
+      "target": "post-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.75
+    },
+    {
+      "source": "tree",
+      "target": "node",
+      "type": "is_prerequisite_for",
+      "confidence": 0.75
+    },
+    {
+      "source": "pre-order traversal",
+      "target": "leaf node",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "root node",
+      "target": "traversal technique",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "root node",
+      "target": "binary tree",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "root node",
+      "target": "children",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "tree",
+      "target": "traversal technique",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "tree",
+      "target": "children",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "tree",
+      "target": "dummy node",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "tree traversal",
+      "target": "traversal technique",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "tree traversal",
+      "target": "leaf node",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "in-order traversal",
+      "target": "leaf node",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "post-order traversal",
+      "target": "leaf node",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "left subtree",
+      "target": "traversal technique",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "left subtree",
+      "target": "binary tree",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "left subtree",
+      "target": "leaf node",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "node",
+      "target": "traversal technique",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "node",
+      "target": "binary tree",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "node",
+      "target": "children",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "right subtree",
+      "target": "binary tree",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "right subtree",
+      "target": "leaf node",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "right subtree",
+      "target": "dummy node",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    }
+  ],
+  "causal_anchors_detected": 20,
+  "causal_edges_created": 14,
+  "example_tree": {
+    "description": "binary tree example used in the lecture",
+    "node_labels": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+    ],
+    "node_mention_counts": {
+      "A": 24,
+      "B": 24,
+      "C": 7,
+      "D": 15,
+      "E": 10,
+      "F": 25,
+      "G": 4,
+      "H": 1,
+      "I": 3
+    }
+  }
+}

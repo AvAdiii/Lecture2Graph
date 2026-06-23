@@ -1,0 +1,8694 @@
+[
+  {
+    "start": 0.0,
+    "end": 2.0,
+    "spoken_text": "देश्टूडएँड़ खादबार्ट्टाद।",
+    "spoken_tokens": [
+      {
+        "token": "देश्टूडएँड़",
+        "lang": "hi"
+      },
+      {
+        "token": "खादबार्ट्टाद।",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 2.0,
+    "end": 4.0,
+    "spoken_text": "इस्वीटिम एकश्पलेन करने जारूू।",
+    "spoken_tokens": [
+      {
+        "token": "इस्वीटिम",
+        "lang": "hi"
+      },
+      {
+        "token": "एकश्पलेन",
+        "lang": "hi"
+      },
+      {
+        "token": "करने",
+        "lang": "hi"
+      },
+      {
+        "token": "जारूू।",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "visiting",
+      "and",
+      "exploring",
+      "all",
+      "graph",
+      "traversal",
+      "first",
+      "search",
+      "rocessing"
+    ],
+    "visual_text_raw": "of visiting and exploring called graph traversal First Search(BFS) | rocessing called graph traversal. First Search(DFS)"
+  },
+  {
+    "start": 4.0,
+    "end": 8.0,
+    "spoken_text": "ग्राफ्ट रावर्षल मेटश्टूड़ जिस में आप दो सबसे नेपाट्ट्टिएं मेटश्टूड़ जाते है,",
+    "spoken_tokens": [
+      {
+        "token": "ग्राफ्ट",
+        "lang": "hi"
+      },
+      {
+        "token": "रावर्षल",
+        "lang": "hi"
+      },
+      {
+        "token": "मेटश्टूड़",
+        "lang": "hi"
+      },
+      {
+        "token": "जिस",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "दो",
+        "lang": "hi"
+      },
+      {
+        "token": "सबसे",
+        "lang": "hi"
+      },
+      {
+        "token": "नेपाट्ट्टिएं",
+        "lang": "hi"
+      },
+      {
+        "token": "मेटश्टूड़",
+        "lang": "hi"
+      },
+      {
+        "token": "जाते",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "rocessing",
+      "all",
+      "graph",
+      "traversal",
+      "first",
+      "search",
+      "yes",
+      "visiting",
+      "exploring",
+      "cessing",
+      "tra",
+      "Previ",
+      "‘Page”"
+    ],
+    "visual_text_raw": "rocessing called graph traversal. First Search(DFS) | ess of visiting loring ng is called graph traversal | cessing is called graph tra | Previ ‘Page”"
+  },
+  {
+    "start": 8.0,
+    "end": 21.2,
+    "spoken_text": "अरीसीय, ब्रहेंग्श के Gregory is charging for the",
+    "spoken_tokens": [
+      {
+        "token": "अरीसीय,",
+        "lang": "hi"
+      },
+      {
+        "token": "ब्रहेंग्श",
+        "lang": "hi"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "Gregory",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "charging",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "Previ",
+      "‘Page”",
+      "Grid",
+      "Page",
+      "all",
+      "graph",
+      "traversal",
+      "and",
+      "Previous",
+      "visiting",
+      "exploring",
+      "for",
+      "Move",
+      "‘Page:",
+      "undo"
+    ],
+    "visual_text_raw": "Previ ‘Page” | Grid Page | called graph traversal | aversal. | Add Previous | visiting and exploring graph for डा Move Previous ‘Page: | visiting and exploring graph graph traversal. for | undo"
+  },
+  {
+    "start": 21.2,
+    "end": 22.2,
+    "spoken_text": "वसे.",
+    "spoken_tokens": [
+      {
+        "token": "वसे.",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "हे कं"
+  },
+  {
+    "start": 22.2,
+    "end": 36.24,
+    "spoken_text": "अरा इस्वीन इस्पले डोंगी जबीं जारू। थाम च्याफतिता खाऑपम केUU",
+    "spoken_tokens": [
+      {
+        "token": "अरा",
+        "lang": "hi"
+      },
+      {
+        "token": "इस्वीन",
+        "lang": "hi"
+      },
+      {
+        "token": "इस्पले",
+        "lang": "hi"
+      },
+      {
+        "token": "डोंगी",
+        "lang": "hi"
+      },
+      {
+        "token": "जबीं",
+        "lang": "hi"
+      },
+      {
+        "token": "जारू।",
+        "lang": "hi"
+      },
+      {
+        "token": "थाम",
+        "lang": "hi"
+      },
+      {
+        "token": "च्याफतिता",
+        "lang": "hi"
+      },
+      {
+        "token": "खाऑपम",
+        "lang": "hi"
+      },
+      {
+        "token": "केUU",
+        "lang": "mixed"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "exploring",
+      "graph",
+      "for",
+      "all",
+      "traversal",
+      "proc",
+      "and"
+    ],
+    "visual_text_raw": "exploring graph for | aph for | called graph | xploring graph for कु | graph | Graph Traversal proc and exploring graph for graph traversal | raph for"
+  },
+  {
+    "start": 36.24,
+    "end": 40.84,
+    "spoken_text": "तो चली, start करते है, first of all what is the definition of graph traversal,",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "चली,",
+        "lang": "hi"
+      },
+      {
+        "token": "start",
+        "lang": "en"
+      },
+      {
+        "token": "करते",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "all",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "definition",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "graph",
+        "lang": "en"
+      },
+      {
+        "token": "traversal,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "graph",
+      "for",
+      "traversal",
+      "essing",
+      "all",
+      "array"
+    ],
+    "visual_text_raw": "graph for traversal | essing called gray"
+  },
+  {
+    "start": 41.04,
+    "end": 47.64,
+    "spoken_text": "the process of visiting and exploring a graph for processing is called a graph traversal.",
+    "spoken_tokens": [
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "process",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "visiting",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "exploring",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "graph",
+        "lang": "en"
+      },
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "processing",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "called",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "graph",
+        "lang": "en"
+      },
+      {
+        "token": "traversal.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "essing",
+      "all",
+      "graph",
+      "traversal",
+      "breadth",
+      "first",
+      "the",
+      "process",
+      "visiting",
+      "and",
+      "exploring",
+      "for"
+    ],
+    "visual_text_raw": "essing is called graph traversal readth First | The process of visiting and exploring graph for called grap"
+  },
+  {
+    "start": 47.84,
+    "end": 51.34,
+    "spoken_text": "अप, graph traversal की भी बात कर सकते हो, tree traversal की वो लोज सकते हो,",
+    "spoken_tokens": [
+      {
+        "token": "अप,",
+        "lang": "hi"
+      },
+      {
+        "token": "graph",
+        "lang": "en"
+      },
+      {
+        "token": "traversal",
+        "lang": "en"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "भी",
+        "lang": "hi"
+      },
+      {
+        "token": "बात",
+        "lang": "hi"
+      },
+      {
+        "token": "कर",
+        "lang": "hi"
+      },
+      {
+        "token": "सकते",
+        "lang": "hi"
+      },
+      {
+        "token": "हो,",
+        "lang": "hi"
+      },
+      {
+        "token": "tree",
+        "lang": "en"
+      },
+      {
+        "token": "traversal",
+        "lang": "en"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "वो",
+        "lang": "hi"
+      },
+      {
+        "token": "लोज",
+        "lang": "hi"
+      },
+      {
+        "token": "सकते",
+        "lang": "hi"
+      },
+      {
+        "token": "हो,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "visiting",
+      "and",
+      "exploring",
+      "graph",
+      "for",
+      "all",
+      "can",
+      "Move"
+    ],
+    "visual_text_raw": "डे | ००००० of visiting and exploring graph for called graph | of man Move"
+  },
+  {
+    "start": 51.44,
+    "end": 56.04,
+    "spoken_text": "because every graph is a tree, but tree may or may not be a graph,",
+    "spoken_tokens": [
+      {
+        "token": "because",
+        "lang": "en"
+      },
+      {
+        "token": "every",
+        "lang": "en"
+      },
+      {
+        "token": "graph",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "tree,",
+        "lang": "en"
+      },
+      {
+        "token": "but",
+        "lang": "en"
+      },
+      {
+        "token": "tree",
+        "lang": "en"
+      },
+      {
+        "token": "may",
+        "lang": "en"
+      },
+      {
+        "token": "or",
+        "lang": "en"
+      },
+      {
+        "token": "may",
+        "lang": "en"
+      },
+      {
+        "token": "not",
+        "lang": "en"
+      },
+      {
+        "token": "be",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "graph,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "Undo:",
+      "tess",
+      "visiting",
+      "and",
+      "exploring",
+      "graph",
+      "for",
+      "all",
+      "traversal"
+    ],
+    "visual_text_raw": "Undo: | tess of visiting and exploring graph for called graph traversal | oh for"
+  },
+  {
+    "start": 56.24,
+    "end": 61.54,
+    "spoken_text": "but every graph is what a tree, because in that graph there are cycles allowed but not in tree,",
+    "spoken_tokens": [
+      {
+        "token": "but",
+        "lang": "en"
+      },
+      {
+        "token": "every",
+        "lang": "en"
+      },
+      {
+        "token": "graph",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "tree,",
+        "lang": "en"
+      },
+      {
+        "token": "because",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "that",
+        "lang": "en"
+      },
+      {
+        "token": "graph",
+        "lang": "en"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "cycles",
+        "lang": "en"
+      },
+      {
+        "token": "allowed",
+        "lang": "en"
+      },
+      {
+        "token": "but",
+        "lang": "en"
+      },
+      {
+        "token": "not",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "tree,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "process",
+      "visiting",
+      "and",
+      "exploring",
+      "graph",
+      "for",
+      "rocessing",
+      "all",
+      "traversal",
+      "breadth",
+      "first",
+      "search"
+    ],
+    "visual_text_raw": "process of visiting and exploring graph for rocessing called graph traversal. Breadth First of Search(DFS) | of visiting and exploring graph for called graph traversal irst Search(BFS) Search(DFS)"
+  },
+  {
+    "start": 61.54,
+    "end": 66.34,
+    "spoken_text": "so graph is a victim, तो देखो याँपे आम लोग तो में चीजों की वो पोखट कर रहे है,",
+    "spoken_tokens": [
+      {
+        "token": "so",
+        "lang": "en"
+      },
+      {
+        "token": "graph",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "victim,",
+        "lang": "en"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "देखो",
+        "lang": "hi"
+      },
+      {
+        "token": "याँपे",
+        "lang": "hi"
+      },
+      {
+        "token": "आम",
+        "lang": "hi"
+      },
+      {
+        "token": "लोग",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "चीजों",
+        "lang": "hi"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "वो",
+        "lang": "hi"
+      },
+      {
+        "token": "पोखट",
+        "lang": "hi"
+      },
+      {
+        "token": "कर",
+        "lang": "hi"
+      },
+      {
+        "token": "रहे",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 66.54,
+    "end": 74.54,
+    "spoken_text": "एक तो, visiting a vertex, और दुस्रा, exploring a vertex, मतलग जो ग्राफ होता उसके अंदर आप को पता है,",
+    "spoken_tokens": [
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "तो,",
+        "lang": "hi"
+      },
+      {
+        "token": "visiting",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "vertex,",
+        "lang": "en"
+      },
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "दुस्रा,",
+        "lang": "hi"
+      },
+      {
+        "token": "exploring",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "vertex,",
+        "lang": "en"
+      },
+      {
+        "token": "मतलग",
+        "lang": "hi"
+      },
+      {
+        "token": "जो",
+        "lang": "hi"
+      },
+      {
+        "token": "ग्राफ",
+        "lang": "hi"
+      },
+      {
+        "token": "होता",
+        "lang": "hi"
+      },
+      {
+        "token": "उसके",
+        "lang": "hi"
+      },
+      {
+        "token": "अंदर",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "पता",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "exploring",
+      "graph",
+      "for",
+      "first",
+      "search",
+      "Undo",
+      "traversal",
+      "pop",
+      "processing",
+      "doing",
+      "and",
+      "process"
+    ],
+    "visual_text_raw": "exploring graph for | First Search(BFS) First | वा तन Undo | Graph Traversal pro processing dting and exploring graph for traversal | First Search(BFS) th First Search(DFS) डॉ है | process and exploring graph for processing traversal"
+  },
+  {
+    "start": 74.74,
+    "end": 78.34,
+    "spoken_text": "की vertex होते है, edges होते है, तीके आप मेंको करना क्या है,",
+    "spoken_tokens": [
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "vertex",
+        "lang": "en"
+      },
+      {
+        "token": "होते",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "edges",
+        "lang": "en"
+      },
+      {
+        "token": "होते",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "तीके",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "मेंको",
+        "lang": "hi"
+      },
+      {
+        "token": "करना",
+        "lang": "hi"
+      },
+      {
+        "token": "क्या",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "processing",
+      "called/",
+      "traversal",
+      "the",
+      "process",
+      "exploring",
+      "graph",
+      "for",
+      "all"
+    ],
+    "visual_text_raw": "processing is called/ IF- | Traversal °The process of exploring graph for processing callg | raversal | To Traversal xploring graph for ersal"
+  },
+  {
+    "start": 79.34,
+    "end": 80.64,
+    "spoken_text": "उस्वेडिन प्र में वहरायılı, आ jurisd The naughts are two things which I will do,",
+    "spoken_tokens": [
+      {
+        "token": "उस्वेडिन",
+        "lang": "hi"
+      },
+      {
+        "token": "प्र",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "वहरायılı,",
+        "lang": "mixed"
+      },
+      {
+        "token": "आ",
+        "lang": "hi"
+      },
+      {
+        "token": "jurisd",
+        "lang": "en"
+      },
+      {
+        "token": "The",
+        "lang": "en"
+      },
+      {
+        "token": "naughts",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "two",
+        "lang": "en"
+      },
+      {
+        "token": "things",
+        "lang": "en"
+      },
+      {
+        "token": "which",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "will",
+        "lang": "en"
+      },
+      {
+        "token": "do,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 80.84,
+    "end": 82.4,
+    "spoken_text": "ईक तो, visitorкольку उ jouer 백या जो, me19 do,",
+    "spoken_tokens": [
+      {
+        "token": "ईक",
+        "lang": "hi"
+      },
+      {
+        "token": "तो,",
+        "lang": "hi"
+      },
+      {
+        "token": "visitorкольку",
+        "lang": "en"
+      },
+      {
+        "token": "उ",
+        "lang": "hi"
+      },
+      {
+        "token": "jouer",
+        "lang": "en"
+      },
+      {
+        "token": "백या",
+        "lang": "hi"
+      },
+      {
+        "token": "जो,",
+        "lang": "hi"
+      },
+      {
+        "token": "me19",
+        "lang": "en"
+      },
+      {
+        "token": "do,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "graph",
+      "traversal",
+      "process",
+      "visiting",
+      "and",
+      "exploring",
+      "for",
+      "processing",
+      "all",
+      "search"
+    ],
+    "visual_text_raw": "To Graph Traversal process of visiting and exploring graph for processing called graph traversal Search(BFS) vV,"
+  },
+  {
+    "start": 82.6,
+    "end": 84.24,
+    "spoken_text": "://board.d powiedział उनॉग सके कर नें You're resiting onto that vertex devotion.",
+    "spoken_tokens": [
+      {
+        "token": "://board.d",
+        "lang": "en"
+      },
+      {
+        "token": "powiedział",
+        "lang": "en"
+      },
+      {
+        "token": "उनॉग",
+        "lang": "hi"
+      },
+      {
+        "token": "सके",
+        "lang": "hi"
+      },
+      {
+        "token": "कर",
+        "lang": "hi"
+      },
+      {
+        "token": "नें",
+        "lang": "hi"
+      },
+      {
+        "token": "You're",
+        "lang": "en"
+      },
+      {
+        "token": "resiting",
+        "lang": "en"
+      },
+      {
+        "token": "onto",
+        "lang": "en"
+      },
+      {
+        "token": "that",
+        "lang": "en"
+      },
+      {
+        "token": "vertex",
+        "lang": "en"
+      },
+      {
+        "token": "devotion.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "graph",
+      "for"
+    ],
+    "visual_text_raw": "graph for"
+  },
+  {
+    "start": 84.44,
+    "end": 86.32,
+    "spoken_text": "आकुते है, म víग करसे था है श hazards make to reach onto that vertexetzung Nanak,",
+    "spoken_tokens": [
+      {
+        "token": "आकुते",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "म",
+        "lang": "hi"
+      },
+      {
+        "token": "víग",
+        "lang": "mixed"
+      },
+      {
+        "token": "करसे",
+        "lang": "hi"
+      },
+      {
+        "token": "था",
+        "lang": "hi"
+      },
+      {
+        "token": "है",
+        "lang": "hi"
+      },
+      {
+        "token": "श",
+        "lang": "hi"
+      },
+      {
+        "token": "hazards",
+        "lang": "en"
+      },
+      {
+        "token": "make",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "reach",
+        "lang": "en"
+      },
+      {
+        "token": "onto",
+        "lang": "en"
+      },
+      {
+        "token": "that",
+        "lang": "en"
+      },
+      {
+        "token": "vertexetzung",
+        "lang": "en"
+      },
+      {
+        "token": "Nanak,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "all",
+      "graph",
+      "traversal",
+      "search",
+      "rocessing"
+    ],
+    "visual_text_raw": "called graph traversal. Search(BFS vV, | rocessing is"
+  },
+  {
+    "start": 86.52,
+    "end": 91.46,
+    "spoken_text": "एक तो वीजिड कर हु� embracing जा द 쓰고 चग रही है जा according to which shall I send it.",
+    "spoken_tokens": [
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "वीजिड",
+        "lang": "hi"
+      },
+      {
+        "token": "कर",
+        "lang": "hi"
+      },
+      {
+        "token": "हु�",
+        "lang": "hi"
+      },
+      {
+        "token": "embracing",
+        "lang": "en"
+      },
+      {
+        "token": "जा",
+        "lang": "hi"
+      },
+      {
+        "token": "द",
+        "lang": "hi"
+      },
+      {
+        "token": "쓰고",
+        "lang": "other"
+      },
+      {
+        "token": "चग",
+        "lang": "hi"
+      },
+      {
+        "token": "रही",
+        "lang": "hi"
+      },
+      {
+        "token": "है",
+        "lang": "hi"
+      },
+      {
+        "token": "जा",
+        "lang": "hi"
+      },
+      {
+        "token": "according",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "which",
+        "lang": "en"
+      },
+      {
+        "token": "shall",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "send",
+        "lang": "en"
+      },
+      {
+        "token": "it.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "the",
+      "processing",
+      "breadth",
+      "yes",
+      "visiting",
+      "and",
+      "exploring",
+      "graph",
+      "for",
+      "all",
+      "traversal",
+      "search",
+      "Grid",
+      "Undo",
+      "next",
+      "process",
+      "छिप",
+      "Page"
+    ],
+    "visual_text_raw": "The of processing is Breadth | ess of visiting and exploring graph for called graph traversal Search(BFS) गई Grid Undo ‘Next. | To Graph Traversal process of visiting and exploring graph for is called graph traversal | process of visiting and exploring graph for is called graph traversal Search(BFS) छिप की Page"
+  },
+  {
+    "start": 91.66,
+    "end": 92.86,
+    "spoken_text": "ुमनेक भाच तो यह रई's Tale it.",
+    "spoken_tokens": [
+      {
+        "token": "ुमनेक",
+        "lang": "hi"
+      },
+      {
+        "token": "भाच",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "यह",
+        "lang": "hi"
+      },
+      {
+        "token": "रई's",
+        "lang": "mixed"
+      },
+      {
+        "token": "Tale",
+        "lang": "en"
+      },
+      {
+        "token": "it.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "graph",
+      "traversal",
+      "visiting",
+      "and",
+      "exploring",
+      "for"
+    ],
+    "visual_text_raw": "To Graph Traversal visiting and exploring graph for oraph traversal (Search(BFS)"
+  },
+  {
+    "start": 92.86,
+    "end": 96.58,
+    "spoken_text": "उसके नेबर्स कोन है, तो ये दो चीजे ही आपकी में जीगे,",
+    "spoken_tokens": [
+      {
+        "token": "उसके",
+        "lang": "hi"
+      },
+      {
+        "token": "नेबर्स",
+        "lang": "hi"
+      },
+      {
+        "token": "कोन",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "ये",
+        "lang": "hi"
+      },
+      {
+        "token": "दो",
+        "lang": "hi"
+      },
+      {
+        "token": "चीजे",
+        "lang": "hi"
+      },
+      {
+        "token": "ही",
+        "lang": "hi"
+      },
+      {
+        "token": "आपकी",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "जीगे,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "Imtroduction",
+      "graph",
+      "traversal",
+      "process",
+      "exploring",
+      "for",
+      "processing",
+      "are",
+      "visiting",
+      "and",
+      "all",
+      "first"
+    ],
+    "visual_text_raw": "Imtroduction To Graph Traversal process of exploring graph for processing is ar\" | of visiting and exploring graph for called graph traversal. Cr | process of visiting and exploring eraph for is called graph traversal | of visiting and exploring graph for is called graph traversal irst"
+  },
+  {
+    "start": 96.58,
+    "end": 99.18,
+    "spoken_text": "तो यहाँ पे न दोनो को एक एक गर के दिकते है,",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "यहाँ",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "न",
+        "lang": "hi"
+      },
+      {
+        "token": "दोनो",
+        "lang": "hi"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "गर",
+        "lang": "hi"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "दिकते",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "graph",
+      "traversal",
+      "process",
+      "visiting",
+      "and",
+      "exploring",
+      "for",
+      "progessing",
+      "all",
+      "first",
+      "search",
+      "the",
+      "processing",
+      "breadth",
+      "depth",
+      "essing"
+    ],
+    "visual_text_raw": "To Graph Traversal process of visiting and exploring graph for progessing is called graph traversal First Search(BFS) Search(DFS) | °The process of visiting and explorin raph for processing called graph traversal Breadth First Depth First Search(DFS) की एड कई दे | of visiting and exploring graph for essing is called graph traversal"
+  },
+  {
+    "start": 99.18,
+    "end": 103.86,
+    "spoken_text": "तो सब से पहले अगर न बाद करे, ब्रेट्ट्फर् सर्च अग देप्ट्फर् सर्च में",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "सब",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "पहले",
+        "lang": "hi"
+      },
+      {
+        "token": "अगर",
+        "lang": "hi"
+      },
+      {
+        "token": "न",
+        "lang": "hi"
+      },
+      {
+        "token": "बाद",
+        "lang": "hi"
+      },
+      {
+        "token": "करे,",
+        "lang": "hi"
+      },
+      {
+        "token": "ब्रेट्ट्फर्",
+        "lang": "hi"
+      },
+      {
+        "token": "सर्च",
+        "lang": "hi"
+      },
+      {
+        "token": "अग",
+        "lang": "hi"
+      },
+      {
+        "token": "देप्ट्फर्",
+        "lang": "hi"
+      },
+      {
+        "token": "सर्च",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "the",
+      "process",
+      "visiting",
+      "rocessing",
+      "all",
+      "breadth",
+      "exploring",
+      "graph",
+      "for",
+      "Introduction",
+      "traversal",
+      "processing"
+    ],
+    "visual_text_raw": "The process of visiting rocessing called Breadth loring graph for | Introduction To Traversal The process of ——=exploring graph for processing called"
+  },
+  {
+    "start": 103.86,
+    "end": 125.86,
+    "spoken_text": "ब्रेट्ट्फर सर्च यहाँ बाद करे, यहाँ बाद करे, ब्रेट्ट्फर सर्च की, तो वो कैसे चलता है, वो ब्रेट्ट्फाइस चलता है, चोडाएई वाईस यस तरीके से,",
+    "spoken_tokens": [
+      {
+        "token": "ब्रेट्ट्फर",
+        "lang": "hi"
+      },
+      {
+        "token": "सर्च",
+        "lang": "hi"
+      },
+      {
+        "token": "यहाँ",
+        "lang": "hi"
+      },
+      {
+        "token": "बाद",
+        "lang": "hi"
+      },
+      {
+        "token": "करे,",
+        "lang": "hi"
+      },
+      {
+        "token": "यहाँ",
+        "lang": "hi"
+      },
+      {
+        "token": "बाद",
+        "lang": "hi"
+      },
+      {
+        "token": "करे,",
+        "lang": "hi"
+      },
+      {
+        "token": "ब्रेट्ट्फर",
+        "lang": "hi"
+      },
+      {
+        "token": "सर्च",
+        "lang": "hi"
+      },
+      {
+        "token": "की,",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "वो",
+        "lang": "hi"
+      },
+      {
+        "token": "कैसे",
+        "lang": "hi"
+      },
+      {
+        "token": "चलता",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "वो",
+        "lang": "hi"
+      },
+      {
+        "token": "ब्रेट्ट्फाइस",
+        "lang": "hi"
+      },
+      {
+        "token": "चलता",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "चोडाएई",
+        "lang": "hi"
+      },
+      {
+        "token": "वाईस",
+        "lang": "hi"
+      },
+      {
+        "token": "यस",
+        "lang": "hi"
+      },
+      {
+        "token": "तरीके",
+        "lang": "hi"
+      },
+      {
+        "token": "से,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "have",
+      "can",
+      "Undo",
+      "Undo:",
+      "and",
+      "‘Previous"
+    ],
+    "visual_text_raw": "मै | Mave | है man | Undo | Undo | हल Undo: Add ‘Previous | oo Undo | गई Add | हल Undo | हो Undo | of"
+  },
+  {
+    "start": 126.06,
+    "end": 133.18,
+    "spoken_text": "और फिर एक एक करके लेवल को कवर करते, तो दियान दकना, एक लेवल को पहले कवर करेगा,",
+    "spoken_tokens": [
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "फिर",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "करके",
+        "lang": "hi"
+      },
+      {
+        "token": "लेवल",
+        "lang": "hi"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "कवर",
+        "lang": "hi"
+      },
+      {
+        "token": "करते,",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "दियान",
+        "lang": "hi"
+      },
+      {
+        "token": "दकना,",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "लेवल",
+        "lang": "hi"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "पहले",
+        "lang": "hi"
+      },
+      {
+        "token": "कवर",
+        "lang": "hi"
+      },
+      {
+        "token": "करेगा,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "डरे",
+      "and",
+      "Previous"
+    ],
+    "visual_text_raw": "(कहा डरे | Add | हा Previous | की कि है"
+  },
+  {
+    "start": 133.18,
+    "end": 137.86,
+    "spoken_text": "जब वो लेवल कमप्लित होगया, तब तुसरे लेवल पे जाएगा,",
+    "spoken_tokens": [
+      {
+        "token": "जब",
+        "lang": "hi"
+      },
+      {
+        "token": "वो",
+        "lang": "hi"
+      },
+      {
+        "token": "लेवल",
+        "lang": "hi"
+      },
+      {
+        "token": "कमप्लित",
+        "lang": "hi"
+      },
+      {
+        "token": "होगया,",
+        "lang": "hi"
+      },
+      {
+        "token": "तब",
+        "lang": "hi"
+      },
+      {
+        "token": "तुसरे",
+        "lang": "hi"
+      },
+      {
+        "token": "लेवल",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "जाएगा,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "की"
+  },
+  {
+    "start": 137.86,
+    "end": 143.46,
+    "spoken_text": "और देप्ट्फर सर्च मतलब देप्ट की तरफ, मलग़, नीचे गहराई की तरफ आप को जाने,",
+    "spoken_tokens": [
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "देप्ट्फर",
+        "lang": "hi"
+      },
+      {
+        "token": "सर्च",
+        "lang": "hi"
+      },
+      {
+        "token": "मतलब",
+        "lang": "hi"
+      },
+      {
+        "token": "देप्ट",
+        "lang": "hi"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "तरफ,",
+        "lang": "hi"
+      },
+      {
+        "token": "मलग़,",
+        "lang": "hi"
+      },
+      {
+        "token": "नीचे",
+        "lang": "hi"
+      },
+      {
+        "token": "गहराई",
+        "lang": "hi"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "तरफ",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "जाने,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 143.86,
+    "end": 147.42,
+    "spoken_text": "तो तर तेप्टफर सर्च की बायत करे, तो हम यस तरीके से चालते हैं,",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "तर",
+        "lang": "hi"
+      },
+      {
+        "token": "तेप्टफर",
+        "lang": "hi"
+      },
+      {
+        "token": "सर्च",
+        "lang": "hi"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "बायत",
+        "lang": "hi"
+      },
+      {
+        "token": "करे,",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "हम",
+        "lang": "hi"
+      },
+      {
+        "token": "यस",
+        "lang": "hi"
+      },
+      {
+        "token": "तरीके",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "चालते",
+        "lang": "hi"
+      },
+      {
+        "token": "हैं,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 147.42,
+    "end": 150.62,
+    "spoken_text": "यहेंखर चलना स्थार्ट की आ, तो इक देप्टफर चलन में गय गय,",
+    "spoken_tokens": [
+      {
+        "token": "यहेंखर",
+        "lang": "hi"
+      },
+      {
+        "token": "चलना",
+        "lang": "hi"
+      },
+      {
+        "token": "स्थार्ट",
+        "lang": "hi"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "आ,",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "इक",
+        "lang": "hi"
+      },
+      {
+        "token": "देप्टफर",
+        "lang": "hi"
+      },
+      {
+        "token": "चलन",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "गय",
+        "lang": "hi"
+      },
+      {
+        "token": "गय,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "डे"
+  },
+  {
+    "start": 150.62,
+    "end": 154.5,
+    "spoken_text": "उसके भाछ फिर नीचे गय, उस खे बगछ फिर नीचे गय,",
+    "spoken_tokens": [
+      {
+        "token": "उसके",
+        "lang": "hi"
+      },
+      {
+        "token": "भाछ",
+        "lang": "hi"
+      },
+      {
+        "token": "फिर",
+        "lang": "hi"
+      },
+      {
+        "token": "नीचे",
+        "lang": "hi"
+      },
+      {
+        "token": "गय,",
+        "lang": "hi"
+      },
+      {
+        "token": "उस",
+        "lang": "hi"
+      },
+      {
+        "token": "खे",
+        "lang": "hi"
+      },
+      {
+        "token": "बगछ",
+        "lang": "hi"
+      },
+      {
+        "token": "फिर",
+        "lang": "hi"
+      },
+      {
+        "token": "नीचे",
+        "lang": "hi"
+      },
+      {
+        "token": "गय,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 154.5,
+    "end": 156.08,
+    "spoken_text": "ईुक्छाह से पाकता हौँ सी सनागी गे ज requirement",
+    "spoken_tokens": [
+      {
+        "token": "ईुक्छाह",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "पाकता",
+        "lang": "hi"
+      },
+      {
+        "token": "हौँ",
+        "lang": "hi"
+      },
+      {
+        "token": "सी",
+        "lang": "hi"
+      },
+      {
+        "token": "सनागी",
+        "lang": "hi"
+      },
+      {
+        "token": "गे",
+        "lang": "hi"
+      },
+      {
+        "token": "ज",
+        "lang": "hi"
+      },
+      {
+        "token": "requirement",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 156.08,
+    "end": 157.34,
+    "spoken_text": "तेकः용 सावक ficar you will understand my SUPER",
+    "spoken_tokens": [
+      {
+        "token": "तेकः용",
+        "lang": "hi"
+      },
+      {
+        "token": "सावक",
+        "lang": "hi"
+      },
+      {
+        "token": "ficar",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "will",
+        "lang": "en"
+      },
+      {
+        "token": "understand",
+        "lang": "en"
+      },
+      {
+        "token": "my",
+        "lang": "en"
+      },
+      {
+        "token": "SUPER",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 157.34,
+    "end": 158.66,
+    "spoken_text": "जबसे �Тब स Putin",
+    "spoken_tokens": [
+      {
+        "token": "जबसे",
+        "lang": "hi"
+      },
+      {
+        "token": "�Тब",
+        "lang": "hi"
+      },
+      {
+        "token": "स",
+        "lang": "hi"
+      },
+      {
+        "token": "Putin",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "कि लि"
+  },
+  {
+    "start": 158.66,
+    "end": 159.74,
+    "spoken_text": "आपने पाके सकते हु रहीं हूँ",
+    "spoken_tokens": [
+      {
+        "token": "आपने",
+        "lang": "hi"
+      },
+      {
+        "token": "पाके",
+        "lang": "hi"
+      },
+      {
+        "token": "सकते",
+        "lang": "hi"
+      },
+      {
+        "token": "हु",
+        "lang": "hi"
+      },
+      {
+        "token": "रहीं",
+        "lang": "hi"
+      },
+      {
+        "token": "हूँ",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 159.74,
+    "end": 160.54,
+    "spoken_text": "उपने Prul",
+    "spoken_tokens": [
+      {
+        "token": "उपने",
+        "lang": "hi"
+      },
+      {
+        "token": "Prul",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 160.54,
+    "end": 161.84,
+    "spoken_text": "में साव पारीं हारी है, भाικलीihood,forth rigor",
+    "spoken_tokens": [
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "साव",
+        "lang": "hi"
+      },
+      {
+        "token": "पारीं",
+        "lang": "hi"
+      },
+      {
+        "token": "हारी",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "भाικलीihood,forth",
+        "lang": "mixed"
+      },
+      {
+        "token": "rigor",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 162.42,
+    "end": 174.38,
+    "spoken_text": "ःफ महाँ सकते है। and also",
+    "spoken_tokens": [
+      {
+        "token": "ःफ",
+        "lang": "hi"
+      },
+      {
+        "token": "महाँ",
+        "lang": "hi"
+      },
+      {
+        "token": "सकते",
+        "lang": "hi"
+      },
+      {
+        "token": "है।",
+        "lang": "hi"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "also",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "हे"
+  },
+  {
+    "start": 174.38,
+    "end": 181.38,
+    "spoken_text": "तो देखो अगर आपने DFS को समजन आप तो सिंपल्सी फन्ट आप जैसे आम लोग पलस्टू की नाँन मेटिकल बने लेनी.",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "देखो",
+        "lang": "hi"
+      },
+      {
+        "token": "अगर",
+        "lang": "hi"
+      },
+      {
+        "token": "आपने",
+        "lang": "hi"
+      },
+      {
+        "token": "DFS",
+        "lang": "en"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "समजन",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "सिंपल्सी",
+        "lang": "hi"
+      },
+      {
+        "token": "फन्ट",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "जैसे",
+        "lang": "hi"
+      },
+      {
+        "token": "आम",
+        "lang": "hi"
+      },
+      {
+        "token": "लोग",
+        "lang": "hi"
+      },
+      {
+        "token": "पलस्टू",
+        "lang": "hi"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "नाँन",
+        "lang": "hi"
+      },
+      {
+        "token": "मेटिकल",
+        "lang": "hi"
+      },
+      {
+        "token": "बने",
+        "lang": "hi"
+      },
+      {
+        "token": "लेनी.",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "रू है"
+  },
+  {
+    "start": 181.38,
+    "end": 185.38,
+    "spoken_text": "तेखे अप उसके बाद मरेंगो पता है में पाएद चूँस कर लिया लेट से B-TEC-C-SE.",
+    "spoken_tokens": [
+      {
+        "token": "तेखे",
+        "lang": "hi"
+      },
+      {
+        "token": "अप",
+        "lang": "hi"
+      },
+      {
+        "token": "उसके",
+        "lang": "hi"
+      },
+      {
+        "token": "बाद",
+        "lang": "hi"
+      },
+      {
+        "token": "मरेंगो",
+        "lang": "hi"
+      },
+      {
+        "token": "पता",
+        "lang": "hi"
+      },
+      {
+        "token": "है",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "पाएद",
+        "lang": "hi"
+      },
+      {
+        "token": "चूँस",
+        "lang": "hi"
+      },
+      {
+        "token": "कर",
+        "lang": "hi"
+      },
+      {
+        "token": "लिया",
+        "lang": "hi"
+      },
+      {
+        "token": "लेट",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "B-TEC-C-SE.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 185.38,
+    "end": 190.38,
+    "spoken_text": "उसके बाद में पता है में आगे क्या कर लिया लेट से Software engineering की job सलेक्त कर लिए.",
+    "spoken_tokens": [
+      {
+        "token": "उसके",
+        "lang": "hi"
+      },
+      {
+        "token": "बाद",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "पता",
+        "lang": "hi"
+      },
+      {
+        "token": "है",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "आगे",
+        "lang": "hi"
+      },
+      {
+        "token": "क्या",
+        "lang": "hi"
+      },
+      {
+        "token": "कर",
+        "lang": "hi"
+      },
+      {
+        "token": "लिया",
+        "lang": "hi"
+      },
+      {
+        "token": "लेट",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "Software",
+        "lang": "en"
+      },
+      {
+        "token": "engineering",
+        "lang": "en"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "job",
+        "lang": "en"
+      },
+      {
+        "token": "सलेक्त",
+        "lang": "hi"
+      },
+      {
+        "token": "कर",
+        "lang": "hi"
+      },
+      {
+        "token": "लिए.",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "छू कण BB फी | की की है."
+  },
+  {
+    "start": 190.38,
+    "end": 192.38,
+    "spoken_text": "तो मुल्लों मैं एक ये डेश्टिन में चलता जारूं.",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "मुल्लों",
+        "lang": "hi"
+      },
+      {
+        "token": "मैं",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "ये",
+        "lang": "hi"
+      },
+      {
+        "token": "डेश्टिन",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "चलता",
+        "lang": "hi"
+      },
+      {
+        "token": "जारूं.",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "की हि | की"
+  },
+  {
+    "start": 192.38,
+    "end": 197.38,
+    "spoken_text": "All the plus two में non-medical के सासत आपके पस कुमर्स भी थे Arts भी थी",
+    "spoken_tokens": [
+      {
+        "token": "All",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "plus",
+        "lang": "en"
+      },
+      {
+        "token": "two",
+        "lang": "en"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "non-medical",
+        "lang": "en"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "सासत",
+        "lang": "hi"
+      },
+      {
+        "token": "आपके",
+        "lang": "hi"
+      },
+      {
+        "token": "पस",
+        "lang": "hi"
+      },
+      {
+        "token": "कुमर्स",
+        "lang": "hi"
+      },
+      {
+        "token": "भी",
+        "lang": "hi"
+      },
+      {
+        "token": "थे",
+        "lang": "hi"
+      },
+      {
+        "token": "Arts",
+        "lang": "en"
+      },
+      {
+        "token": "भी",
+        "lang": "hi"
+      },
+      {
+        "token": "थी",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "[छू",
+      "not"
+    ],
+    "visual_text_raw": "[छू | Noxt:"
+  },
+  {
+    "start": 198.38,
+    "end": 203.38,
+    "spoken_text": "अगर अम बाद करे B-TEC-C-SE के बाद आप MDA भी कर सकते थे UPS-C की तेरे भी कर सकते बोच्टिन से",
+    "spoken_tokens": [
+      {
+        "token": "अगर",
+        "lang": "hi"
+      },
+      {
+        "token": "अम",
+        "lang": "hi"
+      },
+      {
+        "token": "बाद",
+        "lang": "hi"
+      },
+      {
+        "token": "करे",
+        "lang": "hi"
+      },
+      {
+        "token": "B-TEC-C-SE",
+        "lang": "en"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "बाद",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "MDA",
+        "lang": "en"
+      },
+      {
+        "token": "भी",
+        "lang": "hi"
+      },
+      {
+        "token": "कर",
+        "lang": "hi"
+      },
+      {
+        "token": "सकते",
+        "lang": "hi"
+      },
+      {
+        "token": "थे",
+        "lang": "hi"
+      },
+      {
+        "token": "UPS-C",
+        "lang": "en"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "तेरे",
+        "lang": "hi"
+      },
+      {
+        "token": "भी",
+        "lang": "hi"
+      },
+      {
+        "token": "कर",
+        "lang": "hi"
+      },
+      {
+        "token": "सकते",
+        "lang": "hi"
+      },
+      {
+        "token": "बोच्टिन",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "डा के हे"
+  },
+  {
+    "start": 203.38,
+    "end": 209.38,
+    "spoken_text": "लेके मैं एक देश्टिन में चलता जारूं. और जब मुझे लकता की देट देश्टिन दागया तब मैं क्या करता हूँ।",
+    "spoken_tokens": [
+      {
+        "token": "लेके",
+        "lang": "hi"
+      },
+      {
+        "token": "मैं",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "देश्टिन",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "चलता",
+        "lang": "hi"
+      },
+      {
+        "token": "जारूं.",
+        "lang": "hi"
+      },
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "जब",
+        "lang": "hi"
+      },
+      {
+        "token": "मुझे",
+        "lang": "hi"
+      },
+      {
+        "token": "लकता",
+        "lang": "hi"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "देट",
+        "lang": "hi"
+      },
+      {
+        "token": "देश्टिन",
+        "lang": "hi"
+      },
+      {
+        "token": "दागया",
+        "lang": "hi"
+      },
+      {
+        "token": "तब",
+        "lang": "hi"
+      },
+      {
+        "token": "मैं",
+        "lang": "hi"
+      },
+      {
+        "token": "क्या",
+        "lang": "hi"
+      },
+      {
+        "token": "करता",
+        "lang": "hi"
+      },
+      {
+        "token": "हूँ।",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "की | कु"
+  },
+  {
+    "start": 210.38,
+    "end": 220.38,
+    "spoken_text": "तो बस यह सिंपल सी कानी है। और अगर अम ले B-F-L को समें आप तो इसका सिंपल से इजम्पल अगर अम मैरिस की अगर एक एक अप एक एक जाते हो खाने पीने की श्टोल पे.",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "बस",
+        "lang": "hi"
+      },
+      {
+        "token": "यह",
+        "lang": "hi"
+      },
+      {
+        "token": "सिंपल",
+        "lang": "hi"
+      },
+      {
+        "token": "सी",
+        "lang": "hi"
+      },
+      {
+        "token": "कानी",
+        "lang": "hi"
+      },
+      {
+        "token": "है।",
+        "lang": "hi"
+      },
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "अगर",
+        "lang": "hi"
+      },
+      {
+        "token": "अम",
+        "lang": "hi"
+      },
+      {
+        "token": "ले",
+        "lang": "hi"
+      },
+      {
+        "token": "B-F-L",
+        "lang": "en"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "समें",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "इसका",
+        "lang": "hi"
+      },
+      {
+        "token": "सिंपल",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "इजम्पल",
+        "lang": "hi"
+      },
+      {
+        "token": "अगर",
+        "lang": "hi"
+      },
+      {
+        "token": "अम",
+        "lang": "hi"
+      },
+      {
+        "token": "मैरिस",
+        "lang": "hi"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "अगर",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "अप",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "जाते",
+        "lang": "hi"
+      },
+      {
+        "token": "हो",
+        "lang": "hi"
+      },
+      {
+        "token": "खाने",
+        "lang": "hi"
+      },
+      {
+        "token": "पीने",
+        "lang": "hi"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "श्टोल",
+        "lang": "hi"
+      },
+      {
+        "token": "पे.",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 221.38,
+    "end": 227.38,
+    "spoken_text": "उआप यह आप एक देश्टिन में लिजाते है, वहां पे एक वहाए थे है, पहले एक वहाए पे एक च्टोल पे, बहल एक श्नेक्स वली पे गये उसको कमpl टीट की है।",
+    "spoken_tokens": [
+      {
+        "token": "उआप",
+        "lang": "hi"
+      },
+      {
+        "token": "यह",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "देश्टिन",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "लिजाते",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "वहां",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "वहाए",
+        "lang": "hi"
+      },
+      {
+        "token": "थे",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "पहले",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "वहाए",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "च्टोल",
+        "lang": "hi"
+      },
+      {
+        "token": "पे,",
+        "lang": "hi"
+      },
+      {
+        "token": "बहल",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "श्नेक्स",
+        "lang": "hi"
+      },
+      {
+        "token": "वली",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "गये",
+        "lang": "hi"
+      },
+      {
+        "token": "उसको",
+        "lang": "hi"
+      },
+      {
+        "token": "कमpl",
+        "lang": "mixed"
+      },
+      {
+        "token": "टीट",
+        "lang": "hi"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "है।",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "हे"
+  },
+  {
+    "start": 227.38,
+    "end": 244.38,
+    "spoken_text": "तो वहा पे एक वहाए थे है, ब्रेथवाएश चल रहे है, रडर दर दर देपचवाएश, की एक चीज को मैं खाराूँ, और उसी से पेट बरली एक आफ आप एक वहाएश चलते है,",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "वहा",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "वहाए",
+        "lang": "hi"
+      },
+      {
+        "token": "थे",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "ब्रेथवाएश",
+        "lang": "hi"
+      },
+      {
+        "token": "चल",
+        "lang": "hi"
+      },
+      {
+        "token": "रहे",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "रडर",
+        "lang": "hi"
+      },
+      {
+        "token": "दर",
+        "lang": "hi"
+      },
+      {
+        "token": "दर",
+        "lang": "hi"
+      },
+      {
+        "token": "देपचवाएश,",
+        "lang": "hi"
+      },
+      {
+        "token": "की",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "चीज",
+        "lang": "hi"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "मैं",
+        "lang": "hi"
+      },
+      {
+        "token": "खाराूँ,",
+        "lang": "hi"
+      },
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "उसी",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "पेट",
+        "lang": "hi"
+      },
+      {
+        "token": "बरली",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "आफ",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "वहाएश",
+        "lang": "hi"
+      },
+      {
+        "token": "चलते",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "Proviokie",
+      "af6:",
+      "next"
+    ],
+    "visual_text_raw": "Proviokie | af6: जि | की है | INext"
+  },
+  {
+    "start": 245.38,
+    "end": 251.38,
+    "spoken_text": "तो वहाएश अपको समझार हो, वहाएश ब्रेथवाएश और यहाएश ब्देपचवाएश इस तरीके से काम करते है,",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "वहाएश",
+        "lang": "hi"
+      },
+      {
+        "token": "अपको",
+        "lang": "hi"
+      },
+      {
+        "token": "समझार",
+        "lang": "hi"
+      },
+      {
+        "token": "हो,",
+        "lang": "hi"
+      },
+      {
+        "token": "वहाएश",
+        "lang": "hi"
+      },
+      {
+        "token": "ब्रेथवाएश",
+        "lang": "hi"
+      },
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "यहाएश",
+        "lang": "hi"
+      },
+      {
+        "token": "ब्देपचवाएश",
+        "lang": "hi"
+      },
+      {
+        "token": "इस",
+        "lang": "hi"
+      },
+      {
+        "token": "तरीके",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "काम",
+        "lang": "hi"
+      },
+      {
+        "token": "करते",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 251.38,
+    "end": 257.38,
+    "spoken_text": "बस यह में दिखरेंस है, तो इसे लिए ब्फेश होता है, उसको लेवल बाए लेवल यह लेवल अडरिंग भी बोलते है,",
+    "spoken_tokens": [
+      {
+        "token": "बस",
+        "lang": "hi"
+      },
+      {
+        "token": "यह",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "दिखरेंस",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "इसे",
+        "lang": "hi"
+      },
+      {
+        "token": "लिए",
+        "lang": "hi"
+      },
+      {
+        "token": "ब्फेश",
+        "lang": "hi"
+      },
+      {
+        "token": "होता",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "उसको",
+        "lang": "hi"
+      },
+      {
+        "token": "लेवल",
+        "lang": "hi"
+      },
+      {
+        "token": "बाए",
+        "lang": "hi"
+      },
+      {
+        "token": "लेवल",
+        "lang": "hi"
+      },
+      {
+        "token": "यह",
+        "lang": "hi"
+      },
+      {
+        "token": "लेवल",
+        "lang": "hi"
+      },
+      {
+        "token": "अडरिंग",
+        "lang": "hi"
+      },
+      {
+        "token": "भी",
+        "lang": "hi"
+      },
+      {
+        "token": "बोलते",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "will"
+    ],
+    "visual_text_raw": "wlolo"
+  },
+  {
+    "start": 258.38,
+    "end": 261.38,
+    "spoken_text": "तो यह एक लेवल जब खटम होता है, तब भी दुसरे लेवल पे जाते है,",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "यह",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "लेवल",
+        "lang": "hi"
+      },
+      {
+        "token": "जब",
+        "lang": "hi"
+      },
+      {
+        "token": "खटम",
+        "lang": "hi"
+      },
+      {
+        "token": "होता",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "तब",
+        "lang": "hi"
+      },
+      {
+        "token": "भी",
+        "lang": "hi"
+      },
+      {
+        "token": "दुसरे",
+        "lang": "hi"
+      },
+      {
+        "token": "लेवल",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "जाते",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 261.38,
+    "end": 265.38,
+    "spoken_text": "DFS में यह यह यह पी तो गराए में जाते रो जाते रो,",
+    "spoken_tokens": [
+      {
+        "token": "DFS",
+        "lang": "en"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "यह",
+        "lang": "hi"
+      },
+      {
+        "token": "यह",
+        "lang": "hi"
+      },
+      {
+        "token": "यह",
+        "lang": "hi"
+      },
+      {
+        "token": "पी",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "गराए",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "जाते",
+        "lang": "hi"
+      },
+      {
+        "token": "रो",
+        "lang": "hi"
+      },
+      {
+        "token": "जाते",
+        "lang": "hi"
+      },
+      {
+        "token": "रो,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "ok"
+  },
+  {
+    "start": 265.38,
+    "end": 269.38,
+    "spoken_text": "और अब हम यह पे एक और एक अपको एक अपको एक अच्चल में कर के लिए गाता हो,",
+    "spoken_tokens": [
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "अब",
+        "lang": "hi"
+      },
+      {
+        "token": "हम",
+        "lang": "hi"
+      },
+      {
+        "token": "यह",
+        "lang": "hi"
+      },
+      {
+        "token": "पे",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "अपको",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "अपको",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "अच्चल",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "कर",
+        "lang": "hi"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "लिए",
+        "lang": "hi"
+      },
+      {
+        "token": "गाता",
+        "lang": "hi"
+      },
+      {
+        "token": "हो,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 270.38,
+    "end": 275.38,
+    "spoken_text": "आकंचछाätzlich में हुई, शाडों था जे य họcठा लेव लेव म है,",
+    "spoken_tokens": [
+      {
+        "token": "आकंचछाätzlich",
+        "lang": "mixed"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "हुई,",
+        "lang": "hi"
+      },
+      {
+        "token": "शाडों",
+        "lang": "hi"
+      },
+      {
+        "token": "था",
+        "lang": "hi"
+      },
+      {
+        "token": "जे",
+        "lang": "hi"
+      },
+      {
+        "token": "य",
+        "lang": "hi"
+      },
+      {
+        "token": "họcठा",
+        "lang": "mixed"
+      },
+      {
+        "token": "लेव",
+        "lang": "hi"
+      },
+      {
+        "token": "लेव",
+        "lang": "hi"
+      },
+      {
+        "token": "म",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 275.38,
+    "end": 276.38,
+    "spoken_text": "रर किरे मिन � beneficiaries लीके त firmly Jie Chink dictatorship manifestors in K confident",
+    "spoken_tokens": [
+      {
+        "token": "रर",
+        "lang": "hi"
+      },
+      {
+        "token": "किरे",
+        "lang": "hi"
+      },
+      {
+        "token": "मिन",
+        "lang": "hi"
+      },
+      {
+        "token": "�",
+        "lang": "other"
+      },
+      {
+        "token": "beneficiaries",
+        "lang": "en"
+      },
+      {
+        "token": "लीके",
+        "lang": "hi"
+      },
+      {
+        "token": "त",
+        "lang": "hi"
+      },
+      {
+        "token": "firmly",
+        "lang": "en"
+      },
+      {
+        "token": "Jie",
+        "lang": "en"
+      },
+      {
+        "token": "Chink",
+        "lang": "en"
+      },
+      {
+        "token": "dictatorship",
+        "lang": "en"
+      },
+      {
+        "token": "manifestors",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "K",
+        "lang": "en"
+      },
+      {
+        "token": "confident",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 276.38,
+    "end": 290.2,
+    "spoken_text": "आदे करमारी कulators because of the",
+    "spoken_tokens": [
+      {
+        "token": "आदे",
+        "lang": "hi"
+      },
+      {
+        "token": "करमारी",
+        "lang": "hi"
+      },
+      {
+        "token": "कulators",
+        "lang": "mixed"
+      },
+      {
+        "token": "because",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "and"
+    ],
+    "visual_text_raw": "Add | की | है"
+  },
+  {
+    "start": 290.2,
+    "end": 292.38,
+    "spoken_text": "आदे वी खcamp ॥ डेखात्ह ही रहा है,",
+    "spoken_tokens": [
+      {
+        "token": "आदे",
+        "lang": "hi"
+      },
+      {
+        "token": "वी",
+        "lang": "hi"
+      },
+      {
+        "token": "खcamp",
+        "lang": "mixed"
+      },
+      {
+        "token": "॥",
+        "lang": "hi"
+      },
+      {
+        "token": "डेखात्ह",
+        "lang": "hi"
+      },
+      {
+        "token": "ही",
+        "lang": "hi"
+      },
+      {
+        "token": "रहा",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "एड की की"
+  },
+  {
+    "start": 292.38,
+    "end": 295.52,
+    "spoken_text": "भे ठाने वेअरे बवें वें ळlookedता बरा एक आज़ा के रहा कि इमता म्न कोई",
+    "spoken_tokens": [
+      {
+        "token": "भे",
+        "lang": "hi"
+      },
+      {
+        "token": "ठाने",
+        "lang": "hi"
+      },
+      {
+        "token": "वेअरे",
+        "lang": "hi"
+      },
+      {
+        "token": "बवें",
+        "lang": "hi"
+      },
+      {
+        "token": "वें",
+        "lang": "hi"
+      },
+      {
+        "token": "ळlookedता",
+        "lang": "mixed"
+      },
+      {
+        "token": "बरा",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "आज़ा",
+        "lang": "hi"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "रहा",
+        "lang": "hi"
+      },
+      {
+        "token": "कि",
+        "lang": "hi"
+      },
+      {
+        "token": "इमता",
+        "lang": "hi"
+      },
+      {
+        "token": "म्न",
+        "lang": "hi"
+      },
+      {
+        "token": "कोई",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 295.52,
+    "end": 299.52,
+    "spoken_text": "pulley rakh dyaya. Koi to visit karenge na, kahi se to start karenge ye apna source koi na hoga",
+    "spoken_tokens": [
+      {
+        "token": "pulley",
+        "lang": "en"
+      },
+      {
+        "token": "rakh",
+        "lang": "en"
+      },
+      {
+        "token": "dyaya.",
+        "lang": "en"
+      },
+      {
+        "token": "Koi",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "visit",
+        "lang": "en"
+      },
+      {
+        "token": "karenge",
+        "lang": "en"
+      },
+      {
+        "token": "na,",
+        "lang": "en"
+      },
+      {
+        "token": "kahi",
+        "lang": "en"
+      },
+      {
+        "token": "se",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "start",
+        "lang": "en"
+      },
+      {
+        "token": "karenge",
+        "lang": "en"
+      },
+      {
+        "token": "ye",
+        "lang": "en"
+      },
+      {
+        "token": "apna",
+        "lang": "en"
+      },
+      {
+        "token": "source",
+        "lang": "en"
+      },
+      {
+        "token": "koi",
+        "lang": "en"
+      },
+      {
+        "token": "na",
+        "lang": "en"
+      },
+      {
+        "token": "hoga",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "Pana"
+    ],
+    "visual_text_raw": "Pana"
+  },
+  {
+    "start": 299.52,
+    "end": 303.52,
+    "spoken_text": "to humara source jo hain jo hai wo kya hai one hai. To logi hain je humne one se start kr dia.",
+    "spoken_tokens": [
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "humara",
+        "lang": "en"
+      },
+      {
+        "token": "source",
+        "lang": "en"
+      },
+      {
+        "token": "jo",
+        "lang": "en"
+      },
+      {
+        "token": "hain",
+        "lang": "en"
+      },
+      {
+        "token": "jo",
+        "lang": "en"
+      },
+      {
+        "token": "hai",
+        "lang": "en"
+      },
+      {
+        "token": "wo",
+        "lang": "en"
+      },
+      {
+        "token": "kya",
+        "lang": "en"
+      },
+      {
+        "token": "hai",
+        "lang": "en"
+      },
+      {
+        "token": "one",
+        "lang": "en"
+      },
+      {
+        "token": "hai.",
+        "lang": "en"
+      },
+      {
+        "token": "To",
+        "lang": "en"
+      },
+      {
+        "token": "logi",
+        "lang": "en"
+      },
+      {
+        "token": "hain",
+        "lang": "en"
+      },
+      {
+        "token": "je",
+        "lang": "en"
+      },
+      {
+        "token": "humne",
+        "lang": "en"
+      },
+      {
+        "token": "one",
+        "lang": "en"
+      },
+      {
+        "token": "se",
+        "lang": "en"
+      },
+      {
+        "token": "start",
+        "lang": "en"
+      },
+      {
+        "token": "kr",
+        "lang": "en"
+      },
+      {
+        "token": "dia.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "(हे"
+  },
+  {
+    "start": 303.52,
+    "end": 307.52,
+    "spoken_text": "Now one se start kr diya, ap main kaya kar hoon, one pe madh me have visited kr liya.",
+    "spoken_tokens": [
+      {
+        "token": "Now",
+        "lang": "en"
+      },
+      {
+        "token": "one",
+        "lang": "en"
+      },
+      {
+        "token": "se",
+        "lang": "en"
+      },
+      {
+        "token": "start",
+        "lang": "en"
+      },
+      {
+        "token": "kr",
+        "lang": "en"
+      },
+      {
+        "token": "diya,",
+        "lang": "en"
+      },
+      {
+        "token": "ap",
+        "lang": "en"
+      },
+      {
+        "token": "main",
+        "lang": "en"
+      },
+      {
+        "token": "kaya",
+        "lang": "en"
+      },
+      {
+        "token": "kar",
+        "lang": "en"
+      },
+      {
+        "token": "hoon,",
+        "lang": "en"
+      },
+      {
+        "token": "one",
+        "lang": "en"
+      },
+      {
+        "token": "pe",
+        "lang": "en"
+      },
+      {
+        "token": "madh",
+        "lang": "en"
+      },
+      {
+        "token": "me",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "visited",
+        "lang": "en"
+      },
+      {
+        "token": "kr",
+        "lang": "en"
+      },
+      {
+        "token": "liya.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "हि"
+  },
+  {
+    "start": 307.52,
+    "end": 313.02,
+    "spoken_text": "Visit kr liya to ab hisko bahar nikalno ab hisko explore khwaro, explore madh maaast",
+    "spoken_tokens": [
+      {
+        "token": "Visit",
+        "lang": "en"
+      },
+      {
+        "token": "kr",
+        "lang": "en"
+      },
+      {
+        "token": "liya",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "ab",
+        "lang": "en"
+      },
+      {
+        "token": "hisko",
+        "lang": "en"
+      },
+      {
+        "token": "bahar",
+        "lang": "en"
+      },
+      {
+        "token": "nikalno",
+        "lang": "en"
+      },
+      {
+        "token": "ab",
+        "lang": "en"
+      },
+      {
+        "token": "hisko",
+        "lang": "en"
+      },
+      {
+        "token": "explore",
+        "lang": "en"
+      },
+      {
+        "token": "khwaro,",
+        "lang": "en"
+      },
+      {
+        "token": "explore",
+        "lang": "en"
+      },
+      {
+        "token": "madh",
+        "lang": "en"
+      },
+      {
+        "token": "maaast",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 313.02,
+    "end": 317.02,
+    "spoken_text": "hiske saath kon kon connected hai. Kon kon connected hai, 2 & 3.",
+    "spoken_tokens": [
+      {
+        "token": "hiske",
+        "lang": "en"
+      },
+      {
+        "token": "saath",
+        "lang": "en"
+      },
+      {
+        "token": "kon",
+        "lang": "en"
+      },
+      {
+        "token": "kon",
+        "lang": "en"
+      },
+      {
+        "token": "connected",
+        "lang": "en"
+      },
+      {
+        "token": "hai.",
+        "lang": "en"
+      },
+      {
+        "token": "Kon",
+        "lang": "en"
+      },
+      {
+        "token": "kon",
+        "lang": "en"
+      },
+      {
+        "token": "connected",
+        "lang": "en"
+      },
+      {
+        "token": "hai,",
+        "lang": "en"
+      },
+      {
+        "token": "2",
+        "lang": "other"
+      },
+      {
+        "token": "&",
+        "lang": "other"
+      },
+      {
+        "token": "3.",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "कु की की"
+  },
+  {
+    "start": 317.02,
+    "end": 320.52,
+    "spoken_text": "Aap kisi bhi order mein likshakti hoon, chahi 2 pehle likto 3 pehle likto koi haru pharekh nipata.",
+    "spoken_tokens": [
+      {
+        "token": "Aap",
+        "lang": "en"
+      },
+      {
+        "token": "kisi",
+        "lang": "en"
+      },
+      {
+        "token": "bhi",
+        "lang": "en"
+      },
+      {
+        "token": "order",
+        "lang": "en"
+      },
+      {
+        "token": "mein",
+        "lang": "en"
+      },
+      {
+        "token": "likshakti",
+        "lang": "en"
+      },
+      {
+        "token": "hoon,",
+        "lang": "en"
+      },
+      {
+        "token": "chahi",
+        "lang": "en"
+      },
+      {
+        "token": "2",
+        "lang": "other"
+      },
+      {
+        "token": "pehle",
+        "lang": "en"
+      },
+      {
+        "token": "likto",
+        "lang": "en"
+      },
+      {
+        "token": "3",
+        "lang": "other"
+      },
+      {
+        "token": "pehle",
+        "lang": "en"
+      },
+      {
+        "token": "likto",
+        "lang": "en"
+      },
+      {
+        "token": "koi",
+        "lang": "en"
+      },
+      {
+        "token": "haru",
+        "lang": "en"
+      },
+      {
+        "token": "pharekh",
+        "lang": "en"
+      },
+      {
+        "token": "nipata.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 320.52,
+    "end": 348.52,
+    "spoken_text": "आं न JENLAYS KINAH L97S",
+    "spoken_tokens": [
+      {
+        "token": "आं",
+        "lang": "hi"
+      },
+      {
+        "token": "न",
+        "lang": "hi"
+      },
+      {
+        "token": "JENLAYS",
+        "lang": "en"
+      },
+      {
+        "token": "KINAH",
+        "lang": "en"
+      },
+      {
+        "token": "L97S",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "के | हि"
+  },
+  {
+    "start": 348.52,
+    "end": 350.52,
+    "spoken_text": "एक रहा ती के साथ कोँ खनेक्तिड है, 4 & 7",
+    "spoken_tokens": [
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "रहा",
+        "lang": "hi"
+      },
+      {
+        "token": "ती",
+        "lang": "hi"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "साथ",
+        "lang": "hi"
+      },
+      {
+        "token": "कोँ",
+        "lang": "hi"
+      },
+      {
+        "token": "खनेक्तिड",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "&",
+        "lang": "other"
+      },
+      {
+        "token": "7",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 350.52,
+    "end": 354.52,
+    "spoken_text": "थो 4 और दी डाल रहा है, 7 आपने पिचे से डाल थी है",
+    "spoken_tokens": [
+      {
+        "token": "थो",
+        "lang": "hi"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "दी",
+        "lang": "hi"
+      },
+      {
+        "token": "डाल",
+        "lang": "hi"
+      },
+      {
+        "token": "रहा",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "7",
+        "lang": "other"
+      },
+      {
+        "token": "आपने",
+        "lang": "hi"
+      },
+      {
+        "token": "पिचे",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "डाल",
+        "lang": "hi"
+      },
+      {
+        "token": "थी",
+        "lang": "hi"
+      },
+      {
+        "token": "है",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 354.52,
+    "end": 357.52,
+    "spoken_text": "ती के, अपने next, वो 4, next कोँ साथ आगा 4",
+    "spoken_tokens": [
+      {
+        "token": "ती",
+        "lang": "hi"
+      },
+      {
+        "token": "के,",
+        "lang": "hi"
+      },
+      {
+        "token": "अपने",
+        "lang": "hi"
+      },
+      {
+        "token": "next,",
+        "lang": "en"
+      },
+      {
+        "token": "वो",
+        "lang": "hi"
+      },
+      {
+        "token": "4,",
+        "lang": "other"
+      },
+      {
+        "token": "next",
+        "lang": "en"
+      },
+      {
+        "token": "कोँ",
+        "lang": "hi"
+      },
+      {
+        "token": "साथ",
+        "lang": "hi"
+      },
+      {
+        "token": "आगा",
+        "lang": "hi"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 357.52,
+    "end": 361.52,
+    "spoken_text": "तो 4 को एक श्पलोर करो, 4 के साथ कोँ खनेक्तिड है, 5 & 6",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "श्पलोर",
+        "lang": "hi"
+      },
+      {
+        "token": "करो,",
+        "lang": "hi"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "साथ",
+        "lang": "hi"
+      },
+      {
+        "token": "कोँ",
+        "lang": "hi"
+      },
+      {
+        "token": "खनेक्तिड",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "5",
+        "lang": "other"
+      },
+      {
+        "token": "&",
+        "lang": "other"
+      },
+      {
+        "token": "6",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "के नी डे"
+  },
+  {
+    "start": 361.52,
+    "end": 364.52,
+    "spoken_text": "तो जो भी खनेक्तिड है, उनको आप न डाल गो.",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "जो",
+        "lang": "hi"
+      },
+      {
+        "token": "भी",
+        "lang": "hi"
+      },
+      {
+        "token": "खनेक्तिड",
+        "lang": "hi"
+      },
+      {
+        "token": "है,",
+        "lang": "hi"
+      },
+      {
+        "token": "उनको",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "न",
+        "lang": "hi"
+      },
+      {
+        "token": "डाल",
+        "lang": "hi"
+      },
+      {
+        "token": "गो.",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "थी"
+  },
+  {
+    "start": 364.52,
+    "end": 368.98,
+    "spoken_text": "next company will have 7 9 draw 7 executing Fuji and do another one",
+    "spoken_tokens": [
+      {
+        "token": "next",
+        "lang": "en"
+      },
+      {
+        "token": "company",
+        "lang": "en"
+      },
+      {
+        "token": "will",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "7",
+        "lang": "other"
+      },
+      {
+        "token": "9",
+        "lang": "other"
+      },
+      {
+        "token": "draw",
+        "lang": "en"
+      },
+      {
+        "token": "7",
+        "lang": "other"
+      },
+      {
+        "token": "executing",
+        "lang": "en"
+      },
+      {
+        "token": "Fuji",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "do",
+        "lang": "en"
+      },
+      {
+        "token": "another",
+        "lang": "en"
+      },
+      {
+        "token": "one",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "L/k*lv"
+    ],
+    "visual_text_raw": "L/k*lv गई"
+  },
+  {
+    "start": 369.0,
+    "end": 372.32,
+    "spoken_text": "and explore this when you have x containers",
+    "spoken_tokens": [
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "explore",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "when",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "x",
+        "lang": "en"
+      },
+      {
+        "token": "containers",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 372.36,
+    "end": 374.68,
+    "spoken_text": "when you have nothing in stock solamente予 screaming",
+    "spoken_tokens": [
+      {
+        "token": "when",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "nothing",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "stock",
+        "lang": "en"
+      },
+      {
+        "token": "solamente予",
+        "lang": "en"
+      },
+      {
+        "token": "screaming",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 374.68,
+    "end": 375.6,
+    "spoken_text": "any numbers are available as five",
+    "spoken_tokens": [
+      {
+        "token": "any",
+        "lang": "en"
+      },
+      {
+        "token": "numbers",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "available",
+        "lang": "en"
+      },
+      {
+        "token": "as",
+        "lang": "en"
+      },
+      {
+        "token": "five",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 375.64,
+    "end": 378.6,
+    "spoken_text": "any signals are no",
+    "spoken_tokens": [
+      {
+        "token": "any",
+        "lang": "en"
+      },
+      {
+        "token": "signals",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "no",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "दर"
+  },
+  {
+    "start": 378.6,
+    "end": 379.72,
+    "spoken_text": "if you are Yes let me know",
+    "spoken_tokens": [
+      {
+        "token": "if",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "Yes",
+        "lang": "en"
+      },
+      {
+        "token": "let",
+        "lang": "en"
+      },
+      {
+        "token": "me",
+        "lang": "en"
+      },
+      {
+        "token": "know",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 379.82,
+    "end": 380.96,
+    "spoken_text": "list of !",
+    "spoken_tokens": [
+      {
+        "token": "list",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "!",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 388.52,
+    "end": 391.68,
+    "spoken_text": "Brodel",
+    "spoken_tokens": [
+      {
+        "token": "Brodel",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 391.68,
+    "end": 396.52,
+    "spoken_text": "अगर आप 3-2 करते तो रजेगा आजी मैं आगे 5-6 ड़ाला 6-5 करते तो रजेगा",
+    "spoken_tokens": [
+      {
+        "token": "अगर",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "3-2",
+        "lang": "other"
+      },
+      {
+        "token": "करते",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "रजेगा",
+        "lang": "hi"
+      },
+      {
+        "token": "आजी",
+        "lang": "hi"
+      },
+      {
+        "token": "मैं",
+        "lang": "hi"
+      },
+      {
+        "token": "आगे",
+        "lang": "hi"
+      },
+      {
+        "token": "5-6",
+        "lang": "other"
+      },
+      {
+        "token": "ड़ाला",
+        "lang": "hi"
+      },
+      {
+        "token": "6-5",
+        "lang": "other"
+      },
+      {
+        "token": "करते",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "रजेगा",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "नी हे | जि"
+  },
+  {
+    "start": 396.72,
+    "end": 401.88,
+    "spoken_text": "बस में कहनी आजी को समजना, इसकी वरकिंको समझना, तो ये जो है वो लेवल बाई लेवल",
+    "spoken_tokens": [
+      {
+        "token": "बस",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "कहनी",
+        "lang": "hi"
+      },
+      {
+        "token": "आजी",
+        "lang": "hi"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "समजना,",
+        "lang": "hi"
+      },
+      {
+        "token": "इसकी",
+        "lang": "hi"
+      },
+      {
+        "token": "वरकिंको",
+        "lang": "hi"
+      },
+      {
+        "token": "समझना,",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "ये",
+        "lang": "hi"
+      },
+      {
+        "token": "जो",
+        "lang": "hi"
+      },
+      {
+        "token": "है",
+        "lang": "hi"
+      },
+      {
+        "token": "वो",
+        "lang": "hi"
+      },
+      {
+        "token": "लेवल",
+        "lang": "hi"
+      },
+      {
+        "token": "बाई",
+        "lang": "hi"
+      },
+      {
+        "token": "लेवल",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 402.08,
+    "end": 406.0,
+    "spoken_text": "देखो पहले आमने वन को किया, उसके बाई 2-3 को कवर किया",
+    "spoken_tokens": [
+      {
+        "token": "देखो",
+        "lang": "hi"
+      },
+      {
+        "token": "पहले",
+        "lang": "hi"
+      },
+      {
+        "token": "आमने",
+        "lang": "hi"
+      },
+      {
+        "token": "वन",
+        "lang": "hi"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "किया,",
+        "lang": "hi"
+      },
+      {
+        "token": "उसके",
+        "lang": "hi"
+      },
+      {
+        "token": "बाई",
+        "lang": "hi"
+      },
+      {
+        "token": "2-3",
+        "lang": "other"
+      },
+      {
+        "token": "को",
+        "lang": "hi"
+      },
+      {
+        "token": "कवर",
+        "lang": "hi"
+      },
+      {
+        "token": "किया",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "की KN"
+  },
+  {
+    "start": 406.04,
+    "end": 424.76,
+    "spoken_text": "forgiving",
+    "spoken_tokens": [
+      {
+        "token": "forgiving",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "डा"
+  },
+  {
+    "start": 424.76,
+    "end": 429.98,
+    "spoken_text": "DATA எنric isminute the data structure that is stack stack.",
+    "spoken_tokens": [
+      {
+        "token": "DATA",
+        "lang": "en"
+      },
+      {
+        "token": "எنric",
+        "lang": "en"
+      },
+      {
+        "token": "isminute",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "data",
+        "lang": "en"
+      },
+      {
+        "token": "structure",
+        "lang": "en"
+      },
+      {
+        "token": "that",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "stack",
+        "lang": "en"
+      },
+      {
+        "token": "stack.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "वह"
+  },
+  {
+    "start": 430.16,
+    "end": 435.22,
+    "spoken_text": "Now the stack is new both in theLet's start once start.",
+    "spoken_tokens": [
+      {
+        "token": "Now",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "stack",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "new",
+        "lang": "en"
+      },
+      {
+        "token": "both",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "theLet's",
+        "lang": "en"
+      },
+      {
+        "token": "start",
+        "lang": "en"
+      },
+      {
+        "token": "once",
+        "lang": "en"
+      },
+      {
+        "token": "start.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 435.42,
+    "end": 439.36,
+    "spoken_text": "So I started at once Fastest First First One a This Visit Now",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "started",
+        "lang": "en"
+      },
+      {
+        "token": "at",
+        "lang": "en"
+      },
+      {
+        "token": "once",
+        "lang": "en"
+      },
+      {
+        "token": "Fastest",
+        "lang": "en"
+      },
+      {
+        "token": "First",
+        "lang": "en"
+      },
+      {
+        "token": "First",
+        "lang": "en"
+      },
+      {
+        "token": "One",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "This",
+        "lang": "en"
+      },
+      {
+        "token": "Visit",
+        "lang": "en"
+      },
+      {
+        "token": "Now",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "की"
+  },
+  {
+    "start": 439.56,
+    "end": 444.96,
+    "spoken_text": "After visiting One What I do? Exploring There are two options",
+    "spoken_tokens": [
+      {
+        "token": "After",
+        "lang": "en"
+      },
+      {
+        "token": "visiting",
+        "lang": "en"
+      },
+      {
+        "token": "One",
+        "lang": "en"
+      },
+      {
+        "token": "What",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "do?",
+        "lang": "en"
+      },
+      {
+        "token": "Exploring",
+        "lang": "en"
+      },
+      {
+        "token": "There",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "two",
+        "lang": "en"
+      },
+      {
+        "token": "options",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "डॉ"
+  },
+  {
+    "start": 445.16,
+    "end": 448.56,
+    "spoken_text": "Two or Three are there But you have to if you go at any place",
+    "spoken_tokens": [
+      {
+        "token": "Two",
+        "lang": "en"
+      },
+      {
+        "token": "or",
+        "lang": "en"
+      },
+      {
+        "token": "Three",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "But",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "if",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "go",
+        "lang": "en"
+      },
+      {
+        "token": "at",
+        "lang": "en"
+      },
+      {
+        "token": "any",
+        "lang": "en"
+      },
+      {
+        "token": "place",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 448.76,
+    "end": 453.96,
+    "spoken_text": "you have to run at the two Once那个 Here So I was going to have 2",
+    "spoken_tokens": [
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "run",
+        "lang": "en"
+      },
+      {
+        "token": "at",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "two",
+        "lang": "en"
+      },
+      {
+        "token": "Once那个",
+        "lang": "en"
+      },
+      {
+        "token": "Here",
+        "lang": "en"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "was",
+        "lang": "en"
+      },
+      {
+        "token": "going",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "2",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "next"
+    ],
+    "visual_text_raw": "Next: | दे | छू की"
+  },
+  {
+    "start": 453.96,
+    "end": 455.48,
+    "spoken_text": "यहराई में जाए़ुग देखध में",
+    "spoken_tokens": [
+      {
+        "token": "यहराई",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "जाए़ुग",
+        "lang": "hi"
+      },
+      {
+        "token": "देखध",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 455.58,
+    "end": 457.22,
+    "spoken_text": "तो वन से जब तूब ठला गया",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "वन",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "जब",
+        "lang": "hi"
+      },
+      {
+        "token": "तूब",
+        "lang": "hi"
+      },
+      {
+        "token": "ठला",
+        "lang": "hi"
+      },
+      {
+        "token": "गया",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "vadd"
+    ],
+    "visual_text_raw": "vadd"
+  },
+  {
+    "start": 457.44,
+    "end": 458.6,
+    "spoken_text": "तो वन से तूब ठला गया",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "वन",
+        "lang": "hi"
+      },
+      {
+        "token": "से",
+        "lang": "hi"
+      },
+      {
+        "token": "तूब",
+        "lang": "hi"
+      },
+      {
+        "token": "ठला",
+        "lang": "hi"
+      },
+      {
+        "token": "गया",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 458.6,
+    "end": 459.52,
+    "spoken_text": "तूब ठला गया",
+    "spoken_tokens": [
+      {
+        "token": "तूब",
+        "lang": "hi"
+      },
+      {
+        "token": "ठला",
+        "lang": "hi"
+      },
+      {
+        "token": "गया",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "एड"
+  },
+  {
+    "start": 459.8,
+    "end": 461.76,
+    "spoken_text": "तो वन एक तरे ख़ाय जाए़",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "वन",
+        "lang": "hi"
+      },
+      {
+        "token": "एक",
+        "lang": "hi"
+      },
+      {
+        "token": "तरे",
+        "lang": "hi"
+      },
+      {
+        "token": "ख़ाय",
+        "lang": "hi"
+      },
+      {
+        "token": "जाए़",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 462.12,
+    "end": 462.9,
+    "spoken_text": "सुसप्पन्ड लोगया",
+    "spoken_tokens": [
+      {
+        "token": "सुसप्पन्ड",
+        "lang": "hi"
+      },
+      {
+        "token": "लोगया",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 462.9,
+    "end": 463.68,
+    "spoken_text": "इन अक्टिब हुगया",
+    "spoken_tokens": [
+      {
+        "token": "इन",
+        "lang": "hi"
+      },
+      {
+        "token": "अक्टिब",
+        "lang": "hi"
+      },
+      {
+        "token": "हुगया",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "की"
+  },
+  {
+    "start": 463.92,
+    "end": 465.66,
+    "spoken_text": "तीक आई, तो हम ने उसको कै गर थीा",
+    "spoken_tokens": [
+      {
+        "token": "तीक",
+        "lang": "hi"
+      },
+      {
+        "token": "आई,",
+        "lang": "hi"
+      },
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "हम",
+        "lang": "hi"
+      },
+      {
+        "token": "ने",
+        "lang": "hi"
+      },
+      {
+        "token": "उसको",
+        "lang": "hi"
+      },
+      {
+        "token": "कै",
+        "lang": "hi"
+      },
+      {
+        "token": "गर",
+        "lang": "hi"
+      },
+      {
+        "token": "थीा",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": "छा"
+  },
+  {
+    "start": 465.66,
+    "end": 467.66,
+    "spoken_text": "नहीं बना सेदान सी seekers worth as the manger focus knows",
+    "spoken_tokens": [
+      {
+        "token": "नहीं",
+        "lang": "hi"
+      },
+      {
+        "token": "बना",
+        "lang": "hi"
+      },
+      {
+        "token": "सेदान",
+        "lang": "hi"
+      },
+      {
+        "token": "सी",
+        "lang": "hi"
+      },
+      {
+        "token": "seekers",
+        "lang": "en"
+      },
+      {
+        "token": "worth",
+        "lang": "en"
+      },
+      {
+        "token": "as",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "manger",
+        "lang": "en"
+      },
+      {
+        "token": "focus",
+        "lang": "en"
+      },
+      {
+        "token": "knows",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 467.66,
+    "end": 470.14,
+    "spoken_text": "code there is a word to slash that now",
+    "spoken_tokens": [
+      {
+        "token": "code",
+        "lang": "en"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "word",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "slash",
+        "lang": "en"
+      },
+      {
+        "token": "that",
+        "lang": "en"
+      },
+      {
+        "token": "now",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 470.14,
+    "end": 471.62,
+    "spoken_text": "for the",
+    "spoken_tokens": [
+      {
+        "token": "for",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 471.62,
+    "end": 472.14,
+    "spoken_text": "lift",
+    "spoken_tokens": [
+      {
+        "token": "lift",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "next"
+    ],
+    "visual_text_raw": "Next:"
+  },
+  {
+    "start": 472.64,
+    "end": 474.28,
+    "spoken_text": "if the",
+    "spoken_tokens": [
+      {
+        "token": "if",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 477.88,
+    "end": 478.42,
+    "spoken_text": "ride",
+    "spoken_tokens": [
+      {
+        "token": "ride",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 480.3,
+    "end": 482.22,
+    "spoken_text": "that",
+    "spoken_tokens": [
+      {
+        "token": "that",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ">\"’Jl की"
+  },
+  {
+    "start": 482.22,
+    "end": 483.94,
+    "spoken_text": "nope",
+    "spoken_tokens": [
+      {
+        "token": "nope",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 484.14,
+    "end": 487.52,
+    "spoken_text": "that",
+    "spoken_tokens": [
+      {
+        "token": "that",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "की"
+  },
+  {
+    "start": 489.28,
+    "end": 492.88,
+    "spoken_text": "भीती करडन सुई Suddenly, we went out on the side, when we gone to the fifth,",
+    "spoken_tokens": [
+      {
+        "token": "भीती",
+        "lang": "hi"
+      },
+      {
+        "token": "करडन",
+        "lang": "hi"
+      },
+      {
+        "token": "सुई",
+        "lang": "hi"
+      },
+      {
+        "token": "Suddenly,",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "out",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "side,",
+        "lang": "en"
+      },
+      {
+        "token": "when",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "gone",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "fifth,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 492.9,
+    "end": 493.8,
+    "spoken_text": "AND 3rd part, the了吧 बप्यपे acetभाई तु वीपेEtta, then 4th part in addition,",
+    "spoken_tokens": [
+      {
+        "token": "AND",
+        "lang": "en"
+      },
+      {
+        "token": "3rd",
+        "lang": "en"
+      },
+      {
+        "token": "part,",
+        "lang": "en"
+      },
+      {
+        "token": "the了吧",
+        "lang": "en"
+      },
+      {
+        "token": "बप्यपे",
+        "lang": "hi"
+      },
+      {
+        "token": "acetभाई",
+        "lang": "mixed"
+      },
+      {
+        "token": "तु",
+        "lang": "hi"
+      },
+      {
+        "token": "वीपेEtta,",
+        "lang": "mixed"
+      },
+      {
+        "token": "then",
+        "lang": "en"
+      },
+      {
+        "token": "4th",
+        "lang": "en"
+      },
+      {
+        "token": "part",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "addition,",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "\\Ql\\'"
+  },
+  {
+    "start": 493.82,
+    "end": 494.88,
+    "spoken_text": "बप्यके नसर्ज है। Such a thing, granted in such a super- Ottawa.",
+    "spoken_tokens": [
+      {
+        "token": "बप्यके",
+        "lang": "hi"
+      },
+      {
+        "token": "नसर्ज",
+        "lang": "hi"
+      },
+      {
+        "token": "है।",
+        "lang": "hi"
+      },
+      {
+        "token": "Such",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "thing,",
+        "lang": "en"
+      },
+      {
+        "token": "granted",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "such",
+        "lang": "en"
+      },
+      {
+        "token": "a",
+        "lang": "en"
+      },
+      {
+        "token": "super-",
+        "lang": "en"
+      },
+      {
+        "token": "Ottawa.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 494.9,
+    "end": 495.96,
+    "spoken_text": "तरी करडन सूई के में भriends। After 5, you have no options.",
+    "spoken_tokens": [
+      {
+        "token": "तरी",
+        "lang": "hi"
+      },
+      {
+        "token": "करडन",
+        "lang": "hi"
+      },
+      {
+        "token": "सूई",
+        "lang": "hi"
+      },
+      {
+        "token": "के",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "भriends।",
+        "lang": "mixed"
+      },
+      {
+        "token": "After",
+        "lang": "en"
+      },
+      {
+        "token": "5,",
+        "lang": "other"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "no",
+        "lang": "en"
+      },
+      {
+        "token": "options.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "[डॉ"
+    ],
+    "visual_text_raw": "[डॉ"
+  },
+  {
+    "start": 496.0,
+    "end": 498.68,
+    "spoken_text": "तक यया आपक्के आपके प्यब क्सरुब थ्यये। You dont have any options after 5,",
+    "spoken_tokens": [
+      {
+        "token": "तक",
+        "lang": "hi"
+      },
+      {
+        "token": "यया",
+        "lang": "hi"
+      },
+      {
+        "token": "आपक्के",
+        "lang": "hi"
+      },
+      {
+        "token": "आपके",
+        "lang": "hi"
+      },
+      {
+        "token": "प्यब",
+        "lang": "hi"
+      },
+      {
+        "token": "क्सरुब",
+        "lang": "hi"
+      },
+      {
+        "token": "थ्यये।",
+        "lang": "hi"
+      },
+      {
+        "token": "You",
+        "lang": "en"
+      },
+      {
+        "token": "dont",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "any",
+        "lang": "en"
+      },
+      {
+        "token": "options",
+        "lang": "en"
+      },
+      {
+        "token": "after",
+        "lang": "en"
+      },
+      {
+        "token": "5,",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "will"
+    ],
+    "visual_text_raw": "के जि की है. | Wil Kk"
+  },
+  {
+    "start": 498.68,
+    "end": 508.12,
+    "spoken_text": "तो यान गब आप तबट्टरेक मेी वो पचिटकोह।",
+    "spoken_tokens": [
+      {
+        "token": "तो",
+        "lang": "hi"
+      },
+      {
+        "token": "यान",
+        "lang": "hi"
+      },
+      {
+        "token": "गब",
+        "lang": "hi"
+      },
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "तबट्टरेक",
+        "lang": "hi"
+      },
+      {
+        "token": "मेी",
+        "lang": "hi"
+      },
+      {
+        "token": "वो",
+        "lang": "hi"
+      },
+      {
+        "token": "पचिटकोह।",
+        "lang": "hi"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 509.12,
+    "end": 514.28,
+    "spoken_text": "आप अप inf这样 डातक पहने कोल में मु oysters",
+    "spoken_tokens": [
+      {
+        "token": "आप",
+        "lang": "hi"
+      },
+      {
+        "token": "अप",
+        "lang": "hi"
+      },
+      {
+        "token": "inf这样",
+        "lang": "en"
+      },
+      {
+        "token": "डातक",
+        "lang": "hi"
+      },
+      {
+        "token": "पहने",
+        "lang": "hi"
+      },
+      {
+        "token": "कोल",
+        "lang": "hi"
+      },
+      {
+        "token": "में",
+        "lang": "hi"
+      },
+      {
+        "token": "मु",
+        "lang": "hi"
+      },
+      {
+        "token": "oysters",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "hi",
+    "ocr_keywords": [
+      "preorder"
+    ],
+    "visual_text_raw": "‘Previoire"
+  },
+  {
+    "start": 514.78,
+    "end": 516.32,
+    "spoken_text": "और ढ़िவ़ longer encouraging",
+    "spoken_tokens": [
+      {
+        "token": "और",
+        "lang": "hi"
+      },
+      {
+        "token": "ढ़िவ़",
+        "lang": "hi"
+      },
+      {
+        "token": "longer",
+        "lang": "en"
+      },
+      {
+        "token": "encouraging",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 521.28,
+    "end": 521.46,
+    "spoken_text": "�achi",
+    "spoken_tokens": [
+      {
+        "token": "�achi",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 528.68,
+    "end": 535.68,
+    "spoken_text": "last in first out. So from 4 we got to know in last we went to 4 and we reached back to 4",
+    "spoken_tokens": [
+      {
+        "token": "last",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "first",
+        "lang": "en"
+      },
+      {
+        "token": "out.",
+        "lang": "en"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "got",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "know",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "last",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reached",
+        "lang": "en"
+      },
+      {
+        "token": "back",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 535.68,
+    "end": 540.68,
+    "spoken_text": "and what is the option I have from 4? There is 6 option. So from 4 where I went?",
+    "spoken_tokens": [
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "option",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "4?",
+        "lang": "other"
+      },
+      {
+        "token": "There",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "6",
+        "lang": "other"
+      },
+      {
+        "token": "option.",
+        "lang": "en"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "where",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "went?",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "डा नी!"
+  },
+  {
+    "start": 540.68,
+    "end": 545.68,
+    "spoken_text": "It went to 6. From 4 where I went? It went to 6. So what happened? It was suspended.",
+    "spoken_tokens": [
+      {
+        "token": "It",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "6.",
+        "lang": "other"
+      },
+      {
+        "token": "From",
+        "lang": "en"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "where",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "went?",
+        "lang": "en"
+      },
+      {
+        "token": "It",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "6.",
+        "lang": "other"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "happened?",
+        "lang": "en"
+      },
+      {
+        "token": "It",
+        "lang": "en"
+      },
+      {
+        "token": "was",
+        "lang": "en"
+      },
+      {
+        "token": "suspended.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 545.68,
+    "end": 552.68,
+    "spoken_text": "So again put it back. We put 6 in the sequence. So from 4 I went to 6.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "again",
+        "lang": "en"
+      },
+      {
+        "token": "put",
+        "lang": "en"
+      },
+      {
+        "token": "it",
+        "lang": "en"
+      },
+      {
+        "token": "back.",
+        "lang": "en"
+      },
+      {
+        "token": "We",
+        "lang": "en"
+      },
+      {
+        "token": "put",
+        "lang": "en"
+      },
+      {
+        "token": "6",
+        "lang": "other"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "sequence.",
+        "lang": "en"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "6.",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 552.68,
+    "end": 557.68,
+    "spoken_text": "So I suspended 4 and it went back to 6. Now there is no option from 6.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "suspended",
+        "lang": "en"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "it",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "back",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "6.",
+        "lang": "other"
+      },
+      {
+        "token": "Now",
+        "lang": "en"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "no",
+        "lang": "en"
+      },
+      {
+        "token": "option",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "6.",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 557.68,
+    "end": 562.68,
+    "spoken_text": "Now there is no option from 6. So what will I do? I will backtrack from 6 again.",
+    "spoken_tokens": [
+      {
+        "token": "Now",
+        "lang": "en"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "no",
+        "lang": "en"
+      },
+      {
+        "token": "option",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "6.",
+        "lang": "other"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "will",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "do?",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "will",
+        "lang": "en"
+      },
+      {
+        "token": "backtrack",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "6",
+        "lang": "other"
+      },
+      {
+        "token": "again.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "will"
+    ],
+    "visual_text_raw": "नई | है कर wlolo की"
+  },
+  {
+    "start": 562.68,
+    "end": 569.68,
+    "spoken_text": "How I know where I was last? Last check again on 4. Now again I came back to 4 and stood.",
+    "spoken_tokens": [
+      {
+        "token": "How",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "know",
+        "lang": "en"
+      },
+      {
+        "token": "where",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "was",
+        "lang": "en"
+      },
+      {
+        "token": "last?",
+        "lang": "en"
+      },
+      {
+        "token": "Last",
+        "lang": "en"
+      },
+      {
+        "token": "check",
+        "lang": "en"
+      },
+      {
+        "token": "again",
+        "lang": "en"
+      },
+      {
+        "token": "on",
+        "lang": "en"
+      },
+      {
+        "token": "4.",
+        "lang": "other"
+      },
+      {
+        "token": "Now",
+        "lang": "en"
+      },
+      {
+        "token": "again",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "came",
+        "lang": "en"
+      },
+      {
+        "token": "back",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "stood.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "हुड"
+    ],
+    "visual_text_raw": "हुड की"
+  },
+  {
+    "start": 569.68,
+    "end": 577.68,
+    "spoken_text": "Now see there is an option. Yes from 4 I can go to 3 because 2 is done. So from 4 I went to 3.",
+    "spoken_tokens": [
+      {
+        "token": "Now",
+        "lang": "en"
+      },
+      {
+        "token": "see",
+        "lang": "en"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "an",
+        "lang": "en"
+      },
+      {
+        "token": "option.",
+        "lang": "en"
+      },
+      {
+        "token": "Yes",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "can",
+        "lang": "en"
+      },
+      {
+        "token": "go",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "3",
+        "lang": "other"
+      },
+      {
+        "token": "because",
+        "lang": "en"
+      },
+      {
+        "token": "2",
+        "lang": "other"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "done.",
+        "lang": "en"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "3.",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "[जि"
+    ],
+    "visual_text_raw": "[जि | के | RO की"
+  },
+  {
+    "start": 577.68,
+    "end": 583.68,
+    "spoken_text": "So from 4 I went to whom? I went to 3. Now again suspended 4. So put it back again.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "whom?",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "3.",
+        "lang": "other"
+      },
+      {
+        "token": "Now",
+        "lang": "en"
+      },
+      {
+        "token": "again",
+        "lang": "en"
+      },
+      {
+        "token": "suspended",
+        "lang": "en"
+      },
+      {
+        "token": "4.",
+        "lang": "other"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "put",
+        "lang": "en"
+      },
+      {
+        "token": "it",
+        "lang": "en"
+      },
+      {
+        "token": "back",
+        "lang": "en"
+      },
+      {
+        "token": "again.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "की"
+  },
+  {
+    "start": 583.68,
+    "end": 588.68,
+    "spoken_text": "Because from 4 you went to 3. So write in sequence and with 7 suspend 4.",
+    "spoken_tokens": [
+      {
+        "token": "Because",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "4",
+        "lang": "other"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "3.",
+        "lang": "other"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "write",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "sequence",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "with",
+        "lang": "en"
+      },
+      {
+        "token": "7",
+        "lang": "other"
+      },
+      {
+        "token": "suspend",
+        "lang": "en"
+      },
+      {
+        "token": "4.",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "की LN"
+  },
+  {
+    "start": 588.68,
+    "end": 593.68,
+    "spoken_text": "Now there is another option from 3. Yes there is option from 3 to 7. So what happened?",
+    "spoken_tokens": [
+      {
+        "token": "Now",
+        "lang": "en"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "another",
+        "lang": "en"
+      },
+      {
+        "token": "option",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "3.",
+        "lang": "other"
+      },
+      {
+        "token": "Yes",
+        "lang": "en"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "option",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "3",
+        "lang": "other"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "7.",
+        "lang": "other"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "happened?",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 593.68,
+    "end": 599.68,
+    "spoken_text": "It was suspended. So put the suspended one in the stack. Ok we reached 7.",
+    "spoken_tokens": [
+      {
+        "token": "It",
+        "lang": "en"
+      },
+      {
+        "token": "was",
+        "lang": "en"
+      },
+      {
+        "token": "suspended.",
+        "lang": "en"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "put",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "suspended",
+        "lang": "en"
+      },
+      {
+        "token": "one",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "stack.",
+        "lang": "en"
+      },
+      {
+        "token": "Ok",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "reached",
+        "lang": "en"
+      },
+      {
+        "token": "7.",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "पी PR"
+  },
+  {
+    "start": 599.68,
+    "end": 605.68,
+    "spoken_text": "Now what we have to do? After 7 there is no option. So what will I do? I will backtrack.",
+    "spoken_tokens": [
+      {
+        "token": "Now",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "do?",
+        "lang": "en"
+      },
+      {
+        "token": "After",
+        "lang": "en"
+      },
+      {
+        "token": "7",
+        "lang": "other"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "no",
+        "lang": "en"
+      },
+      {
+        "token": "option.",
+        "lang": "en"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "will",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "do?",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "will",
+        "lang": "en"
+      },
+      {
+        "token": "backtrack.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "and"
+    ],
+    "visual_text_raw": "Add"
+  },
+  {
+    "start": 605.68,
+    "end": 610.68,
+    "spoken_text": "I know backtrack is after 7. This is visible in diagram. But what is the algorithm?",
+    "spoken_tokens": [
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "know",
+        "lang": "en"
+      },
+      {
+        "token": "backtrack",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "after",
+        "lang": "en"
+      },
+      {
+        "token": "7.",
+        "lang": "other"
+      },
+      {
+        "token": "This",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "visible",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "diagram.",
+        "lang": "en"
+      },
+      {
+        "token": "But",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "algorithm?",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 610.68,
+    "end": 616.68,
+    "spoken_text": "The algorithm says that you check it. So from this I went to 3. After 3 there is no other option.",
+    "spoken_tokens": [
+      {
+        "token": "The",
+        "lang": "en"
+      },
+      {
+        "token": "algorithm",
+        "lang": "en"
+      },
+      {
+        "token": "says",
+        "lang": "en"
+      },
+      {
+        "token": "that",
+        "lang": "en"
+      },
+      {
+        "token": "you",
+        "lang": "en"
+      },
+      {
+        "token": "check",
+        "lang": "en"
+      },
+      {
+        "token": "it.",
+        "lang": "en"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "this",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "3.",
+        "lang": "other"
+      },
+      {
+        "token": "After",
+        "lang": "en"
+      },
+      {
+        "token": "3",
+        "lang": "other"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "no",
+        "lang": "en"
+      },
+      {
+        "token": "other",
+        "lang": "en"
+      },
+      {
+        "token": "option.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "हि DS | BB"
+  },
+  {
+    "start": 616.68,
+    "end": 622.68,
+    "spoken_text": "There is no other option. So obviously I went to 4. So there is no new option from 4.",
+    "spoken_tokens": [
+      {
+        "token": "There",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "no",
+        "lang": "en"
+      },
+      {
+        "token": "other",
+        "lang": "en"
+      },
+      {
+        "token": "option.",
+        "lang": "en"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "obviously",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "4.",
+        "lang": "other"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "no",
+        "lang": "en"
+      },
+      {
+        "token": "new",
+        "lang": "en"
+      },
+      {
+        "token": "option",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "4.",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 622.68,
+    "end": 627.68,
+    "spoken_text": "Then I reached 2. So there is no other option from 2. So I went to 1.",
+    "spoken_tokens": [
+      {
+        "token": "Then",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "reached",
+        "lang": "en"
+      },
+      {
+        "token": "2.",
+        "lang": "other"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "no",
+        "lang": "en"
+      },
+      {
+        "token": "other",
+        "lang": "en"
+      },
+      {
+        "token": "option",
+        "lang": "en"
+      },
+      {
+        "token": "from",
+        "lang": "en"
+      },
+      {
+        "token": "2.",
+        "lang": "other"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "I",
+        "lang": "en"
+      },
+      {
+        "token": "went",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "1.",
+        "lang": "other"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 627.68,
+    "end": 633.68,
+    "spoken_text": "Finally your sequence is ready. So what we are doing here? We are going to go to depth wise.",
+    "spoken_tokens": [
+      {
+        "token": "Finally",
+        "lang": "en"
+      },
+      {
+        "token": "your",
+        "lang": "en"
+      },
+      {
+        "token": "sequence",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "ready.",
+        "lang": "en"
+      },
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "doing",
+        "lang": "en"
+      },
+      {
+        "token": "here?",
+        "lang": "en"
+      },
+      {
+        "token": "We",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "going",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "go",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "depth",
+        "lang": "en"
+      },
+      {
+        "token": "wise.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 634.68,
+    "end": 638.68,
+    "spoken_text": "Although both the time complexity is same here. Order of V plus E.",
+    "spoken_tokens": [
+      {
+        "token": "Although",
+        "lang": "en"
+      },
+      {
+        "token": "both",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "time",
+        "lang": "en"
+      },
+      {
+        "token": "complexity",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "same",
+        "lang": "en"
+      },
+      {
+        "token": "here.",
+        "lang": "en"
+      },
+      {
+        "token": "Order",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "V",
+        "lang": "en"
+      },
+      {
+        "token": "plus",
+        "lang": "en"
+      },
+      {
+        "token": "E.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 638.68,
+    "end": 643.68,
+    "spoken_text": "Because what we are doing? All the vertex and all the edges are traversing.",
+    "spoken_tokens": [
+      {
+        "token": "Because",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "we",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "doing?",
+        "lang": "en"
+      },
+      {
+        "token": "All",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "vertex",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "all",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "edges",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "traversing.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "है हो पी"
+  },
+  {
+    "start": 643.68,
+    "end": 649.68,
+    "spoken_text": "So maximum what can be the order of V plus total number of vertex and total number of edges.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "maximum",
+        "lang": "en"
+      },
+      {
+        "token": "what",
+        "lang": "en"
+      },
+      {
+        "token": "can",
+        "lang": "en"
+      },
+      {
+        "token": "be",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "order",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "V",
+        "lang": "en"
+      },
+      {
+        "token": "plus",
+        "lang": "en"
+      },
+      {
+        "token": "total",
+        "lang": "en"
+      },
+      {
+        "token": "number",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "vertex",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "total",
+        "lang": "en"
+      },
+      {
+        "token": "number",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "edges.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [
+      "and"
+    ],
+    "visual_text_raw": "हे Add"
+  },
+  {
+    "start": 649.68,
+    "end": 653.68,
+    "spoken_text": "So both the stories are important to understand the difference between them.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "both",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "stories",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "important",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "understand",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "difference",
+        "lang": "en"
+      },
+      {
+        "token": "between",
+        "lang": "en"
+      },
+      {
+        "token": "them.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": "जा"
+  },
+  {
+    "start": 653.68,
+    "end": 656.68,
+    "spoken_text": "Because their real life applications are very much.",
+    "spoken_tokens": [
+      {
+        "token": "Because",
+        "lang": "en"
+      },
+      {
+        "token": "their",
+        "lang": "en"
+      },
+      {
+        "token": "real",
+        "lang": "en"
+      },
+      {
+        "token": "life",
+        "lang": "en"
+      },
+      {
+        "token": "applications",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "very",
+        "lang": "en"
+      },
+      {
+        "token": "much.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 656.68,
+    "end": 661.68,
+    "spoken_text": "Talk about web crawlers, social media, facebook etc. Talk about networking.",
+    "spoken_tokens": [
+      {
+        "token": "Talk",
+        "lang": "en"
+      },
+      {
+        "token": "about",
+        "lang": "en"
+      },
+      {
+        "token": "web",
+        "lang": "en"
+      },
+      {
+        "token": "crawlers,",
+        "lang": "en"
+      },
+      {
+        "token": "social",
+        "lang": "en"
+      },
+      {
+        "token": "media,",
+        "lang": "en"
+      },
+      {
+        "token": "facebook",
+        "lang": "en"
+      },
+      {
+        "token": "etc.",
+        "lang": "en"
+      },
+      {
+        "token": "Talk",
+        "lang": "en"
+      },
+      {
+        "token": "about",
+        "lang": "en"
+      },
+      {
+        "token": "networking.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 662.68,
+    "end": 667.68,
+    "spoken_text": "You have to check if there is cycle in graph or not. You have to check minimum cost spanning tree.",
+    "spoken_tokens": [
+      {
+        "token": "You",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "check",
+        "lang": "en"
+      },
+      {
+        "token": "if",
+        "lang": "en"
+      },
+      {
+        "token": "there",
+        "lang": "en"
+      },
+      {
+        "token": "is",
+        "lang": "en"
+      },
+      {
+        "token": "cycle",
+        "lang": "en"
+      },
+      {
+        "token": "in",
+        "lang": "en"
+      },
+      {
+        "token": "graph",
+        "lang": "en"
+      },
+      {
+        "token": "or",
+        "lang": "en"
+      },
+      {
+        "token": "not.",
+        "lang": "en"
+      },
+      {
+        "token": "You",
+        "lang": "en"
+      },
+      {
+        "token": "have",
+        "lang": "en"
+      },
+      {
+        "token": "to",
+        "lang": "en"
+      },
+      {
+        "token": "check",
+        "lang": "en"
+      },
+      {
+        "token": "minimum",
+        "lang": "en"
+      },
+      {
+        "token": "cost",
+        "lang": "en"
+      },
+      {
+        "token": "spanning",
+        "lang": "en"
+      },
+      {
+        "token": "tree.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 667.68,
+    "end": 671.68,
+    "spoken_text": "So all the things are used by DFS and BFS techniques.",
+    "spoken_tokens": [
+      {
+        "token": "So",
+        "lang": "en"
+      },
+      {
+        "token": "all",
+        "lang": "en"
+      },
+      {
+        "token": "the",
+        "lang": "en"
+      },
+      {
+        "token": "things",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "used",
+        "lang": "en"
+      },
+      {
+        "token": "by",
+        "lang": "en"
+      },
+      {
+        "token": "DFS",
+        "lang": "en"
+      },
+      {
+        "token": "and",
+        "lang": "en"
+      },
+      {
+        "token": "BFS",
+        "lang": "en"
+      },
+      {
+        "token": "techniques.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  },
+  {
+    "start": 671.68,
+    "end": 675.68,
+    "spoken_text": "There are many real life applications of this. Thank you.",
+    "spoken_tokens": [
+      {
+        "token": "There",
+        "lang": "en"
+      },
+      {
+        "token": "are",
+        "lang": "en"
+      },
+      {
+        "token": "many",
+        "lang": "en"
+      },
+      {
+        "token": "real",
+        "lang": "en"
+      },
+      {
+        "token": "life",
+        "lang": "en"
+      },
+      {
+        "token": "applications",
+        "lang": "en"
+      },
+      {
+        "token": "of",
+        "lang": "en"
+      },
+      {
+        "token": "this.",
+        "lang": "en"
+      },
+      {
+        "token": "Thank",
+        "lang": "en"
+      },
+      {
+        "token": "you.",
+        "lang": "en"
+      }
+    ],
+    "dominant_lang": "en",
+    "ocr_keywords": [],
+    "visual_text_raw": ""
+  }
+]

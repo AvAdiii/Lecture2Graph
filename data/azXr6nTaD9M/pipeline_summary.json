@@ -1,0 +1,17 @@
+{
+  "video_id": "azXr6nTaD9M",
+  "data_dir": "/home/aytidava/qork/iiith/sem4/irel_task/irel_task/data/azXr6nTaD9M",
+  "detected_language": "hi",
+  "n_concepts": 7,
+  "n_edges": 16,
+  "n_topo": 7,
+  "timings": {
+    "m1": 0.0,
+    "m2": 332.7,
+    "m3": 0.0,
+    "m4": 0.0,
+    "m5": 0.0,
+    "m6": 0.0
+  },
+  "total_time": 332.7
+}

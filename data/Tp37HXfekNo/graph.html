@@ -1,520 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lecture2Graph | https://www.youtube.com/watch?v=Tp37HXfekNo</title>
-  <script src="https://unpkg.com/vis-network@9.1.6/standalone/umd/vis-network.min.js"></script>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
-    :root {
-      --bg: #07131f;
-      --panel: rgba(8, 25, 39, 0.88);
-      --panel-solid: #0d2235;
-      --line: rgba(141, 184, 213, 0.14);
-      --text: #eaf4ff;
-      --muted: #8ca2b8;
-      --accent: #7ce0c3;
-      --accent-2: #ffc670;
-      --accent-3: #89b4ff;
-      --danger: #ff8d8d;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(124, 224, 195, 0.18), transparent 26%),
-        radial-gradient(circle at top right, rgba(137, 180, 255, 0.12), transparent 24%),
-        linear-gradient(180deg, #04101a 0%, #07131f 60%, #07131f 100%);
-      font-family: "Space Grotesk", system-ui, sans-serif;
-    }
-    a { color: inherit; }
-    .shell {
-      width: min(1440px, calc(100vw - 32px));
-      margin: 16px auto;
-      padding: 16px;
-      display: grid;
-      gap: 16px;
-    }
-    .hero {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 24px;
-      backdrop-filter: blur(18px);
-      box-shadow: 0 24px 90px rgba(0, 0, 0, 0.28);
-    }
-    .eyebrow {
-      display: inline-flex;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(124, 224, 195, 0.08);
-      border: 1px solid rgba(124, 224, 195, 0.18);
-      color: var(--accent);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    h1 {
-      margin: 16px 0 10px;
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      line-height: 1.03;
-    }
-    .lede {
-      max-width: 860px;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-    .stats {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-    }
-    .stat {
-      padding: 16px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--line);
-    }
-    .stat .value {
-      display: block;
-      font-size: 1.65rem;
-      font-weight: 700;
-      color: var(--accent-2);
-    }
-    .stat .label {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-    .workspace {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(320px, 0.9fr);
-      gap: 16px;
-    }
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      backdrop-filter: blur(18px);
-      overflow: hidden;
-    }
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      padding: 18px 20px 12px;
-    }
-    .panel-title {
-      font-size: 0.94rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-    .panel-hint {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    #graph {
-      height: 74vh;
-      min-height: 560px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0)),
-        radial-gradient(circle at 20% 20%, rgba(124,224,195,0.08), transparent 30%),
-        #07131f;
-    }
-    .sidebar {
-      display: grid;
-      gap: 16px;
-      align-content: start;
-      padding: 0 0 16px;
-    }
-    .sidebar-card {
-      padding: 18px 20px;
-      border-top: 1px solid var(--line);
-    }
-    .sidebar-card:first-of-type {
-      border-top: 0;
-    }
-    .pill {
-      display: inline-flex;
-      padding: 5px 10px;
-      margin: 0 6px 6px 0;
-      border-radius: 999px;
-      background: rgba(137, 180, 255, 0.1);
-      color: var(--accent-3);
-      font-size: 0.8rem;
-    }
-    .concept-name {
-      font-size: 1.5rem;
-      margin: 0 0 8px;
-    }
-    .concept-copy {
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.65;
-    }
-    .timestamp-list, .path-list, .transcript-list {
-      list-style: none;
-      margin: 12px 0 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
-    .timestamp-list a {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px;
-      border-radius: 16px;
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--line);
-    }
-    .mono {
-      font-family: "IBM Plex Mono", monospace;
-      color: var(--accent);
-      font-size: 0.88rem;
-    }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .path-list li {
-      padding: 12px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid var(--line);
-    }
-    .path-step {
-      color: var(--accent-2);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .path-title {
-      font-size: 1rem;
-      margin-top: 4px;
-    }
-    .path-copy {
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.55;
-    }
-    .tabs {
-      display: inline-flex;
-      gap: 8px;
-      padding: 6px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--line);
-    }
-    .tabs button {
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      padding: 8px 12px;
-      border-radius: 999px;
-      cursor: pointer;
-      font: inherit;
-    }
-    .tabs button.active {
-      background: rgba(124, 224, 195, 0.12);
-      color: var(--accent);
-    }
-    .transcript-list li {
-      padding: 12px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--line);
-      line-height: 1.55;
-      color: var(--muted);
-    }
-    .transcript-list strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--accent-3);
-    }
-    @media (max-width: 1024px) {
-      .workspace {
-        grid-template-columns: 1fr;
-      }
-      #graph {
-        height: 58vh;
-        min-height: 460px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept DAG — Tp37HXfekNo</title>
+<script src="https://unpkg.com/vis-network@9.1.6/standalone/umd/vis-network.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0d1117; --surface: #161b22; --border: #30363d;
+    --text: #e6edf3; --text-dim: #8b949e; --accent: #58a6ff;
+    --green: #3fb950; --orange: #d29922; --red: #f85149;
+    --purple: #bc8cff; --cyan: #39d353;
+  }
+  html, body {
+    height: 100%; overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.5;
+  }
+  body { display: flex; flex-direction: column; }
+  .header {
+    flex-shrink: 0;
+    padding: 16px 24px; background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .header h1 { font-size: 18px; font-weight: 600; }
+  .header .badge {
+    padding: 2px 10px; border-radius: 12px; font-size: 12px;
+    background: var(--accent); color: var(--bg); font-weight: 600;
+  }
+  .header .lang-badge { background: var(--purple); }
+  .stats {
+    flex-shrink: 0;
+    display: flex; gap: 24px; padding: 12px 24px;
+    background: var(--surface); border-bottom: 1px solid var(--border); font-size: 13px;
+  }
+  .stat { display: flex; align-items: center; gap: 6px; }
+  .stat-value { font-weight: 700; color: var(--accent); font-size: 16px; }
+  .stat-label { color: var(--text-dim); }
+  .main { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 320px; }
+  #graph { background: var(--bg); border-right: 1px solid var(--border); height: 100%; }
+  .sidebar { background: var(--surface); overflow-y: auto; height: 100%; }
+  .sidebar-section { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .sidebar-section h3 {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--text-dim); margin-bottom: 8px;
+  }
+  .node-detail { display: none; }
+  .node-detail.active { display: block; }
+  .node-name { font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+  .node-meta { font-size: 12px; color: var(--text-dim); margin-bottom: 8px; }
+  .mentions-list { list-style: none; max-height: 200px; overflow-y: auto; }
+  .mentions-list li { padding: 4px 0; font-size: 12px; border-bottom: 1px solid var(--border); }
+  .mention-time { color: var(--green); font-family: monospace; margin-right: 6px; }
+  .mention-src {
+    padding: 1px 4px; border-radius: 3px; font-size: 10px;
+    background: var(--border); color: var(--text-dim);
+  }
+  .topo-list { list-style: none; counter-reset: topo; }
+  .topo-list li { counter-increment: topo; padding: 3px 0; font-size: 13px; cursor: pointer; }
+  .topo-list li:hover { color: var(--accent); }
+  .topo-list li::before {
+    content: counter(topo) "."; color: var(--text-dim);
+    margin-right: 8px; font-size: 11px; font-family: monospace;
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; padding: 2px 0; font-size: 12px; }
+  .legend-line { width: 24px; height: 2px; border-radius: 1px; }
+  .timeline { display: flex; gap: 1px; height: 20px; margin-top: 6px; }
+  .timeline-bar {
+    flex: 1; border-radius: 2px; min-width: 3px; position: relative; cursor: pointer;
+  }
+  .timeline-bar:hover::after {
+    content: attr(data-tip); position: absolute; bottom: 100%;
+    left: 50%; transform: translateX(-50%);
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 2px 6px; font-size: 10px; white-space: nowrap; border-radius: 3px;
+  }
+  .no-select { font-size: 13px; color: var(--text-dim); padding: 8px 0; }
+  @media (max-width: 768px) {
+    .main { grid-template-columns: 1fr; grid-template-rows: 60vh 1fr; }
+  }
+</style>
 </head>
 <body>
-  <div class="shell">
-    <section class="hero">
-      <div class="eyebrow">
-        <span>Lecture2Graph</span>
-        <span>Hindi</span>
-        <span>RULES</span>
-      </div>
-      <h1>https://www.youtube.com/watch?v=Tp37HXfekNo</h1>
-      <p class="lede">Understand the lecture instantly: inspect the concept graph, follow the learning path, and jump back to the exact video moments where each idea is introduced.</p>
-      <div class="stats">
-        <div class="stat"><span class="value">10</span><span class="label">Concepts</span></div>
-        <div class="stat"><span class="value">19</span><span class="label">Dependencies</span></div>
-        <div class="stat"><span class="value">10</span><span class="label">Learning steps</span></div>
-        <div class="stat"><span class="value">114</span><span class="label">Transcript segments</span></div>
-      </div>
-    </section>
-    <section class="workspace">
-      <article class="panel">
-        <div class="panel-header">
-          <div class="panel-title">Interactive Concept Graph</div>
-          <div class="panel-hint">Pan, zoom, and click a node to highlight dependencies.</div>
-        </div>
-        <div id="graph"></div>
-      </article>
-      <aside class="panel sidebar">
-        <div class="sidebar-card">
-          <div class="panel-title">Selected Concept</div>
-          <h2 class="concept-name" id="concept-name">Pick a node</h2>
-          <p class="concept-copy" id="concept-description">The sidebar will show the concept summary, timestamps, prerequisites, and dependents.</p>
-          <div class="row" id="concept-badges"></div>
-        </div>
-        <div class="sidebar-card">
-          <div class="panel-title">Timestamps</div>
-          <ul class="timestamp-list" id="timestamp-list"></ul>
-        </div>
-        <div class="sidebar-card">
-          <div class="panel-title">Connections</div>
-          <div class="concept-copy" id="connections-copy">Select a concept to inspect its graph neighborhood.</div>
-        </div>
-        <div class="sidebar-card">
-          <div class="panel-title">Learning Path</div>
-          <ol class="path-list" id="learning-path"></ol>
-        </div>
-        <div class="sidebar-card">
-          <div class="panel-header" style="padding:0 0 12px">
-            <div class="panel-title">Transcripts</div>
-            <div class="tabs">
-              <button id="tab-translated" class="active">Translated</button>
-              <button id="tab-original">Original</button>
-            </div>
-          </div>
-          <ul class="transcript-list" id="transcript-list"></ul>
-        </div>
-      </aside>
-    </section>
+<div class="header">
+  <h1>Concept DAG</h1>
+  <span class="badge">Tp37HXfekNo</span>
+  <span class="badge lang-badge">Hindi</span>
+</div>
+<div class="stats">
+  <div class="stat"><span class="stat-value">10</span><span class="stat-label">concepts</span></div>
+  <div class="stat"><span class="stat-value">19</span><span class="stat-label">edges</span></div>
+  <div class="stat"><span class="stat-value">10/10</span><span class="stat-label">topo order</span></div>
+  <div class="stat"><span class="stat-value">619</span><span class="stat-label">segments</span></div>
+</div>
+<div class="main">
+  <div id="graph"></div>
+  <div class="sidebar">
+    <div class="sidebar-section node-detail" id="node-detail">
+      <h3>Selected Concept</h3>
+      <div class="node-name" id="detail-name"></div>
+      <div class="node-meta" id="detail-meta"></div>
+      <h3 style="margin-top:12px">Mentions</h3>
+      <ul class="mentions-list" id="detail-mentions"></ul>
+      <h3 style="margin-top:12px">Connections</h3>
+      <div id="detail-edges" style="font-size:12px"></div>
+    </div>
+    <div class="sidebar-section" id="no-select-panel">
+      <p class="no-select">Click a node to see details</p>
+    </div>
+    <div class="sidebar-section">
+      <h3>Topological Order</h3>
+      <ol class="topo-list" id="topo-list"><li data-nid="database">Database</li><li data-nid="null">Null</li><li data-nid="unique constraint">Unique Constraint</li><li data-nid="not null">Not Null</li><li data-nid="relation">Relation</li><li data-nid="sql">Sql</li><li data-nid="attribute">Attribute</li><li data-nid="candidate key">Candidate Key</li><li data-nid="primary key">Primary Key</li><li data-nid="normalization">Normalization</li></ol>
+    </div>
+    <div class="sidebar-section">
+      <h3>Edge Types</h3>
+      <div class="legend-item"><div class="legend-line" style="border-top:2px solid #d29922;background:none"></div><span>Domain knowledge rule</span></div><div class="legend-item"><div class="legend-line" style="border-top:2px solid #f85149;background:none"></div><span>Causal language pattern</span></div><div class="legend-item"><div class="legend-line" style="border-top:2px dashed #8b949e;background:none"></div><span>Temporal ordering</span></div><div class="legend-item"><div class="legend-line" style="border-top:2px solid #bc8cff;background:none"></div><span>Co-occurrence proximity</span></div>
+    </div>
+    <div class="sidebar-section">
+      <h3>Mention Timeline</h3>
+      <div class="timeline"><div class="timeline-bar" data-tip="00:00-00:34: 28 segs" style="background:var(--accent);height:14px;opacity:0.80;align-self:flex-end"></div><div class="timeline-bar" data-tip="00:34-01:09: 23 segs" style="background:var(--accent);height:11px;opacity:0.71;align-self:flex-end"></div><div class="timeline-bar" data-tip="01:09-01:43: 29 segs" style="background:var(--accent);height:14px;opacity:0.82;align-self:flex-end"></div><div class="timeline-bar" data-tip="01:43-02:18: 34 segs" style="background:var(--accent);height:17px;opacity:0.91;align-self:flex-end"></div><div class="timeline-bar" data-tip="02:18-02:53: 23 segs" style="background:var(--accent);height:11px;opacity:0.71;align-self:flex-end"></div><div class="timeline-bar" data-tip="02:53-03:27: 32 segs" style="background:var(--accent);height:16px;opacity:0.87;align-self:flex-end"></div><div class="timeline-bar" data-tip="03:27-04:02: 35 segs" style="background:var(--accent);height:17px;opacity:0.93;align-self:flex-end"></div><div class="timeline-bar" data-tip="04:02-04:36: 32 segs" style="background:var(--accent);height:16px;opacity:0.87;align-self:flex-end"></div><div class="timeline-bar" data-tip="04:36-05:11: 34 segs" style="background:var(--accent);height:17px;opacity:0.91;align-self:flex-end"></div><div class="timeline-bar" data-tip="05:11-05:46: 33 segs" style="background:var(--accent);height:16px;opacity:0.89;align-self:flex-end"></div><div class="timeline-bar" data-tip="05:46-06:20: 32 segs" style="background:var(--accent);height:16px;opacity:0.87;align-self:flex-end"></div><div class="timeline-bar" data-tip="06:20-06:55: 35 segs" style="background:var(--accent);height:17px;opacity:0.93;align-self:flex-end"></div><div class="timeline-bar" data-tip="06:55-07:29: 39 segs" style="background:var(--accent);height:20px;opacity:1.00;align-self:flex-end"></div><div class="timeline-bar" data-tip="07:29-08:04: 27 segs" style="background:var(--accent);height:13px;opacity:0.78;align-self:flex-end"></div><div class="timeline-bar" data-tip="08:04-08:39: 31 segs" style="background:var(--accent);height:15px;opacity:0.86;align-self:flex-end"></div><div class="timeline-bar" data-tip="08:39-09:13: 28 segs" style="background:var(--accent);height:14px;opacity:0.80;align-self:flex-end"></div><div class="timeline-bar" data-tip="09:13-09:48: 24 segs" style="background:var(--accent);height:12px;opacity:0.73;align-self:flex-end"></div><div class="timeline-bar" data-tip="09:48-10:22: 30 segs" style="background:var(--accent);height:15px;opacity:0.84;align-self:flex-end"></div><div class="timeline-bar" data-tip="10:22-10:57: 37 segs" style="background:var(--accent);height:18px;opacity:0.96;align-self:flex-end"></div><div class="timeline-bar" data-tip="10:57-11:32: 33 segs" style="background:var(--accent);height:16px;opacity:0.89;align-self:flex-end"></div></div>
+    </div>
   </div>
-  <script>
-    const payload = {"video": {"video_id": "Tp37HXfekNo", "watch_url": "https://www.youtube.com/watch?v=Tp37HXfekNo", "source_language": "hi", "source_language_label": "Hindi", "engine": "rules", "generated_at": "2026-05-19T06:13:55.161476"}, "stats": {"concept_count": 10, "edge_count": 19, "learning_path_length": 10, "transcript_segment_count": 114, "topological_coverage": "10/10"}, "transcripts": {"original": [{"start": 0.0, "end": 6.0, "text": "\u0906\u092a\u0915\u093e \u0938\u0935\u093e\u0917\u0924\u093e \u0939\u0948, \u0907\u0938 \u0935\u093f\u091f\u093f\u092e \u092e\u0947\u0902 \u0926\u093f\u0938\u0938 \u0915\u0930\u0928\u0947 \u091c\u093e\u0930\u0947 \u0939\u0948, \u0935\u0939 \u0924\u0947\u0930\u0947 \u092a\u094d\u0930\u093e\u0908\u092e\u0930\u0940 \u0915\u0940,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 6.0, "end": 12.0, "text": "\u0926\u0947\u092d\u0940 \u090f\u092e\u0938 \u092e\u0947\u0902 \u0915\u0940\u0938 \u0915\u093e \u0915\u0941\u0928\u094d\u093d\u0947\u092a \u091c\u094b \u0939\u0948, \u0935\u0939 \u0938\u092c \u0938\u0947 \u091c\u093e\u0926\u093e \u0907\u0902\u092a\u093e\u0930\u094d\u091f\u0947\u0902\u091f \u0939\u0948, \u091a\u093e\u0939\u0940 \u0906\u092a \u0916\u0949\u092e\u092a\u093f\u0932\u094d\u091f\u093f\u091f\u093f\u0935 \u090f\u0916\u094d\u091c\u093e\u092e \u0915\u0940 \u092c\u093e\u0924 \u0915\u0930\u094b,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 42.0, "end": 50.0, "text": "\u0907\u0938 \u0916\u093e\u0928\u0940 \u0915\u094b \u092e\u0947\u0902 \u0938\u094d\u092c \u0936\u093e\u091f \u0915\u0930 \u0930\u0939\u0941\u090f\u0901 \u092a\u094d\u0930\u091f\u0947 \u0905\u092a \u0938\u0940\u0935\u093e\u0926 \u0906\u092a \u090f\u0915 \u0938\u0940 \u0916\u0949\u092e\u0932, \u0928\u0939\u0940\u0902 \u092a\u093e\u0938 \u0915\u0932\u093e\u0938 \u092e\u0947\u0902 \u0939\u0948, \u0905\u092c \u0939\u092c \u0906\u092a \u0936\u0941\u0921\u0935\u0921\u0947\u0902\u091a \u0915\u093e \u0926\u0947\u091f\u093e \u092e\u093f\u0930\u0915\u094b \u0938\u094d\u0925\u094b\u0930 \u0915\u0930\u0928\u0947 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 50.0, "end": 58.0, "text": "\u0905\u092c \u0906\u092a \u0905\u0917\u0930 \u0936\u094d\u091f\u0942\u0921\u093c\u091f\u0936 \u0915\u094b \u0935\u0939\u0921\u093c\u093e\u0908 \u0938\u094d\u0935\u093f\u091f \u092e\u0948\u0902 \u092c\u093e\u0908 \u092b\u0947\u0938 \u0924\u094b \u092d\u0947\u0936\u093e \u092c\u0932\u093e\u0909\u0902\u0917\u093e \u0928\u0940\u0935 \u0905\u0917\u0930 \u092e\u0948\u0902 \u092f\u093e \u091f\u0947\u0928\u094d\u0936 \u0932\u0947\u0928\u093f\u092f\u093e \u0913\u0928 \u0932\u0940\u0902\u0917 \u0938\u093f\u0938\u094d\u091f\u092e \u0906\u0917\u0930 \u0926\u0947\u0916\u093e \u0924\u094b \u0914\u0928 \u0932\u0940\u0902\u0917 \u0938\u093f\u0938\u094d\u091f\u092e \u092c\u0947 \u092e\u0948\u0902 \u092f\u093e \u0915\u094d\u092f\u093e \u0915\u0930\u0942\u0902\u0917\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 58.0, "end": 88.0, "text": "\u0909\u0928 \u0938\u093e\u0930\u093f\u092f \u0936\u094d\u091f\u0942\u0921\u093c\u091f\u0936 \u0915\u0940 \u0926\u0940\u091f\u0947\u0932 \u091c\u094b \u0939\u0948 \u0935\u094b \u0938\u0947\u0935 \u0915\u0930 \u0926\u0941\u0901\u0917\u093e \u0905\u0916\u094d\u0938\u0932 \u092b\u093e\u0923\u093f\u0932 \u090f\u0915 \u0924\u0930\u0939 \u0938\u0947 \u092c\u0928\u093e\u0932\u0942\u0917\u093e \u091c\u093f\u0938\u094d\u0938\u094d\u0935\u0947 \u092e\u0948\u0902 \u0906\u092a \u0930\u0947\u091c\u093f\u0938\u094d\u091f\u094d\u0938\u091a\u094d\u091a\u094d\u091a\u094d\u0938\u094d\u091f\u094d\u092e \u092c\u092c\u0930, \u092e\u0941\u0932\u094d\u0921\u0930 \u0928\u0947\u092e, \u0905\u091c, \u091c\u0902\u0926\u0930, \u092e\u093e\u0915\u094d\u0938, \u0905\u091f\u094d\u0930\u0947\u0938, \u092d\u094b\u0928, \u0906\u0926\u093e\u0930, \u0915\u093e\u0930, \u092e\u0932\u094d\u0924\u0940\u092a\u0932 \u0935\u0932\u094d\u0921\u093f\u0938 \u091c\u094b \u092f\u093e \u092e\u0932\u094d\u091f\u0940\ufffd", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 88.0, "end": 92.0, "text": "\u0905\u092c \u092f\u0939 \u0906\u092a \u092f\u0939 \u0906\u0924\u0947 \u0939\u0948 \u0915\u0940 \u0915\u093e \u0915\u0941\u0928\u094d\u0937\u0947\u092a? \u092a\u0939\u0932\u0947 \u0915\u0940 \u0915\u093e \u092e\u0924\u0932\u092c \u0915\u094d\u092f\u093e \u0939\u0948?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 92.0, "end": 96.0, "text": "\u091c\u093c\u0947 \u0938\u0947 \u092e\u092c \u0906\u0930\u0947 \u092a\u0938 \u0932\u094b\u0917 \u0915\u0940 \u0905\u0902\u0926\u0930 \u0915\u0940 \u0939\u094b\u0924\u0940 \u0939\u0948, \u0909\u0938\u0915\u0947 \u092a\u094d\u0930\u094b\u092a\u0930\u094d\u091f\u0940 \u0915\u0940 \u0939\u094b\u0924\u0940 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 96.0, "end": 102.0, "text": "\u0915\u0940 \u0939\u0930\u0947 \u090f\u0915 \u0932\u094b\u0917 \u0915\u0940, \u090f\u0915 \u092f\u0941\u0928\u093f\u0915 \u0915\u0940 \u0939\u094b\u0924\u0940 \u0939\u0948, \u0935\u094b \u0915\u0940 \u0938\u0930\u092b \u0909\u0938\u0940 \u0932\u094b\u0917 \u0915\u094b \u0916\u094b\u0932\u0947\u0917\u0940,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 102.0, "end": 128.0, "text": "\u092c\u0938\u094d\u091f \u0915\u0947\u0938 \u0915\u0940 \u092c\u093e\u0924 \u0915\u0930\u0947, \u092e\u0948\u0902 \u0928\u094b\u0930\u092e\u0932 \u0915\u0947\u0938 \u0915\u0940 \u092c\u093e\u0924 \u0928\u0939\u0940\u0902 \u0915\u0930\u093e, \u0905\u0917\u0930 \u0926\u094b \u091a\u0940\u091c\u0947 \u090f\u0915 \u091c\u0948\u0938\u0940 \u0939\u0948,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 129.0, "end": 149.68, "text": "\u092d\u0940 \u0915\u0940 \u0936\u0947\u092c \u0924\u0939\u0940\u0917 \u0939\u0948, \u0924\u094b \u0909\u0938\u0938\u0915\u0947 \ufffd send \u0915\u0940 \u0921\u0947\u091f\u093c\u093e West diys me bas na damidse Craig and", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 149.68, "end": 155.58, "text": "\u091c\u0928\u0915 Understand of whose name, those\u4e5f afterline watch it\u6539 it that same", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 155.68, "end": 157.74, "text": "\u0906\u092a \u0917\u094d\u0921\ufffd domia you can't take a guarantee \u0906\u091c \u0932\u0947\u090f\u0964 You can take age in this time, \u0926\u0947\u091f\u094b \u092c\u0930\u0924", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 157.76000000000002, "end": 161.18, "text": "\u0932\u0947 \u0932\u0947 \u0932\u094b 365 days in 1 year \u092f\u093e \u0914\u0930 \u0932\u0940 \u092a\u0947\u0930 \u092e\u0947 \u0927\u093f\u091f\u093e \u0932\u093f\u092a\u093e", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 161.28, "end": 166.24, "text": "\u092f\u093e\uc6a9 Mysterious thoughts \u0924\u094b \u0914\u0930 \u0938\u0940 \u092c\u093e\u0908\u0928\u093e \u092a\u0930 \u092d\u093e\u0930\u0924 \u0928\u094b\u0926 \u0925\u093e\u090f \u0939\u0930", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 166.36, "end": 169.72, "text": "\u092f\u093e\u0920\u0915\u0941 \u0905\u092a \u0917\u0930\u0947 Swatcher name \u0924\u0940 \u0936\u092a \u092e\u0948\u0924 \u092f\u093e \u0918\u0930 \u0925\u093e\u091d\u0940 \u0935\u0947\u0902", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 169.72, "end": 174.72, "text": "if 2 brothers and sisters are together then obviously their father and mother will be same", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 174.72, "end": 177.72, "text": "this means multiple attributes can have same values", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 177.72, "end": 182.72, "text": "but which attribute whose same value cannot be unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 182.72, "end": 184.72, "text": "which one can be", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 184.72, "end": 188.72, "text": "let's say your phone number, in your mind it will be different", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 188.72, "end": 192.72, "text": "whenever phone number is different it will be", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 193.72, "end": 198.72, "text": "you can say that we have same number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 198.72, "end": 206.72, "text": "even if i am talking about students then in case of students even if you take a pen card then it will be unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 206.72, "end": 209.72, "text": "if you take license number then it will be unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 209.72, "end": 212.72, "text": "registration number or role number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 212.72, "end": 214.72, "text": "because in many universities registration number is running", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 214.72, "end": 216.72, "text": "in many colleges role number is running", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 216.72, "end": 218.72, "text": "so that too it will be unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 218.72, "end": 221.72, "text": "so you can count multiple attributes", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 221.72, "end": 223.72, "text": "all these attributes will be unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 223.72, "end": 225.72, "text": "they can't have duplicacy", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 225.72, "end": 229.72, "text": "now let's talk about all these attributes", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 229.72, "end": 233.72, "text": "all these attributes are called Candidate Key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 233.72, "end": 237.72, "text": "what all these attributes are called? Candidate keys", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 237.72, "end": 239.72, "text": "so what is the property of Candidate keys?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 239.72, "end": 241.72, "text": "it is unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 241.72, "end": 244.72, "text": "so unique has been achieved by me", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 244.72, "end": 247.72, "text": "but will it work by itself?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 247.72, "end": 248.72, "text": "it can't work", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 248.72, "end": 256.72, "text": "let's suppose i am assuming that if i have to find out a student then i will fill the phone number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 256.72, "end": 258.72, "text": "and details will be there", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 258.72, "end": 263.72, "text": "so is it guaranteed that every student has given the right phone number or even phone number?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 263.72, "end": 265.72, "text": "this is also not guaranteed", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 265.72, "end": 270.72, "text": "and it is also possible that if two brothers and sisters are studying together", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 270.72, "end": 274.72, "text": "then it is possible that both of them have given the same number in the database", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 274.72, "end": 277.72, "text": "it is possible that the case is possible", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 277.72, "end": 280.72, "text": "that you can say that the phone number may be given by the student", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 280.72, "end": 284.72, "text": "or it is also possible that if there are two siblings", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 284.72, "end": 287.72, "text": "then they have mentioned one phone number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 287.72, "end": 289.72, "text": "both of them have different phone number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 289.72, "end": 290.72, "text": "let's say Adharkar", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 290.72, "end": 294.72, "text": "now Adharkar is also not necessary that every student has applied", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 294.72, "end": 298.72, "text": "if every student has applied then obviously its adharkar will be unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 298.72, "end": 302.72, "text": "but is it guaranteed that if you talk about college or university", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 302.72, "end": 306.72, "text": "then if let's suppose 10,000, 20,000 students, 50,000 students", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 306.72, "end": 309.72, "text": "can you guarantee that all the students have adharkar", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 309.72, "end": 312.72, "text": "all the students have a license number of the pen card", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 312.72, "end": 314.72, "text": "this is not a guarantee", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 314.72, "end": 319.72, "text": "and because of this also it is possible that if i am looking for a student", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 319.72, "end": 324.72, "text": "i.e. if i have put the entry of the online then its corresponding two or three entries have come", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 324.72, "end": 326.72, "text": "or its corresponding entry has not come", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 326.72, "end": 330.72, "text": "because in your database it was not there", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 330.72, "end": 334.72, "text": "so the second property here is null", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 334.72, "end": 338.72, "text": "it can also be that i have not given the phone number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 338.72, "end": 340.72, "text": "i have taken admission in university or college", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 340.72, "end": 343.72, "text": "they asked for the phone number and i have not given it", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 343.72, "end": 345.72, "text": "or i have given the wrong number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 345.72, "end": 349.72, "text": "so obviously if i keep this field as null", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 349.72, "end": 353.72, "text": "or if you give the same phone number to the same sibling case", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 353.72, "end": 355.72, "text": "then he will take the same phone number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 355.72, "end": 357.72, "text": "and because of that what will happen", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 357.72, "end": 359.72, "text": "if the student of the school of the college", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 359.72, "end": 361.72, "text": "then its corresponding one entry will not come", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 361.72, "end": 363.72, "text": "two or three entries can come", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 363.72, "end": 365.72, "text": "so it has not been uniquely identified", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 365.72, "end": 367.72, "text": "so the concept of the database is that", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 367.72, "end": 369.72, "text": "i can uniquely identify everyone", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 369.72, "end": 372.72, "text": "i can uniquely identify everyone in the double code", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 372.72, "end": 374.72, "text": "this will not be achieved", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 374.72, "end": 377.72, "text": "so this will be achieved at least that one should be unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 377.72, "end": 380.72, "text": "second is not null", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 380.72, "end": 382.72, "text": "what is not null means", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 382.72, "end": 385.72, "text": "that you cannot leave this field empty", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 385.72, "end": 388.72, "text": "you will have to fill in this field", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 388.72, "end": 390.72, "text": "nothing will have to be filled", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 390.72, "end": 392.72, "text": "let's suppose if i talk about the phone number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 392.72, "end": 394.72, "text": "or the card or the pen card", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 394.72, "end": 396.72, "text": "so if you have a student", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 396.72, "end": 398.72, "text": "that you have to take admission in college", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 398.72, "end": 400.72, "text": "you will fill that field", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 400.72, "end": 402.72, "text": "if you fill that field", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 402.72, "end": 405.72, "text": "if the student says that i do not have the card number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 405.72, "end": 406.72, "text": "then what will you do", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 406.72, "end": 409.72, "text": "or you will enter a wrong value in that field", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 409.72, "end": 412.72, "text": "like dollar, hash just to fill it", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 412.72, "end": 414.72, "text": "if you cannot leave it empty", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 414.72, "end": 416.72, "text": "it is a not null field", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 416.72, "end": 417.72, "text": "so will it be in that case", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 417.72, "end": 419.72, "text": "you are doing the wrong entry in the database", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 419.72, "end": 421.72, "text": "what can be the second case", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 421.72, "end": 423.72, "text": "you will say you have to take good admission", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 423.72, "end": 424.72, "text": "give the card number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 424.72, "end": 426.72, "text": "because you will have to fill in the card number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 426.72, "end": 427.72, "text": "it is not null field", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 427.72, "end": 429.72, "text": "null means empty", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 429.72, "end": 431.72, "text": "if you cannot leave empty", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 431.72, "end": 432.72, "text": "then what will you do", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 432.72, "end": 434.72, "text": "you will say you will not get admission", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 434.72, "end": 436.72, "text": "first bring the card number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 436.72, "end": 438.72, "text": "so obviously this case will not happen", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 438.72, "end": 440.72, "text": "obviously there will be a competitor", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 440.72, "end": 442.72, "text": "or university students will be pulled", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 442.72, "end": 444.72, "text": "talk about the pen card number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 444.72, "end": 445.72, "text": "talk about the license number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 445.72, "end": 448.72, "text": "you cannot make this case a mandatory field", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 448.72, "end": 450.72, "text": "who will you do mandatory field", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 450.72, "end": 452.72, "text": "in the case of student", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 452.72, "end": 454.72, "text": "you will do registration number or roll number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 454.72, "end": 457.72, "text": "so what is the concept of primary key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 457.72, "end": 459.72, "text": "primary key is unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 459.72, "end": 461.72, "text": "plus it is not null", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 461.72, "end": 462.72, "text": "so with the candidate key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 462.72, "end": 463.72, "text": "i got one benefit", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 463.72, "end": 464.72, "text": "unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 464.72, "end": 465.72, "text": "that will always be unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 465.72, "end": 468.72, "text": "but out of all the candidate key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 468.72, "end": 470.72, "text": "i will give one", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 470.72, "end": 472.72, "text": "which is the most appropriate", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 472.72, "end": 474.72, "text": "as i have told you in the case of student", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 474.72, "end": 476.72, "text": "in the case of student", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 476.72, "end": 478.72, "text": "which will be most appropriate", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 478.72, "end": 480.72, "text": "or registration number or roll number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 480.72, "end": 481.72, "text": "if you have a small college", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 481.72, "end": 482.72, "text": "you can take roll number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 482.72, "end": 484.72, "text": "if you have a university", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 484.72, "end": 486.72, "text": "you will take registration number or serial number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 486.72, "end": 488.72, "text": "you will take primary key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 488.72, "end": 490.72, "text": "because it is unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 490.72, "end": 492.72, "text": "because it is a candidate", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 492.72, "end": 494.72, "text": "plus it is not null", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 494.72, "end": 496.72, "text": "means you cannot leave it empty", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 497.72, "end": 499.72, "text": "so whenever you will talk about this case", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 499.72, "end": 501.72, "text": "then you can take any database", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 501.72, "end": 502.72, "text": "in that database", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 502.72, "end": 505.72, "text": "primary key is unique plus it is not null", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 505.72, "end": 506.72, "text": "and second", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 506.72, "end": 509.72, "text": "primary key value is never taken by the user", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 509.72, "end": 511.72, "text": "primary key value is given to the user", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 511.72, "end": 513.72, "text": "so if you go to any college or university", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 513.72, "end": 515.72, "text": "if you go to take admission", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 515.72, "end": 516.72, "text": "then you will not say", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 516.72, "end": 518.72, "text": "that i want this roll number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 518.72, "end": 520.72, "text": "or i want this registration number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 520.72, "end": 522.72, "text": "or i want VIP registration number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 522.72, "end": 523.72, "text": "there is nothing like that", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 523.72, "end": 526.72, "text": "they will automatically generate you", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 526.72, "end": 528.72, "text": "that this is your registration number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 528.72, "end": 529.72, "text": "or roll number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 529.72, "end": 531.72, "text": "because you cannot leave this field empty", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 531.72, "end": 533.72, "text": "so if you go to the passport office", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 533.72, "end": 535.72, "text": "in the passport office", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 535.72, "end": 537.72, "text": "what will be the passport number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 537.72, "end": 539.72, "text": "primary key is unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 539.72, "end": 540.72, "text": "plus it is not null", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 540.72, "end": 541.72, "text": "in the passport office", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 541.72, "end": 543.72, "text": "sorry the same students", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 543.72, "end": 545.72, "text": "the same people's data", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 545.72, "end": 547.72, "text": "who have passport", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 547.72, "end": 548.72, "text": "means those who applied for passport", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 548.72, "end": 550.72, "text": "now you ask for the passport number yourself", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 550.72, "end": 551.72, "text": "no", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 551.72, "end": 552.72, "text": "passport number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 552.72, "end": 553.72, "text": "they will give you", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 553.72, "end": 554.72, "text": "that is the primary key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 554.72, "end": 555.72, "text": "in such a license office", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 555.72, "end": 557.72, "text": "if you are applying for license", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 557.72, "end": 559.72, "text": "then in the license office", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 559.72, "end": 560.72, "text": "there will be the same people's data", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 560.72, "end": 562.72, "text": "whose license is already applied", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 562.72, "end": 564.72, "text": "or they have taken proper license", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 564.72, "end": 566.72, "text": "or applying for proper learning", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 566.72, "end": 567.72, "text": "so license number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 567.72, "end": 569.72, "text": "will also provide you with the office", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 569.72, "end": 572.72, "text": "because this is a very tough field", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 572.72, "end": 574.72, "text": "meaning it becomes tough somewhere", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 574.72, "end": 576.72, "text": "because it is unique and not null", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 576.72, "end": 578.72, "text": "you have to achieve both", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 578.72, "end": 579.72, "text": "the data should be unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 579.72, "end": 580.72, "text": "and it should be not null", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 580.72, "end": 582.72, "text": "meaning you cannot leave that field empty", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 582.72, "end": 584.72, "text": "and you cannot fill the duplicate data", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 584.72, "end": 586.72, "text": "in that", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 586.72, "end": 588.72, "text": "so this is the main concept of the primary key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 588.72, "end": 590.72, "text": "always remember", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 590.72, "end": 592.72, "text": "primary key is always unique plus not null", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 592.72, "end": 594.72, "text": "but what is the candidate key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 594.72, "end": 595.72, "text": "it is only unique", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 595.72, "end": 596.72, "text": "you can leave it empty", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 596.72, "end": 598.72, "text": "you can skip it", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 598.72, "end": 600.72, "text": "but if you do not want to skip", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 600.72, "end": 602.72, "text": "then what will you make it", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 602.72, "end": 603.72, "text": "primary key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 603.72, "end": 604.72, "text": "so last point here", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 604.72, "end": 606.72, "text": "in one database", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 606.72, "end": 607.72, "text": "more than one", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 607.72, "end": 609.72, "text": "means 2,3,4 primary keys", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 609.72, "end": 610.72, "text": "can be primary keys", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 610.72, "end": 611.72, "text": "no", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 611.72, "end": 613.72, "text": "only one primary key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 613.72, "end": 615.72, "text": "because I have already told you", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 615.72, "end": 617.72, "text": "that making primary key is very hard", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 617.72, "end": 619.72, "text": "you cannot leave it empty", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 619.72, "end": 621.72, "text": "nor you can fill the duplicate", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 621.72, "end": 623.72, "text": "so if you try to make more attributes", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 623.72, "end": 625.72, "text": "for primary key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 625.72, "end": 627.72, "text": "although your database", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 627.72, "end": 628.72, "text": "will not allow it first", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 628.72, "end": 630.72, "text": "any server, any software you are using", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 630.72, "end": 632.72, "text": "whether you are using Rackle", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 632.72, "end": 633.72, "text": "SQL Server, IBM", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 633.72, "end": 635.72, "text": "any one will not allow it", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 635.72, "end": 638.72, "text": "because if my work is done by one person", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 638.72, "end": 640.72, "text": "then why will I hire 2 people", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 640.72, "end": 641.72, "text": "same thing here", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 641.72, "end": 643.72, "text": "when my work is done by one attribute", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 643.72, "end": 645.72, "text": "then I will not take any trouble from multiple attributes", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 645.72, "end": 647.72, "text": "so that is why your software", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 647.72, "end": 651.72, "text": "does not allow you to make more than one primary key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 651.72, "end": 653.72, "text": "yes, more than one candidate key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 653.72, "end": 655.72, "text": "because it can be multiple attributes", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 655.72, "end": 657.72, "text": "it can be single or not null", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 657.72, "end": 659.72, "text": "you can make more than one attribute", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 659.72, "end": 662.72, "text": "but if we talk about it", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 662.72, "end": 663.72, "text": "unique or not null", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 663.72, "end": 665.72, "text": "it will be only one attribute", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 665.72, "end": 667.72, "text": "and we call it primary key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 667.72, "end": 669.72, "text": "and it depends on the database", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 669.72, "end": 671.72, "text": "in which scenario you are making", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 671.72, "end": 673.72, "text": "in which scenario student will be", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 673.72, "end": 675.72, "text": "in case of Adharkar", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 675.72, "end": 677.72, "text": "in case of pan", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 677.72, "end": 679.72, "text": "in case of passport", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 679.72, "end": 681.72, "text": "in case of license", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 681.72, "end": 683.72, "text": "in case of database", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 683.72, "end": 685.72, "text": "you will be clear", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 685.72, "end": 688.72, "text": "what is the concept of primary key", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 688.72, "end": 689.72, "text": "Thank you", "source": "unknown", "lang": "en", "source_lang": "en"}], "translated": [{"start": 0.0, "end": 6.0, "text": "Hello friends, welcome to Gate Smashers. In this video we are going to discuss what is primary key.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 6.0, "end": 12.0, "text": "The concept of keys in DBMS is most important whether you talk about competitive exam,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 12.0, "end": 17.0, "text": "whether you talk about college or university level exam or you talk about placement,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 17.0, "end": 23.0, "text": "you also ask about the concept of keys there. And it is not like the key is only one,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 23.0, "end": 27.0, "text": "means what is primary key or what is candidate key, not enough.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 27.0, "end": 34.0, "text": "If you talk about normalization, if you talk about sequel, you will have the concept of keys everywhere.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 34.0, "end": 39.0, "text": "So in this video I am focusing only on primary key. So what is the story of primary key?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 39.0, "end": 44.0, "text": "Means what is it? How do we talk? So I am starting this story with a simple example.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 44.0, "end": 50.0, "text": "Let's say we have 100 students in the class. Now we have to store the data of 100 students.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 50.0, "end": 55.0, "text": "Now I will not always call 100 students by face but if I have to take attendance, it is an online system.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 56.0, "end": 60.0, "text": "So what will I do in the online system? I will save all the details of all the students.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 60.0, "end": 66.0, "text": "I will make an excel file in which I will make the registration number, role number, father name, mother name,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 66.0, "end": 73.0, "text": "student name, age, gender, marks, address, phone number, address, multiple values,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 73.0, "end": 80.0, "text": "I will make it in multiple attributes. Means we will make a table in which we will define multiple attributes.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 80.0, "end": 88.0, "text": "Then we will fill all the details of all the students here. You can visualize that there is a table in which we have made all the entries.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 88.0, "end": 92.0, "text": "Now here comes the concept of key. What is the meaning of key?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 92.0, "end": 99.0, "text": "For example we have key in the lock, the property of it is that each lock has a unique key.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 99.0, "end": 105.0, "text": "That key will only open the same lock. Let's talk about the best case. I am not talking about normal case.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 105.0, "end": 110.0, "text": "In India a lot can happen that you open multiple lock with one key but I am not talking about key.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 110.0, "end": 116.0, "text": "I am talking about master key which is roaming around with a thief. The concept of normal key is that", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 116.0, "end": 123.0, "text": "for one lock, one key is made. Yes, I can open that lock with that key. So that is what we are doing here.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 123.0, "end": 128.0, "text": "Means you are identifying something uniquely. If there are two things, one is like that,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 128.0, "end": 133.0, "text": "then identify them that you are different and you are different. How will you do it? With key.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 133.0, "end": 137.0, "text": "Now let's talk about the database here. How will we do it in the database?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 137.0, "end": 142.0, "text": "You have attributes in the database. Now I will say if we take the name of the student.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 142.0, "end": 147.0, "text": "So is the student's name guaranteed that it will be different? No, you can check yourself.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 147.0, "end": 151.0, "text": "There are a lot of students in your college or university whose name is there.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 151.0, "end": 156.0, "text": "First name, last name also see what will be there. It will be the same. You cannot take the guarantee.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 156.0, "end": 162.0, "text": "Take age, take date of birth. It is 365 days in a year or if it is 360 in a year,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 162.0, "end": 166.0, "text": "then obviously somewhere or the other the date of birth will be the same.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 166.0, "end": 169.0, "text": "If we talk here, father name can also be same, mother name can also be same.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 169.0, "end": 174.0, "text": "In case if two brothers and brothers are together, then obviously their father name and mother name will be same.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 174.0, "end": 180.0, "text": "This means multiple attributes can have same values. But which attribute whose same value", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 180.0, "end": 185.0, "text": "can not be the same? It will be unique. Which one can be? Let's say your phone number.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 185.0, "end": 192.0, "text": "You will think that the phone number will be different. Okay? The phone number will be different whenever it is.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 192.0, "end": 197.0, "text": "The address card number. You can say that yes we have the address card.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 197.0, "end": 202.0, "text": "Everyone's number will be different. The pan card although I am talking about students,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 202.0, "end": 206.0, "text": "in the case of student, even if the pan card is not available, if you take it then it will be unique.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 206.0, "end": 212.0, "text": "If you take the license number then it will be unique. You take the registration number or the roll number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 212.0, "end": 216.0, "text": "because in many universities registration number is running, in many colleges the roll number is running.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 216.0, "end": 221.0, "text": "So what will be that? It will be unique. So you can count multiple attributes in this way", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 221.0, "end": 226.0, "text": "that all these will be unique and there can't be duplicates in them.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 226.0, "end": 234.0, "text": "Now let's talk about all these attributes. We call these attributes as Candidate Key.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 234.0, "end": 240.0, "text": "What are all these attributes? These are Candidate Keys. So what is the property of Candidate Keys?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 240.0, "end": 249.0, "text": "It is unique. So I have achieved the unique. But will it work by itself? It can't work. How?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 249.0, "end": 256.0, "text": "Let's suppose I am assuming that the phone number, if I want to find out a student,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 256.0, "end": 261.0, "text": "then I will fill the phone number and details will come. So is it guaranteed that every student", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 261.0, "end": 265.0, "text": "has given the right phone number or even phone number? This is also not guaranteed.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 265.0, "end": 271.0, "text": "And there is a case also possible that let's suppose if two brothers and sisters are together", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 271.0, "end": 276.0, "text": "then it is possible that both have given the same number in the database. It is possible that", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 276.0, "end": 281.0, "text": "this case is possible that you can say that the student has not given the phone number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 281.0, "end": 287.0, "text": "or it is also possible that if there are two siblings then they have mentioned one phone number somewhere.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 287.0, "end": 292.0, "text": "They don't have a different phone number. Let's say Adharkar. Now Adharkar also you can say", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 292.0, "end": 297.0, "text": "that it is not necessary that every student has applied. If every student has applied then obviously", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 297.0, "end": 302.0, "text": "its Adharkar will be unique. But is it guaranteed that if you talk about the college or university,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 302.0, "end": 307.0, "text": "then let's suppose there are 10,000, 20,000 students, 50,000 students, can it be guaranteed", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 307.0, "end": 313.0, "text": "that all the students have Adharkar, all the students have a license number of a pan card.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 313.0, "end": 320.0, "text": "This is not guaranteed. And because of this also it is possible that I am looking for a student", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 320.0, "end": 325.0, "text": "meaning if I have put his entry online then his corresponding two or three entries have come", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 325.0, "end": 330.0, "text": "or his corresponding entry has not come because he was not in your database.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 330.0, "end": 339.0, "text": "So the second property here is Null. Meaning also it is possible that I have not given the phone number.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 339.0, "end": 344.0, "text": "I have taken admission in a college, they asked for the phone number and I have not given it yet", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 344.0, "end": 349.0, "text": "or I have given a wrong number. So obviously say that I should keep this field Null.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 349.0, "end": 355.0, "text": "Or if you give the same phone number then he will pick up the same phone number.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 355.0, "end": 360.0, "text": "And because of that tomorrow you will find the student and his corresponding one entry will not come.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 360.0, "end": 364.0, "text": "There can be two or three entries. So it has not been identified uniquely.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 364.0, "end": 368.0, "text": "So the concept of the database is that I can identify each one uniquely.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 368.0, "end": 373.0, "text": "I can identify each one in a double code. This will not be achieved.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 373.0, "end": 379.0, "text": "So this will not be achieved. One should be unique. Second is not Null.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 379.0, "end": 384.0, "text": "What is not Null means that you cannot leave this field empty.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 384.0, "end": 389.0, "text": "You cannot leave this field empty. You will have to fill in this field.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 390.0, "end": 398.0, "text": "Let's suppose if I talk about phone number or the card, then if you have a student that you want to take admission in your college", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 398.0, "end": 405.0, "text": "you will fill that field. Now if you fill that field, if the student says that I do not have the card number", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 405.0, "end": 412.0, "text": "then what will you do? Either you will enter a wrong value in that field like dollar, hash just to fill it.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 412.0, "end": 419.0, "text": "Because you cannot leave empty. It is a not Null field. So will you enter the wrong entry in that database?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 419.0, "end": 426.0, "text": "What can be the second case? You will say that you have to take admission number 2 because you will have to fill in the card number.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 426.0, "end": 431.0, "text": "It is not Null field. Null means empty. If you cannot leave empty then what will you do?", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 431.0, "end": 435.0, "text": "You will say that you will not get admission now. First bring the card number.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 435.0, "end": 442.0, "text": "So obviously this case will not happen. Obviously some competitor will pull the student from college university.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 442.0, "end": 449.0, "text": "Talk about the pan card number, talk about the license number. You cannot fill this case in the mandatory field.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 449.0, "end": 455.0, "text": "Who will you fill in the mandatory field? In the case of student, you will fill in the registration number or the roll number.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 455.0, "end": 461.0, "text": "So what is the concept of the primary key? The primary key is unique plus it is not Null.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 461.0, "end": 468.0, "text": "So I got one advantage from the candidate key. It will always be unique. But out of all the candidate key,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 468.0, "end": 475.0, "text": "I will only get one which is the most appropriate. Like I have told you in the case of student,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 475.0, "end": 483.0, "text": "which will be the most appropriate or registration number or roll number. If you are in a small college then you can take the roll number.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 483.0, "end": 489.0, "text": "If you are in university then you will get the registration number or serial number. The primary key is there.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 489.0, "end": 495.0, "text": "Because it is unique. Because it is a candidate then it is unique plus it is not Null.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 495.0, "end": 501.0, "text": "Means you cannot leave it empty. So whenever you talk about this case then take any database.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 501.0, "end": 509.0, "text": "In that database your primary key is unique plus it is not Null. And the second primary key value we never take from the user.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 509.0, "end": 517.0, "text": "We give the primary key value to the user. So if you go to any college or university to take the admission then you will not say", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 517.0, "end": 524.0, "text": "that I want this roll number or this registration number or VIP registration number. Nothing like that.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 524.0, "end": 531.0, "text": "They will automatically generate you that this is your registration number or roll number. Because you cannot leave this field empty.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 531.0, "end": 541.0, "text": "If you go to the Passport office in Passport office what will be the passport number? The primary key will be because it is unique plus it is not Null.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 541.0, "end": 549.0, "text": "In Passport office the data of the students who have passports is there. Means those who applied for passports.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 549.0, "end": 555.0, "text": "Now you ask for the passport number yourself? No, they will give you the passport number that is the primary key.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 555.0, "end": 566.0, "text": "If you are applying for a license in such a license office then in the license office the data of the same people who have already applied for a license or they have taken a proper license.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 566.0, "end": 573.0, "text": "So the license number will also be provided by the office person because this is a very tough field.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 573.0, "end": 581.0, "text": "Means it becomes tough somewhere here because it is unique and Null. You have to achieve both. The data should be unique and Null should also be there.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 581.0, "end": 589.0, "text": "Means you cannot leave the field empty and you cannot fill the duplicate data in it. So this is the main concept of the primary key.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 589.0, "end": 595.0, "text": "Always remember that the primary key is unique plus not Null but what is the candidate key? It is unique.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 595.0, "end": 603.0, "text": "You can leave it empty and you can skip it but if you do not want to skip then what will you make it? The primary key.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 603.0, "end": 613.0, "text": "So last point here that in one database more than one means 2, 3, 4 can be the primary keys. No, it will be only one primary key.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 614.0, "end": 621.0, "text": "Because I have already told you that making the primary key is very hard. You cannot leave it empty or you cannot fill the duplicate.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 621.0, "end": 628.0, "text": "So if you try to make more than one attributes of the primary key although your database will not allow it first.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 628.0, "end": 635.0, "text": "No server, no software you are using, whether you are using Rackle, SQL Server, IBM, no one will allow you.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 636.0, "end": 641.0, "text": "Because if my work is done by one person then why will I hire two people? The same work here.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 641.0, "end": 646.0, "text": "When my work is done by one attribute then I will not take any trouble with multiple attributes.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 646.0, "end": 654.0, "text": "So that is why your software does not allow you to make more than one primary key. Yes, more than one can be candidate keys", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 654.0, "end": 660.0, "text": "because it can be unique, multiple attributes, it can be single or Null. You can make more than one attribute Null too.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 660.0, "end": 668.0, "text": "But if we talk about it in a combined way, it will be unique and not Null only will be one attribute and it is called primary key.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 668.0, "end": 673.0, "text": "And it depends on the database that you are making in which scenario, it will be in the student's scenario,", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 673.0, "end": 681.0, "text": "in the case of Adharkar, in the case of Pan, in the case of Passport, in the case of License, in the case of License.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 681.0, "end": 689.0, "text": "So in the database you will talk about it, it will be clear what is the concept of primary key. Thank you.", "source": "unknown", "lang": "en", "source_lang": "en"}, {"start": 690.0, "end": 692.0, "text": "Thank you.", "source": "unknown", "lang": "en", "source_lang": "en"}]}, "concepts": [{"id": "primary-key", "name": "Primary Key", "slug": "primary-key", "description": "The chosen candidate key used as the main identifier for rows.", "mention_count": 191, "first_seen": 0.0, "last_seen": 689.0, "sources": ["asr", "asr+ocr", "ocr"], "timestamps": [{"seconds": 0.0, "label": "00:00", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=0s", "source": "asr"}, {"seconds": 6.0, "label": "00:06", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=6s", "source": "asr+ocr"}, {"seconds": 9.0, "label": "00:09", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=9s", "source": "asr+ocr"}, {"seconds": 10.0, "label": "00:10", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=10s", "source": "asr+ocr"}, {"seconds": 14.0, "label": "00:14", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=14s", "source": "asr+ocr"}, {"seconds": 18.0, "label": "00:18", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=18s", "source": "asr+ocr"}, {"seconds": 21.0, "label": "00:21", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=21s", "source": "asr+ocr"}, {"seconds": 23.0, "label": "00:23", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=23s", "source": "asr"}, {"seconds": 26.0, "label": "00:26", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=26s", "source": "asr+ocr"}, {"seconds": 27.0, "label": "00:27", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=27s", "source": "asr+ocr"}, {"seconds": 32.0, "label": "00:32", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=32s", "source": "asr+ocr"}, {"seconds": 34.0, "label": "00:34", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=34s", "source": "asr"}], "prerequisites": [{"id": "not-null", "name": "Not Null"}, {"id": "candidate-key", "name": "Candidate Key"}, {"id": "unique-constraint", "name": "Unique Constraint"}], "dependents": [{"id": "normalization", "name": "Normalization"}]}, {"id": "database", "name": "Database", "slug": "database", "description": "An organized system for storing and retrieving structured data.", "mention_count": 13, "first_seen": 6.0, "last_seen": 689.0, "sources": ["asr"], "timestamps": [{"seconds": 6.0, "label": "00:06", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=6s", "source": "asr"}, {"seconds": 133.0, "label": "02:13", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=133s", "source": "asr"}, {"seconds": 137.0, "label": "02:17", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=137s", "source": "asr"}, {"seconds": 271.0, "label": "04:31", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=271s", "source": "asr"}, {"seconds": 325.0, "label": "05:25", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=325s", "source": "asr"}, {"seconds": 364.0, "label": "06:04", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=364s", "source": "asr"}, {"seconds": 412.0, "label": "06:52", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=412s", "source": "asr"}, {"seconds": 495.0, "label": "08:15", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=495s", "source": "asr"}, {"seconds": 501.0, "label": "08:21", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=501s", "source": "asr"}, {"seconds": 603.0, "label": "10:03", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=603s", "source": "asr"}, {"seconds": 621.0, "label": "10:21", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=621s", "source": "asr"}, {"seconds": 668.0, "label": "11:08", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=668s", "source": "asr"}], "prerequisites": [], "dependents": [{"id": "relation", "name": "Relation"}, {"id": "sql", "name": "SQL"}]}, {"id": "not-null", "name": "Not Null", "slug": "not-null", "description": "A constraint that forbids missing values.", "mention_count": 123, "first_seen": 6.0, "last_seen": 688.0, "sources": ["asr", "ocr"], "timestamps": [{"seconds": 6.0, "label": "00:06", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=6s", "source": "ocr"}, {"seconds": 50.0, "label": "00:50", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=50s", "source": "ocr"}, {"seconds": 61.0, "label": "01:01", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=61s", "source": "ocr"}, {"seconds": 84.0, "label": "01:24", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=84s", "source": "ocr"}, {"seconds": 88.0, "label": "01:28", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=88s", "source": "ocr"}, {"seconds": 89.0, "label": "01:29", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=89s", "source": "ocr"}, {"seconds": 90.0, "label": "01:30", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=90s", "source": "ocr"}, {"seconds": 96.0, "label": "01:36", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=96s", "source": "ocr"}, {"seconds": 109.0, "label": "01:49", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=109s", "source": "ocr"}, {"seconds": 113.0, "label": "01:53", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=113s", "source": "ocr"}, {"seconds": 114.0, "label": "01:54", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=114s", "source": "ocr"}, {"seconds": 115.0, "label": "01:55", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=115s", "source": "ocr"}], "prerequisites": [{"id": "null", "name": "Null"}], "dependents": [{"id": "primary-key", "name": "Primary Key"}, {"id": "relation", "name": "Relation"}, {"id": "attribute", "name": "Attribute"}]}, {"id": "unique-constraint", "name": "Unique Constraint", "slug": "unique-constraint", "description": "A rule that prevents duplicate values in one or more columns.", "mention_count": 108, "first_seen": 6.0, "last_seen": 675.0, "sources": ["asr", "asr+ocr"], "timestamps": [{"seconds": 6.0, "label": "00:06", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=6s", "source": "asr+ocr"}, {"seconds": 10.0, "label": "00:10", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=10s", "source": "asr+ocr"}, {"seconds": 38.0, "label": "00:38", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=38s", "source": "asr+ocr"}, {"seconds": 40.0, "label": "00:40", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=40s", "source": "asr+ocr"}, {"seconds": 42.0, "label": "00:42", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=42s", "source": "asr+ocr"}, {"seconds": 53.0, "label": "00:53", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=53s", "source": "asr+ocr"}, {"seconds": 60.0, "label": "01:00", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=60s", "source": "asr+ocr"}, {"seconds": 61.0, "label": "01:01", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=61s", "source": "asr+ocr"}, {"seconds": 64.0, "label": "01:04", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=64s", "source": "asr+ocr"}, {"seconds": 69.0, "label": "01:09", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=69s", "source": "asr+ocr"}, {"seconds": 92.0, "label": "01:32", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=92s", "source": "asr"}, {"seconds": 95.0, "label": "01:35", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=95s", "source": "asr+ocr"}], "prerequisites": [], "dependents": [{"id": "candidate-key", "name": "Candidate Key"}, {"id": "primary-key", "name": "Primary Key"}, {"id": "relation", "name": "Relation"}, {"id": "attribute", "name": "Attribute"}]}, {"id": "null", "name": "Null", "slug": "null", "description": "A marker representing missing or unknown data.", "mention_count": 127, "first_seen": 6.0, "last_seen": 688.0, "sources": ["asr", "asr+ocr"], "timestamps": [{"seconds": 6.0, "label": "00:06", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=6s", "source": "asr+ocr"}, {"seconds": 50.0, "label": "00:50", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=50s", "source": "asr+ocr"}, {"seconds": 61.0, "label": "01:01", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=61s", "source": "asr+ocr"}, {"seconds": 84.0, "label": "01:24", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=84s", "source": "asr+ocr"}, {"seconds": 88.0, "label": "01:28", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=88s", "source": "asr+ocr"}, {"seconds": 89.0, "label": "01:29", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=89s", "source": "asr+ocr"}, {"seconds": 90.0, "label": "01:30", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=90s", "source": "asr+ocr"}, {"seconds": 96.0, "label": "01:36", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=96s", "source": "asr+ocr"}, {"seconds": 109.0, "label": "01:49", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=109s", "source": "asr+ocr"}, {"seconds": 113.0, "label": "01:53", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=113s", "source": "asr+ocr"}, {"seconds": 114.0, "label": "01:54", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=114s", "source": "asr+ocr"}, {"seconds": 115.0, "label": "01:55", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=115s", "source": "asr+ocr"}], "prerequisites": [], "dependents": [{"id": "not-null", "name": "Not Null"}, {"id": "relation", "name": "Relation"}, {"id": "attribute", "name": "Attribute"}]}, {"id": "candidate-key", "name": "Candidate Key", "slug": "candidate-key", "description": "A minimal set of attributes that uniquely identifies each tuple.", "mention_count": 6, "first_seen": 23.0, "last_seen": 654.0, "sources": ["asr"], "timestamps": [{"seconds": 23.0, "label": "00:23", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=23s", "source": "asr"}, {"seconds": 226.0, "label": "03:46", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=226s", "source": "asr"}, {"seconds": 234.0, "label": "03:54", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=234s", "source": "asr"}, {"seconds": 461.0, "label": "07:41", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=461s", "source": "asr"}, {"seconds": 589.0, "label": "09:49", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=589s", "source": "asr"}, {"seconds": 646.0, "label": "10:46", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=646s", "source": "asr"}], "prerequisites": [{"id": "attribute", "name": "Attribute"}, {"id": "unique-constraint", "name": "Unique Constraint"}], "dependents": [{"id": "primary-key", "name": "Primary Key"}]}, {"id": "sql", "name": "SQL", "slug": "sql", "description": "The standard query language used to work with relational databases.", "mention_count": 2, "first_seen": 27.0, "last_seen": 635.0, "sources": ["asr"], "timestamps": [{"seconds": 27.0, "label": "00:27", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=27s", "source": "asr"}, {"seconds": 628.0, "label": "10:28", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=628s", "source": "asr"}], "prerequisites": [{"id": "database", "name": "Database"}, {"id": "relation", "name": "Relation"}], "dependents": [{"id": "attribute", "name": "Attribute"}]}, {"id": "normalization", "name": "Normalization", "slug": "normalization", "description": "A design process that reduces redundancy and anomalies in relational schemas.", "mention_count": 1, "first_seen": 27.0, "last_seen": 34.0, "sources": ["asr"], "timestamps": [{"seconds": 27.0, "label": "00:27", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=27s", "source": "asr"}], "prerequisites": [{"id": "relation", "name": "Relation"}, {"id": "primary-key", "name": "Primary Key"}], "dependents": []}, {"id": "relation", "name": "Relation", "slug": "relation", "description": "A table-like structure in the relational model.", "mention_count": 2, "first_seen": 73.0, "last_seen": 88.0, "sources": ["asr"], "timestamps": [{"seconds": 73.0, "label": "01:13", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=73s", "source": "asr"}, {"seconds": 80.0, "label": "01:20", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=80s", "source": "asr"}], "prerequisites": [{"id": "database", "name": "Database"}, {"id": "not-null", "name": "Not Null"}, {"id": "unique-constraint", "name": "Unique Constraint"}, {"id": "null", "name": "Null"}], "dependents": [{"id": "attribute", "name": "Attribute"}, {"id": "normalization", "name": "Normalization"}, {"id": "sql", "name": "SQL"}]}, {"id": "attribute", "name": "Attribute", "slug": "attribute", "description": "A column or property in a relation.", "mention_count": 10, "first_seen": 73.0, "last_seen": 668.0, "sources": ["asr"], "timestamps": [{"seconds": 73.0, "label": "01:13", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=73s", "source": "asr"}, {"seconds": 137.0, "label": "02:17", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=137s", "source": "asr"}, {"seconds": 174.0, "label": "02:54", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=174s", "source": "asr"}, {"seconds": 216.0, "label": "03:36", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=216s", "source": "asr"}, {"seconds": 226.0, "label": "03:46", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=226s", "source": "asr"}, {"seconds": 234.0, "label": "03:54", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=234s", "source": "asr"}, {"seconds": 621.0, "label": "10:21", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=621s", "source": "asr"}, {"seconds": 641.0, "label": "10:41", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=641s", "source": "asr"}, {"seconds": 654.0, "label": "10:54", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=654s", "source": "asr"}, {"seconds": 660.0, "label": "11:00", "url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=660s", "source": "asr"}], "prerequisites": [{"id": "relation", "name": "Relation"}, {"id": "not-null", "name": "Not Null"}, {"id": "unique-constraint", "name": "Unique Constraint"}, {"id": "null", "name": "Null"}, {"id": "sql", "name": "SQL"}], "dependents": [{"id": "candidate-key", "name": "Candidate Key"}]}], "graph": {"nodes": [{"id": "primary-key", "label": "Primary Key", "mention_count": 191, "level": 8, "first_seen": 0.0, "description": "The chosen candidate key used as the main identifier for rows."}, {"id": "database", "label": "Database", "mention_count": 13, "level": 0, "first_seen": 6.0, "description": "An organized system for storing and retrieving structured data."}, {"id": "not-null", "label": "Not Null", "mention_count": 123, "level": 3, "first_seen": 6.0, "description": "A constraint that forbids missing values."}, {"id": "unique-constraint", "label": "Unique Constraint", "mention_count": 108, "level": 2, "first_seen": 6.0, "description": "A rule that prevents duplicate values in one or more columns."}, {"id": "null", "label": "Null", "mention_count": 127, "level": 1, "first_seen": 6.0, "description": "A marker representing missing or unknown data."}, {"id": "candidate-key", "label": "Candidate Key", "mention_count": 6, "level": 7, "first_seen": 23.0, "description": "A minimal set of attributes that uniquely identifies each tuple."}, {"id": "sql", "label": "SQL", "mention_count": 2, "level": 5, "first_seen": 27.0, "description": "The standard query language used to work with relational databases."}, {"id": "normalization", "label": "Normalization", "mention_count": 1, "level": 9, "first_seen": 27.0, "description": "A design process that reduces redundancy and anomalies in relational schemas."}, {"id": "relation", "label": "Relation", "mention_count": 2, "level": 4, "first_seen": 73.0, "description": "A table-like structure in the relational model."}, {"id": "attribute", "label": "Attribute", "mention_count": 10, "level": 6, "first_seen": 73.0, "description": "A column or property in a relation."}], "edges": [{"source": "database", "target": "relation", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Relations are foundational units inside a relational database."}, {"source": "relation", "target": "attribute", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Attributes are properties of a relation."}, {"source": "attribute", "target": "candidate-key", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Keys are defined over attributes."}, {"source": "unique-constraint", "target": "candidate-key", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Candidate keys must enforce uniqueness."}, {"source": "not-null", "target": "primary-key", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Primary keys cannot be null."}, {"source": "null", "target": "not-null", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "The lecture contrasts null values with not-null constraints."}, {"source": "candidate-key", "target": "primary-key", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "A primary key is chosen from candidate keys."}, {"source": "unique-constraint", "target": "primary-key", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Primary keys inherit uniqueness requirements."}, {"source": "relation", "target": "normalization", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "Normalization operates on relations and schemas."}, {"source": "primary-key", "target": "normalization", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "Primary keys matter for higher normal forms."}, {"source": "database", "target": "sql", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.8, "reason": "SQL is introduced in the context of relational databases."}, {"source": "relation", "target": "sql", "evidence": "domain_rule", "relation": "prerequisite", "confidence": 0.7, "reason": "SQL queries operate over relations."}, {"source": "not-null", "target": "relation", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 67 seconds earlier in the lecture."}, {"source": "not-null", "target": "attribute", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 67 seconds earlier in the lecture."}, {"source": "unique-constraint", "target": "relation", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 67 seconds earlier in the lecture."}, {"source": "unique-constraint", "target": "attribute", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 67 seconds earlier in the lecture."}, {"source": "null", "target": "relation", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 67 seconds earlier in the lecture."}, {"source": "null", "target": "attribute", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 67 seconds earlier in the lecture."}, {"source": "sql", "target": "attribute", "evidence": "temporal", "relation": "prerequisite", "confidence": 0.5, "reason": "Appears about 46 seconds earlier in the lecture."}], "topological_order": ["database", "null", "unique-constraint", "not-null", "relation", "sql", "attribute", "candidate-key", "primary-key", "normalization"]}, "learning_path": [{"step": 1, "concept_id": "database", "title": "Database", "description": "An organized system for storing and retrieving structured data.", "prerequisite_ids": [], "timestamp_url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=6s"}, {"step": 2, "concept_id": "null", "title": "Null", "description": "A marker representing missing or unknown data.", "prerequisite_ids": [], "timestamp_url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=6s"}, {"step": 3, "concept_id": "unique-constraint", "title": "Unique Constraint", "description": "A rule that prevents duplicate values in one or more columns.", "prerequisite_ids": [], "timestamp_url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=6s"}, {"step": 4, "concept_id": "not-null", "title": "Not Null", "description": "A constraint that forbids missing values.", "prerequisite_ids": ["null"], "timestamp_url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=6s"}, {"step": 5, "concept_id": "relation", "title": "Relation", "description": "A table-like structure in the relational model.", "prerequisite_ids": ["database", "not-null", "unique-constraint", "null"], "timestamp_url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=73s"}, {"step": 6, "concept_id": "sql", "title": "SQL", "description": "The standard query language used to work with relational databases.", "prerequisite_ids": ["database", "relation"], "timestamp_url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=27s"}, {"step": 7, "concept_id": "attribute", "title": "Attribute", "description": "A column or property in a relation.", "prerequisite_ids": ["relation", "not-null", "unique-constraint", "null", "sql"], "timestamp_url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=73s"}, {"step": 8, "concept_id": "candidate-key", "title": "Candidate Key", "description": "A minimal set of attributes that uniquely identifies each tuple.", "prerequisite_ids": ["attribute", "unique-constraint"], "timestamp_url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=23s"}, {"step": 9, "concept_id": "primary-key", "title": "Primary Key", "description": "The chosen candidate key used as the main identifier for rows.", "prerequisite_ids": ["not-null", "candidate-key", "unique-constraint"], "timestamp_url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=0s"}, {"step": 10, "concept_id": "normalization", "title": "Normalization", "description": "A design process that reduces redundancy and anomalies in relational schemas.", "prerequisite_ids": ["relation", "primary-key"], "timestamp_url": "https://www.youtube.com/watch?v=Tp37HXfekNo&t=27s"}], "artifacts": {"data_dir": "D:\\work\\Lecture2Graph\\data\\Tp37HXfekNo", "graph_html": "D:\\work\\Lecture2Graph\\data\\Tp37HXfekNo\\graph.html", "notes_md": "D:\\work\\Lecture2Graph\\data\\Tp37HXfekNo\\notes.md", "bundle_json": "D:\\work\\Lecture2Graph\\data\\Tp37HXfekNo\\lecture2graph.json", "concepts_json": "D:\\work\\Lecture2Graph\\data\\Tp37HXfekNo\\concepts.json", "graph_json": "D:\\work\\Lecture2Graph\\data\\Tp37HXfekNo\\graph.json"};
-    const conceptMap = Object.fromEntries(payload.concepts.map(concept => [concept.id, concept]));
-    const prerequisitesByTarget = {};
-    const dependentsBySource = {};
-    payload.graph.edges.forEach(edge => {
-      prerequisitesByTarget[edge.target] = prerequisitesByTarget[edge.target] || [];
-      prerequisitesByTarget[edge.target].push(edge);
-      dependentsBySource[edge.source] = dependentsBySource[edge.source] || [];
-      dependentsBySource[edge.source].push(edge);
-    });
+</div>
+<script>
+const graphData = {"nodes": [{"id": "primary key", "label": "Primary Key", "color": "#3fb950", "border": "#2ea043"}, {"id": "database", "label": "Database", "color": "#3fb950", "border": "#2ea043"}, {"id": "not null", "label": "Not Null", "color": "#3fb950", "border": "#2ea043"}, {"id": "null", "label": "Null", "color": "#3fb950", "border": "#2ea043"}, {"id": "unique constraint", "label": "Unique Constraint", "color": "#3fb950", "border": "#2ea043"}, {"id": "candidate key", "label": "Candidate Key", "color": "#58a6ff", "border": "#388bfd"}, {"id": "normalization", "label": "Normalization", "color": "#8b949e", "border": "#6e7681"}, {"id": "sql", "label": "Sql", "color": "#d29922", "border": "#9e6a03"}, {"id": "attribute", "label": "Attribute", "color": "#3fb950", "border": "#2ea043"}, {"id": "relation", "label": "Relation", "color": "#d29922", "border": "#9e6a03"}], "edges": [{"from": "database", "to": "relation", "type": "is_prerequisite_for", "rule": ""}, {"from": "relation", "to": "attribute", "type": "is_prerequisite_for", "rule": ""}, {"from": "attribute", "to": "candidate key", "type": "is_prerequisite_for", "rule": ""}, {"from": "unique constraint", "to": "candidate key", "type": "is_prerequisite_for", "rule": ""}, {"from": "not null", "to": "primary key", "type": "is_prerequisite_for", "rule": ""}, {"from": "null", "to": "not null", "type": "is_prerequisite_for", "rule": ""}, {"from": "candidate key", "to": "primary key", "type": "is_prerequisite_for", "rule": ""}, {"from": "unique constraint", "to": "primary key", "type": "is_prerequisite_for", "rule": ""}, {"from": "relation", "to": "normalization", "type": "is_prerequisite_for", "rule": ""}, {"from": "primary key", "to": "normalization", "type": "is_prerequisite_for", "rule": ""}, {"from": "database", "to": "sql", "type": "is_prerequisite_for", "rule": ""}, {"from": "relation", "to": "sql", "type": "is_prerequisite_for", "rule": ""}, {"from": "not null", "to": "attribute", "type": "temporal_precedence", "rule": ""}, {"from": "not null", "to": "relation", "type": "temporal_precedence", "rule": ""}, {"from": "null", "to": "attribute", "type": "temporal_precedence", "rule": ""}, {"from": "null", "to": "relation", "type": "temporal_precedence", "rule": ""}, {"from": "unique constraint", "to": "attribute", "type": "temporal_precedence", "rule": ""}, {"from": "unique constraint", "to": "relation", "type": "temporal_precedence", "rule": ""}, {"from": "sql", "to": "attribute", "type": "temporal_precedence", "rule": ""}]};
+const conceptMeta = {"primary key": {"label": "Primary Key", "mentions": 191, "first_seen": "00:00", "mention_list": [{"time": "00:00", "source": "?", "text": ""}, {"time": "00:06", "source": "?", "text": ""}, {"time": "00:09", "source": "?", "text": ""}, {"time": "00:10", "source": "?", "text": ""}, {"time": "00:14", "source": "?", "text": ""}, {"time": "00:18", "source": "?", "text": ""}, {"time": "00:21", "source": "?", "text": ""}, {"time": "00:23", "source": "?", "text": ""}, {"time": "00:26", "source": "?", "text": ""}, {"time": "00:27", "source": "?", "text": ""}, {"time": "00:32", "source": "?", "text": ""}, {"time": "00:34", "source": "?", "text": ""}, {"time": "00:38", "source": "?", "text": ""}, {"time": "00:40", "source": "?", "text": ""}, {"time": "00:42", "source": "?", "text": ""}, {"time": "00:50", "source": "?", "text": ""}, {"time": "00:54", "source": "?", "text": ""}, {"time": "00:58", "source": "?", "text": ""}, {"time": "01:00", "source": "?", "text": ""}, {"time": "01:09", "source": "?", "text": ""}], "edges": ["not null \u2192 this (is_prerequisite_for)", "candidate key \u2192 this (is_prerequisite_for)", "unique constraint \u2192 this (is_prerequisite_for)", "\u2192 normalization (is_prerequisite_for)"]}, "database": {"label": "Database", "mentions": 13, "first_seen": "00:06", "mention_list": [{"time": "00:06", "source": "?", "text": ""}, {"time": "02:13", "source": "?", "text": ""}, {"time": "02:17", "source": "?", "text": ""}, {"time": "04:31", "source": "?", "text": ""}, {"time": "05:25", "source": "?", "text": ""}, {"time": "06:04", "source": "?", "text": ""}, {"time": "06:52", "source": "?", "text": ""}, {"time": "08:15", "source": "?", "text": ""}, {"time": "08:21", "source": "?", "text": ""}, {"time": "10:03", "source": "?", "text": ""}, {"time": "10:21", "source": "?", "text": ""}, {"time": "11:08", "source": "?", "text": ""}, {"time": "11:21", "source": "?", "text": ""}], "edges": ["\u2192 relation (is_prerequisite_for)", "\u2192 sql (is_prerequisite_for)"]}, "not null": {"label": "Not Null", "mentions": 123, "first_seen": "00:06", "mention_list": [{"time": "00:06", "source": "?", "text": ""}, {"time": "00:50", "source": "?", "text": ""}, {"time": "01:01", "source": "?", "text": ""}, {"time": "01:24", "source": "?", "text": ""}, {"time": "01:28", "source": "?", "text": ""}, {"time": "01:29", "source": "?", "text": ""}, {"time": "01:30", "source": "?", "text": ""}, {"time": "01:36", "source": "?", "text": ""}, {"time": "01:49", "source": "?", "text": ""}, {"time": "01:53", "source": "?", "text": ""}, {"time": "01:54", "source": "?", "text": ""}, {"time": "01:55", "source": "?", "text": ""}, {"time": "01:58", "source": "?", "text": ""}, {"time": "02:00", "source": "?", "text": ""}, {"time": "02:09", "source": "?", "text": ""}, {"time": "02:18", "source": "?", "text": ""}, {"time": "03:06", "source": "?", "text": ""}, {"time": "03:08", "source": "?", "text": ""}, {"time": "03:10", "source": "?", "text": ""}, {"time": "03:11", "source": "?", "text": ""}], "edges": ["\u2192 primary key (is_prerequisite_for)", "null \u2192 this (is_prerequisite_for)", "\u2192 attribute (temporal_precedence)", "\u2192 relation (temporal_precedence)"]}, "null": {"label": "Null", "mentions": 127, "first_seen": "00:06", "mention_list": [{"time": "00:06", "source": "?", "text": ""}, {"time": "00:50", "source": "?", "text": ""}, {"time": "01:01", "source": "?", "text": ""}, {"time": "01:24", "source": "?", "text": ""}, {"time": "01:28", "source": "?", "text": ""}, {"time": "01:29", "source": "?", "text": ""}, {"time": "01:30", "source": "?", "text": ""}, {"time": "01:36", "source": "?", "text": ""}, {"time": "01:49", "source": "?", "text": ""}, {"time": "01:53", "source": "?", "text": ""}, {"time": "01:54", "source": "?", "text": ""}, {"time": "01:55", "source": "?", "text": ""}, {"time": "01:58", "source": "?", "text": ""}, {"time": "02:00", "source": "?", "text": ""}, {"time": "02:09", "source": "?", "text": ""}, {"time": "02:18", "source": "?", "text": ""}, {"time": "03:06", "source": "?", "text": ""}, {"time": "03:08", "source": "?", "text": ""}, {"time": "03:10", "source": "?", "text": ""}, {"time": "03:11", "source": "?", "text": ""}], "edges": ["\u2192 not null (is_prerequisite_for)", "\u2192 attribute (temporal_precedence)", "\u2192 relation (temporal_precedence)"]}, "unique constraint": {"label": "Unique Constraint", "mentions": 108, "first_seen": "00:06", "mention_list": [{"time": "00:06", "source": "?", "text": ""}, {"time": "00:10", "source": "?", "text": ""}, {"time": "00:38", "source": "?", "text": ""}, {"time": "00:40", "source": "?", "text": ""}, {"time": "00:42", "source": "?", "text": ""}, {"time": "00:53", "source": "?", "text": ""}, {"time": "01:00", "source": "?", "text": ""}, {"time": "01:01", "source": "?", "text": ""}, {"time": "01:04", "source": "?", "text": ""}, {"time": "01:09", "source": "?", "text": ""}, {"time": "01:32", "source": "?", "text": ""}, {"time": "01:35", "source": "?", "text": ""}, {"time": "01:37", "source": "?", "text": ""}, {"time": "01:50", "source": "?", "text": ""}, {"time": "01:52", "source": "?", "text": ""}, {"time": "01:53", "source": "?", "text": ""}, {"time": "02:01", "source": "?", "text": ""}, {"time": "02:04", "source": "?", "text": ""}, {"time": "02:16", "source": "?", "text": ""}, {"time": "02:19", "source": "?", "text": ""}], "edges": ["\u2192 candidate key (is_prerequisite_for)", "\u2192 primary key (is_prerequisite_for)", "\u2192 attribute (temporal_precedence)", "\u2192 relation (temporal_precedence)"]}, "candidate key": {"label": "Candidate Key", "mentions": 6, "first_seen": "00:23", "mention_list": [{"time": "00:23", "source": "?", "text": ""}, {"time": "03:46", "source": "?", "text": ""}, {"time": "03:54", "source": "?", "text": ""}, {"time": "07:41", "source": "?", "text": ""}, {"time": "09:49", "source": "?", "text": ""}, {"time": "10:46", "source": "?", "text": ""}], "edges": ["attribute \u2192 this (is_prerequisite_for)", "unique constraint \u2192 this (is_prerequisite_for)", "\u2192 primary key (is_prerequisite_for)"]}, "normalization": {"label": "Normalization", "mentions": 1, "first_seen": "00:27", "mention_list": [{"time": "00:27", "source": "?", "text": ""}], "edges": ["relation \u2192 this (is_prerequisite_for)", "primary key \u2192 this (is_prerequisite_for)"]}, "sql": {"label": "Sql", "mentions": 2, "first_seen": "00:27", "mention_list": [{"time": "00:27", "source": "?", "text": ""}, {"time": "10:28", "source": "?", "text": ""}], "edges": ["database \u2192 this (is_prerequisite_for)", "relation \u2192 this (is_prerequisite_for)", "\u2192 attribute (temporal_precedence)"]}, "attribute": {"label": "Attribute", "mentions": 10, "first_seen": "01:13", "mention_list": [{"time": "01:13", "source": "?", "text": ""}, {"time": "02:17", "source": "?", "text": ""}, {"time": "02:54", "source": "?", "text": ""}, {"time": "03:36", "source": "?", "text": ""}, {"time": "03:46", "source": "?", "text": ""}, {"time": "03:54", "source": "?", "text": ""}, {"time": "10:21", "source": "?", "text": ""}, {"time": "10:41", "source": "?", "text": ""}, {"time": "10:54", "source": "?", "text": ""}, {"time": "11:00", "source": "?", "text": ""}], "edges": ["relation \u2192 this (is_prerequisite_for)", "\u2192 candidate key (is_prerequisite_for)", "not null \u2192 this (temporal_precedence)", "null \u2192 this (temporal_precedence)", "unique constraint \u2192 this (temporal_precedence)", "sql \u2192 this (temporal_precedence)"]}, "relation": {"label": "Relation", "mentions": 2, "first_seen": "01:13", "mention_list": [{"time": "01:13", "source": "?", "text": ""}, {"time": "01:20", "source": "?", "text": ""}], "edges": ["database \u2192 this (is_prerequisite_for)", "\u2192 attribute (is_prerequisite_for)", "\u2192 normalization (is_prerequisite_for)", "\u2192 sql (is_prerequisite_for)", "not null \u2192 this (temporal_precedence)", "null \u2192 this (temporal_precedence)", "unique constraint \u2192 this (temporal_precedence)"]}};
 
-    const baseNodes = payload.graph.nodes.map(node => {
-      const mentions = node.mention_count || 1;
-      let color = "#89b4ff";
-      if (mentions >= 8) color = "#7ce0c3";
-      else if (mentions >= 4) color = "#ffc670";
-      return {
-        id: node.id,
-        label: node.label,
-        shape: "box",
-        font: { color: "#eaf4ff", face: "Space Grotesk", size: 16 },
-        borderWidth: 1.5,
-        color: {
-          background: color,
-          border: color,
-          highlight: { background: "#ffffff", border: "#7ce0c3" }
-        },
-        margin: 14
-      };
-    });
+window.addEventListener('load', function() {
+  const nodes = new vis.DataSet(graphData.nodes.map(n => ({
+    id: n.id, label: n.label,
+    color: { background: n.color || '#58a6ff', border: n.border || '#388bfd',
+             highlight: { background: '#79c0ff', border: '#58a6ff' } },
+    font: { color: '#e6edf3', size: 14, face: '-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif' },
+    shape: 'box', margin: { top: 10, bottom: 10, left: 14, right: 14 },
+    borderWidth: 2, borderWidthSelected: 3,
+    shadow: { enabled: true, color: 'rgba(0,0,0,0.3)', size: 6, x: 2, y: 2 },
+  })));
+  const edgeColors = {'domain_rule':'#d29922','temporal':'#8b949e','causal':'#f85149','co-occurrence':'#bc8cff'};
+  const edges = new vis.DataSet(graphData.edges.map((e, i) => ({
+    id: i, from: e.from, to: e.to, arrows: { to: { enabled: true, scaleFactor: 0.7 } },
+    color: { color: edgeColors[e.type] || '#30363d', highlight: '#58a6ff' },
+    width: e.type === 'domain_rule' ? 2.5 : 1.5,
+    dashes: e.type === 'temporal',
+    smooth: { type: 'cubicBezier', forceDirection: 'vertical', roundness: 0.4 },
+    title: e.type + (e.rule ? ' (' + e.rule + ')' : ''),
+  })));
 
-    const baseEdges = payload.graph.edges.map((edge, index) => {
-      const colors = {
-        domain_rule: "#ffc670",
-        causal: "#ff8d8d",
-        temporal: "#8ca2b8",
-        llm: "#7ce0c3"
-      };
-      return {
-        id: index,
-        from: edge.source,
-        to: edge.target,
-        arrows: "to",
-        width: edge.evidence === "domain_rule" ? 2.4 : 1.6,
-        dashes: edge.evidence === "temporal",
-        color: { color: colors[edge.evidence] || "#89b4ff", opacity: 0.85 },
-        title: `${edge.evidence}: ${edge.reason || edge.relation}`,
-        smooth: { type: "cubicBezier", forceDirection: "vertical", roundness: 0.42 }
-      };
-    });
-
-    const nodes = new vis.DataSet(baseNodes);
-    const edges = new vis.DataSet(baseEdges);
-    const network = new vis.Network(
-      document.getElementById("graph"),
-      { nodes, edges },
-      {
-        autoResize: true,
-        layout: {
-          hierarchical: {
-            enabled: true,
-            direction: "UD",
-            levelSeparation: 120,
-            nodeSpacing: 180,
-            treeSpacing: 210,
-            blockShifting: true,
-            edgeMinimization: true,
-            parentCentralization: true
-          }
-        },
-        physics: false,
-        interaction: {
-          dragView: true,
-          zoomView: true,
-          hover: true,
-          navigationButtons: true
-        }
+  const container = document.getElementById('graph');
+  const network = new vis.Network(container, { nodes, edges }, {
+    layout: {
+      hierarchical: {
+        enabled: true,
+        direction: 'UD',
+        sortMethod: 'directed',
+        levelSeparation: 100,
+        nodeSpacing: 170,
+        treeSpacing: 200,
+        blockShifting: true,
+        edgeMinimization: true,
+        parentCentralization: true,
       }
-    );
+    },
+    physics: { enabled: false },
+    interaction: {
+      dragNodes: false,
+      dragView: false,
+      zoomView: false,
+      selectable: true,
+      hover: true,
+      tooltipDelay: 100,
+    },
+  });
 
-    function graphNeighborhood(nodeId) {
-      const ancestors = new Set();
-      const descendants = new Set();
-      const incoming = prerequisitesByTarget[nodeId] || [];
-      const outgoing = dependentsBySource[nodeId] || [];
+  network.once('afterDrawing', function() {
+    network.fit({ animation: false });
+  });
 
-      function walkIncoming(current) {
-        (prerequisitesByTarget[current] || []).forEach(edge => {
-          if (!ancestors.has(edge.source)) {
-            ancestors.add(edge.source);
-            walkIncoming(edge.source);
-          }
-        });
-      }
-
-      function walkOutgoing(current) {
-        (dependentsBySource[current] || []).forEach(edge => {
-          if (!descendants.has(edge.target)) {
-            descendants.add(edge.target);
-            walkOutgoing(edge.target);
-          }
-        });
-      }
-
-      walkIncoming(nodeId);
-      walkOutgoing(nodeId);
-      return { ancestors, descendants, incoming, outgoing };
+  network.on('click', function(params) {
+    const detail = document.getElementById('node-detail');
+    const noSelect = document.getElementById('no-select-panel');
+    if (params.nodes.length > 0) {
+      const nid = params.nodes[0];
+      const meta = conceptMeta[nid];
+      if (!meta) return;
+      document.getElementById('detail-name').textContent = meta.label;
+      document.getElementById('detail-meta').textContent =
+        meta.mentions + ' mentions · first at ' + meta.first_seen;
+      const ml = document.getElementById('detail-mentions');
+      ml.innerHTML = (meta.mention_list || []).map(m =>
+        '<li><span class="mention-time">' + m.time + '</span>' +
+        '<span class="mention-src">' + m.source + '</span> ' + m.text + '</li>'
+      ).join('');
+      const el = document.getElementById('detail-edges');
+      el.innerHTML = (meta.edges || []).map(e =>
+        '<div style="padding:2px 0">' + e + '</div>'
+      ).join('');
+      detail.classList.add('active');
+      noSelect.style.display = 'none';
+    } else {
+      detail.classList.remove('active');
+      noSelect.style.display = 'block';
     }
+  });
 
-    function resetGraph() {
-      nodes.update(baseNodes);
-      edges.update(baseEdges);
-    }
-
-    function renderConcept(nodeId) {
-      const concept = conceptMap[nodeId];
-      if (!concept) return;
-
-      const neighborhood = graphNeighborhood(nodeId);
-      document.getElementById("concept-name").textContent = concept.name;
-      document.getElementById("concept-description").textContent = concept.description;
-      document.getElementById("concept-badges").innerHTML = [
-        `<span class="pill">${concept.mention_count} mentions</span>`,
-        `<span class="pill">${concept.sources.join(", ")}</span>`
-      ].join("");
-
-      document.getElementById("timestamp-list").innerHTML = concept.timestamps.map(item => `
-        <li>
-          <a href="${item.url}" target="_blank" rel="noreferrer">
-            <span class="mono">${item.label}</span>
-            <span>${item.source}</span>
-          </a>
-        </li>
-      `).join("");
-
-      const prerequisiteNames = concept.prerequisites.map(item => item.name).join(", ") || "None";
-      const dependentNames = concept.dependents.map(item => item.name).join(", ") || "None";
-      document.getElementById("connections-copy").innerHTML = `
-        <div><strong>Prerequisites:</strong> ${prerequisiteNames}</div>
-        <div style="margin-top:8px"><strong>Unlocks:</strong> ${dependentNames}</div>
-      `;
-
-      const nodeUpdates = baseNodes.map(node => {
-        if (node.id === nodeId) {
-          return { ...node, color: { ...node.color, background: "#ffffff", border: "#7ce0c3" } };
-        }
-        if (neighborhood.ancestors.has(node.id)) {
-          return { ...node, color: { ...node.color, background: "#ffc670", border: "#ffc670" } };
-        }
-        if (neighborhood.descendants.has(node.id)) {
-          return { ...node, color: { ...node.color, background: "#7ce0c3", border: "#7ce0c3" } };
-        }
-        return { ...node, color: { ...node.color, background: "rgba(90, 111, 129, 0.22)", border: "rgba(90, 111, 129, 0.32)" }, font: { ...node.font, color: "#8ca2b8" } };
-      });
-      nodes.update(nodeUpdates);
-
-      const edgeUpdates = baseEdges.map(edge => {
-        if (edge.from === nodeId || edge.to === nodeId || neighborhood.ancestors.has(edge.from) || neighborhood.descendants.has(edge.to)) {
-          return { ...edge, color: { ...edge.color, opacity: 1 }, width: edge.width + 0.8 };
-        }
-        return { ...edge, color: { ...edge.color, opacity: 0.16 }, width: Math.max(1, edge.width - 0.4) };
-      });
-      edges.update(edgeUpdates);
-    }
-
-    function renderLearningPath() {
-      document.getElementById("learning-path").innerHTML = payload.learning_path.map(step => `
-        <li>
-          <div class="path-step">Step ${step.step}</div>
-          <div class="path-title">${step.title}</div>
-          <div class="path-copy">${step.description}</div>
-        </li>
-      `).join("");
-    }
-
-    const translatedTranscript = payload.transcripts.translated;
-    const originalTranscript = payload.transcripts.original.length ? payload.transcripts.original : payload.transcripts.translated;
-
-    function renderTranscript(mode) {
-      const items = mode === "original" ? originalTranscript : translatedTranscript;
-      document.getElementById("transcript-list").innerHTML = items.slice(0, 24).map(item => `
-        <li>
-          <strong>${new Date(item.start * 1000).toISOString().substr(14, 5)} · ${item.source}</strong>
-          <span>${item.text}</span>
-        </li>
-      `).join("");
-      document.getElementById("tab-translated").classList.toggle("active", mode !== "original");
-      document.getElementById("tab-original").classList.toggle("active", mode === "original");
-    }
-
-    network.on("click", event => {
-      if (!event.nodes.length) {
-        resetGraph();
-        return;
-      }
-      renderConcept(event.nodes[0]);
+  document.querySelectorAll('.topo-list li').forEach(li => {
+    li.addEventListener('click', () => {
+      const nid = li.dataset.nid;
+      if (nid) { network.selectNodes([nid]); network.focus(nid, {scale:1.2, animation:true}); }
     });
-
-    document.getElementById("tab-translated").addEventListener("click", () => renderTranscript("translated"));
-    document.getElementById("tab-original").addEventListener("click", () => renderTranscript("original"));
-
-    renderLearningPath();
-    renderTranscript("translated");
-    network.fit({ animation: true });
-  </script>
+  });
+});
+</script>
 </body>
 </html>

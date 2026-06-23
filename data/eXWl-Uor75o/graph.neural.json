@@ -1,0 +1,21 @@
+{
+  "edges": [
+    {
+      "from": "divide_and_conquer",
+      "to": "merge_sort",
+      "type": "causal",
+      "rule": "Merge Sort is described as a divide and conquer algorithm"
+    },
+    {
+      "from": "binary_search_tree",
+      "to": "divide_and_conquer",
+      "type": "domain_rule",
+      "rule": "Binary Search Tree can be seen as an application of the divide and conquer strategy"
+    }
+  ],
+  "topological_order": [
+    "binary_search_tree",
+    "divide_and_conquer",
+    "merge_sort"
+  ]
+}

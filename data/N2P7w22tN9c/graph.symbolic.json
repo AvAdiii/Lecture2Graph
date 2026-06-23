@@ -1,0 +1,434 @@
+{
+  "video_id": "N2P7w22tN9c",
+  "total_nodes": 12,
+  "total_edges": 41,
+  "topological_order": [
+    "edge",
+    "vertex",
+    "graph",
+    "graph traversal",
+    "tree",
+    "tree traversal",
+    "visited",
+    "stack",
+    "depth first search",
+    "traversal technique",
+    "pre-order traversal",
+    "breadth first search"
+  ],
+  "nodes": [
+    {
+      "id": "graph",
+      "mention_count": 12,
+      "first_mention": 2.0,
+      "last_mention": 667.7,
+      "sources": [
+        "asr",
+        "asr+ocr",
+        "ocr"
+      ]
+    },
+    {
+      "id": "graph traversal",
+      "mention_count": 3,
+      "first_mention": 36.2,
+      "last_mention": 51.3,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "tree",
+      "mention_count": 4,
+      "first_mention": 47.8,
+      "last_mention": 667.7,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "tree traversal",
+      "mention_count": 1,
+      "first_mention": 47.8,
+      "last_mention": 51.3,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "vertex",
+      "mention_count": 5,
+      "first_mention": 66.5,
+      "last_mention": 649.7,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "edge",
+      "mention_count": 3,
+      "first_mention": 74.7,
+      "last_mention": 649.7,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "depth first search",
+      "mention_count": 3,
+      "first_mention": 174.4,
+      "last_mention": 671.7,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "visited",
+      "mention_count": 1,
+      "first_mention": 303.5,
+      "last_mention": 307.5,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "stack",
+      "mention_count": 3,
+      "first_mention": 424.8,
+      "last_mention": 599.7,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "pre-order traversal",
+      "mention_count": 1,
+      "first_mention": 509.1,
+      "last_mention": 514.3,
+      "sources": [
+        "ocr"
+      ]
+    },
+    {
+      "id": "traversal technique",
+      "mention_count": 1,
+      "first_mention": 638.7,
+      "last_mention": 643.7,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "breadth first search",
+      "mention_count": 1,
+      "first_mention": 667.7,
+      "last_mention": 671.7,
+      "sources": [
+        "asr"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "tree",
+      "target": "tree traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.9
+    },
+    {
+      "source": "tree traversal",
+      "target": "pre-order traversal",
+      "type": "refines",
+      "confidence": 0.9
+    },
+    {
+      "source": "traversal technique",
+      "target": "pre-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "graph",
+      "target": "graph traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.9
+    },
+    {
+      "source": "vertex",
+      "target": "graph",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "edge",
+      "target": "graph",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "graph traversal",
+      "target": "breadth first search",
+      "type": "refines",
+      "confidence": 0.9
+    },
+    {
+      "source": "graph traversal",
+      "target": "depth first search",
+      "type": "refines",
+      "confidence": 0.9
+    },
+    {
+      "source": "graph",
+      "target": "breadth first search",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "graph",
+      "target": "depth first search",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "stack",
+      "target": "depth first search",
+      "type": "is_prerequisite_for",
+      "confidence": 0.8
+    },
+    {
+      "source": "visited",
+      "target": "breadth first search",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "visited",
+      "target": "depth first search",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "graph",
+      "target": "tree",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "graph",
+      "target": "tree traversal",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "graph",
+      "target": "visited",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "graph traversal",
+      "target": "visited",
+      "type": "temporal_precedence",
+      "confidence": 0.33
+    },
+    {
+      "source": "graph traversal",
+      "target": "stack",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "graph traversal",
+      "target": "pre-order traversal",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "tree",
+      "target": "depth first search",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "tree",
+      "target": "visited",
+      "type": "temporal_precedence",
+      "confidence": 0.36
+    },
+    {
+      "source": "tree",
+      "target": "stack",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "tree traversal",
+      "target": "depth first search",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "tree traversal",
+      "target": "visited",
+      "type": "temporal_precedence",
+      "confidence": 0.36
+    },
+    {
+      "source": "tree traversal",
+      "target": "stack",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "vertex",
+      "target": "visited",
+      "type": "temporal_precedence",
+      "confidence": 0.41
+    },
+    {
+      "source": "vertex",
+      "target": "stack",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "vertex",
+      "target": "pre-order traversal",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "edge",
+      "target": "visited",
+      "type": "temporal_precedence",
+      "confidence": 0.43
+    },
+    {
+      "source": "edge",
+      "target": "stack",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "edge",
+      "target": "pre-order traversal",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "depth first search",
+      "target": "pre-order traversal",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "depth first search",
+      "target": "traversal technique",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "depth first search",
+      "target": "breadth first search",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "visited",
+      "target": "stack",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "visited",
+      "target": "pre-order traversal",
+      "type": "temporal_precedence",
+      "confidence": 0.49
+    },
+    {
+      "source": "visited",
+      "target": "traversal technique",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "stack",
+      "target": "pre-order traversal",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "stack",
+      "target": "traversal technique",
+      "type": "temporal_precedence",
+      "confidence": 0.47
+    },
+    {
+      "source": "stack",
+      "target": "breadth first search",
+      "type": "temporal_precedence",
+      "confidence": 0.39
+    },
+    {
+      "source": "pre-order traversal",
+      "target": "breadth first search",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    }
+  ],
+  "causal_anchors_detected": 0,
+  "causal_edges_created": 0,
+  "example_tree": {
+    "description": "binary tree example used in the lecture",
+    "node_labels": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y"
+    ],
+    "node_mention_counts": {
+      "A": 26,
+      "B": 8,
+      "C": 17,
+      "D": 21,
+      "E": 25,
+      "F": 19,
+      "G": 19,
+      "H": 20,
+      "I": 39,
+      "K": 2,
+      "L": 22,
+      "M": 3,
+      "N": 28,
+      "O": 24,
+      "P": 23,
+      "R": 22,
+      "S": 19,
+      "T": 22,
+      "U": 7,
+      "V": 24,
+      "W": 3,
+      "X": 19,
+      "Y": 3
+    }
+  }
+}

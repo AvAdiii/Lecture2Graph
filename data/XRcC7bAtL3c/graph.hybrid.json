@@ -1,0 +1,304 @@
+{
+  "video_id": "XRcC7bAtL3c",
+  "method": "hybrid",
+  "total_nodes": 14,
+  "total_edges": 30,
+  "nodes": [
+    {
+      "id": "binary_search_tree"
+    },
+    {
+      "id": "binary_tree",
+      "first_mention": 99.0,
+      "mention_count": 2
+    },
+    {
+      "id": "children",
+      "first_mention": 105.0,
+      "mention_count": 7
+    },
+    {
+      "id": "dummy_node",
+      "first_mention": 120.0,
+      "mention_count": 2
+    },
+    {
+      "id": "in_order_traversal",
+      "first_mention": 6.0,
+      "mention_count": 10
+    },
+    {
+      "id": "leaf_node",
+      "first_mention": 114.0,
+      "mention_count": 2
+    },
+    {
+      "id": "left_subtree",
+      "first_mention": 12.0,
+      "mention_count": 29
+    },
+    {
+      "id": "node",
+      "first_mention": 12.0,
+      "mention_count": 11
+    },
+    {
+      "id": "post_order_traversal",
+      "first_mention": 6.0,
+      "mention_count": 17
+    },
+    {
+      "id": "pre_order_traversal",
+      "first_mention": 0.0,
+      "mention_count": 13
+    },
+    {
+      "id": "right_subtree",
+      "first_mention": 22.0,
+      "mention_count": 13
+    },
+    {
+      "id": "root_node",
+      "first_mention": 0.0,
+      "mention_count": 34
+    },
+    {
+      "id": "tree",
+      "first_mention": 3.0,
+      "mention_count": 12
+    },
+    {
+      "id": "tree_traversal",
+      "first_mention": 78.0,
+      "mention_count": 4
+    }
+  ],
+  "edges": [
+    {
+      "source": "left_subtree",
+      "target": "pre_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "node",
+      "target": "tree_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "node",
+      "target": "right_subtree",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "right_subtree",
+      "target": "post_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "tree",
+      "target": "tree_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.81,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "tree",
+      "target": "binary_tree",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.81,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "children",
+      "target": "right_subtree",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "left_subtree",
+      "target": "in_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "root_node",
+      "target": "in_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.675,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "node",
+      "target": "post_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.675,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "root_node",
+      "target": "left_subtree",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "right_subtree",
+      "target": "pre_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "leaf_node",
+      "target": "node",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "node",
+      "target": "pre_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.675,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "binary_tree",
+      "target": "tree_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.985,
+      "provenance": "both"
+    },
+    {
+      "source": "dummy_node",
+      "target": "tree_traversal",
+      "relation": "is_part_of",
+      "confidence": 0.54,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "tree",
+      "target": "node",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.675,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "right_subtree",
+      "target": "in_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "node",
+      "target": "root_node",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "binary_tree",
+      "target": "node",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "tree_traversal",
+      "target": "post_order_traversal",
+      "relation": "refines",
+      "confidence": 0.985,
+      "provenance": "both"
+    },
+    {
+      "source": "root_node",
+      "target": "right_subtree",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "node",
+      "target": "left_subtree",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "root_node",
+      "target": "tree_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "tree_traversal",
+      "target": "pre_order_traversal",
+      "relation": "refines",
+      "confidence": 0.985,
+      "provenance": "both"
+    },
+    {
+      "source": "children",
+      "target": "left_subtree",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "root_node",
+      "target": "pre_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.675,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "root_node",
+      "target": "post_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.675,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "left_subtree",
+      "target": "post_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "tree_traversal",
+      "target": "in_order_traversal",
+      "relation": "refines",
+      "confidence": 0.985,
+      "provenance": "both"
+    }
+  ],
+  "topological_order": [
+    "binary_search_tree",
+    "children",
+    "dummy_node",
+    "leaf_node",
+    "tree",
+    "binary_tree",
+    "node",
+    "root_node",
+    "left_subtree",
+    "right_subtree",
+    "tree_traversal",
+    "in_order_traversal",
+    "post_order_traversal",
+    "pre_order_traversal"
+  ]
+}

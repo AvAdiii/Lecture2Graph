@@ -1,0 +1,78 @@
+{
+  "video_id": "azXr6nTaD9M",
+  "concepts": [
+    {
+      "name": "recursion",
+      "mentions": 40,
+      "first_seen": 12.5,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "stack",
+      "mentions": 14,
+      "first_seen": 36.5,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "binary_search_tree",
+      "mentions": 2,
+      "first_seen": null,
+      "sources": []
+    },
+    {
+      "name": "activation_record",
+      "mentions": 14,
+      "first_seen": 157.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "instruction_pointer",
+      "mentions": 5,
+      "first_seen": 239.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "depth_first_search",
+      "mentions": 1,
+      "first_seen": null,
+      "sources": []
+    },
+    {
+      "name": "time_complexity",
+      "mentions": 2,
+      "first_seen": 427.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "recursive_equation",
+      "mentions": 1,
+      "first_seen": 429.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "name": "space_complexity",
+      "mentions": 1,
+      "first_seen": 435.0,
+      "sources": [
+        "asr"
+      ]
+    }
+  ]
+}

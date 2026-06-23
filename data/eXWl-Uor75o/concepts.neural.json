@@ -1,0 +1,29 @@
+{
+  "video_id": "eXWl-Uor75o",
+  "concepts": [
+    {
+      "name": "merge_sort",
+      "mentions": 123,
+      "first_seen": 8.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "binary_search_tree",
+      "mentions": 4,
+      "first_seen": null,
+      "sources": []
+    },
+    {
+      "name": "divide_and_conquer",
+      "mentions": 44,
+      "first_seen": 68.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    }
+  ]
+}

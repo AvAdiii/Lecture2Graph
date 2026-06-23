@@ -1,48 +1,36 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "lecture2graph"
-version = "0.1.0"
-description = "Turn YouTube lectures into interactive concept graphs and learning paths."
+version = "0.2.0"
+description = "Neuro-symbolic extraction of concept-prerequisite DAGs from code-mixed lecture videos, with an evaluation benchmark."
 readme = "README.md"
 requires-python = ">=3.10"
-authors = [
-  { name = "Lecture2Graph contributors" }
-]
 dependencies = [
-  "openai-whisper",
-  "Pillow",
-  "pydantic>=2.7,<3.0",
-  "pytesseract",
-  "rapidfuzz",
-  "streamlit>=1.45,<2.0",
-  "yt-dlp",
-]
-
-[project.optional-dependencies]
-llm = [
-  "google-genai>=0.3,<1.0",
-  "groq>=0.9,<1.0",
-  "openai>=1.30,<2.0",
-]
-gemini = [
-  "google-genai>=0.3,<1.0",
-]
-openai = [
-  "openai>=1.30,<2.0",
-]
-dev = [
-  "httpx>=0.27,<1.0",
-  "pytest>=8.2,<9.0",
+    "yt-dlp",
+    "openai-whisper",
+    "pytesseract",
+    "Pillow",
+    "rapidfuzz",
+    "networkx",
+    # neural extractor uses a local OpenAI-compatible server (Ollama) via
+    # stdlib urllib — no extra Python dependency required.
 ]
 
 [project.scripts]
-lecture2graph = "lecture2graph.cli:main"
+l2g-symbolic = "lecture2graph.symbolic.pipeline:run_pipeline"
+l2g-fuse = "lecture2graph.hybrid.fuse:main"
+l2g-bench = "evaluation.benchmark:main"
+l2g-tutor = "lecture2graph.tutor.tutor:main"
 
 [tool.setuptools]
-package-dir = {"" = "core"}
-
-[tool.setuptools.packages.find]
-where = ["core"]
+packages = [
+    "lecture2graph",
+    "lecture2graph.symbolic",
+    "lecture2graph.neural",
+    "lecture2graph.hybrid",
+    "lecture2graph.tutor",
+    "evaluation",
+]

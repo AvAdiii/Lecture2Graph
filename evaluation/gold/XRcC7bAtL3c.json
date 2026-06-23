@@ -1,0 +1,24 @@
+{
+  "video_id": "XRcC7bAtL3c",
+  "title": "Tree Traversal Techniques (pre/in/post-order)",
+  "annotation": "Domain-authored gold prerequisite DAG. Edge A->B means 'A must be understood before B'. Canonical snake_case ids.",
+  "concepts": ["tree", "node", "binary_tree", "root_node", "leaf_node", "children",
+               "left_subtree", "right_subtree", "tree_traversal",
+               "pre_order_traversal", "in_order_traversal", "post_order_traversal"],
+  "edges": [
+    {"source": "tree", "target": "node"},
+    {"source": "tree", "target": "binary_tree"},
+    {"source": "node", "target": "root_node"},
+    {"source": "node", "target": "leaf_node"},
+    {"source": "node", "target": "children"},
+    {"source": "binary_tree", "target": "children"},
+    {"source": "children", "target": "left_subtree"},
+    {"source": "children", "target": "right_subtree"},
+    {"source": "binary_tree", "target": "tree_traversal"},
+    {"source": "tree_traversal", "target": "pre_order_traversal"},
+    {"source": "tree_traversal", "target": "in_order_traversal"},
+    {"source": "tree_traversal", "target": "post_order_traversal"},
+    {"source": "left_subtree", "target": "in_order_traversal"},
+    {"source": "right_subtree", "target": "in_order_traversal"}
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "video_id": "N2P7w22tN9c",
+  "concepts": [
+    {
+      "name": "graph_traversal",
+      "mentions": 15,
+      "first_seen": 36.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "binary_search_tree",
+      "mentions": 2,
+      "first_seen": null,
+      "sources": []
+    },
+    {
+      "name": "depth_first_search",
+      "mentions": 25,
+      "first_seen": 36.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "breadth_first_search",
+      "mentions": 8,
+      "first_seen": 41.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "stack",
+      "mentions": 4,
+      "first_seen": 425.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    }
+  ]
+}

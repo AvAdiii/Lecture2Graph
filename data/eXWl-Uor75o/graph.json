@@ -1,0 +1,279 @@
+{
+  "video_id": "eXWl-Uor75o",
+  "total_nodes": 8,
+  "total_edges": 21,
+  "topological_order": [
+    "left subtree",
+    "right subtree",
+    "sorting",
+    "merge sort",
+    "traversal technique",
+    "in-order traversal",
+    "index",
+    "bubble sort"
+  ],
+  "nodes": [
+    {
+      "id": "merge sort",
+      "mention_count": 24,
+      "first_mention": 8.0,
+      "last_mention": 598.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "sorting",
+      "mention_count": 146,
+      "first_mention": 8.0,
+      "last_mention": 642.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "right subtree",
+      "mention_count": 18,
+      "first_mention": 21.0,
+      "last_mention": 329.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "id": "left subtree",
+      "mention_count": 5,
+      "first_mention": 31.0,
+      "last_mention": 207.0,
+      "sources": [
+        "ocr"
+      ]
+    },
+    {
+      "id": "in-order traversal",
+      "mention_count": 8,
+      "first_mention": 38.0,
+      "last_mention": 471.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "traversal technique",
+      "mention_count": 4,
+      "first_mention": 123.0,
+      "last_mention": 207.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "index",
+      "mention_count": 4,
+      "first_mention": 231.0,
+      "last_mention": 383.0,
+      "sources": [
+        "asr"
+      ]
+    },
+    {
+      "id": "bubble sort",
+      "mention_count": 1,
+      "first_mention": 616.0,
+      "last_mention": 623.0,
+      "sources": [
+        "asr"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "traversal technique",
+      "target": "in-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "left subtree",
+      "target": "in-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "right subtree",
+      "target": "in-order traversal",
+      "type": "is_prerequisite_for",
+      "confidence": 0.7
+    },
+    {
+      "source": "sorting",
+      "target": "bubble sort",
+      "type": "refines",
+      "confidence": 0.9
+    },
+    {
+      "source": "sorting",
+      "target": "merge sort",
+      "type": "refines",
+      "confidence": 0.9
+    },
+    {
+      "source": "merge sort",
+      "target": "traversal technique",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "merge sort",
+      "target": "index",
+      "type": "temporal_precedence",
+      "confidence": 0.44
+    },
+    {
+      "source": "merge sort",
+      "target": "bubble sort",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "sorting",
+      "target": "traversal technique",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "sorting",
+      "target": "index",
+      "type": "temporal_precedence",
+      "confidence": 0.44
+    },
+    {
+      "source": "right subtree",
+      "target": "traversal technique",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "right subtree",
+      "target": "index",
+      "type": "temporal_precedence",
+      "confidence": 0.47
+    },
+    {
+      "source": "right subtree",
+      "target": "bubble sort",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "left subtree",
+      "target": "traversal technique",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "left subtree",
+      "target": "index",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "left subtree",
+      "target": "bubble sort",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "in-order traversal",
+      "target": "index",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "in-order traversal",
+      "target": "bubble sort",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "traversal technique",
+      "target": "index",
+      "type": "temporal_precedence",
+      "confidence": 0.5
+    },
+    {
+      "source": "traversal technique",
+      "target": "bubble sort",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    },
+    {
+      "source": "index",
+      "target": "bubble sort",
+      "type": "temporal_precedence",
+      "confidence": 0.3
+    }
+  ],
+  "causal_anchors_detected": 3,
+  "causal_edges_created": 0,
+  "example_tree": {
+    "description": "binary tree example used in the lecture",
+    "node_labels": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z"
+    ],
+    "node_mention_counts": {
+      "A": 196,
+      "B": 149,
+      "C": 158,
+      "D": 242,
+      "E": 253,
+      "F": 163,
+      "G": 187,
+      "H": 126,
+      "I": 240,
+      "J": 95,
+      "K": 127,
+      "L": 199,
+      "M": 215,
+      "N": 166,
+      "O": 219,
+      "P": 159,
+      "Q": 25,
+      "R": 217,
+      "S": 211,
+      "T": 212,
+      "U": 180,
+      "V": 215,
+      "W": 129,
+      "X": 25,
+      "Y": 88,
+      "Z": 20
+    }
+  }
+}

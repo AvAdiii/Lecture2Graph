@@ -1,0 +1,14 @@
+{
+  "edges": [
+    {
+      "from": "primary_key",
+      "to": "candidate_key",
+      "type": "causal",
+      "rule": "candidate key is discussed after primary key in the lecture"
+    }
+  ],
+  "topological_order": [
+    "primary_key",
+    "candidate_key"
+  ]
+}

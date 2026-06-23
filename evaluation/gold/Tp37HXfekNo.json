@@ -1,0 +1,19 @@
+{
+  "video_id": "Tp37HXfekNo",
+  "title": "DBMS: Keys and Constraints",
+  "annotation": "Domain-authored gold prerequisite DAG.",
+  "concepts": ["database", "relation", "attribute", "primary_key", "candidate_key",
+               "unique_constraint", "not_null", "null", "normalization", "sql"],
+  "edges": [
+    {"source": "database", "target": "relation"},
+    {"source": "relation", "target": "attribute"},
+    {"source": "attribute", "target": "candidate_key"},
+    {"source": "candidate_key", "target": "primary_key"},
+    {"source": "unique_constraint", "target": "primary_key"},
+    {"source": "not_null", "target": "primary_key"},
+    {"source": "null", "target": "not_null"},
+    {"source": "relation", "target": "normalization"},
+    {"source": "primary_key", "target": "normalization"},
+    {"source": "database", "target": "sql"}
+  ]
+}

@@ -1,0 +1,467 @@
+[
+  {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Hello friends, welcome to gait's measure."
+  },
+  {
+    "start": 3.0,
+    "end": 6.0,
+    "text": "In this video we are going to discuss tree traversal techniques."
+  },
+  {
+    "start": 6.0,
+    "end": 12.0,
+    "text": "So we have tree traversal techniques pre-order, in-order and post-order."
+  },
+  {
+    "start": 12.0,
+    "end": 18.0,
+    "text": "Pre-order means first write root node, then left node, then right."
+  },
+  {
+    "start": 18.0,
+    "end": 22.0,
+    "text": "In-order means root comes in between left and right."
+  },
+  {
+    "start": 22.0,
+    "end": 28.0,
+    "text": "Post-order means first write right and then root node."
+  },
+  {
+    "start": 29.0,
+    "end": 31.0,
+    "text": "Node means vertex of tree."
+  },
+  {
+    "start": 31.0,
+    "end": 36.0,
+    "text": "So here if we see x, y, z, so x, y, z is a very simple graph, simple tree."
+  },
+  {
+    "start": 36.0,
+    "end": 43.0,
+    "text": "So if we see root in pre-order case, x, y, z."
+  },
+  {
+    "start": 43.0,
+    "end": 45.0,
+    "text": "So this will be the pre-order."
+  },
+  {
+    "start": 45.0,
+    "end": 51.0,
+    "text": "Where we write root first, in-order means first write left, then write in-between,"
+  },
+  {
+    "start": 51.0,
+    "end": 54.0,
+    "text": "write root and write right element."
+  },
+  {
+    "start": 54.0,
+    "end": 60.0,
+    "text": "And post-order means first left element, then right element and last is root element."
+  },
+  {
+    "start": 60.0,
+    "end": 66.0,
+    "text": "So when we have tree very simple, then we know that we have to write it this way."
+  },
+  {
+    "start": 66.0,
+    "end": 70.0,
+    "text": "But sometimes in exams we give very complex tree."
+  },
+  {
+    "start": 70.0,
+    "end": 74.0,
+    "text": "So if you have very complex tree, then sometimes we make mistake in option."
+  },
+  {
+    "start": 74.0,
+    "end": 78.0,
+    "text": "Or we don't know what the exact answer will be."
+  },
+  {
+    "start": 78.0,
+    "end": 80.0,
+    "text": "So in this video I am telling you such technique."
+  },
+  {
+    "start": 81.0,
+    "end": 89.0,
+    "text": "From this technique any tree, any complex tree, you can get very easy and very short answer."
+  },
+  {
+    "start": 89.0,
+    "end": 92.0,
+    "text": "So definitely do this technique in UGC net gate exam."
+  },
+  {
+    "start": 92.0,
+    "end": 95.0,
+    "text": "Its question is very common."
+  },
+  {
+    "start": 95.0,
+    "end": 99.0,
+    "text": "So if we start here, we have a tree."
+  },
+  {
+    "start": 99.0,
+    "end": 104.0,
+    "text": "So in binary tree what we have to do is, whenever you start tree,"
+  },
+  {
+    "start": 105.0,
+    "end": 110.0,
+    "text": "you ensure that every binary tree means, what is the meaning of every tree's two children."
+  },
+  {
+    "start": 110.0,
+    "end": 112.0,
+    "text": "Is everyone's two children there?"
+  },
+  {
+    "start": 112.0,
+    "end": 114.0,
+    "text": "So see here everyone's two children are there."
+  },
+  {
+    "start": 114.0,
+    "end": 118.0,
+    "text": "A is no children, so A is actually leaf node."
+  },
+  {
+    "start": 118.0,
+    "end": 120.0,
+    "text": "So leaf has no children."
+  },
+  {
+    "start": 120.0,
+    "end": 124.0,
+    "text": "So what you have to do is, make a dummy like this children."
+  },
+  {
+    "start": 124.0,
+    "end": 129.0,
+    "text": "Make such CK also, make EK also, make HK also,"
+  },
+  {
+    "start": 130.0,
+    "end": 133.0,
+    "text": "A is left, A is right, so make A is right."
+  },
+  {
+    "start": 133.0,
+    "end": 136.0,
+    "text": "G is left, so make G is left."
+  },
+  {
+    "start": 136.0,
+    "end": 143.0,
+    "text": "So in this way you make dummy like this children so that every two children are there."
+  },
+  {
+    "start": 143.0,
+    "end": 149.0,
+    "text": "Now after that what you have to do is traversing means, simple you have to go on the whole graph."
+  },
+  {
+    "start": 149.0,
+    "end": 152.0,
+    "text": "So always we start with root node."
+  },
+  {
+    "start": 152.0,
+    "end": 154.0,
+    "text": "So this is the root node."
+  },
+  {
+    "start": 154.0,
+    "end": 158.0,
+    "text": "So when we start with root node, then what you have to do is,"
+  },
+  {
+    "start": 158.0,
+    "end": 162.0,
+    "text": "pre-order, in-order and post-order will be taken out, it is a simple way."
+  },
+  {
+    "start": 162.0,
+    "end": 167.0,
+    "text": "When you are reaching any node for the first time, then it is pre-order."
+  },
+  {
+    "start": 167.0,
+    "end": 170.0,
+    "text": "When you are reaching any node for the second time, in-order,"
+  },
+  {
+    "start": 170.0,
+    "end": 174.0,
+    "text": "when you are reaching any node for the third time, post-order."
+  },
+  {
+    "start": 174.0,
+    "end": 177.0,
+    "text": "You have to do it in a very simple way, you see F."
+  },
+  {
+    "start": 177.0,
+    "end": 182.0,
+    "text": "We have started from here, so as soon as we reach F, obviously we have to do it."
+  },
+  {
+    "start": 183.0,
+    "end": 186.0,
+    "text": "So we have reached F, which time? First time we reached F,"
+  },
+  {
+    "start": 186.0,
+    "end": 191.0,
+    "text": "first time means pre-order, first time means pre-order."
+  },
+  {
+    "start": 191.0,
+    "end": 196.0,
+    "text": "So as soon as we started from F, you have to traverse to the left and right."
+  },
+  {
+    "start": 196.0,
+    "end": 199.0,
+    "text": "So in the left side what is the second element? B."
+  },
+  {
+    "start": 199.0,
+    "end": 204.0,
+    "text": "So on B you reach for the first time, first time means pre-order."
+  },
+  {
+    "start": 204.0,
+    "end": 209.0,
+    "text": "We come down, A, reach for the first time on A, so in pre-order you write."
+  },
+  {
+    "start": 209.0,
+    "end": 212.0,
+    "text": "In A we reach for the first time, in A we have to traverse to the left,"
+  },
+  {
+    "start": 212.0,
+    "end": 217.0,
+    "text": "so second time we reach A, second time means in-order."
+  },
+  {
+    "start": 217.0,
+    "end": 220.0,
+    "text": "See we have to traverse to the left, again we reach for the third time."
+  },
+  {
+    "start": 220.0,
+    "end": 224.0,
+    "text": "First time was A, second time was A, third time was post-order,"
+  },
+  {
+    "start": 224.0,
+    "end": 228.0,
+    "text": "because third time means post. Now we are going up on B."
+  },
+  {
+    "start": 228.0,
+    "end": 231.0,
+    "text": "On B we reached here for the first time, second time we reached here,"
+  },
+  {
+    "start": 231.0,
+    "end": 236.0,
+    "text": "second time means in-order. Next on D."
+  },
+  {
+    "start": 236.0,
+    "end": 240.0,
+    "text": "On D we reached for the first time, so first time means pre-order."
+  },
+  {
+    "start": 240.0,
+    "end": 244.0,
+    "text": "Just like this you have to walk. Next we reach for the first time on C,"
+  },
+  {
+    "start": 244.0,
+    "end": 249.0,
+    "text": "so pre-order, write. On C we see, we reach for the second time on the round,"
+  },
+  {
+    "start": 249.0,
+    "end": 254.0,
+    "text": "second time means in-order and from here we reached for the third time on C,"
+  },
+  {
+    "start": 254.0,
+    "end": 259.0,
+    "text": "third time means post-order. After that we reach for D."
+  },
+  {
+    "start": 259.0,
+    "end": 262.0,
+    "text": "On D we reach for the second time, first time we came here and second time here."
+  },
+  {
+    "start": 262.0,
+    "end": 266.0,
+    "text": "Second time means in-order of E,"
+  },
+  {
+    "start": 266.0,
+    "end": 270.0,
+    "text": "first time means pre-order on E."
+  },
+  {
+    "start": 270.0,
+    "end": 275.0,
+    "text": "When reached on E for the second time, it means in-order."
+  },
+  {
+    "start": 275.0,
+    "end": 288.0,
+    "text": "Now on E we reach for the third time, first, second and third time."
+  },
+  {
+    "start": 288.0,
+    "end": 294.2,
+    "text": "3  컬러  beispielsweise it is headquarters"
+  },
+  {
+    "start": 296.2,
+    "end": 299.44,
+    "text": "labour"
+  },
+  {
+    "start": 299.44,
+    "end": 301.7,
+    "text": "labour"
+  },
+  {
+    "start": 301.7,
+    "end": 304.18,
+    "text": "labour"
+  },
+  {
+    "start": 304.18,
+    "end": 305.54,
+    "text": "labour"
+  },
+  {
+    "start": 305.54,
+    "end": 306.54,
+    "text": "labour"
+  },
+  {
+    "start": 306.54,
+    "end": 307.32,
+    "text": "labour"
+  },
+  {
+    "start": 307.32,
+    "end": 308.22,
+    "text": "labour"
+  },
+  {
+    "start": 308.22,
+    "end": 309.18,
+    "text": "labour"
+  },
+  {
+    "start": 309.18,
+    "end": 310.06,
+    "text": "work"
+  },
+  {
+    "start": 310.06,
+    "end": 311.34,
+    "text": "work"
+  },
+  {
+    "start": 311.42,
+    "end": 313.24,
+    "text": "work"
+  },
+  {
+    "start": 313.24,
+    "end": 316.28,
+    "text": "work"
+  },
+  {
+    "start": 316.28,
+    "end": 317.22,
+    "text": "work"
+  },
+  {
+    "start": 317.22,
+    "end": 327.22,
+    "text": "तो आई पे प्री अडर में, उसके वड़ हम एच पे पबली बार आए,"
+  },
+  {
+    "start": 327.22,
+    "end": 336.22,
+    "text": "यहापे वम एच पे ही तुसरी बार आए, और यहापे वम के एच पे ही तुसरी बार आए,"
+  },
+  {
+    "start": 337.22,
+    "end": 340.04,
+    "text": "वंकर्द से रही से हम वम के अई पे वम डूसरी बार आए,"
+  },
+  {
+    "start": 340.14000000000004,
+    "end": 344.04,
+    "text": "मतलप आई बचन जाएगा इन अडर दूत,"
+  },
+  {
+    "start": 344.14000000000004,
+    "end": 347.04,
+    "text": "दिन आए पे हि हम वम के तीसरी बार आए,"
+  },
+  {
+    "start": 347.14000000000004,
+    "end": 350.04,
+    "text": "तो आई बी दे पारट अप पूस्थ� Jord."
+  },
+  {
+    "start": 350.14000000000004,
+    "end": 354.04,
+    "text": "तेन थे गिपे हम वौम के तु बारा आए फिर थीसरी बार आए,"
+  },
+  {
+    "start": 354.04,
+    "end": 370.42,
+    "text": "तो जी प myślę mein hasta g gayi"
+  },
+  {
+    "start": 370.42,
+    "end": 372.52000000000004,
+    "text": "अर already iOS"
+  },
+  {
+    "start": 380.02000000000004,
+    "end": 383.36,
+    "text": "प Guild"
+  },
+  {
+    "start": 383.36,
+    "end": 388.36,
+    "text": "ये रहीट वाल है, तो ये बहुत ये सिम्पल सी टेकनी के और ये हमेशा काम याब रहेगी आपको"
+  },
+  {
+    "start": 388.36,
+    "end": 391.36,
+    "text": "विदन फाँ मिनेट्स, विदन फाँ मिनेट्स आपको ये टेकनीक समझा यागी"
+  },
+  {
+    "start": 391.36,
+    "end": 406.2,
+    "text": "और आपको ये प्चाँषन आता तुफ से तुफ भी अप विदन आप मिनेट्स को साँल कर सकते हो, तो प्लीज गाएज इसको अच्छे से करके जाना, इन के इस नहीं समझा रही तो आप प्लीज दुबारास इस को चेक कर लो, ताखी आपको ये टेकनीक अच्छे से पता ल"
+  }
+]

@@ -1,0 +1,717 @@
+[
+  {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "देश्टूडएँड़ खादबार्ट्टाद।"
+  },
+  {
+    "start": 2.0,
+    "end": 4.0,
+    "text": "इस्वीटिम एकश्पलेन करने जारूू।"
+  },
+  {
+    "start": 4.0,
+    "end": 8.0,
+    "text": "ग्राफ्ट रावर्षल मेटश्टूड़ जिस में आप दो सबसे नेपाट्ट्टिएं मेटश्टूड़ जाते है,"
+  },
+  {
+    "start": 8.0,
+    "end": 21.200000000000003,
+    "text": "अरीसीय, ब्रहेंग्श के Gregory is charging for the"
+  },
+  {
+    "start": 21.200000000000003,
+    "end": 22.200000000000003,
+    "text": "वसे."
+  },
+  {
+    "start": 22.200000000000003,
+    "end": 36.24,
+    "text": "अरा इस्वीन इस्पले डोंगी जबीं जारू। थाम च्याफतिता खाऑपम केUU"
+  },
+  {
+    "start": 36.24,
+    "end": 40.84,
+    "text": "तो चली, start करते है, first of all what is the definition of graph traversal,"
+  },
+  {
+    "start": 41.04,
+    "end": 47.64,
+    "text": "the process of visiting and exploring a graph for processing is called a graph traversal."
+  },
+  {
+    "start": 47.84,
+    "end": 51.34,
+    "text": "अप, graph traversal की भी बात कर सकते हो, tree traversal की वो लोज सकते हो,"
+  },
+  {
+    "start": 51.440000000000005,
+    "end": 56.040000000000006,
+    "text": "because every graph is a tree, but tree may or may not be a graph,"
+  },
+  {
+    "start": 56.24,
+    "end": 61.540000000000006,
+    "text": "but every graph is what a tree, because in that graph there are cycles allowed but not in tree,"
+  },
+  {
+    "start": 61.54,
+    "end": 66.34,
+    "text": "so graph is a victim, तो देखो याँपे आम लोग तो में चीजों की वो पोखट कर रहे है,"
+  },
+  {
+    "start": 66.53999999999999,
+    "end": 74.53999999999999,
+    "text": "एक तो, visiting a vertex, और दुस्रा, exploring a vertex, मतलग जो ग्राफ होता उसके अंदर आप को पता है,"
+  },
+  {
+    "start": 74.74,
+    "end": 78.34,
+    "text": "की vertex होते है, edges होते है, तीके आप मेंको करना क्या है,"
+  },
+  {
+    "start": 79.34,
+    "end": 80.64,
+    "text": "उस्वेडिन प्र में वहरायılı, आ jurisd The naughts are two things which I will do,"
+  },
+  {
+    "start": 80.84,
+    "end": 82.4,
+    "text": "ईक तो, visitorкольку उ jouer 백या जो, me19 do,"
+  },
+  {
+    "start": 82.60000000000001,
+    "end": 84.24000000000001,
+    "text": "://board.d powiedział उनॉग सके कर नें You're resiting onto that vertex devotion."
+  },
+  {
+    "start": 84.44,
+    "end": 86.32000000000001,
+    "text": "आकुते है, म víग करसे था है श hazards make to reach onto that vertexetzung Nanak,"
+  },
+  {
+    "start": 86.52000000000001,
+    "end": 91.46000000000001,
+    "text": "एक तो वीजिड कर हु� embracing जा द 쓰고 चग रही है जा according to which shall I send it."
+  },
+  {
+    "start": 91.66,
+    "end": 92.86,
+    "text": "ुमनेक भाच तो यह रई's Tale it."
+  },
+  {
+    "start": 92.86,
+    "end": 96.58,
+    "text": "उसके नेबर्स कोन है, तो ये दो चीजे ही आपकी में जीगे,"
+  },
+  {
+    "start": 96.58,
+    "end": 99.18,
+    "text": "तो यहाँ पे न दोनो को एक एक गर के दिकते है,"
+  },
+  {
+    "start": 99.18,
+    "end": 103.86,
+    "text": "तो सब से पहले अगर न बाद करे, ब्रेट्ट्फर् सर्च अग देप्ट्फर् सर्च में"
+  },
+  {
+    "start": 103.86,
+    "end": 125.86,
+    "text": "ब्रेट्ट्फर सर्च यहाँ बाद करे, यहाँ बाद करे, ब्रेट्ट्फर सर्च की, तो वो कैसे चलता है, वो ब्रेट्ट्फाइस चलता है, चोडाएई वाईस यस तरीके से,"
+  },
+  {
+    "start": 126.06,
+    "end": 133.18,
+    "text": "और फिर एक एक करके लेवल को कवर करते, तो दियान दकना, एक लेवल को पहले कवर करेगा,"
+  },
+  {
+    "start": 133.18,
+    "end": 137.86,
+    "text": "जब वो लेवल कमप्लित होगया, तब तुसरे लेवल पे जाएगा,"
+  },
+  {
+    "start": 137.86,
+    "end": 143.46,
+    "text": "और देप्ट्फर सर्च मतलब देप्ट की तरफ, मलग़, नीचे गहराई की तरफ आप को जाने,"
+  },
+  {
+    "start": 143.86,
+    "end": 147.42000000000002,
+    "text": "तो तर तेप्टफर सर्च की बायत करे, तो हम यस तरीके से चालते हैं,"
+  },
+  {
+    "start": 147.42000000000002,
+    "end": 150.62,
+    "text": "यहेंखर चलना स्थार्ट की आ, तो इक देप्टफर चलन में गय गय,"
+  },
+  {
+    "start": 150.62,
+    "end": 154.5,
+    "text": "उसके भाछ फिर नीचे गय, उस खे बगछ फिर नीचे गय,"
+  },
+  {
+    "start": 154.5,
+    "end": 156.08,
+    "text": "ईुक्छाह से पाकता हौँ सी सनागी गे ज requirement"
+  },
+  {
+    "start": 156.08,
+    "end": 157.34,
+    "text": "तेकः용 सावक ficar you will understand my SUPER"
+  },
+  {
+    "start": 157.34,
+    "end": 158.66,
+    "text": "जबसे �Тब स Putin"
+  },
+  {
+    "start": 158.66,
+    "end": 159.74,
+    "text": "आपने पाके सकते हु रहीं हूँ"
+  },
+  {
+    "start": 159.74,
+    "end": 160.54,
+    "text": "उपने Prul"
+  },
+  {
+    "start": 160.54,
+    "end": 161.84,
+    "text": "में साव पारीं हारी है, भाικलीihood,forth rigor"
+  },
+  {
+    "start": 161.84,
+    "end": 162.42,
+    "text": "आप में आपने स 있거든요गे क prevention"
+  },
+  {
+    "start": 162.42,
+    "end": 174.38,
+    "text": "ःफ महाँ सकते है। and also"
+  },
+  {
+    "start": 174.38,
+    "end": 181.38,
+    "text": "तो देखो अगर आपने DFS को समजन आप तो सिंपल्सी फन्ट आप जैसे आम लोग पलस्टू की नाँन मेटिकल बने लेनी."
+  },
+  {
+    "start": 181.38,
+    "end": 185.38,
+    "text": "तेखे अप उसके बाद मरेंगो पता है में पाएद चूँस कर लिया लेट से B-TEC-C-SE."
+  },
+  {
+    "start": 185.38,
+    "end": 190.38,
+    "text": "उसके बाद में पता है में आगे क्या कर लिया लेट से Software engineering की job सलेक्त कर लिए."
+  },
+  {
+    "start": 190.38,
+    "end": 192.38,
+    "text": "तो मुल्लों मैं एक ये डेश्टिन में चलता जारूं."
+  },
+  {
+    "start": 192.38,
+    "end": 197.38,
+    "text": "All the plus two में non-medical के सासत आपके पस कुमर्स भी थे Arts भी थी"
+  },
+  {
+    "start": 198.38,
+    "end": 203.38,
+    "text": "अगर अम बाद करे B-TEC-C-SE के बाद आप MDA भी कर सकते थे UPS-C की तेरे भी कर सकते बोच्टिन से"
+  },
+  {
+    "start": 203.38,
+    "end": 209.38,
+    "text": "लेके मैं एक देश्टिन में चलता जारूं. और जब मुझे लकता की देट देश्टिन दागया तब मैं क्या करता हूँ।"
+  },
+  {
+    "start": 210.38,
+    "end": 220.38,
+    "text": "तो बस यह सिंपल सी कानी है। और अगर अम ले B-F-L को समें आप तो इसका सिंपल से इजम्पल अगर अम मैरिस की अगर एक एक अप एक एक जाते हो खाने पीने की श्टोल पे."
+  },
+  {
+    "start": 221.38,
+    "end": 227.38,
+    "text": "उआप यह आप एक देश्टिन में लिजाते है, वहां पे एक वहाए थे है, पहले एक वहाए पे एक च्टोल पे, बहल एक श्नेक्स वली पे गये उसको कमpl टीट की है।"
+  },
+  {
+    "start": 227.38,
+    "end": 244.38,
+    "text": "तो वहा पे एक वहाए थे है, ब्रेथवाएश चल रहे है, रडर दर दर देपचवाएश, की एक चीज को मैं खाराूँ, और उसी से पेट बरली एक आफ आप एक वहाएश चलते है,"
+  },
+  {
+    "start": 245.38,
+    "end": 251.38,
+    "text": "तो वहाएश अपको समझार हो, वहाएश ब्रेथवाएश और यहाएश ब्देपचवाएश इस तरीके से काम करते है,"
+  },
+  {
+    "start": 251.38,
+    "end": 257.38,
+    "text": "बस यह में दिखरेंस है, तो इसे लिए ब्फेश होता है, उसको लेवल बाए लेवल यह लेवल अडरिंग भी बोलते है,"
+  },
+  {
+    "start": 258.38,
+    "end": 261.38,
+    "text": "तो यह एक लेवल जब खटम होता है, तब भी दुसरे लेवल पे जाते है,"
+  },
+  {
+    "start": 261.38,
+    "end": 265.38,
+    "text": "DFS में यह यह यह पी तो गराए में जाते रो जाते रो,"
+  },
+  {
+    "start": 265.38,
+    "end": 269.38,
+    "text": "और अब हम यह पे एक और एक अपको एक अपको एक अच्चल में कर के लिए गाता हो,"
+  },
+  {
+    "start": 270.38,
+    "end": 275.38,
+    "text": "आकंचछाätzlich में हुई, शाडों था जे य họcठा लेव लेव म है,"
+  },
+  {
+    "start": 275.38,
+    "end": 276.38,
+    "text": "रर किरे मिन � beneficiaries लीके त firmly Jie Chink dictatorship manifestors in K confident"
+  },
+  {
+    "start": 276.38,
+    "end": 290.2,
+    "text": "आदे करमारी कulators because of the"
+  },
+  {
+    "start": 290.2,
+    "end": 292.38,
+    "text": "आदे वी खcamp ॥ डेखात्ह ही रहा है,"
+  },
+  {
+    "start": 292.38,
+    "end": 295.52,
+    "text": "भे ठाने वेअरे बवें वें ळlookedता बरा एक आज़ा के रहा कि इमता म्न कोई"
+  },
+  {
+    "start": 295.52,
+    "end": 299.52,
+    "text": "pulley rakh dyaya. Koi to visit karenge na, kahi se to start karenge ye apna source koi na hoga"
+  },
+  {
+    "start": 299.52,
+    "end": 303.52,
+    "text": "to humara source jo hain jo hai wo kya hai one hai. To logi hain je humne one se start kr dia."
+  },
+  {
+    "start": 303.52,
+    "end": 307.52,
+    "text": "Now one se start kr diya, ap main kaya kar hoon, one pe madh me have visited kr liya."
+  },
+  {
+    "start": 307.52,
+    "end": 313.02,
+    "text": "Visit kr liya to ab hisko bahar nikalno ab hisko explore khwaro, explore madh maaast"
+  },
+  {
+    "start": 313.02,
+    "end": 317.02,
+    "text": "hiske saath kon kon connected hai. Kon kon connected hai, 2 & 3."
+  },
+  {
+    "start": 317.02,
+    "end": 320.52,
+    "text": "Aap kisi bhi order mein likshakti hoon, chahi 2 pehle likto 3 pehle likto koi haru pharekh nipata."
+  },
+  {
+    "start": 320.52,
+    "end": 348.52,
+    "text": "आं न JENLAYS KINAH L97S"
+  },
+  {
+    "start": 348.52,
+    "end": 350.52,
+    "text": "एक रहा ती के साथ कोँ खनेक्तिड है, 4 & 7"
+  },
+  {
+    "start": 350.52,
+    "end": 354.52,
+    "text": "थो 4 और दी डाल रहा है, 7 आपने पिचे से डाल थी है"
+  },
+  {
+    "start": 354.52,
+    "end": 357.52,
+    "text": "ती के, अपने next, वो 4, next कोँ साथ आगा 4"
+  },
+  {
+    "start": 357.52,
+    "end": 361.52,
+    "text": "तो 4 को एक श्पलोर करो, 4 के साथ कोँ खनेक्तिड है, 5 & 6"
+  },
+  {
+    "start": 361.52,
+    "end": 364.52,
+    "text": "तो जो भी खनेक्तिड है, उनको आप न डाल गो."
+  },
+  {
+    "start": 364.52,
+    "end": 368.97999999999996,
+    "text": "next company will have 7 9 draw 7 executing Fuji and do another one"
+  },
+  {
+    "start": 369.0,
+    "end": 372.32,
+    "text": "and explore this when you have x containers"
+  },
+  {
+    "start": 372.35999999999996,
+    "end": 374.68,
+    "text": "when you have nothing in stock solamente予 screaming"
+  },
+  {
+    "start": 374.68,
+    "end": 375.59999999999997,
+    "text": "any numbers are available as five"
+  },
+  {
+    "start": 375.64,
+    "end": 378.59999999999997,
+    "text": "any signals are no"
+  },
+  {
+    "start": 378.59999999999997,
+    "end": 379.71999999999997,
+    "text": "if you are Yes let me know"
+  },
+  {
+    "start": 379.82,
+    "end": 380.96,
+    "text": "list of !"
+  },
+  {
+    "start": 388.52,
+    "end": 391.68,
+    "text": "Brodel"
+  },
+  {
+    "start": 391.68,
+    "end": 396.52,
+    "text": "अगर आप 3-2 करते तो रजेगा आजी मैं आगे 5-6 ड़ाला 6-5 करते तो रजेगा"
+  },
+  {
+    "start": 396.72,
+    "end": 401.88,
+    "text": "बस में कहनी आजी को समजना, इसकी वरकिंको समझना, तो ये जो है वो लेवल बाई लेवल"
+  },
+  {
+    "start": 402.08,
+    "end": 406.0,
+    "text": "देखो पहले आमने वन को किया, उसके बाई 2-3 को कवर किया"
+  },
+  {
+    "start": 406.04,
+    "end": 424.76,
+    "text": "forgiving"
+  },
+  {
+    "start": 424.76,
+    "end": 429.98,
+    "text": "DATA எنric isminute the data structure that is stack stack."
+  },
+  {
+    "start": 430.15999999999997,
+    "end": 435.21999999999997,
+    "text": "Now the stack is new both in theLet's start once start."
+  },
+  {
+    "start": 435.42,
+    "end": 439.36,
+    "text": "So I started at once Fastest First First One a This Visit Now"
+  },
+  {
+    "start": 439.56,
+    "end": 444.96,
+    "text": "After visiting One What I do? Exploring There are two options"
+  },
+  {
+    "start": 445.15999999999997,
+    "end": 448.56,
+    "text": "Two or Three are there But you have to if you go at any place"
+  },
+  {
+    "start": 448.76,
+    "end": 453.96,
+    "text": "you have to run at the two Once那个 Here So I was going to have 2"
+  },
+  {
+    "start": 453.96,
+    "end": 455.47999999999996,
+    "text": "यहराई में जाए़ुग देखध में"
+  },
+  {
+    "start": 455.58,
+    "end": 457.21999999999997,
+    "text": "तो वन से जब तूब ठला गया"
+  },
+  {
+    "start": 457.44,
+    "end": 458.59999999999997,
+    "text": "तो वन से तूब ठला गया"
+  },
+  {
+    "start": 458.59999999999997,
+    "end": 459.52,
+    "text": "तूब ठला गया"
+  },
+  {
+    "start": 459.79999999999995,
+    "end": 461.76,
+    "text": "तो वन एक तरे ख़ाय जाए़"
+  },
+  {
+    "start": 462.12,
+    "end": 462.9,
+    "text": "सुसप्पन्ड लोगया"
+  },
+  {
+    "start": 462.9,
+    "end": 463.68,
+    "text": "इन अक्टिब हुगया"
+  },
+  {
+    "start": 463.91999999999996,
+    "end": 465.65999999999997,
+    "text": "तीक आई, तो हम ने उसको कै गर थीा"
+  },
+  {
+    "start": 465.66,
+    "end": 467.66,
+    "text": "नहीं बना सेदान सी seekers worth as the manger focus knows"
+  },
+  {
+    "start": 467.66,
+    "end": 470.14000000000004,
+    "text": "code there is a word to slash that now"
+  },
+  {
+    "start": 470.14000000000004,
+    "end": 471.62,
+    "text": "for the"
+  },
+  {
+    "start": 471.62,
+    "end": 472.14000000000004,
+    "text": "lift"
+  },
+  {
+    "start": 472.64000000000004,
+    "end": 474.28000000000003,
+    "text": "if the"
+  },
+  {
+    "start": 477.88000000000005,
+    "end": 478.42,
+    "text": "ride"
+  },
+  {
+    "start": 480.3,
+    "end": 482.22,
+    "text": "that"
+  },
+  {
+    "start": 482.22,
+    "end": 483.94000000000005,
+    "text": "nope"
+  },
+  {
+    "start": 484.14000000000004,
+    "end": 487.52000000000004,
+    "text": "that"
+  },
+  {
+    "start": 487.52000000000004,
+    "end": 489.28000000000003,
+    "text": "I'm"
+  },
+  {
+    "start": 489.28,
+    "end": 492.88,
+    "text": "भीती करडन सुई Suddenly, we went out on the side, when we gone to the fifth,"
+  },
+  {
+    "start": 492.9,
+    "end": 493.79999999999995,
+    "text": "AND 3rd part, the了吧 बप्यपे acetभाई तु वीपेEtta, then 4th part in addition,"
+  },
+  {
+    "start": 493.82,
+    "end": 494.88,
+    "text": "बप्यके नसर्ज है। Such a thing, granted in such a super- Ottawa."
+  },
+  {
+    "start": 494.9,
+    "end": 495.96,
+    "text": "तरी करडन सूई के में भriends। After 5, you have no options."
+  },
+  {
+    "start": 496.0,
+    "end": 498.67999999999995,
+    "text": "तक यया आपक्के आपके प्यब क्सरुब थ्यये। You dont have any options after 5,"
+  },
+  {
+    "start": 498.68,
+    "end": 508.12,
+    "text": "तो यान गब आप तबट्टरेक मेी वो पचिटकोह।"
+  },
+  {
+    "start": 509.12,
+    "end": 514.28,
+    "text": "आप अप inf这样 डातक पहने कोल में मु oysters"
+  },
+  {
+    "start": 514.78,
+    "end": 516.32,
+    "text": "और ढ़िவ़ longer encouraging"
+  },
+  {
+    "start": 521.28,
+    "end": 521.46,
+    "text": "�achi"
+  },
+  {
+    "start": 525.08,
+    "end": 525.48,
+    "text": "था."
+  },
+  {
+    "start": 528.68,
+    "end": 535.68,
+    "text": "last in first out. So from 4 we got to know in last we went to 4 and we reached back to 4"
+  },
+  {
+    "start": 535.68,
+    "end": 540.68,
+    "text": "and what is the option I have from 4? There is 6 option. So from 4 where I went?"
+  },
+  {
+    "start": 540.68,
+    "end": 545.68,
+    "text": "It went to 6. From 4 where I went? It went to 6. So what happened? It was suspended."
+  },
+  {
+    "start": 545.68,
+    "end": 552.68,
+    "text": "So again put it back. We put 6 in the sequence. So from 4 I went to 6."
+  },
+  {
+    "start": 552.68,
+    "end": 557.68,
+    "text": "So I suspended 4 and it went back to 6. Now there is no option from 6."
+  },
+  {
+    "start": 557.68,
+    "end": 562.68,
+    "text": "Now there is no option from 6. So what will I do? I will backtrack from 6 again."
+  },
+  {
+    "start": 562.68,
+    "end": 569.68,
+    "text": "How I know where I was last? Last check again on 4. Now again I came back to 4 and stood."
+  },
+  {
+    "start": 569.68,
+    "end": 577.68,
+    "text": "Now see there is an option. Yes from 4 I can go to 3 because 2 is done. So from 4 I went to 3."
+  },
+  {
+    "start": 577.68,
+    "end": 583.68,
+    "text": "So from 4 I went to whom? I went to 3. Now again suspended 4. So put it back again."
+  },
+  {
+    "start": 583.68,
+    "end": 588.68,
+    "text": "Because from 4 you went to 3. So write in sequence and with 7 suspend 4."
+  },
+  {
+    "start": 588.68,
+    "end": 593.68,
+    "text": "Now there is another option from 3. Yes there is option from 3 to 7. So what happened?"
+  },
+  {
+    "start": 593.68,
+    "end": 599.68,
+    "text": "It was suspended. So put the suspended one in the stack. Ok we reached 7."
+  },
+  {
+    "start": 599.68,
+    "end": 605.68,
+    "text": "Now what we have to do? After 7 there is no option. So what will I do? I will backtrack."
+  },
+  {
+    "start": 605.68,
+    "end": 610.68,
+    "text": "I know backtrack is after 7. This is visible in diagram. But what is the algorithm?"
+  },
+  {
+    "start": 610.68,
+    "end": 616.68,
+    "text": "The algorithm says that you check it. So from this I went to 3. After 3 there is no other option."
+  },
+  {
+    "start": 616.68,
+    "end": 622.68,
+    "text": "There is no other option. So obviously I went to 4. So there is no new option from 4."
+  },
+  {
+    "start": 622.68,
+    "end": 627.68,
+    "text": "Then I reached 2. So there is no other option from 2. So I went to 1."
+  },
+  {
+    "start": 627.68,
+    "end": 633.68,
+    "text": "Finally your sequence is ready. So what we are doing here? We are going to go to depth wise."
+  },
+  {
+    "start": 634.68,
+    "end": 638.68,
+    "text": "Although both the time complexity is same here. Order of V plus E."
+  },
+  {
+    "start": 638.68,
+    "end": 643.68,
+    "text": "Because what we are doing? All the vertex and all the edges are traversing."
+  },
+  {
+    "start": 643.68,
+    "end": 649.68,
+    "text": "So maximum what can be the order of V plus total number of vertex and total number of edges."
+  },
+  {
+    "start": 649.68,
+    "end": 653.68,
+    "text": "So both the stories are important to understand the difference between them."
+  },
+  {
+    "start": 653.68,
+    "end": 656.68,
+    "text": "Because their real life applications are very much."
+  },
+  {
+    "start": 656.68,
+    "end": 661.68,
+    "text": "Talk about web crawlers, social media, facebook etc. Talk about networking."
+  },
+  {
+    "start": 662.68,
+    "end": 667.68,
+    "text": "You have to check if there is cycle in graph or not. You have to check minimum cost spanning tree."
+  },
+  {
+    "start": 667.68,
+    "end": 671.68,
+    "text": "So all the things are used by DFS and BFS techniques."
+  },
+  {
+    "start": 671.68,
+    "end": 675.68,
+    "text": "There are many real life applications of this. Thank you."
+  }
+]

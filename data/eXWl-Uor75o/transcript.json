@@ -1,0 +1,1177 @@
+[
+  {
+    "start": 0.0,
+    "end": 13.0,
+    "text": "Hi everyone this is Udhaka Bhogam welcome to SB Tech."
+  },
+  {
+    "start": 13.0,
+    "end": 16.0,
+    "text": "In last video we saw about Kitschard."
+  },
+  {
+    "start": 16.0,
+    "end": 20.0,
+    "text": "In this video I will explain about Metschard with an example."
+  },
+  {
+    "start": 20.0,
+    "end": 23.0,
+    "text": "You can skip the video and watch the end of the video."
+  },
+  {
+    "start": 23.0,
+    "end": 24.0,
+    "text": "You can easily understand."
+  },
+  {
+    "start": 24.0,
+    "end": 27.0,
+    "text": "You can go to any university, degree, B Tech, etc."
+  },
+  {
+    "start": 27.0,
+    "end": 29.0,
+    "text": "You can ask any question you want."
+  },
+  {
+    "start": 29.0,
+    "end": 31.0,
+    "text": "So what is Metschard?"
+  },
+  {
+    "start": 31.0,
+    "end": 38.0,
+    "text": "It is one of the sorting techniques used to arrange the data elements in an ascending order."
+  },
+  {
+    "start": 38.0,
+    "end": 44.0,
+    "text": "We will start with Kitschard to arrange the list of elements in order."
+  },
+  {
+    "start": 44.0,
+    "end": 51.0,
+    "text": "But there are many sorting techniques like bubble chart, insertion chart, selection chart, kick chart."
+  },
+  {
+    "start": 51.0,
+    "end": 53.0,
+    "text": "But why should we do Metschard?"
+  },
+  {
+    "start": 53.0,
+    "end": 54.0,
+    "text": "Where should we start?"
+  },
+  {
+    "start": 54.0,
+    "end": 58.0,
+    "text": "We will start with large number of elements."
+  },
+  {
+    "start": 58.0,
+    "end": 63.0,
+    "text": "When there are large number of elements, we will start with kick chart and merge chart."
+  },
+  {
+    "start": 63.0,
+    "end": 68.0,
+    "text": "We will also call Metschard as divide and conquered method."
+  },
+  {
+    "start": 68.0,
+    "end": 72.0,
+    "text": "Divide and conquer."
+  },
+  {
+    "start": 72.0,
+    "end": 76.0,
+    "text": "Why do we call it as divide by conquer method?"
+  },
+  {
+    "start": 76.0,
+    "end": 81.0,
+    "text": "First, we will divide the large number of list of elements into two halfs."
+  },
+  {
+    "start": 81.0,
+    "end": 83.0,
+    "text": "Left part and right part."
+  },
+  {
+    "start": 83.0,
+    "end": 87.0,
+    "text": "Divide the left part into two halfs and divide into two halfs."
+  },
+  {
+    "start": 87.0,
+    "end": 91.0,
+    "text": "Divide the left part and right part as per individual elements."
+  },
+  {
+    "start": 91.0,
+    "end": 95.0,
+    "text": "Divide each of them and place them in the order of different parts."
+  },
+  {
+    "start": 95.0,
+    "end": 98.0,
+    "text": "The left part will be ready, and the right part will be ready."
+  },
+  {
+    "start": 98.0,
+    "end": 100.0,
+    "text": "When combined with the right part, we will get a sort of list."
+  },
+  {
+    "start": 100.0,
+    "end": 104.0,
+    "text": "We can call Metschard as divide by a frequency."
+  },
+  {
+    "start": 104.0,
+    "end": 107.0,
+    "text": "Metschard is the same, and Metschard is the same."
+  },
+  {
+    "start": 107.0,
+    "end": 112.0,
+    "text": "So Metschard is simply to combine two sort of lists."
+  },
+  {
+    "start": 112.0,
+    "end": 117.0,
+    "text": "If you want to create a large list of two sorted lists, you can use Merged."
+  },
+  {
+    "start": 117.0,
+    "end": 125.0,
+    "text": "So, if we want to combine two sorted lists and create a large list, we can easily create it."
+  },
+  {
+    "start": 125.0,
+    "end": 127.0,
+    "text": "We can't apply it in an exciting way."
+  },
+  {
+    "start": 127.0,
+    "end": 130.0,
+    "text": "Merged means combining."
+  },
+  {
+    "start": 130.0,
+    "end": 132.0,
+    "text": "Combining two sorted lists is a single list."
+  },
+  {
+    "start": 132.0,
+    "end": 134.0,
+    "text": "We can use Merged to do that."
+  },
+  {
+    "start": 134.0,
+    "end": 136.0,
+    "text": "Let's see."
+  },
+  {
+    "start": 136.0,
+    "end": 140.0,
+    "text": "Merged is used to combine two sorted lists with one sorted list."
+  },
+  {
+    "start": 140.0,
+    "end": 147.0,
+    "text": "And if we create two sorted lists with one sorted list, we can use Merged."
+  },
+  {
+    "start": 147.0,
+    "end": 149.0,
+    "text": "Merged is used to combine two sorted lists easily."
+  },
+  {
+    "start": 149.0,
+    "end": 152.0,
+    "text": "Next, let's see how Merged does it."
+  },
+  {
+    "start": 152.0,
+    "end": 156.0,
+    "text": "In this sorting technique, first, we divide the list into two parts."
+  },
+  {
+    "start": 156.0,
+    "end": 158.0,
+    "text": "Left part and right part."
+  },
+  {
+    "start": 158.0,
+    "end": 162.0,
+    "text": "Here, the list of elements is being arranged and we divide the list into two parts."
+  },
+  {
+    "start": 162.0,
+    "end": 164.0,
+    "text": "Left part and right part."
+  },
+  {
+    "start": 164.0,
+    "end": 170.0,
+    "text": "Or like that, apply the same process to left and right parts up to individual elements."
+  },
+  {
+    "start": 170.0,
+    "end": 177.0,
+    "text": "Until individual elements arrive, the same process is followed for the right part and we divide it and go."
+  },
+  {
+    "start": 177.0,
+    "end": 179.0,
+    "text": "Two of two of them."
+  },
+  {
+    "start": 179.0,
+    "end": 183.0,
+    "text": "Next, then sort the elements in left part and right part."
+  },
+  {
+    "start": 183.0,
+    "end": 186.0,
+    "text": "What is the division of the parts?"
+  },
+  {
+    "start": 186.0,
+    "end": 188.0,
+    "text": "We start by sorting it."
+  },
+  {
+    "start": 188.0,
+    "end": 193.0,
+    "text": "Then finally, combine left and right parts and we will get sorted list."
+  },
+  {
+    "start": 193.0,
+    "end": 195.0,
+    "text": "Left part is ready and right part is ready."
+  },
+  {
+    "start": 195.0,
+    "end": 200.0,
+    "text": "Finally, if we combine the two parts, we get sorted list."
+  },
+  {
+    "start": 200.0,
+    "end": 204.0,
+    "text": "I will give you a small example and explain it clearly."
+  },
+  {
+    "start": 204.0,
+    "end": 208.0,
+    "text": "You can write it as step by step."
+  },
+  {
+    "start": 208.0,
+    "end": 211.0,
+    "text": "Let's see the example."
+  },
+  {
+    "start": 211.0,
+    "end": 216.0,
+    "text": "We can also write the divide and concord method."
+  },
+  {
+    "start": 216.0,
+    "end": 219.0,
+    "text": "We can also write the exact same method."
+  },
+  {
+    "start": 219.0,
+    "end": 228.0,
+    "text": "For example, 20, 50, 70, 40, 30, for example 80."
+  },
+  {
+    "start": 228.0,
+    "end": 231.0,
+    "text": "I have written six elements."
+  },
+  {
+    "start": 231.0,
+    "end": 237.0,
+    "text": "The index is 0, 1, 2, 3, 4, 5."
+  },
+  {
+    "start": 237.0,
+    "end": 241.0,
+    "text": "How do we divide it into two parts?"
+  },
+  {
+    "start": 241.0,
+    "end": 248.0,
+    "text": "For example, we have an indicator for F for the first position and an indicator for the last position."
+  },
+  {
+    "start": 248.0,
+    "end": 253.0,
+    "text": "What we need to do here is to find out the mid position."
+  },
+  {
+    "start": 253.0,
+    "end": 256.0,
+    "text": "First of all, find out mid position."
+  },
+  {
+    "start": 256.0,
+    "end": 260.0,
+    "text": "So, mid equal to first plus last by 2."
+  },
+  {
+    "start": 260.0,
+    "end": 263.0,
+    "text": "First and then 0, index."
+  },
+  {
+    "start": 263.0,
+    "end": 265.0,
+    "text": "Last and then 5."
+  },
+  {
+    "start": 265.0,
+    "end": 267.0,
+    "text": "We have 2.5 for y2."
+  },
+  {
+    "start": 267.0,
+    "end": 271.0,
+    "text": "So, when we get 2.5, we have a floor mechanism here."
+  },
+  {
+    "start": 271.0,
+    "end": 273.0,
+    "text": "Floor means 2."
+  },
+  {
+    "start": 273.0,
+    "end": 276.0,
+    "text": "We have a mid position here and 2."
+  },
+  {
+    "start": 276.0,
+    "end": 279.0,
+    "text": "We have a mid position here."
+  },
+  {
+    "start": 279.0,
+    "end": 282.0,
+    "text": "How do we divide it here?"
+  },
+  {
+    "start": 282.0,
+    "end": 285.0,
+    "text": "How do we divide the left part?"
+  },
+  {
+    "start": 285.0,
+    "end": 291.0,
+    "text": "We divide the left part first to mid."
+  },
+  {
+    "start": 291.0,
+    "end": 293.0,
+    "text": "This is the left part."
+  },
+  {
+    "start": 293.0,
+    "end": 296.0,
+    "text": "Like this, the right part."
+  },
+  {
+    "start": 296.0,
+    "end": 302.0,
+    "text": "The right part is the mid place 1, 2, last."
+  },
+  {
+    "start": 302.0,
+    "end": 306.0,
+    "text": "We will do the left partition and right partition."
+  },
+  {
+    "start": 306.0,
+    "end": 310.0,
+    "text": "We will see where the left part is for the right part."
+  },
+  {
+    "start": 310.0,
+    "end": 314.0,
+    "text": "Now, 20, 50, 70."
+  },
+  {
+    "start": 314.0,
+    "end": 317.0,
+    "text": "This is the left partition."
+  },
+  {
+    "start": 317.0,
+    "end": 321.0,
+    "text": "40, 30, 80."
+  },
+  {
+    "start": 321.0,
+    "end": 324.0,
+    "text": "This is the right partition."
+  },
+  {
+    "start": 324.0,
+    "end": 326.0,
+    "text": "So, divide it into two parts."
+  },
+  {
+    "start": 326.0,
+    "end": 329.0,
+    "text": "Apply the same process to the left and right side."
+  },
+  {
+    "start": 329.0,
+    "end": 333.0,
+    "text": "Here, we will do the index for example, 0, 1, 2, 1."
+  },
+  {
+    "start": 333.0,
+    "end": 336.0,
+    "text": "Here, we will do the index of 0, 1, 2, 1."
+  },
+  {
+    "start": 336.0,
+    "end": 338.0,
+    "text": "This is the first element and this is the last element."
+  },
+  {
+    "start": 338.0,
+    "end": 340.0,
+    "text": "This is the position and this is the last position."
+  },
+  {
+    "start": 340.0,
+    "end": 342.0,
+    "text": "We will do the same here."
+  },
+  {
+    "start": 342.0,
+    "end": 345.0,
+    "text": "So, the mid is equal to the first and then 0."
+  },
+  {
+    "start": 345.0,
+    "end": 346.0,
+    "text": "The last and then 2."
+  },
+  {
+    "start": 346.0,
+    "end": 348.0,
+    "text": "We have 1 by 2."
+  },
+  {
+    "start": 348.0,
+    "end": 350.0,
+    "text": "We have 1 here."
+  },
+  {
+    "start": 350.0,
+    "end": 351.0,
+    "text": "Look here."
+  },
+  {
+    "start": 351.0,
+    "end": 353.0,
+    "text": "We have the same here."
+  },
+  {
+    "start": 353.0,
+    "end": 356.0,
+    "text": "We have 1 by 2 and 1 by 2."
+  },
+  {
+    "start": 356.0,
+    "end": 358.0,
+    "text": "So, we have 1 by 2 here."
+  },
+  {
+    "start": 358.0,
+    "end": 360.0,
+    "text": "Now, we will do the same process."
+  },
+  {
+    "start": 360.0,
+    "end": 362.0,
+    "text": "Now, we will divide it."
+  },
+  {
+    "start": 362.0,
+    "end": 364.0,
+    "text": "20, 50."
+  },
+  {
+    "start": 364.0,
+    "end": 365.0,
+    "text": "This is the left partition."
+  },
+  {
+    "start": 365.0,
+    "end": 367.0,
+    "text": "70 is the right partition."
+  },
+  {
+    "start": 367.0,
+    "end": 370.0,
+    "text": "Here, we will do the same process."
+  },
+  {
+    "start": 370.0,
+    "end": 372.0,
+    "text": "40, 30."
+  },
+  {
+    "start": 372.0,
+    "end": 373.0,
+    "text": "Left partition."
+  },
+  {
+    "start": 373.0,
+    "end": 376.0,
+    "text": "80 is the right partition."
+  },
+  {
+    "start": 376.0,
+    "end": 377.0,
+    "text": "Again, same process."
+  },
+  {
+    "start": 377.0,
+    "end": 381.0,
+    "text": "We will divide it up to individual elements."
+  },
+  {
+    "start": 381.0,
+    "end": 383.0,
+    "text": "So, we will do the index here."
+  },
+  {
+    "start": 383.0,
+    "end": 384.0,
+    "text": "0, 1."
+  },
+  {
+    "start": 384.0,
+    "end": 386.0,
+    "text": "We will divide it up to individual elements."
+  },
+  {
+    "start": 386.0,
+    "end": 388.0,
+    "text": "We will divide it up to individual elements."
+  },
+  {
+    "start": 388.0,
+    "end": 390.0,
+    "text": "Next, here."
+  },
+  {
+    "start": 390.0,
+    "end": 392.0,
+    "text": "What is here?"
+  },
+  {
+    "start": 392.0,
+    "end": 393.0,
+    "text": "Here, same."
+  },
+  {
+    "start": 393.0,
+    "end": 394.0,
+    "text": "First to last."
+  },
+  {
+    "start": 394.0,
+    "end": 396.0,
+    "text": "Mid equal to first place, last by 2."
+  },
+  {
+    "start": 396.0,
+    "end": 400.0,
+    "text": "0 plus 1 by 2 means we have 0 points."
+  },
+  {
+    "start": 400.0,
+    "end": 402.0,
+    "text": "So, we will do the same process."
+  },
+  {
+    "start": 402.0,
+    "end": 404.0,
+    "text": "We will divide it up to 0."
+  },
+  {
+    "start": 404.0,
+    "end": 408.0,
+    "text": "Now, we will divide it up to 20, 50."
+  },
+  {
+    "start": 408.0,
+    "end": 410.0,
+    "text": "Here, we will do the same process."
+  },
+  {
+    "start": 410.0,
+    "end": 413.0,
+    "text": "Here, we will write it as 70 as it is."
+  },
+  {
+    "start": 413.0,
+    "end": 415.0,
+    "text": "Next, here, same process."
+  },
+  {
+    "start": 415.0,
+    "end": 416.0,
+    "text": "First to last."
+  },
+  {
+    "start": 416.0,
+    "end": 418.0,
+    "text": "So, first place, last by 2 means 0 is coming."
+  },
+  {
+    "start": 418.0,
+    "end": 419.0,
+    "text": "Here, it is coming to mid."
+  },
+  {
+    "start": 419.0,
+    "end": 420.0,
+    "text": "Here, 40 is coming."
+  },
+  {
+    "start": 420.0,
+    "end": 423.0,
+    "text": "Left part, 30 is coming."
+  },
+  {
+    "start": 423.0,
+    "end": 424.0,
+    "text": "Right part."
+  },
+  {
+    "start": 424.0,
+    "end": 425.0,
+    "text": "Here, it is like 80."
+  },
+  {
+    "start": 425.0,
+    "end": 427.0,
+    "text": "We will divide it up to that."
+  },
+  {
+    "start": 427.0,
+    "end": 430.0,
+    "text": "Now, we will do the individual elements."
+  },
+  {
+    "start": 430.0,
+    "end": 433.0,
+    "text": "Next, what we have done is,"
+  },
+  {
+    "start": 433.0,
+    "end": 435.0,
+    "text": "we will separate the left part and right part."
+  },
+  {
+    "start": 435.0,
+    "end": 437.0,
+    "text": "We will sort it."
+  },
+  {
+    "start": 437.0,
+    "end": 439.0,
+    "text": "Now, these two elements are sorted."
+  },
+  {
+    "start": 439.0,
+    "end": 441.0,
+    "text": "Should be in order or check."
+  },
+  {
+    "start": 441.0,
+    "end": 442.0,
+    "text": "These two elements."
+  },
+  {
+    "start": 442.0,
+    "end": 443.0,
+    "text": "Should be in order."
+  },
+  {
+    "start": 443.0,
+    "end": 444.0,
+    "text": "20, 50."
+  },
+  {
+    "start": 444.0,
+    "end": 446.0,
+    "text": "Yes, they are in order."
+  },
+  {
+    "start": 446.0,
+    "end": 447.0,
+    "text": "We should compare them in order."
+  },
+  {
+    "start": 447.0,
+    "end": 453.0,
+    "text": "So, we will get 20, 50."
+  },
+  {
+    "start": 453.0,
+    "end": 454.0,
+    "text": "Same process here."
+  },
+  {
+    "start": 454.0,
+    "end": 457.0,
+    "text": "We will arrange it in order."
+  },
+  {
+    "start": 457.0,
+    "end": 459.0,
+    "text": "Then, we will do 40, 30."
+  },
+  {
+    "start": 459.0,
+    "end": 462.0,
+    "text": "If it is not in order, we will do 30, 40."
+  },
+  {
+    "start": 462.0,
+    "end": 465.0,
+    "text": "We will write it as 80."
+  },
+  {
+    "start": 465.0,
+    "end": 469.0,
+    "text": "Now, these two elements."
+  },
+  {
+    "start": 469.0,
+    "end": 471.0,
+    "text": "These two elements are in order."
+  },
+  {
+    "start": 471.0,
+    "end": 473.0,
+    "text": "So, 20 is 70."
+  },
+  {
+    "start": 473.0,
+    "end": 474.0,
+    "text": "So, 20 is coming first."
+  },
+  {
+    "start": 474.0,
+    "end": 476.0,
+    "text": "Next, 50 is 70."
+  },
+  {
+    "start": 476.0,
+    "end": 477.0,
+    "text": "50 is coming first."
+  },
+  {
+    "start": 477.0,
+    "end": 479.0,
+    "text": "Then, it is 70."
+  },
+  {
+    "start": 479.0,
+    "end": 481.0,
+    "text": "This is our order."
+  },
+  {
+    "start": 481.0,
+    "end": 483.0,
+    "text": "We should follow the same process here."
+  },
+  {
+    "start": 483.0,
+    "end": 486.0,
+    "text": "We should combine these two elements and sort them."
+  },
+  {
+    "start": 486.0,
+    "end": 487.0,
+    "text": "Okay?"
+  },
+  {
+    "start": 487.0,
+    "end": 490.0,
+    "text": "So, 30, 40, 80."
+  },
+  {
+    "start": 490.0,
+    "end": 493.0,
+    "text": "Finally, we will get 30, 40, 80."
+  },
+  {
+    "start": 493.0,
+    "end": 496.0,
+    "text": "If we combine these two elements, we will get 30."
+  },
+  {
+    "start": 496.0,
+    "end": 497.0,
+    "text": "Okay?"
+  },
+  {
+    "start": 497.0,
+    "end": 499.0,
+    "text": "Let us see how it is sorting."
+  },
+  {
+    "start": 499.0,
+    "end": 500.0,
+    "text": "First, we have 20."
+  },
+  {
+    "start": 500.0,
+    "end": 502.0,
+    "text": "Here, we have 30."
+  },
+  {
+    "start": 502.0,
+    "end": 504.0,
+    "text": "So, we have 20 in the unit."
+  },
+  {
+    "start": 504.0,
+    "end": 506.0,
+    "text": "We have 20 in the unit."
+  },
+  {
+    "start": 506.0,
+    "end": 509.0,
+    "text": "After 20, we will write the indicator."
+  },
+  {
+    "start": 509.0,
+    "end": 511.0,
+    "text": "This is the place to do the high place."
+  },
+  {
+    "start": 511.0,
+    "end": 512.0,
+    "text": "Here, we have 50."
+  },
+  {
+    "start": 512.0,
+    "end": 513.0,
+    "text": "50, 30."
+  },
+  {
+    "start": 513.0,
+    "end": 515.0,
+    "text": "30 is the lowest."
+  },
+  {
+    "start": 515.0,
+    "end": 517.0,
+    "text": "We will print 30 here."
+  },
+  {
+    "start": 517.0,
+    "end": 518.0,
+    "text": "This 30 is the lowest."
+  },
+  {
+    "start": 518.0,
+    "end": 519.0,
+    "text": "Next, 40."
+  },
+  {
+    "start": 519.0,
+    "end": 521.0,
+    "text": "This 40 is the comparison of 50."
+  },
+  {
+    "start": 521.0,
+    "end": 523.0,
+    "text": "So, we get 40 as the smallest."
+  },
+  {
+    "start": 523.0,
+    "end": 524.0,
+    "text": "We get 40 here."
+  },
+  {
+    "start": 524.0,
+    "end": 526.0,
+    "text": "Next element, 80."
+  },
+  {
+    "start": 526.0,
+    "end": 528.0,
+    "text": "For example, we want to write an indicator here."
+  },
+  {
+    "start": 528.0,
+    "end": 529.0,
+    "text": "We will write an indicator here."
+  },
+  {
+    "start": 529.0,
+    "end": 530.0,
+    "text": "We will place the indicator here."
+  },
+  {
+    "start": 530.0,
+    "end": 531.0,
+    "text": "We will go ahead."
+  },
+  {
+    "start": 531.0,
+    "end": 532.0,
+    "text": "We will get 50 here."
+  },
+  {
+    "start": 532.0,
+    "end": 533.0,
+    "text": "Next, 80."
+  },
+  {
+    "start": 533.0,
+    "end": 535.0,
+    "text": "We should compare 80 with this 50."
+  },
+  {
+    "start": 535.0,
+    "end": 536.0,
+    "text": "50 is the smallest."
+  },
+  {
+    "start": 536.0,
+    "end": 537.0,
+    "text": "50 is the smallest."
+  },
+  {
+    "start": 537.0,
+    "end": 538.0,
+    "text": "We will get 50."
+  },
+  {
+    "start": 538.0,
+    "end": 540.0,
+    "text": "Next, we will place the indicator here."
+  },
+  {
+    "start": 540.0,
+    "end": 541.0,
+    "text": "70."
+  },
+  {
+    "start": 541.0,
+    "end": 543.0,
+    "text": "70 is the lowest."
+  },
+  {
+    "start": 543.0,
+    "end": 545.0,
+    "text": "We will get 50 here."
+  },
+  {
+    "start": 545.0,
+    "end": 547.0,
+    "text": "Next, we will get 80."
+  },
+  {
+    "start": 547.0,
+    "end": 550.0,
+    "text": "So, finally, we will get the sort list."
+  },
+  {
+    "start": 550.0,
+    "end": 553.0,
+    "text": "We will process it in the same way."
+  },
+  {
+    "start": 553.0,
+    "end": 555.0,
+    "text": "What is the first thing we do?"
+  },
+  {
+    "start": 555.0,
+    "end": 556.0,
+    "text": "We take the list of elements."
+  },
+  {
+    "start": 556.0,
+    "end": 558.0,
+    "text": "We finalize the mid position first element."
+  },
+  {
+    "start": 558.0,
+    "end": 560.0,
+    "text": "The element in the mid position."
+  },
+  {
+    "start": 560.0,
+    "end": 562.0,
+    "text": "We take the left part till that part."
+  },
+  {
+    "start": 562.0,
+    "end": 565.0,
+    "text": "We take the mid place one plus the last element."
+  },
+  {
+    "start": 565.0,
+    "end": 567.0,
+    "text": "We take the right part."
+  },
+  {
+    "start": 567.0,
+    "end": 568.0,
+    "text": "We divide it like that."
+  },
+  {
+    "start": 568.0,
+    "end": 572.0,
+    "text": "We take it up to individual elements."
+  },
+  {
+    "start": 572.0,
+    "end": 573.0,
+    "text": "What is the next thing we do?"
+  },
+  {
+    "start": 573.0,
+    "end": 574.0,
+    "text": "We will go back again."
+  },
+  {
+    "start": 574.0,
+    "end": 577.0,
+    "text": "We will comment on the second rate and start."
+  },
+  {
+    "start": 577.0,
+    "end": 579.0,
+    "text": "Finally, we get the two sort list."
+  },
+  {
+    "start": 579.0,
+    "end": 581.0,
+    "text": "Left part and right part."
+  },
+  {
+    "start": 581.0,
+    "end": 585.0,
+    "text": "If we merge these two, we get the sort list."
+  },
+  {
+    "start": 585.0,
+    "end": 589.0,
+    "text": "So, we will get the sort list."
+  },
+  {
+    "start": 589.0,
+    "end": 592.0,
+    "text": "We will divide and concord method."
+  },
+  {
+    "start": 592.0,
+    "end": 598.0,
+    "text": "We will divide the parts and then take the elements."
+  },
+  {
+    "start": 598.0,
+    "end": 601.0,
+    "text": "We will charge them and go back."
+  },
+  {
+    "start": 601.0,
+    "end": 605.0,
+    "text": "So, we will divide and concord method."
+  },
+  {
+    "start": 606.0,
+    "end": 609.0,
+    "text": "So, where is the Merchant?"
+  },
+  {
+    "start": 609.0,
+    "end": 612.0,
+    "text": "Where is the Merchant?"
+  },
+  {
+    "start": 612.0,
+    "end": 614.0,
+    "text": "There are large number of elements."
+  },
+  {
+    "start": 614.0,
+    "end": 616.0,
+    "text": "When there are large number of elements,"
+  },
+  {
+    "start": 616.0,
+    "end": 623.0,
+    "text": "we will use the insertion and bubble sort."
+  },
+  {
+    "start": 623.0,
+    "end": 625.0,
+    "text": "We will apply Merchant."
+  },
+  {
+    "start": 625.0,
+    "end": 627.0,
+    "text": "We will get the result in the short time."
+  },
+  {
+    "start": 627.0,
+    "end": 630.0,
+    "text": "So, we will do Merchant and Kick sort."
+  },
+  {
+    "start": 630.0,
+    "end": 633.0,
+    "text": "If you have any doubts, comment in the comment section."
+  },
+  {
+    "start": 633.0,
+    "end": 634.0,
+    "text": "I am Anthri Kailash."
+  },
+  {
+    "start": 634.0,
+    "end": 636.0,
+    "text": "Like this, share this video with your friends."
+  },
+  {
+    "start": 636.0,
+    "end": 637.0,
+    "text": "They will be happy to take it."
+  },
+  {
+    "start": 637.0,
+    "end": 638.0,
+    "text": "See you in the next video."
+  },
+  {
+    "start": 638.0,
+    "end": 639.0,
+    "text": "Thanks for watching."
+  },
+  {
+    "start": 639.0,
+    "end": 641.0,
+    "text": "Like, share and subscribe. Thank you."
+  }
+]

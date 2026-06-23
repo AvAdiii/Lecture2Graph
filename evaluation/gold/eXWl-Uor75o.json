@@ -1,0 +1,12 @@
+{
+  "video_id": "eXWl-Uor75o",
+  "title": "Sorting: Bubble Sort and Merge Sort",
+  "annotation": "Domain-authored gold prerequisite DAG. Note: this lecture's OCR/regex extraction produced spurious tree-traversal concepts; the gold deliberately excludes them to expose precision errors.",
+  "concepts": ["sorting", "bubble_sort", "merge_sort", "index"],
+  "edges": [
+    {"source": "sorting", "target": "bubble_sort"},
+    {"source": "sorting", "target": "merge_sort"},
+    {"source": "index", "target": "bubble_sort"},
+    {"source": "index", "target": "merge_sort"}
+  ]
+}

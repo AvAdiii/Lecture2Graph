@@ -1,0 +1,23 @@
+{
+  "video_id": "Tp37HXfekNo",
+  "concepts": [
+    {
+      "name": "primary_key",
+      "mentions": 168,
+      "first_seen": 6.5,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    },
+    {
+      "name": "candidate_key",
+      "mentions": 7,
+      "first_seen": 234.0,
+      "sources": [
+        "asr",
+        "ocr"
+      ]
+    }
+  ]
+}

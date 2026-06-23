@@ -1,0 +1,560 @@
+[
+  {
+    "start": 0.0,
+    "end": 3.0,
+    "spoken_text": "Hello friends, welcome to gait's measure.",
+    "visual_text": "५९००\nKoot\n(थी\nदि PHQOHJHL\nउप"
+  },
+  {
+    "start": 3.0,
+    "end": 6.0,
+    "spoken_text": "In this video we are going to discuss tree traversal techniques.",
+    "visual_text": ""
+  },
+  {
+    "start": 6.0,
+    "end": 12.0,
+    "spoken_text": "So we have tree traversal techniques pre-order, in-order and post-order.",
+    "visual_text": ""
+  },
+  {
+    "start": 12.0,
+    "end": 18.0,
+    "spoken_text": "Pre-order means first write root node, then left node, then right.",
+    "visual_text": "Koot\n(थी\nlIhord\nLeft Koot\nLeft"
+  },
+  {
+    "start": 18.0,
+    "end": 22.0,
+    "spoken_text": "In-order means root comes in between left and right.",
+    "visual_text": "९००६\n(००८\nदि\nRoo\nLeft Koot\n(थी\nprd"
+  },
+  {
+    "start": 22.0,
+    "end": 28.0,
+    "spoken_text": "Post-order means first write right and then root node.",
+    "visual_text": "९००६ (४८\nKoot\nदर Koo\n५९००६\nLlff Koot\n(थी\nLeft Kight"
+  },
+  {
+    "start": 29.0,
+    "end": 31.0,
+    "spoken_text": "Node means vertex of tree.",
+    "visual_text": ""
+  },
+  {
+    "start": 31.0,
+    "end": 36.0,
+    "spoken_text": "So here if we see x, y, z, so x, y, z is a very simple graph, simple tree.",
+    "visual_text": "Root दि\nKoot\n(थी\nIIhOYd-UL\n५९००६\nLlff Koot\nथी\nLler Koot"
+  },
+  {
+    "start": 36.0,
+    "end": 43.0,
+    "spoken_text": "So if we see root in pre-order case, x, y, z.",
+    "visual_text": "५९००६\nLeft Koot\nथी\nता\nKoot\nLeft\nलि\n५९००६ (४८\n(थी Koot\nहै).\nकै..."
+  },
+  {
+    "start": 43.0,
+    "end": 45.0,
+    "spoken_text": "So this will be the pre-order.",
+    "visual_text": ""
+  },
+  {
+    "start": 45.0,
+    "end": 51.0,
+    "spoken_text": "Where we write root first, in-order means first write left, then write in-between,",
+    "visual_text": "९००६\nKoot\nRuot\nके\n९००६ दि\node Left\n५९००६ (४८\nनशा\nBtk"
+  },
+  {
+    "start": 51.0,
+    "end": 54.0,
+    "spoken_text": "write root and write right element.",
+    "visual_text": "Koot\nndee Left Koot\nथी\n५९००६\nLeft Koot\nLeft Roo"
+  },
+  {
+    "start": 54.0,
+    "end": 60.0,
+    "spoken_text": "And post-order means first left element, then right element and last is root element.",
+    "visual_text": "९००६\n५००८\nLeft\nKoot\nFost\nके\nथी Koot\nLeft Right (०६\nरु"
+  },
+  {
+    "start": 60.0,
+    "end": 66.0,
+    "spoken_text": "So when we have tree very simple, then we know that we have to write it this way.",
+    "visual_text": "९००६\nKoot\nLeft Ruot\n५९००६\nथी Koot\nLeft\n६००८"
+  },
+  {
+    "start": 66.0,
+    "end": 70.0,
+    "spoken_text": "But sometimes in exams we give very complex tree.",
+    "visual_text": "कि ना ५९००६\n५६००८\nLeft Roo"
+  },
+  {
+    "start": 70.0,
+    "end": 74.0,
+    "spoken_text": "So if you have very complex tree, then sometimes we make mistake in option.",
+    "visual_text": "Koot\nथी Koot\nLeft\n५००६\n६००८\nथे"
+  },
+  {
+    "start": 74.0,
+    "end": 78.0,
+    "spoken_text": "Or we don't know what the exact answer will be.",
+    "visual_text": "५००६\nKoot\n(थी\nजगा\nवर\n९००६\nLeft\nदि\nLeft Root"
+  },
+  {
+    "start": 78.0,
+    "end": 80.0,
+    "spoken_text": "So in this video I am telling you such technique.",
+    "visual_text": "५९००६\nKoot\nLeft\n(तु)\nपद\nथी Koot"
+  },
+  {
+    "start": 81.0,
+    "end": 89.0,
+    "spoken_text": "From this technique any tree, any complex tree, you can get very easy and very short answer.",
+    "visual_text": "७८ Root\n६००८\nLeft\nपट\n९००६\nथी Koot\n(थी\n(9०९५"
+  },
+  {
+    "start": 89.0,
+    "end": 92.0,
+    "spoken_text": "So definitely do this technique in UGC net gate exam.",
+    "visual_text": "५९००६ (४८\nथी Koot\nथी Roo\n९००६\nLeft Kght"
+  },
+  {
+    "start": 92.0,
+    "end": 95.0,
+    "spoken_text": "Its question is very common.",
+    "visual_text": "९००६ (४८\nथी Koot\nLeft ०६\n५९००६\nKoot\nFost Left"
+  },
+  {
+    "start": 95.0,
+    "end": 99.0,
+    "spoken_text": "So if we start here, we have a tree.",
+    "visual_text": "९००६\nKoot\n(थी Roo\nथी Koot\nLeft\nond ०८ Koot\n००८\nदल! (थी\n“पु"
+  },
+  {
+    "start": 99.0,
+    "end": 104.0,
+    "spoken_text": "So in binary tree what we have to do is, whenever you start tree,",
+    "visual_text": "९००६\nKoot\nRoo\nLeft Roo\nLeft"
+  },
+  {
+    "start": 105.0,
+    "end": 110.0,
+    "spoken_text": "you ensure that every binary tree means, what is the meaning of every tree's two children.",
+    "visual_text": "Koot\nथी Koot\nLeft Roo\nlIHOYd\n६००८\nLeft"
+  },
+  {
+    "start": 110.0,
+    "end": 112.0,
+    "spoken_text": "Is everyone's two children there?",
+    "visual_text": "९००६\nKoot\nLeft\nपट\n(टी)"
+  },
+  {
+    "start": 112.0,
+    "end": 114.0,
+    "spoken_text": "So see here everyone's two children are there.",
+    "visual_text": ""
+  },
+  {
+    "start": 114.0,
+    "end": 118.0,
+    "spoken_text": "A is no children, so A is actually leaf node.",
+    "visual_text": "Koot दि\n६००८\nLeft"
+  },
+  {
+    "start": 118.0,
+    "end": 120.0,
+    "spoken_text": "So leaf has no children.",
+    "visual_text": "Koot\n६००८\nLeft Roo\nथी Koot\nLeft\nlIhoYd"
+  },
+  {
+    "start": 120.0,
+    "end": 124.0,
+    "spoken_text": "So what you have to do is, make a dummy like this children.",
+    "visual_text": "Koot\nथी Koot\nLeft\n९००६\nlIhoYd"
+  },
+  {
+    "start": 124.0,
+    "end": 129.0,
+    "spoken_text": "Make such CK also, make EK also, make HK also,",
+    "visual_text": "थी Koot\nLeft Roo\n(टी)\nlIHOYd\nKoot\n५००६\nLeft Right"
+  },
+  {
+    "start": 130.0,
+    "end": 133.0,
+    "spoken_text": "A is left, A is right, so make A is right.",
+    "visual_text": ""
+  },
+  {
+    "start": 133.0,
+    "end": 136.0,
+    "spoken_text": "G is left, so make G is left.",
+    "visual_text": "Koot\nPost Left Runt\nlIhoYd"
+  },
+  {
+    "start": 136.0,
+    "end": 143.0,
+    "spoken_text": "So in this way you make dummy like this children so that every two children are there.",
+    "visual_text": "७८ Koot\nKoot\nPost\nKoot Z-jht\nथी Koot\nLeft\nKoot Zjhf\nLeft Kght Root\nLeft Koot\nहि).\nLeft Roo"
+  },
+  {
+    "start": 143.0,
+    "end": 149.0,
+    "spoken_text": "Now after that what you have to do is traversing means, simple you have to go on the whole graph.",
+    "visual_text": "५९००६\nथी Koot\n(थी\nlIhoYd"
+  },
+  {
+    "start": 149.0,
+    "end": 152.0,
+    "spoken_text": "So always we start with root node.",
+    "visual_text": "Koot\nथी Koot\nLeft Roo\n९००६\nLeft"
+  },
+  {
+    "start": 152.0,
+    "end": 154.0,
+    "spoken_text": "So this is the root node.",
+    "visual_text": "९००६\nKoot\nFost Left"
+  },
+  {
+    "start": 154.0,
+    "end": 158.0,
+    "spoken_text": "So when we start with root node, then what you have to do is,",
+    "visual_text": "५००६\nKoot\nKght"
+  },
+  {
+    "start": 158.0,
+    "end": 162.0,
+    "spoken_text": "pre-order, in-order and post-order will be taken out, it is a simple way.",
+    "visual_text": "Koot\nLeft Koot\n(थी\n९००६\nLeft Roo\n५९००६\nPost Left Runt\nLeft Kght"
+  },
+  {
+    "start": 162.0,
+    "end": 167.0,
+    "spoken_text": "When you are reaching any node for the first time, then it is pre-order.",
+    "visual_text": "५९००६\nथी Koot\nLeft (०६\nहै"
+  },
+  {
+    "start": 167.0,
+    "end": 170.0,
+    "spoken_text": "When you are reaching any node for the second time, in-order,",
+    "visual_text": "९००६\nKoot\nPost\nlIhord\n९००६ दि\nLeft Roo"
+  },
+  {
+    "start": 170.0,
+    "end": 174.0,
+    "spoken_text": "when you are reaching any node for the third time, post-order.",
+    "visual_text": "९००६\n००८\nLeft\n५००६\nKoot\nहूँ"
+  },
+  {
+    "start": 174.0,
+    "end": 177.0,
+    "spoken_text": "You have to do it in a very simple way, you see F.",
+    "visual_text": "थी Koot\nLeft Roo\nRoot\nLeft\nlIhowd"
+  },
+  {
+    "start": 177.0,
+    "end": 182.0,
+    "spoken_text": "We have started from here, so as soon as we reach F, obviously we have to do it.",
+    "visual_text": "Root\nथी Koot\nLeft\nLeft Roo\nKoot दि\nKoot\nPost"
+  },
+  {
+    "start": 183.0,
+    "end": 186.0,
+    "spoken_text": "So we have reached F, which time? First time we reached F,",
+    "visual_text": "कि ना ९००६\nKoot\nFost Left\nlIhord\n९००६ दि\n९००६\n६००८\nLeft Roo"
+  },
+  {
+    "start": 186.0,
+    "end": 191.0,
+    "spoken_text": "first time means pre-order, first time means pre-order.",
+    "visual_text": "९००६\nथी Koot\nLeft\nकै\nKoot\nPost\n५९००६\n००८\nFost Left"
+  },
+  {
+    "start": 191.0,
+    "end": 196.0,
+    "spoken_text": "So as soon as we started from F, you have to traverse to the left and right.",
+    "visual_text": "९००६\nKoot\nLeft\nथी Koot"
+  },
+  {
+    "start": 196.0,
+    "end": 199.0,
+    "spoken_text": "So in the left side what is the second element? B.",
+    "visual_text": ""
+  },
+  {
+    "start": 199.0,
+    "end": 204.0,
+    "spoken_text": "So on B you reach for the first time, first time means pre-order.",
+    "visual_text": "Left Koot\nLeft\nके\nशेर\nकै\nKoot\n६००८\nLeft Roo"
+  },
+  {
+    "start": 204.0,
+    "end": 209.0,
+    "spoken_text": "We come down, A, reach for the first time on A, so in pre-order you write.",
+    "visual_text": "दि ५९००६\nLeft Koot\nLeft\nRoot\nKoot\nLeft Roo\nकै.\nरूस\nही\nजि\n९००६\nFBA"
+  },
+  {
+    "start": 209.0,
+    "end": 212.0,
+    "spoken_text": "In A we reach for the first time, in A we have to traverse to the left,",
+    "visual_text": "९००६\nLtff Koot\nPost\nKoot\nPost Runt\nFBA\n६००८\nLeft Roo"
+  },
+  {
+    "start": 212.0,
+    "end": 217.0,
+    "spoken_text": "so second time we reach A, second time means in-order.",
+    "visual_text": "९००६\nथी Koot\nLeft Roo\nFBA\nKoot\n६००८\nथी\nकै\nजे\n(थी"
+  },
+  {
+    "start": 217.0,
+    "end": 220.0,
+    "spoken_text": "See we have to traverse to the left, again we reach for the third time.",
+    "visual_text": "Llwa Koot\n(थी\nFBA\n९५\nRoot\n६००८\nLeft\nहै\nLlva Koot\nPost"
+  },
+  {
+    "start": 220.0,
+    "end": 224.0,
+    "spoken_text": "First time was A, second time was A, third time was post-order,",
+    "visual_text": "Koot\n६००८\nLeft\nहै"
+  },
+  {
+    "start": 224.0,
+    "end": 228.0,
+    "spoken_text": "because third time means post. Now we are going up on B.",
+    "visual_text": "Koot\n६००८\nLeft Roo\nपट\nRoot\nLeft\n१९"
+  },
+  {
+    "start": 228.0,
+    "end": 231.0,
+    "spoken_text": "On B we reached here for the first time, second time we reached here,",
+    "visual_text": "९००६\n००८\nFost Left\nKoot\nPost Rght\nFEA"
+  },
+  {
+    "start": 231.0,
+    "end": 236.0,
+    "spoken_text": "second time means in-order. Next on D.",
+    "visual_text": "९००६\n0०८\nLeft Koht\nKoot\nLeft Roo\nFBA\nLeft"
+  },
+  {
+    "start": 236.0,
+    "end": 240.0,
+    "spoken_text": "On D we reached for the first time, so first time means pre-order.",
+    "visual_text": "९००६\nKoot\nPost\nFEA\nथी Koot\n(थी Roo\nLeft Kght\nLeft Roo\nFBA"
+  },
+  {
+    "start": 240.0,
+    "end": 244.0,
+    "spoken_text": "Just like this you have to walk. Next we reach for the first time on C,",
+    "visual_text": "Koot\n६००८\nLeft Roo\nFBAD\nLeft\nFBEAD\n९००६\nPost\nपु"
+  },
+  {
+    "start": 244.0,
+    "end": 249.0,
+    "spoken_text": "so pre-order, write. On C we see, we reach for the second time on the round,",
+    "visual_text": "९००६\nLeft Right\n(थी\nKoot\n६००८\nLeft Roo\nLeft"
+  },
+  {
+    "start": 249.0,
+    "end": 254.0,
+    "spoken_text": "second time means in-order and from here we reached for the third time on C,",
+    "visual_text": "दि\nथी Koot\nLeft\nFBAD\n(५९००६\nLlff Koot\nFost Left Roo\nKoot"
+  },
+  {
+    "start": 254.0,
+    "end": 259.0,
+    "spoken_text": "third time means post-order. After that we reach for D.",
+    "visual_text": "५९००६\n६००८\nLeft Root\n५००६\nLeft\nAFEADIC\nRoot\nKoot\nlIhord\nFBAD\n११\n५१९\n९८ Root\nerv\nLeft Roo\nADc"
+  },
+  {
+    "start": 259.0,
+    "end": 262.0,
+    "spoken_text": "On D we reach for the second time, first time we came here and second time here.",
+    "visual_text": "९००६ दि\nKoot\nFost Left ००६\nADc\nLeft\nFBAD\nथी Koot\nदल\nLeft Roo\nFgADC"
+  },
+  {
+    "start": 262.0,
+    "end": 266.0,
+    "spoken_text": "Second time means in-order of E,",
+    "visual_text": "Koot\nPost\nFBAD\n९००६\nLeft\nही\nथी Koot\nlIhovd"
+  },
+  {
+    "start": 266.0,
+    "end": 270.0,
+    "spoken_text": "first time means pre-order on E.",
+    "visual_text": "Koot\nPost\nFBAD\nRoot दि\n(थी\nFBAN\nRost\nLeft Koot\nLeft\nNPQOHJJUL FEA\nसे\nFBA\nही"
+  },
+  {
+    "start": 270.0,
+    "end": 275.0,
+    "spoken_text": "When reached on E for the second time, it means in-order.",
+    "visual_text": "९००६\nLeft ०६\nफ्री\n७८ Root\nLeft\nFBA\nRoot\nLeft Koot\nथी\nसर"
+  },
+  {
+    "start": 275.0,
+    "end": 288.0,
+    "spoken_text": "Now on E we reach for the third time, first, second and third time.",
+    "visual_text": "Root\nLeft Koot\nLeft\nKoot\n६००८\n९००६\nLeft Root Right\n५००६\nLeft Kght\n९००६ दि\nPost Runt\nFEAD\nLeft Roo\nFBADC"
+  },
+  {
+    "start": 288.0,
+    "end": 294.2,
+    "spoken_text": "3  컬러  beispielsweise it is headquarters",
+    "visual_text": "(५९००६\nKoot\nएन, Left\nLlff Koot\nLeft\n५९००६\n६००८\nFBAD"
+  },
+  {
+    "start": 296.2,
+    "end": 299.44,
+    "spoken_text": "labour",
+    "visual_text": "Left Koot\nLeft\nlIh\nRoot\nKoot\nFBADC"
+  },
+  {
+    "start": 299.44,
+    "end": 301.7,
+    "spoken_text": "labour",
+    "visual_text": ""
+  },
+  {
+    "start": 301.7,
+    "end": 304.18,
+    "spoken_text": "labour",
+    "visual_text": "९००६\n(००८\n५७51 Left\nFBAD"
+  },
+  {
+    "start": 304.18,
+    "end": 305.54,
+    "spoken_text": "labour",
+    "visual_text": "९००६\nKoot\nPost Left"
+  },
+  {
+    "start": 305.54,
+    "end": 306.54,
+    "spoken_text": "labour",
+    "visual_text": "९००६\nLeft\nदर\nFBAD"
+  },
+  {
+    "start": 306.54,
+    "end": 307.32,
+    "spoken_text": "labour",
+    "visual_text": "९००६\nKoot\nlihovd\nFBAD\n(94९७५"
+  },
+  {
+    "start": 307.32,
+    "end": 308.22,
+    "spoken_text": "labour",
+    "visual_text": "Koot दि\nKoot\nPost"
+  },
+  {
+    "start": 308.22,
+    "end": 309.18,
+    "spoken_text": "labour",
+    "visual_text": ""
+  },
+  {
+    "start": 309.18,
+    "end": 310.06,
+    "spoken_text": "work",
+    "visual_text": "Koot\nथी Koot\nLeft\nकि."
+  },
+  {
+    "start": 310.06,
+    "end": 311.34,
+    "spoken_text": "work",
+    "visual_text": "९००६\nLeft Right\nLeft\nlIhOYd\nFBAD\nABc"
+  },
+  {
+    "start": 311.42,
+    "end": 313.24,
+    "spoken_text": "work",
+    "visual_text": "९८ ९००६\nLeft कद\nFBA\nही\n८८:"
+  },
+  {
+    "start": 313.24,
+    "end": 316.28,
+    "spoken_text": "work",
+    "visual_text": "(५९००६ दि\n६००८\nLeft\n८८:\nDEF\nLeft Koot\nFBA\nही?\nDcr\n९००६\nKoot\nPost"
+  },
+  {
+    "start": 316.28,
+    "end": 317.22,
+    "spoken_text": "work",
+    "visual_text": "Koot\nLeft Kght"
+  },
+  {
+    "start": 317.22,
+    "end": 327.22,
+    "spoken_text": "तो आई पे प्री अडर में, उसके वड़ हम एच पे पबली बार आए,",
+    "visual_text": "Left Koot\nLeft\n९००६\nKoot\nLeft Kght\n09८९८ ५००६\n६००८\nLeft Roo\nप्र\nपट\n८८\nRight\n(थी\nFBAD\nछि।\nKght\nADC"
+  },
+  {
+    "start": 327.22,
+    "end": 336.22,
+    "spoken_text": "यहापे वम एच पे ही तुसरी बार आए, और यहापे वम के एच पे ही तुसरी बार आए,",
+    "visual_text": "Koot\nथी Koot\nLeft\nEGLH\nRoot\n६००८\nLeft Roo\nही\n९००६\n००८\n3३३\n(थी\n“पु\nIIhord\nDCEGLH\nLeft Root Right\n५९००६\nLeft Right"
+  },
+  {
+    "start": 337.22,
+    "end": 340.04,
+    "spoken_text": "वंकर्द से रही से हम वम के अई पे वम डूसरी बार आए,",
+    "visual_text": "Koot\n६००८\nLeft\n(ले?\nFBA"
+  },
+  {
+    "start": 340.14000000000004,
+    "end": 344.04,
+    "spoken_text": "मतलप आई बचन जाएगा इन अडर दूत,",
+    "visual_text": "Rost\nKoot\nLeft\n८८;\nLeft Koot\n९००६\nADc"
+  },
+  {
+    "start": 344.14000000000004,
+    "end": 347.04,
+    "spoken_text": "दिन आए पे हि हम वम के तीसरी बार आए,",
+    "visual_text": "Koot\nLeft Koot\nLeft"
+  },
+  {
+    "start": 347.14000000000004,
+    "end": 350.04,
+    "spoken_text": "तो आई बी दे पारट अप पूस्थ� Jord.",
+    "visual_text": "९००६\nKoot\nथी\nFBAD\nEGIH\nथी ६००८\nCEGLH\nLeft Roo"
+  },
+  {
+    "start": 350.14000000000004,
+    "end": 354.04,
+    "spoken_text": "तेन थे गिपे हम वौम के तु बारा आए फिर थीसरी बार आए,",
+    "visual_text": "९००६\nLeft Kght\nजय\nKoot\nPost\n(की\nयु Koot\nभू\nLeft Koht कट\n९३५\n२२\n३६९\nKoot दि\nLeft"
+  },
+  {
+    "start": 354.04,
+    "end": 370.42,
+    "spoken_text": "तो जी प myślę mein hasta g gayi",
+    "visual_text": "६००८\n(थी\nFBAD\nछि।\nRoot\nKoot\n१४०\n0८८८:\nRost\nLeft Koot\nLeft\n८८:\nदर\n५९४३४\nकै\n५९००६\nKoot दि\nथी Koot\nRoo\n(9१७\n2०८\nLeft Roo\n९००६\nLeft (००८\nLoy\nथी\nना\nADC"
+  },
+  {
+    "start": 370.42,
+    "end": 372.52000000000004,
+    "spoken_text": "अर already iOS",
+    "visual_text": ""
+  },
+  {
+    "start": 380.02000000000004,
+    "end": 383.36,
+    "spoken_text": "प Guild",
+    "visual_text": "९००६\nKoot\nलि\n५७51 Left Roo\nDceg\nKoot दि\n६००८\nLeft"
+  },
+  {
+    "start": 383.36,
+    "end": 388.36,
+    "spoken_text": "ये रहीट वाल है, तो ये बहुत ये सिम्पल सी टेकनी के और ये हमेशा काम याब रहेगी आपको",
+    "visual_text": "Koot\nLeft Koot\nLeft\nLeff\nRoot\nIGMD"
+  },
+  {
+    "start": 388.36,
+    "end": 391.36,
+    "spoken_text": "विदन फाँ मिनेट्स, विदन फाँ मिनेट्स आपको ये टेकनीक समझा यागी",
+    "visual_text": "५००६\nKoot\nPost\nतर.\n८८:"
+  },
+  {
+    "start": 391.36,
+    "end": 406.2,
+    "spoken_text": "और आपको ये प्चाँषन आता तुफ से तुफ भी अप विदन आप मिनेट्स को साँल कर सकते हो, तो प्लीज गाएज इसको अच्छे से करके जाना, इन के इस नहीं समझा रही तो आप प्लीज दुबारास इस को चेक कर लो, ताखी आपको ये टेकनीक अच्छे से पता ल",
+    "visual_text": "Koot दि\nथी Koot\nLeft Kght\nROof\n(००८\nLeft\n८८,\nKoot\nFost Left\n६००८\nना\nया\nLeft Koot\n(थी\nपट\nगए\nलव Rost\nPost Rght\nLeft Root\n९००६\nसच\nFBAD\nटी\nKoot (4५८ दि\nLeft Root Right"
+  }
+]

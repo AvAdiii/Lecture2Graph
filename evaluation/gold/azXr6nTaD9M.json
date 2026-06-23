@@ -1,0 +1,20 @@
+{
+  "video_id": "azXr6nTaD9M",
+  "title": "Recursion and the Call Stack",
+  "annotation": "Domain-authored gold prerequisite DAG.",
+  "concepts": ["data_structure", "stack", "recursion", "factorial", "activation_record",
+               "instruction_pointer", "call_by_value", "pointer",
+               "time_complexity", "space_complexity"],
+  "edges": [
+    {"source": "data_structure", "target": "stack"},
+    {"source": "stack", "target": "recursion"},
+    {"source": "recursion", "target": "factorial"},
+    {"source": "recursion", "target": "activation_record"},
+    {"source": "stack", "target": "activation_record"},
+    {"source": "activation_record", "target": "instruction_pointer"},
+    {"source": "pointer", "target": "instruction_pointer"},
+    {"source": "call_by_value", "target": "activation_record"},
+    {"source": "recursion", "target": "time_complexity"},
+    {"source": "recursion", "target": "space_complexity"}
+  ]
+}
