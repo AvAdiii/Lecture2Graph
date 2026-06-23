@@ -42,7 +42,7 @@ RULES:
    generic English words, lecture navigation ("next slide", "let's see").
 2. Normalize concept names to canonical snake_case (e.g. "binary_search_tree",
    "depth_first_search", "primary_key", "merge_sort").
-3. Merge synonyms: e.g. "BST" and "binary search tree" → "binary_search_tree".
+3. Merge synonyms: e.g. "BST" and "binary search tree" -> "binary_search_tree".
 4. For each concept, count how many transcript segments mention it.
 5. Record the earliest timestamp (start field) where it appears as first_seen.
 6. List which sources mentioned it (asr, ocr, or both).
@@ -193,7 +193,7 @@ def run(video_id: str, data_root: str) -> dict:
         json.dump(result, f, ensure_ascii=False, indent=2)
 
     n = len(result.get("concepts", []))
-    print(f"[m4] saved {n} concepts → {concepts_path}")
+    print(f"[m4] saved {n} concepts -> {concepts_path}")
     return {"total_concepts": n, "concepts_path": str(concepts_path)}
 
 

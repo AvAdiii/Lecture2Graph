@@ -15,7 +15,7 @@ It builds this graph three different ways, and measures which one wins:
 | **hybrid** | **combines both** | **0.551** | 0.804 | **0.932** |
 
 <sub>Averaged over 5 lectures. Reproduce with `python -m evaluation.benchmark`
-→ [full results](evaluation/results/benchmark.md). The LLM is a 7B model
+-> [full results](evaluation/results/benchmark.md). The LLM is a 7B model
 running fully locally via Ollama, no API key, no cloud.</sub>
 
 **The takeaway:** the rule-based extractor alone is already strong. The local
@@ -31,7 +31,7 @@ are different, so a confidence-weighted fusion cancels out most of the noise.
 (code-mixed Hindi/English, picked up by Whisper) and writes on a board (picked
 up by raw OCR, which is unreliable on handwriting). The symbolic pipeline
 builds a vocabulary from the clean speech transcript and uses that to
-fuzzy-correct OCR errors (`"Koot"` → `"root"`), so it adapts to new handwriting
+fuzzy-correct OCR errors (`"Koot"` -> `"root"`), so it adapts to new handwriting
 without per-video tuning.
 
 **2. Teaching order isn't dependency order.** A lecturer might give an example
@@ -137,7 +137,7 @@ python -m lecture2graph.hybrid.fuse VIDEO_ID
 ## How it's scored
 
 - A human wrote a "correct" prerequisite graph for each of the 5 lectures
-  (`evaluation/gold/`). Edge `A → B` means "learn A before B."
+  (`evaluation/gold/`). Edge `A -> B` means "learn A before B."
 - Each method's output is compared against that gold graph: precision/recall/F1
   on both concepts and edges, how often the predicted order respects the gold
   order, and a structural edit-distance score.
@@ -157,12 +157,31 @@ python -m lecture2graph.hybrid.fuse VIDEO_ID
 - The rule-based side is CS-specific. Teaching it a new subject means writing
   new domain rules, see [`docs/symbolic-hardcoding.md`](docs/symbolic-hardcoding.md).
 
-## Background
+## Where this could go next
 
-This started as a take-home task for a research lab's recruitment process (a
-code-mixed, multimodal concept extractor). It was later rebuilt into this
-measured, neuro-symbolic system, the fusion logic, evaluation benchmark, and
-tutor are new work built on top of that original pipeline.
+A few directions that would make the evaluation more rigorous, roughly in
+order of impact:
+
+- **Ablate the inputs, not just the methods.** Right now the comparison is
+  symbolic vs. neural vs. hybrid, but within the symbolic pipeline itself it
+  would be worth isolating how much OCR actually contributes: run it on
+  ASR-only vs. ASR+OCR and see how much the board-writing signal moves the
+  numbers. Same idea applies to the neural side's chunking strategy.
+- **Grow the gold set and get a second annotator.** 5 lectures and one labeler
+  is enough to show a real effect, not enough to call it statistically solid.
+  Inter-annotator agreement on the gold DAGs would also validate that "correct
+  prerequisite order" is well-defined enough to score against.
+- **Try a stronger neural model, or a smaller fine-tuned one.** The 7B
+  general-purpose model is the weak link; either scaling up or fine-tuning a
+  small model specifically on prerequisite-extraction would likely close the
+  gap with symbolic and make the hybrid's edge larger.
+- **Make the fusion confidence-aware end-to-end.** The noisy-OR combination is
+  a reasonable default, but it isn't learned, calibrating it (or weighting
+  by each method's per-category reliability rather than a single discount
+  factor) would probably help.
+- **Extend beyond CS.** The rule-based side is hand-built for CS lectures; a
+  second subject domain would test whether the architecture (not just the
+  rules) generalizes.
 
 ## License
 

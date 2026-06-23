@@ -4,7 +4,7 @@ Regenerate the neural prerequisite graph from *cached* artifacts.
 The full neural pipeline (`lecture2graph.neural.pipeline`) downloads the video
 and runs Whisper + Tesseract. That is expensive and only needed once. Once a
 video's `aligned_segments.json` is cached, the neural extraction is just two
-local-LLM calls, so this module re-runs only M3(in-memory)→M4→M5 and writes
+local-LLM calls, so this module re-runs only M3(in-memory)->M4->M5 and writes
 
     data/<video>/graph.neural.json     (benchmark/fusion input)
     data/<video>/concepts.neural.json  (extracted concepts, for inspection)

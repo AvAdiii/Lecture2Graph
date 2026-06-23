@@ -6,9 +6,9 @@ WHY SIMPLIFIED:
   hallucination filtering because the downstream regex patterns were fragile.
 
   approach_2 sends text to a Gemini LLM which can handle:
-  - misspelled words (e.g. "recurson" → understands as "recursion")
+  - misspelled words (e.g. "recurson" -> understands as "recursion")
   - code-mixed speech (e.g. hindi+english)
-  - noisy OCR (e.g. "B1nary Tr33" → understands as "Binary Tree")
+  - noisy OCR (e.g. "B1nary Tr33" -> understands as "Binary Tree")
   - filler words and partial sentences
 
   so we only need basic cleanup here:
@@ -83,7 +83,7 @@ def normalize_segments(segments: list[dict], source_lang: str = "en") -> list[di
             "end": seg.get("end", 0),
             "text": text,
             "source": seg.get("source", "unknown"),
-            "lang": "en",           # whisper translate mode → always english
+            "lang": "en",           # whisper translate mode -> always english
             "source_lang": source_lang,
         })
     return cleaned

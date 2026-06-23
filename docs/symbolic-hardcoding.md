@@ -91,7 +91,7 @@ All from Video 1's handwritten board:
 | shortest path | `shortest\s+path`, `shortest\s+distance` |
 | level order | `level\s+(?:order\|by\s+level\|wise)` |
 
-### `_OCR_KEYWORD_CONCEPTS`: OCR keyword → concept mapping (18 entries)
+### `_OCR_KEYWORD_CONCEPTS`: OCR keyword -> concept mapping (18 entries)
 
 **Added for Video 1** (8 entries):
 | OCR keyword | Maps to concept |
@@ -174,7 +174,7 @@ All from Video 1's handwritten board:
 | breadth first search | shortest path | is_prerequisite_for | 0.7 |
 | connected component | graph traversal | is_prerequisite_for | 0.6 |
 
-### `_CONCEPT_FRAGMENTS`: Text fragment → concept mapping (30 entries)
+### `_CONCEPT_FRAGMENTS`: Text fragment -> concept mapping (30 entries)
 
 Used inside causal anchor text to find mentioned concepts.
 
@@ -221,10 +221,10 @@ Used inside causal anchor text to find mentioned concepts.
 
 ### `_CAUSAL_PATTERNS`: Regex patterns for causal language (4 patterns, generic)
 These are **NOT video-specific**, they detect general causal/sequential language:
-1. `before we do X, you need to know Y` → prerequisite_explicit
-2. `first we do X, then Y` → temporal_sequence
-3. `remember/recall X from before` → back_reference
-4. `X means Y` → definition
+1. `before we do X, you need to know Y` -> prerequisite_explicit
+2. `first we do X, then Y` -> temporal_sequence
+3. `remember/recall X from before` -> back_reference
+4. `X means Y` -> definition
 
 ### Constants
 | Name | Value | Purpose |

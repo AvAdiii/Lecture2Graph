@@ -4,9 +4,9 @@ module 5 (neural): prerequisite graph via a local LLM.
 WHY LLM:
   The symbolic pipeline used three heuristic strategies to build prerequisite
   edges:
-    1. Hardcoded domain rules (~80 rules like "array → sorting")
+    1. Hardcoded domain rules (~80 rules like "array -> sorting")
     2. Causal language detection (regex for "before we learn X, need Y")
-    3. Temporal ordering (first-mentioned → prerequisite of later-mentioned)
+    3. Temporal ordering (first-mentioned -> prerequisite of later-mentioned)
 
   Problems:
     - Domain rules were incomplete and domain-specific
@@ -286,7 +286,7 @@ def run(video_id: str, data_root: str) -> dict:
 
     n_edges = len(result.get("edges", []))
     n_topo = len(result.get("topological_order", []))
-    print(f"[m5] saved graph → {graph_path}")
+    print(f"[m5] saved graph -> {graph_path}")
     return {"total_edges": n_edges, "topo_size": n_topo,
             "graph_path": str(graph_path)}
 
