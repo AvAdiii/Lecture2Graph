@@ -1,51 +1,34 @@
 # Lecture2Graph
 
-Turn a lecture video into a map of what to learn, and in what order.
+Lecture2Graph watches a lecture video and produces a **prerequisite graph**:
+a map of every concept the lecture teaches and which ones depend on which
+others. Point it at a recording, and instead of a flat transcript you get a
+study order, "to understand X, learn A, then B, then C first."
 
-Lecture2Graph watches a lecture (Hindi/English code-mixed, spoken + written on
-a board) and builds a **prerequisite graph**: which concepts the lecture
-teaches, and which ones you need to know before which others.
+The lectures this was built and tested on are Hindi/English code-mixed
+computer science lectures, where the instructor speaks one language and
+writes notes on a board, so the system has to combine speech and handwriting,
+not just read a clean transcript.
 
-It builds this graph three different ways, and measures which one wins:
+Three independent methods build that graph, and each is scored against a
+human-written answer key so the comparison isn't just qualitative:
 
-| method | how it works | edge F1 | node F1 | order accuracy |
-|---|---|---|---|---|
-| symbolic | regex + hand-written domain rules | 0.540 | **0.833** | 0.921 |
-| neural | a local LLM reads the transcript | 0.174 | 0.479 | 0.527 |
-| **hybrid** | **combines both** | **0.551** | 0.804 | **0.932** |
+| method | how it builds the graph | score (edge F1) |
+|---|---|---|
+| symbolic | hand-written rules: regex pattern matching + a curated set of CS prerequisite rules | 0.540 |
+| neural | a local LLM (7B, runs on a laptop, no cloud) reads the transcript and reasons about dependencies | 0.174 |
+| **hybrid** | **combines both, weighting agreement higher and resolving disagreements** | **0.551** |
 
-<sub>Averaged over 5 lectures. Reproduce with `python -m evaluation.benchmark`
--> [full results](evaluation/results/benchmark.md). The LLM is a 7B model
-running fully locally via Ollama, no API key, no cloud.</sub>
+*Edge F1 measures how many of the "A must be learned before B" relationships
+the method finds match the ones in a human-written answer key, balancing
+false positives against missed dependencies. Higher is better; 1.0 would mean
+a perfect match. Full numbers, including concept-recovery and ordering
+accuracy, in [`evaluation/results/benchmark.md`](evaluation/results/benchmark.md).*
 
-**The takeaway:** the rule-based extractor alone is already strong. The local
-LLM alone is weak and inconsistent. But combining them beats both individually
-on accuracy, recall, and getting the order right, because each one's mistakes
-are different, so a confidence-weighted fusion cancels out most of the noise.
-
----
-
-## Why this isn't just "feed it to an LLM"
-
-**1. The input is two messy signals that disagree.** The lecturer speaks
-(code-mixed Hindi/English, picked up by Whisper) and writes on a board (picked
-up by raw OCR, which is unreliable on handwriting). The symbolic pipeline
-builds a vocabulary from the clean speech transcript and uses that to
-fuzzy-correct OCR errors (`"Koot"` -> `"root"`), so it adapts to new handwriting
-without per-video tuning.
-
-**2. Teaching order isn't dependency order.** A lecturer might give an example
-(say, pre-order traversal) before explaining the general concept it depends on
-(tree traversal). Naively ordering concepts by when they're first mentioned
-gets this backwards. The graph builder instead combines domain rules, causal
-phrases ("X means Y", "pehle X phir Y"), and mention-order, while checking that
-no new edge contradicts an already-established dependency path.
-
-**3. The two extractors don't even agree on vocabulary.** The rule-based and
-LLM-based pipelines output different schemas and call the same concept
-different things (`"bfs"` vs `"breadth first search"`). Before they can be
-compared or fused, everything is normalized into one canonical name space
-(`lecture2graph/graphs.py`).
+The rule-based method alone is already decent. The small local LLM alone is
+noisy. But combining them produces a better graph than either alone, because
+they tend to make *different* mistakes, so merging them with confidence
+weighting cancels out a good chunk of the noise instead of compounding it.
 
 ---
 
@@ -88,6 +71,7 @@ evaluation/
   gold/            hand-written correct prerequisite graphs, for scoring
   metrics.py       precision/recall/F1, ordering accuracy, edit distance
   benchmark.py     runs all three methods and compares them
+  ablation.py      isolates how much OCR contributes to the symbolic score
 tests/             sanity checks
 data/              cached per-video outputs (transcripts, graphs)
 ```
@@ -134,54 +118,25 @@ python -m lecture2graph.hybrid.fuse VIDEO_ID
 
 ---
 
-## How it's scored
+## Ablation: does the board (OCR) actually matter?
 
-- A human wrote a "correct" prerequisite graph for each of the 5 lectures
-  (`evaluation/gold/`). Edge `A -> B` means "learn A before B."
-- Each method's output is compared against that gold graph: precision/recall/F1
-  on both concepts and edges, how often the predicted order respects the gold
-  order, and a structural edit-distance score.
-- All three methods are scored on the exact same 5 lectures, so the
-  comparison is apples-to-apples.
+The symbolic pipeline reads two signals: what the instructor *says* (speech,
+via Whisper) and what they *write* (handwriting, via OCR). To check whether
+OCR is pulling its weight or just adding noise, it was re-run on the same 5
+lectures with OCR disabled, speech only, everything else identical, and
+scored against the same gold graphs:
 
-## Honest limitations
+| input | edge F1 | node F1 | order accuracy |
+|---|---|---|---|
+| speech only (no OCR) | 0.482 | 0.808 | 0.899 |
+| speech + OCR (default) | **0.540** | **0.833** | **0.921** |
 
-- 5 lectures is a real but small sample, treat it as a pilot, not a
-  statistically powered benchmark.
-- The local LLM is a 7B model, chosen to run on a normal laptop. It's weak on
-  noisy lectures (on 2 of 5 it finds almost nothing useful). A bigger model
-  would likely close the neural/hybrid gap further; the architecture wouldn't
-  need to change.
-- The gold graphs were written by one annotator, not cross-checked by multiple
-  people.
-- The rule-based side is CS-specific. Teaching it a new subject means writing
-  new domain rules, see [`docs/symbolic-hardcoding.md`](docs/symbolic-hardcoding.md).
-
-## Where this could go next
-
-A few directions that would make the evaluation more rigorous, roughly in
-order of impact:
-
-- **Ablate the inputs, not just the methods.** Right now the comparison is
-  symbolic vs. neural vs. hybrid, but within the symbolic pipeline itself it
-  would be worth isolating how much OCR actually contributes: run it on
-  ASR-only vs. ASR+OCR and see how much the board-writing signal moves the
-  numbers. Same idea applies to the neural side's chunking strategy.
-- **Grow the gold set and get a second annotator.** 5 lectures and one labeler
-  is enough to show a real effect, not enough to call it statistically solid.
-  Inter-annotator agreement on the gold DAGs would also validate that "correct
-  prerequisite order" is well-defined enough to score against.
-- **Try a stronger neural model, or a smaller fine-tuned one.** The 7B
-  general-purpose model is the weak link; either scaling up or fine-tuning a
-  small model specifically on prerequisite-extraction would likely close the
-  gap with symbolic and make the hybrid's edge larger.
-- **Make the fusion confidence-aware end-to-end.** The noisy-OR combination is
-  a reasonable default, but it isn't learned, calibrating it (or weighting
-  by each method's per-category reliability rather than a single discount
-  factor) would probably help.
-- **Extend beyond CS.** The rule-based side is hand-built for CS lectures; a
-  second subject domain would test whether the architecture (not just the
-  rules) generalizes.
+OCR earns its place: speech alone underperforms across every metric, and on
+lectures where the instructor narrates less while writing more, OCR is the
+difference between recovering an edge and missing it entirely (e.g. one
+lecture's edge F1 goes from 0.286 to 0.444 with OCR included). Full per-video
+breakdown in [`evaluation/results/ablation_ocr.md`](evaluation/results/ablation_ocr.md),
+reproduce with `python -m evaluation.ablation`.
 
 ## License
 
