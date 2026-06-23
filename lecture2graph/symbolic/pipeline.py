@@ -1,5 +1,5 @@
 """
-pipeline — orchestrates the symbolic (rule-based) stages m1..m6 for one video.
+pipeline: orchestrates the symbolic (rule-based) stages m1..m6 for one video.
 
 usage:
   python -m lecture2graph.symbolic.pipeline <youtube_url> [--model small] [--data-root data] [--force-from m2]
@@ -28,7 +28,7 @@ STAGES = ["m1", "m2", "m3", "m4", "m5", "m6"]
 def _banner(stage: str, label: str) -> None:
     ts = time.strftime("%H:%M:%S")
     print(f"\n{'='*60}", flush=True)
-    print(f"  [{ts}]  {stage.upper()} — {label}", flush=True)
+    print(f"  [{ts}]  {stage.upper()}, {label}", flush=True)
     print(f"{'='*60}", flush=True)
 
 
@@ -39,7 +39,7 @@ def _should_run(stage: str, force_from: str | None) -> bool:
 
 
 def _resolve_data_root(data_root: str) -> str:
-    """resolve data root — check cwd first, then relative to script."""
+    """resolve data root, check cwd first, then relative to script."""
     p = Path(data_root)
     if p.exists():
         return str(p)
@@ -156,7 +156,7 @@ def run_pipeline(url: str, model: str = "small",
         timings["m4"] = round(time.time() - t0, 1)
         results["m4"] = m4_result
         notify("m4", "done", m4_result)
-        print(f"[pipeline] m4 done in {timings['m4']}s — {m4_result['total_concepts']} concepts", flush=True)
+        print(f"[pipeline] m4 done in {timings['m4']}s, {m4_result['total_concepts']} concepts", flush=True)
     except Exception as e:
         notify("m4", "error", {"error": str(e)})
         raise
@@ -177,7 +177,7 @@ def run_pipeline(url: str, model: str = "small",
         timings["m5"] = round(time.time() - t0, 1)
         results["m5"] = m5_result
         notify("m5", "done", m5_result)
-        print(f"[pipeline] m5 done in {timings['m5']}s — {m5_result['total_edges']} edges", flush=True)
+        print(f"[pipeline] m5 done in {timings['m5']}s, {m5_result['total_edges']} edges", flush=True)
     except Exception as e:
         notify("m5", "error", {"error": str(e)})
         raise

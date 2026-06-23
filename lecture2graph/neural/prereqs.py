@@ -1,5 +1,5 @@
 """
-module 5 (neural) — prerequisite graph via a local LLM.
+module 5 (neural): prerequisite graph via a local LLM.
 
 WHY LLM:
   The symbolic pipeline used three heuristic strategies to build prerequisite
@@ -21,7 +21,7 @@ WHY LLM:
     - Explain *why* each edge exists
 
 LOCAL, NOT CLOUD:
-  Runs against a local OpenAI-compatible server (Ollama by default — see
+  Runs against a local OpenAI-compatible server (Ollama by default, see
   lecture2graph.neural.llm). One request per video, no API key.
 
 OUTPUT:
@@ -44,10 +44,10 @@ You are an expert computer science educator building a prerequisite knowledge gr
 Given a list of CS concepts from a lecture, output the directed edges that say
 which concept must be learned BEFORE which other concept.
 
-############  EDGE DIRECTION — READ THIS TWICE  ############
+############  EDGE DIRECTION: READ THIS TWICE  ############
 Every edge is {"from": A, "to": B} and MUST mean: learn A FIRST, then B.
-  * "from" = the PREREQUISITE — the simpler / more general / foundational idea.
-  * "to"   = the concept that DEPENDS on it — more advanced or more specific.
+  * "from" = the PREREQUISITE, the simpler / more general / foundational idea.
+  * "to"   = the concept that DEPENDS on it, more advanced or more specific.
 
 Get the arrow the right way round. The most common mistake is reversing it:
   CORRECT: {"from": "tree_traversal", "to": "pre_order_traversal"}
@@ -62,7 +62,7 @@ concept is ALWAYS the "from".
 ###########################################################
 
 RULES:
-1. Add an edge for every genuine "learn A before B" relationship — include
+1. Add an edge for every genuine "learn A before B" relationship, include
    general->specific (a concept and its sub-types) and foundation->application.
    Aim for good coverage, but never invent relationships that aren't real.
    - "array" -> "sorting" (need arrays to learn sorting)        ✓
@@ -75,7 +75,7 @@ RULES:
 4. The graph MUST be a DAG (no cycles): if A->B then never B->A.
 5. Produce a topological ordering of ALL concepts (prerequisites first).
 
-RESPOND WITH ONLY valid JSON — no markdown fences:
+RESPOND WITH ONLY valid JSON, no markdown fences:
 {
   "edges": [
     {"from": "array", "to": "sorting", "type": "domain_rule",
@@ -103,7 +103,7 @@ def _format_concepts(concepts: list[dict]) -> str:
 
 def _build_transcript_summary(segments: list[dict],
                                concepts: list[dict]) -> str:
-    """Pick segments that mention concepts — compact summary for context."""
+    """Pick segments that mention concepts, compact summary for context."""
     concept_names = set()
     for c in concepts:
         name = c["name"].replace("_", " ").lower()
@@ -171,7 +171,7 @@ def verify_dag(concepts: list[str], edges: list[dict]) -> tuple[list[dict], list
                        and e["from"] != e["to"]]
         return clean_edges, topo
 
-    # cycles detected — remove back-edges
+    # cycles detected, remove back-edges
     print(f"[m5] WARNING: cycle detected, removing back-edges "
           f"({len(visited)}/{len(all_nodes)} visited)")
     remaining = all_nodes - visited
@@ -191,7 +191,7 @@ def build_prerequisites(concepts: list[dict], segments: list[dict]) -> dict:
     Single call. Returns: {"edges": [...], "topological_order": [...]}
     """
     if not concepts:
-        print("[m5] no concepts — returning empty graph")
+        print("[m5] no concepts, returning empty graph")
         return {"edges": [], "topological_order": []}
 
     concept_text = _format_concepts(concepts)
@@ -205,7 +205,7 @@ def build_prerequisites(concepts: list[dict], segments: list[dict]) -> dict:
         f"- Only genuine prerequisites (A must be known before B).\n"
         f"- Include ALL concepts in topological_order, even isolated ones.\n"
         f"- Graph must be a DAG (no cycles).\n"
-        f"- Be conservative — fewer correct edges > many wrong ones.\n\n"
+        f"- Be conservative, fewer correct edges > many wrong ones.\n\n"
         f"Return ONLY valid JSON."
     )
 
@@ -268,7 +268,7 @@ def run(video_id: str, data_root: str) -> dict:
         return {"total_edges": n, "topo_size": t, "graph_path": str(graph_path)}
 
     if not concepts_path.exists():
-        raise FileNotFoundError(f"[m5] {concepts_path} not found — run M4 first")
+        raise FileNotFoundError(f"[m5] {concepts_path} not found, run M4 first")
 
     with open(concepts_path) as f:
         concepts_data = json.load(f)

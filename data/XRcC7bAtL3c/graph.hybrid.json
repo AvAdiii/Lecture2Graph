@@ -75,24 +75,66 @@
   ],
   "edges": [
     {
-      "source": "left_subtree",
-      "target": "pre_order_traversal",
+      "source": "dummy_node",
+      "target": "tree_traversal",
+      "relation": "is_part_of",
+      "confidence": 0.54,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "node",
+      "target": "post_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.675,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "root_node",
+      "target": "in_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.675,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "tree",
+      "target": "tree_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.81,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "root_node",
+      "target": "right_subtree",
       "relation": "is_prerequisite_for",
       "confidence": 0.63,
       "provenance": "symbolic"
     },
     {
-      "source": "node",
-      "target": "tree_traversal",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.765,
-      "provenance": "neural"
+      "source": "tree_traversal",
+      "target": "post_order_traversal",
+      "relation": "refines",
+      "confidence": 0.985,
+      "provenance": "both"
     },
     {
-      "source": "node",
-      "target": "right_subtree",
+      "source": "root_node",
+      "target": "left_subtree",
       "relation": "is_prerequisite_for",
       "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "tree",
+      "target": "binary_tree",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.81,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "root_node",
+      "target": "post_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.675,
       "provenance": "symbolic"
     },
     {
@@ -103,17 +145,17 @@
       "provenance": "symbolic"
     },
     {
-      "source": "tree",
-      "target": "tree_traversal",
+      "source": "binary_tree",
+      "target": "node",
       "relation": "is_prerequisite_for",
-      "confidence": 0.81,
-      "provenance": "symbolic"
+      "confidence": 0.765,
+      "provenance": "neural"
     },
     {
-      "source": "tree",
-      "target": "binary_tree",
+      "source": "left_subtree",
+      "target": "pre_order_traversal",
       "relation": "is_prerequisite_for",
-      "confidence": 0.81,
+      "confidence": 0.63,
       "provenance": "symbolic"
     },
     {
@@ -131,34 +173,6 @@
       "provenance": "symbolic"
     },
     {
-      "source": "root_node",
-      "target": "in_order_traversal",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.675,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "node",
-      "target": "post_order_traversal",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.675,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "root_node",
-      "target": "left_subtree",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.63,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "right_subtree",
-      "target": "pre_order_traversal",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.63,
-      "provenance": "symbolic"
-    },
-    {
       "source": "leaf_node",
       "target": "node",
       "relation": "is_prerequisite_for",
@@ -166,24 +180,10 @@
       "provenance": "neural"
     },
     {
-      "source": "node",
-      "target": "pre_order_traversal",
+      "source": "children",
+      "target": "left_subtree",
       "relation": "is_prerequisite_for",
-      "confidence": 0.675,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "binary_tree",
-      "target": "tree_traversal",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.985,
-      "provenance": "both"
-    },
-    {
-      "source": "dummy_node",
-      "target": "tree_traversal",
-      "relation": "is_part_of",
-      "confidence": 0.54,
+      "confidence": 0.63,
       "provenance": "symbolic"
     },
     {
@@ -194,8 +194,71 @@
       "provenance": "symbolic"
     },
     {
+      "source": "node",
+      "target": "tree_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "left_subtree",
+      "target": "post_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "node",
+      "target": "pre_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.675,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "right_subtree",
+      "target": "pre_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "binary_tree",
+      "target": "tree_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.985,
+      "provenance": "both"
+    },
+    {
       "source": "right_subtree",
       "target": "in_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.72,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "node",
+      "target": "right_subtree",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "root_node",
+      "target": "pre_order_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.675,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "tree_traversal",
+      "target": "pre_order_traversal",
+      "relation": "refines",
+      "confidence": 0.985,
+      "provenance": "both"
+    },
+    {
+      "source": "root_node",
+      "target": "tree_traversal",
       "relation": "is_prerequisite_for",
       "confidence": 0.72,
       "provenance": "symbolic"
@@ -208,73 +271,10 @@
       "provenance": "symbolic"
     },
     {
-      "source": "binary_tree",
-      "target": "node",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.765,
-      "provenance": "neural"
-    },
-    {
-      "source": "tree_traversal",
-      "target": "post_order_traversal",
-      "relation": "refines",
-      "confidence": 0.985,
-      "provenance": "both"
-    },
-    {
-      "source": "root_node",
-      "target": "right_subtree",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.63,
-      "provenance": "symbolic"
-    },
-    {
       "source": "node",
       "target": "left_subtree",
       "relation": "is_prerequisite_for",
       "confidence": 0.63,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "root_node",
-      "target": "tree_traversal",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.72,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "tree_traversal",
-      "target": "pre_order_traversal",
-      "relation": "refines",
-      "confidence": 0.985,
-      "provenance": "both"
-    },
-    {
-      "source": "children",
-      "target": "left_subtree",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.63,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "root_node",
-      "target": "pre_order_traversal",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.675,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "root_node",
-      "target": "post_order_traversal",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.675,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "left_subtree",
-      "target": "post_order_traversal",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.72,
       "provenance": "symbolic"
     },
     {

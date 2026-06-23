@@ -1,4 +1,4 @@
-# Concept DAG Report — XRcC7bAtL3c
+# Concept DAG Report: XRcC7bAtL3c
 
 **Source language:** English
 **Concepts:** 14 | **Edges:** 51 | **Topo order:** 14/14

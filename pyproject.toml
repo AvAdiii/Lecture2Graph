@@ -16,7 +16,7 @@ dependencies = [
     "rapidfuzz",
     "networkx",
     # neural extractor uses a local OpenAI-compatible server (Ollama) via
-    # stdlib urllib — no extra Python dependency required.
+    # stdlib urllib, no extra Python dependency required.
 ]
 
 [project.scripts]

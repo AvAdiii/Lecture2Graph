@@ -14,9 +14,9 @@ Before we can fuse them or score them against a gold standard, every concept
 name has to be resolved to a single canonical id ("binary tree" / "binary_tree"
 / "BST" must all collapse to one node). This module owns that reconciliation:
 
-    * `canonical()`  — deterministic concept-name normalization + alias map
-    * `PrereqGraph`  — schema-agnostic in-memory graph (canonical ids)
-    * `load_graph()` — read either pipeline's JSON into a `PrereqGraph`
+    * `canonical()`: deterministic concept-name normalization + alias map
+    * `PrereqGraph`: schema-agnostic in-memory graph (canonical ids)
+    * `load_graph()`: read either pipeline's JSON into a `PrereqGraph`
 
 Keeping the canonicalization deterministic (a documented alias table, no fuzzy
 guessing at scoring time) is intentional: the evaluation numbers must be
@@ -63,7 +63,7 @@ _DEFAULT_CONFIDENCE = {
 
 # Alias table applied AFTER structural normalization (snake_case). Resolves
 # acronyms and the symbolic-vs-neural naming split. Documented and small on
-# purpose — this is the only place concept identity is decided.
+# purpose, this is the only place concept identity is decided.
 _ALIASES = {
     "bfs": "breadth_first_search",
     "dfs": "depth_first_search",
@@ -219,7 +219,7 @@ def load_graph(path: str | Path, *, video_id: str = "", method: str = "") -> Pre
         g.add_edge(Edge(canonical(src), canonical(dst), relation,
                         float(c), provenance=method or "unknown"))
 
-    # neural graphs have no node list — derive nodes from edges + topo order
+    # neural graphs have no node list, derive nodes from edges + topo order
     for n in raw.get("topological_order", []):
         g.nodes.add(canonical(n))
 
@@ -230,7 +230,7 @@ def topological_order(g: PrereqGraph) -> list[str]:
     """Kahn topological sort over prerequisite edges; stable tie-break by name.
 
     Falls back gracefully if the graph still has a cycle (returns the partial
-    order followed by the remaining nodes) — fusion is expected to break cycles
+    order followed by the remaining nodes), fusion is expected to break cycles
     first, but this keeps the function total.
     """
     import networkx as nx

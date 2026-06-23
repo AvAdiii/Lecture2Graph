@@ -4,12 +4,12 @@ Neuro-symbolic fusion.
 The two extractors have complementary failure modes (measured in
 `evaluation/benchmark.py`):
 
-    * symbolic (regex + hand-authored domain rules) — high precision, low
+    * symbolic (regex + hand-authored domain rules), high precision, low
       recall. It only emits edges it has a rule for, so it misses
       application-level concepts ("web_crawler", "activation_record") that the
       lecturer mentions but no rule anticipates.
 
-    * neural (Llama-3.3-70B) — higher recall, lower precision. It discovers
+    * neural (Llama-3.3-70B), higher recall, lower precision. It discovers
       novel concepts and reasoned edges but also hallucinates relationships and
       drops structural sub-concepts.
 
@@ -82,7 +82,7 @@ def fuse(symbolic: PrereqGraph, neural: PrereqGraph,
             merged[k] = Edge(k[0], k[1], e.relation,
                              e.confidence * _SINGLE_SOURCE_DISCOUNT, prov)
 
-    # Resolve direction conflicts: A->B vs B->A — keep the stronger one.
+    # Resolve direction conflicts: A->B vs B->A, keep the stronger one.
     resolved: dict[tuple[str, str], Edge] = {}
     dropped_conflicts = 0
     for k, e in merged.items():

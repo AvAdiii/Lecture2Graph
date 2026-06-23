@@ -1,5 +1,5 @@
 """
-module 3 — text normalization & correction  (v3 — translation-aware)
+module 3: text normalization & correction  (v3: translation-aware)
 
 changes from v2:
   - works with whisper-translated english text (from m2 v2)
@@ -110,7 +110,7 @@ def _correct_ocr_token(token: str, vocab: set[str],
 
     t_lower = token.lower()
 
-    # exact match — no correction needed
+    # exact match, no correction needed
     if t_lower in vocab:
         return token
 

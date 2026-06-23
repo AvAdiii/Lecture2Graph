@@ -1,4 +1,4 @@
-# Concept DAG Report — N2P7w22tN9c
+# Concept DAG Report: N2P7w22tN9c
 
 **Source language:** English
 **Concepts:** 12 | **Edges:** 41 | **Topo order:** 12/12

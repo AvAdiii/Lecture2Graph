@@ -1,5 +1,5 @@
 """
-module 1 - data ingestion & preprocessing
+module 1: data ingestion & preprocessing
 downloads a youtube video, extracts audio, and pulls keyframes
 """
 
@@ -9,7 +9,7 @@ import argparse
 import re
 from pathlib import Path
 
-# yt-dlp lives in the venv — check approach_1/venv first, then parent venv
+# yt-dlp lives in the venv, check approach_1/venv first, then parent venv
 _HERE = Path(__file__).resolve().parent
 _BIN = _HERE / "venv" / "bin"
 if not _BIN.exists():

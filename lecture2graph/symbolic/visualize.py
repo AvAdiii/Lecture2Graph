@@ -1,5 +1,5 @@
 """
-module 6 — visualization & reporting  (v2 — custom html)
+module 6: visualization & reporting  (v2: custom html)
 
 replaces pyvis with a hand-crafted html visualization using vis-network.js.
 """
@@ -16,7 +16,7 @@ _HTML_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Concept DAG — {video_id}</title>
+<title>Concept DAG: {video_id}</title>
 <script src="https://unpkg.com/vis-network@9.1.6/standalone/umd/vis-network.min.js"></script>
 <style>
   * {{ margin: 0; padding: 0; box-sizing: border-box; }}
@@ -239,13 +239,13 @@ def _fmt_time(seconds):
 def _node_color(n_mentions):
     """Color by mention frequency."""
     if n_mentions >= 8:
-        return "#3fb950", "#2ea043"   # green — high frequency
+        return "#3fb950", "#2ea043"   # green, high frequency
     elif n_mentions >= 4:
-        return "#58a6ff", "#388bfd"   # blue — medium
+        return "#58a6ff", "#388bfd"   # blue, medium
     elif n_mentions >= 2:
-        return "#d29922", "#9e6a03"   # orange — low
+        return "#d29922", "#9e6a03"   # orange, low
     else:
-        return "#8b949e", "#6e7681"   # gray — rare
+        return "#8b949e", "#6e7681"   # gray, rare
 
 
 def build_graph_data(concepts, edges, topo_order):
@@ -466,7 +466,7 @@ def run(concepts_path, prereqs_path=None, data_dir=None):
 
 def _build_report(video_id, lang, concepts, edges, topo):
     lines = [
-        "# Concept DAG Report — " + video_id,
+        "# Concept DAG Report: " + video_id,
         "",
         "**Source language:** " + lang,
         "**Concepts:** " + str(len(concepts)) + " | **Edges:** " + str(len(edges)) + " | **Topo order:** " + str(len(topo)) + "/" + str(len(concepts)),

@@ -1,7 +1,7 @@
 """
-pipeline — neural (LLM-in-the-loop) orchestrator, local model.
+pipeline: neural (LLM-in-the-loop) orchestrator, local model.
 
-Reuses M1 (ingest) and M2 (extract) from the symbolic pipeline — video
+Reuses M1 (ingest) and M2 (extract) from the symbolic pipeline, video
 download, audio extraction, whisper ASR, and tesseract OCR are identical.
 
 New/replaced modules:
@@ -9,7 +9,7 @@ New/replaced modules:
   M4: local-LLM concept extraction (semantic, not regex)
   M5: local-LLM prerequisite mapping (reasoned, not hardcoded)
 
-Reuses M6 (visualize) from the symbolic pipeline — same hierarchical DAG.
+Reuses M6 (visualize) from the symbolic pipeline, same hierarchical DAG.
 
 LLM budget: exactly 2 calls per video (1 for M4 + 1 for M5), against the local
 server configured in lecture2graph.neural.llm (Ollama by default).
@@ -42,7 +42,7 @@ STAGES = ["m1", "m2", "m3", "m4", "m5", "m6"]
 def _banner(stage: str, label: str) -> None:
     ts = time.strftime("%H:%M:%S")
     print(f"\n{'='*60}", flush=True)
-    print(f"  [{ts}]  {stage.upper()} — {label}", flush=True)
+    print(f"  [{ts}]  {stage.upper()}, {label}", flush=True)
     print(f"{'='*60}", flush=True)
 
 
@@ -117,7 +117,7 @@ def run_pipeline(url: str, model: str = "small",
     notify("m2", "done", m2_result)
     print(f"[pipeline] m2 done in {timings['m2']}s", flush=True)
 
-    # ── m3: normalization  (approach_2 — simplified) ──
+    # ── m3: normalization  (approach_2, simplified) ──
     if _should_run("m3", force_from):
         if force_from and STAGES.index(force_from) <= STAGES.index("m3"):
             for f in ["normalized_segments.json"]:
@@ -126,7 +126,7 @@ def run_pipeline(url: str, model: str = "small",
                     p.unlink()
 
     aligned_path = str(out_dir / "aligned_segments.json")
-    _banner("m3", "normalization [approach_2 — simplified]")
+    _banner("m3", "normalization [approach_2, simplified]")
     notify("m3", "start")
     t0 = time.time()
     m3_result = m3_normalize.run(aligned_path)
@@ -135,38 +135,38 @@ def run_pipeline(url: str, model: str = "small",
     notify("m3", "done", m3_result)
     print(f"[pipeline] m3 done in {timings['m3']}s", flush=True)
 
-    # ── m4: concept extraction  (neural — local LLM) ──
+    # ── m4: concept extraction  (neural, local LLM) ──
     if _should_run("m4", force_from):
         for f in ["concepts.json"]:
             p = out_dir / f
             if p.exists() and force_from:
                 p.unlink()
 
-    _banner("m4", "concept extraction [neural — local LLM]")
+    _banner("m4", "concept extraction [neural, local LLM]")
     notify("m4", "start")
     t0 = time.time()
     m4_result = m4_concepts.run(video_id, data_root)
     timings["m4"] = round(time.time() - t0, 1)
     results["m4"] = m4_result
     notify("m4", "done", m4_result)
-    print(f"[pipeline] m4 done in {timings['m4']}s — "
+    print(f"[pipeline] m4 done in {timings['m4']}s, "
           f"{m4_result['total_concepts']} concepts", flush=True)
 
-    # ── m5: prerequisites  (neural — local LLM) ──
+    # ── m5: prerequisites  (neural, local LLM) ──
     if _should_run("m5", force_from):
         for f in ["graph.json"]:
             p = out_dir / f
             if p.exists() and force_from:
                 p.unlink()
 
-    _banner("m5", "prerequisite mapping [neural — local LLM]")
+    _banner("m5", "prerequisite mapping [neural, local LLM]")
     notify("m5", "start")
     t0 = time.time()
     m5_result = m5_prereqs.run(video_id, data_root)
     timings["m5"] = round(time.time() - t0, 1)
     results["m5"] = m5_result
     notify("m5", "done", m5_result)
-    print(f"[pipeline] m5 done in {timings['m5']}s — "
+    print(f"[pipeline] m5 done in {timings['m5']}s, "
           f"{m5_result['total_edges']} edges", flush=True)
 
     # ── m6: visualization  (reused from the symbolic pipeline) ──

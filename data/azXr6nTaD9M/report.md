@@ -1,4 +1,4 @@
-# Concept DAG Report — azXr6nTaD9M
+# Concept DAG Report: azXr6nTaD9M
 
 **Source language:** Hindi
 **Concepts:** 7 | **Edges:** 16 | **Topo order:** 7/7

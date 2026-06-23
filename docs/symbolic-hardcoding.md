@@ -11,11 +11,11 @@ unsupervised NLP (e.g., YAKE keyword extraction) would eliminate most of these.
 
 ## Module 3: `m3_normalize.py`
 
-### `_SEED_VOCAB` — Universal CS seed vocabulary (67 terms)
+### `_SEED_VOCAB`: Universal CS seed vocabulary (67 terms)
 These are **domain-generic** CS terms always included in the fuzzy-matching vocabulary,
 regardless of what the ASR transcript contains. They are NOT video-specific.
 
-**Added for Video 1** (`XRcC7bAtL3c` — Tree Traversals):
+**Added for Video 1** (`XRcC7bAtL3c`: Tree Traversals):
 ```
 tree, node, root, leaf, left, right, child, children, parent, binary,
 graph, vertex, edge, traversal, order, preorder, inorder, postorder,
@@ -25,7 +25,7 @@ depth, height, subtree, branch, level, search, sort, insert, delete
 ```
 (42 terms)
 
-**Added for Video 2** (`N2P7w22tN9c` — BFS/DFS):
+**Added for Video 2** (`N2P7w22tN9c`: BFS/DFS):
 ```
 breadth, first, visited, adjacency, matrix, connected, component,
 shortest, path, directed, undirected, weighted, unweighted, cycle,
@@ -34,7 +34,7 @@ enqueue, dequeue, push, pop
 ```
 (25 terms)
 
-### `_OVERRIDE_CORRECTIONS` — Extreme OCR garbling overrides (3 entries)
+### `_OVERRIDE_CORRECTIONS`: Extreme OCR garbling overrides (3 entries)
 These handle cases where the edit distance is too large for fuzzy matching to bridge.
 All from Video 1's handwritten board:
 
@@ -54,9 +54,9 @@ All from Video 1's handwritten board:
 
 ## Module 4: Concept Extraction (`m4_concepts.py`)
 
-### `_CONCEPT_PATTERNS` — Concept regex lexicon (26 concepts)
+### `_CONCEPT_PATTERNS`: Concept regex lexicon (26 concepts)
 
-**Added for Video 1** (`XRcC7bAtL3c` — Tree Traversals, 14 concepts):
+**Added for Video 1** (`XRcC7bAtL3c`, Tree Traversals, 14 concepts):
 | Concept | Regex patterns |
 |---------|---------------|
 | tree traversal | `tree\s+traversal`, `traversal\s+technique` |
@@ -74,7 +74,7 @@ All from Video 1's handwritten board:
 | dummy node | `dummy\b` |
 | traversal technique | `technique\b`, `traversing\b` |
 
-**Added for Video 2** (`N2P7w22tN9c` — BFS/DFS, 12 concepts):
+**Added for Video 2** (`N2P7w22tN9c`, BFS/DFS, 12 concepts):
 | Concept | Regex patterns |
 |---------|---------------|
 | breadth first search | `\bbfs\b`, `breadth\s+first\s+search`, `breadth\s+first` |
@@ -91,7 +91,7 @@ All from Video 1's handwritten board:
 | shortest path | `shortest\s+path`, `shortest\s+distance` |
 | level order | `level\s+(?:order\|by\s+level\|wise)` |
 
-### `_OCR_KEYWORD_CONCEPTS` — OCR keyword → concept mapping (18 entries)
+### `_OCR_KEYWORD_CONCEPTS`: OCR keyword → concept mapping (18 entries)
 
 **Added for Video 1** (8 entries):
 | OCR keyword | Maps to concept |
@@ -127,9 +127,9 @@ All from Video 1's handwritten board:
 
 ## Module 5: Prerequisite Mapping (`m5_prereqs.py`)
 
-### `_DOMAIN_RULES` — Prerequisite rules (38 rules)
+### `_DOMAIN_RULES`: Prerequisite rules (38 rules)
 
-**Added for Video 1** (`XRcC7bAtL3c` — Tree Traversals, 21 rules):
+**Added for Video 1** (`XRcC7bAtL3c`, Tree Traversals, 21 rules):
 | Source | Target | Type | Confidence |
 |--------|--------|------|------------|
 | tree | binary tree | is_prerequisite_for | 0.9 |
@@ -154,7 +154,7 @@ All from Video 1's handwritten board:
 | right subtree | post-order traversal | is_prerequisite_for | 0.7 |
 | dummy node | traversal technique | is_part_of | 0.6 |
 
-**Added for Video 2** (`N2P7w22tN9c` — BFS/DFS, 17 rules):
+**Added for Video 2** (`N2P7w22tN9c`, BFS/DFS, 17 rules):
 | Source | Target | Type | Confidence |
 |--------|--------|------|------------|
 | graph | graph traversal | is_prerequisite_for | 0.9 |
@@ -174,7 +174,7 @@ All from Video 1's handwritten board:
 | breadth first search | shortest path | is_prerequisite_for | 0.7 |
 | connected component | graph traversal | is_prerequisite_for | 0.6 |
 
-### `_CONCEPT_FRAGMENTS` — Text fragment → concept mapping (30 entries)
+### `_CONCEPT_FRAGMENTS`: Text fragment → concept mapping (30 entries)
 
 Used inside causal anchor text to find mentioned concepts.
 
@@ -219,8 +219,8 @@ Used inside causal anchor text to find mentioned concepts.
 | `edge` | edge |
 | `shortest path` | shortest path |
 
-### `_CAUSAL_PATTERNS` — Regex patterns for causal language (4 patterns, generic)
-These are **NOT video-specific** — they detect general causal/sequential language:
+### `_CAUSAL_PATTERNS`: Regex patterns for causal language (4 patterns, generic)
+These are **NOT video-specific**, they detect general causal/sequential language:
 1. `before we do X, you need to know Y` → prerequisite_explicit
 2. `first we do X, then Y` → temporal_sequence
 3. `remember/recall X from before` → back_reference
@@ -236,7 +236,7 @@ These are **NOT video-specific** — they detect general causal/sequential langu
 
 ## Summary: Per-Video Additions
 
-### Video 1: `XRcC7bAtL3c` — Tree Traversal Techniques
+### Video 1: `XRcC7bAtL3c`, Tree Traversal Techniques
 | Module | What was added | Count |
 |--------|---------------|-------|
 | M3 | `_SEED_VOCAB` (tree/data structure terms) | 42 terms |
@@ -246,7 +246,7 @@ These are **NOT video-specific** — they detect general causal/sequential langu
 | M5 | `_DOMAIN_RULES` (tree traversal prerequisites) | 21 rules |
 | M5 | `_CONCEPT_FRAGMENTS` (tree text fragments) | 18 entries |
 
-### Video 2: `N2P7w22tN9c` — BFS/DFS Graph Traversal
+### Video 2: `N2P7w22tN9c`, BFS/DFS Graph Traversal
 | Module | What was added | Count |
 |--------|---------------|-------|
 | M3 | `_SEED_VOCAB` (graph/BFS/DFS terms) | 25 terms |

@@ -65,10 +65,45 @@
   ],
   "edges": [
     {
+      "source": "vertex",
+      "target": "graph",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "graph_traversal",
+      "target": "breadth_first_search",
+      "relation": "refines",
+      "confidence": 0.81,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "tree",
+      "target": "tree_traversal",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.81,
+      "provenance": "symbolic"
+    },
+    {
       "source": "edge",
       "target": "graph",
       "relation": "is_prerequisite_for",
       "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "stack",
+      "target": "breadth_first_search",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "graph_traversal",
+      "target": "depth_first_search",
+      "relation": "refines",
+      "confidence": 0.81,
       "provenance": "symbolic"
     },
     {
@@ -86,32 +121,25 @@
       "provenance": "both"
     },
     {
-      "source": "tree",
-      "target": "tree_traversal",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.81,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "vertex",
-      "target": "graph",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.63,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "graph_traversal",
-      "target": "breadth_first_search",
+      "source": "tree_traversal",
+      "target": "pre_order_traversal",
       "relation": "refines",
       "confidence": 0.81,
       "provenance": "symbolic"
     },
     {
-      "source": "stack",
+      "source": "visited",
       "target": "breadth_first_search",
       "relation": "is_prerequisite_for",
-      "confidence": 0.765,
-      "provenance": "neural"
+      "confidence": 0.63,
+      "provenance": "symbolic"
+    },
+    {
+      "source": "visited",
+      "target": "depth_first_search",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.63,
+      "provenance": "symbolic"
     },
     {
       "source": "graph",
@@ -125,34 +153,6 @@
       "target": "graph_traversal",
       "relation": "is_prerequisite_for",
       "confidence": 0.81,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "visited",
-      "target": "breadth_first_search",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.63,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "tree_traversal",
-      "target": "pre_order_traversal",
-      "relation": "refines",
-      "confidence": 0.81,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "graph_traversal",
-      "target": "depth_first_search",
-      "relation": "refines",
-      "confidence": 0.81,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "visited",
-      "target": "depth_first_search",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.63,
       "provenance": "symbolic"
     }
   ],

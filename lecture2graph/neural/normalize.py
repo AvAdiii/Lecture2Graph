@@ -1,5 +1,5 @@
 """
-module 3 — simplified text normalization  (approach_2 — LLM-friendly)
+module 3: simplified text normalization  (approach_2: LLM-friendly)
 
 WHY SIMPLIFIED:
   approach_1 m3 did heavy regex cleaning, fuzzy OCR correction, and
@@ -27,7 +27,7 @@ from pathlib import Path
 # ───────────────── minimal hallucination filter ─────────────────
 
 def _is_garbage(text: str) -> bool:
-    """catch only the most obvious garbage — LLM handles the rest."""
+    """catch only the most obvious garbage, LLM handles the rest."""
     t = text.strip()
     if len(t) < 2:
         return True
@@ -46,7 +46,7 @@ def normalize_segments(segments: list[dict], source_lang: str = "en") -> list[di
     """Pure transform: aligned ASR+OCR segments -> clean {start,end,text,source}.
 
     Splits each aligned segment into separate asr/ocr rows, drops obvious
-    garbage, normalizes whitespace, and dedups consecutive repeats. No IO — so
+    garbage, normalizes whitespace, and dedups consecutive repeats. No IO, so
     it can feed the LLM extractor directly from cached artifacts.
     """
     cleaned: list[dict] = []

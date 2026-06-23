@@ -1,5 +1,5 @@
 """
-module 5 - prerequisite mapping (v2)
+module 5: prerequisite mapping (v2)
 
 takes concepts.json and normalized_segments.json, produces graph.json.
 
@@ -439,7 +439,7 @@ def run(video_id: str, data_root: str = "data") -> dict:
         if (de["source"], de["target"]) in causal_pairs:
             de["confidence"] = min(1.0, de["confidence"] + 0.1)
 
-    # 3. temporal edges (conservative — uses transitive closure of domain+causal)
+    # 3. temporal edges (conservative, uses transitive closure of domain+causal)
     strong_edges = domain_edges + causal_edges
     temporal_edges = build_temporal_edges(concepts, strong_edges)
 

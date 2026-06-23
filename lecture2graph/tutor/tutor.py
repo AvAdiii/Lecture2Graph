@@ -1,7 +1,7 @@
 """
 Graph-RAG tutor over the concept DAG.
 
-The prerequisite graph is not just a picture — it is a study planner. Given a
+The prerequisite graph is not just a picture, it is a study planner. Given a
 concept the learner wants to reach, the tutor *retrieves* the relevant subgraph
 (its transitive prerequisites) from the DAG and answers:
 
@@ -115,7 +115,7 @@ class Tutor:
         """Narrate the retrieved prerequisite subgraph with the local LLM.
 
         Returns None (rather than raising) if no local model server is
-        reachable — narration is a nicety, the structured answer is the product.
+        reachable, narration is a nicety, the structured answer is the product.
         """
         from lecture2graph.neural import llm
 
@@ -168,7 +168,7 @@ def main() -> None:
     args = p.parse_args()
 
     t = Tutor(args.video_id, args.data_root, args.method)
-    print(f"[tutor] {args.video_id} — using '{t.graph.method}' graph "
+    print(f"[tutor] {args.video_id}, using '{t.graph.method}' graph "
           f"({len(t.graph.nodes)} concepts, {len(t.graph.edges)} edges)")
 
     if args.before:

@@ -4,14 +4,13 @@ Evaluation metrics for extracted prerequisite graphs.
 All metrics compare a predicted `PrereqGraph` against a domain-authored gold
 graph, after both have been canonicalized by `lecture2graph.graphs`. We report:
 
-    * node precision / recall / F1      — did we recover the right concepts?
-    * edge precision / recall / F1      — did we recover the right directed
-                                          prerequisite dependencies?
-    * prerequisite-order accuracy       — of the gold "A before B" pairs whose
-                                          endpoints we predicted, how many does
-                                          our topological order get right?
-    * graph edit distance (symmetric)   — |node symdiff| + |edge symdiff|, an
-                                          interpretable structural distance.
+    * node precision / recall / F1: did we recover the right concepts?
+    * edge precision / recall / F1: did we recover the right directed
+      prerequisite dependencies?
+    * prerequisite-order accuracy: of the gold "A before B" pairs whose
+      endpoints we predicted, how many does our topological order get right?
+    * graph edit distance (symmetric): |node symdiff| + |edge symdiff|, an
+      interpretable structural distance.
 
 Edges are matched as exact directed canonical pairs (src, target). Weak
 temporal-precedence edges are excluded (see PrereqGraph.prereq_edge_keys).
@@ -47,7 +46,7 @@ def _prf(pred: set, gold: set) -> dict:
 def prereq_order_accuracy(pred: PrereqGraph, gold: PrereqGraph) -> dict:
     """Fraction of gold 'A before B' pairs ordered correctly by pred's topo sort.
 
-    Only counts gold edges whose endpoints both appear in the prediction — you
+    Only counts gold edges whose endpoints both appear in the prediction, you
     cannot order a concept you never extracted (that miss is already penalized
     by recall).
     """

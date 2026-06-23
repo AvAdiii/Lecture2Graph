@@ -20,7 +20,7 @@ Symbolic also covers videos the neural pipeline had not yet processed, so this v
 | neural | 5 | 0.289 | 0.135 | 0.174 | 0.479 | 0.527 | 17.8 |
 | hybrid | 5 | 0.485 | 0.664 | 0.551 | 0.804 | 0.932 | 14.4 |
 
-- **edge_P/R/F1** — directed prerequisite-edge precision / recall / F1
-- **node_F1** — concept-recovery F1
-- **order_acc** — fraction of gold 'A before B' pairs ordered correctly
-- **GED** — graph edit distance (node + edge symmetric difference; lower is better)
+- **edge_P/R/F1**, directed prerequisite-edge precision / recall / F1
+- **node_F1**, concept-recovery F1
+- **order_acc**, fraction of gold 'A before B' pairs ordered correctly
+- **GED**, graph edit distance (node + edge symmetric difference; lower is better)

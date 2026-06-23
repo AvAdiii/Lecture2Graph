@@ -1,4 +1,4 @@
-"""Fast, offline sanity tests (stdlib unittest — no pytest required).
+"""Fast, offline sanity tests (stdlib unittest, no pytest required).
 
 Run:  python -m unittest discover -s tests
 These exercise the parts that must stay correct as the graphs change:

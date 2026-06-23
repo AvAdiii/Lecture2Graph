@@ -1,10 +1,10 @@
 """
-Local LLM client — OpenAI-compatible chat, no API key, no cloud.
+Local LLM client, OpenAI-compatible chat, no API key, no cloud.
 
 The neural extractor talks to a *local* model server through the standard
 OpenAI `/v1/chat/completions` interface, which Ollama (default), LM Studio,
 llama.cpp-server and vLLM all expose. Nothing here is provider-specific, and
-there is no SDK dependency — it is a thin stdlib (`urllib`) POST.
+there is no SDK dependency, it is a thin stdlib (`urllib`) POST.
 
 Configure via environment (defaults target Ollama):
 
@@ -86,13 +86,13 @@ def chat(system: str, user: str, *, temperature: float = 0.1,
         except urllib.error.HTTPError as e:
             detail = e.read().decode(errors="ignore")
             if use_json and ("response_format" in detail or e.code == 400):
-                use_json = False  # server lacks JSON mode — drop it and retry
+                use_json = False  # server lacks JSON mode, drop it and retry
                 continue
             last_err = f"HTTP {e.code}: {detail[:200]}"
             time.sleep(2 * (attempt + 1))
         except urllib.error.URLError as e:
             raise ConnectionError(
-                f"Cannot reach a local LLM at {base_url()} — is the server "
+                f"Cannot reach a local LLM at {base_url()}, is the server "
                 f"running?  (e.g. `ollama serve`)  Underlying error: {e.reason}"
             ) from e
     raise RuntimeError(f"Local LLM call failed after {_MAX_RETRIES} tries: {last_err}")

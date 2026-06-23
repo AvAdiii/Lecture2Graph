@@ -130,10 +130,10 @@ def main() -> None:
     out.mkdir(parents=True, exist_ok=True)
     (out / "benchmark.json").write_text(json.dumps(results, indent=2))
     legend = (
-        "\n\n- **edge_P/R/F1** — directed prerequisite-edge precision / recall / F1\n"
-        "- **node_F1** — concept-recovery F1\n"
-        "- **order_acc** — fraction of gold 'A before B' pairs ordered correctly\n"
-        "- **GED** — graph edit distance (node + edge symmetric difference; lower is better)\n"
+        "\n\n- **edge_P/R/F1**, directed prerequisite-edge precision / recall / F1\n"
+        "- **node_F1**, concept-recovery F1\n"
+        "- **order_acc**, fraction of gold 'A before B' pairs ordered correctly\n"
+        "- **GED**, graph edit distance (node + edge symmetric difference; lower is better)\n"
     )
     (out / "benchmark.md").write_text(
         "# Benchmark: symbolic vs. neural vs. hybrid\n\n"

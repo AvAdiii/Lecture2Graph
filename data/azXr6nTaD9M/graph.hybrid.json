@@ -58,28 +58,7 @@
   "edges": [
     {
       "source": "recursion",
-      "target": "depth_first_search",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.765,
-      "provenance": "neural"
-    },
-    {
-      "source": "data_structure",
-      "target": "stack",
-      "relation": "refines",
-      "confidence": 0.72,
-      "provenance": "symbolic"
-    },
-    {
-      "source": "recursion",
-      "target": "stack",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.765,
-      "provenance": "neural"
-    },
-    {
-      "source": "recursion",
-      "target": "binary_search_tree",
+      "target": "activation_record",
       "relation": "is_prerequisite_for",
       "confidence": 0.765,
       "provenance": "neural"
@@ -92,8 +71,29 @@
       "provenance": "neural"
     },
     {
+      "source": "stack",
+      "target": "instruction_pointer",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
       "source": "recursion",
-      "target": "activation_record",
+      "target": "stack",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "activation_record",
+      "target": "space_complexity",
+      "relation": "is_prerequisite_for",
+      "confidence": 0.765,
+      "provenance": "neural"
+    },
+    {
+      "source": "recursion",
+      "target": "binary_search_tree",
       "relation": "is_prerequisite_for",
       "confidence": 0.765,
       "provenance": "neural"
@@ -113,18 +113,18 @@
       "provenance": "neural"
     },
     {
-      "source": "stack",
-      "target": "instruction_pointer",
+      "source": "recursion",
+      "target": "depth_first_search",
       "relation": "is_prerequisite_for",
       "confidence": 0.765,
       "provenance": "neural"
     },
     {
-      "source": "activation_record",
-      "target": "space_complexity",
-      "relation": "is_prerequisite_for",
-      "confidence": 0.765,
-      "provenance": "neural"
+      "source": "data_structure",
+      "target": "stack",
+      "relation": "refines",
+      "confidence": 0.72,
+      "provenance": "symbolic"
     }
   ],
   "topological_order": [

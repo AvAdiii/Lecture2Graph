@@ -1,5 +1,5 @@
 """
-module 4 (neural) — concept extraction via a local LLM.
+module 4 (neural): concept extraction via a local LLM.
 
 WHY LLM:
   The symbolic pipeline used ~100 handcrafted regex patterns grouped by domain
@@ -15,9 +15,9 @@ WHY LLM:
     - returns structured JSON with mention counts and timestamps
 
 LOCAL, NOT CLOUD:
-  Inference runs against a local OpenAI-compatible server (Ollama by default —
+  Inference runs against a local OpenAI-compatible server (Ollama by default -
   see lecture2graph.neural.llm). No API key, no rate limits, no data leaves the
-  machine — so the whole corpus can be re-processed freely.
+  machine, so the whole corpus can be re-processed freely.
 
 REQUEST MINIMIZATION:
   The ENTIRE transcript goes in a SINGLE call (one request per video).
@@ -47,7 +47,7 @@ RULES:
 5. Record the earliest timestamp (start field) where it appears as first_seen.
 6. List which sources mentioned it (asr, ocr, or both).
 
-RESPOND WITH ONLY valid JSON — no markdown fences, no explanation:
+RESPOND WITH ONLY valid JSON, no markdown fences, no explanation:
 {
   "concepts": [
     {
@@ -72,7 +72,7 @@ def _format_transcript(segments: list[dict]) -> str:
     lines = []
     for seg in segments:
         t = seg.get("start", 0)
-        src = seg.get("source", "?")[0]   # a=asr, o=ocr — saves tokens
+        src = seg.get("source", "?")[0]   # a=asr, o=ocr, saves tokens
         text = seg.get("text", "").strip()
         if len(text) > 150:
             text = text[:147] + "..."
@@ -178,7 +178,7 @@ def run(video_id: str, data_root: str) -> dict:
         return {"total_concepts": n, "concepts_path": str(concepts_path)}
 
     if not norm_path.exists():
-        raise FileNotFoundError(f"[m4] {norm_path} not found — run M3 first")
+        raise FileNotFoundError(f"[m4] {norm_path} not found, run M3 first")
 
     with open(norm_path) as f:
         segments = json.load(f)

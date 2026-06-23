@@ -1,5 +1,5 @@
 """
-module 4 - concept extraction (v2)
+module 4: concept extraction (v2)
 
 takes normalized_segments.json and produces concepts.json.
 
@@ -268,7 +268,7 @@ _OCR_KEYWORD_CONCEPTS = {
 # node labels found in examples (letters for tree, also support numeric vertex labels)
 _EXAMPLE_NODE_LABELS = set("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
-# temporal dedup window (seconds) — OCR-only mentions within this window are merged
+# temporal dedup window (seconds), OCR-only mentions within this window are merged
 _OCR_DEDUP_WINDOW = 10.0
 
 
@@ -322,10 +322,10 @@ def _get_segment_fields(seg: dict) -> tuple:
     new format: {"text": str, "source": "asr"|"ocr", ...}
     """
     if "spoken_text" in seg:
-        # old format — has both spoken text and OCR in one segment
+        # old format, has both spoken text and OCR in one segment
         return seg["spoken_text"], seg.get("ocr_keywords", [])
     else:
-        # new format — each segment is either ASR or OCR
+        # new format, each segment is either ASR or OCR
         text = seg.get("text", "")
         source = seg.get("source", "asr")
         if source == "ocr":
@@ -373,7 +373,7 @@ def run(video_id: str, data_root: str = "data") -> dict:
         ocr_concepts = extract_concepts_from_ocr(ocr_kws)
         for c in ocr_concepts:
             if c in spoken_concepts:
-                # both sources agree — upgrade last ASR mention to multimodal
+                # both sources agree, upgrade last ASR mention to multimodal
                 concept_mentions[c][-1]["source"] = "asr+ocr"
             else:
                 # OCR-only: only count if >_OCR_DEDUP_WINDOW since last OCR-only mention

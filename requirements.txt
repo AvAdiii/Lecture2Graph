@@ -9,5 +9,5 @@ rapidfuzz               # ASR-seeded fuzzy OCR correction + concept resolution
 networkx                # DAG construction, cycle-breaking, topological sort
 
 # Neural extractor: talks to a LOCAL OpenAI-compatible server (Ollama by
-# default) over stdlib urllib — no Python SDK needed. See lecture2graph/neural/llm.py.
+# default) over stdlib urllib, no Python SDK needed. See lecture2graph/neural/llm.py.
 # Install + run a model first, e.g.:  ollama pull llama3.1:8b && ollama serve
