@@ -5,10 +5,23 @@ a map of every concept the lecture teaches and which ones depend on which
 others. Point it at a recording, and instead of a flat transcript you get a
 study order, "to understand X, learn A, then B, then C first."
 
-The lectures this was built and tested on are Hindi/English code-mixed
-computer science lectures, where the instructor speaks one language and
-writes notes on a board, so the system has to combine speech and handwriting,
-not just read a clean transcript.
+The lectures this was built and tested on are recorded Hindi/English
+code-mixed computer science classes filmed off a whiteboard or notebook, the
+kind where the instructor talks through an idea while writing diagrams,
+variable names, and worked examples by hand at the same time. That means
+there are two separate raw signals to pull concepts out of:
+
+- **Speech** -> transcribed with Whisper (ASR) into a timestamped transcript.
+- **Handwriting** -> the video frames are sampled and run through Tesseract
+  (OCR) to pull out whatever text is legible on the board (node labels,
+  keywords like "BFS" or "O(n)", partial diagrams), then cleaned up with
+  fuzzy correction seeded from the speech transcript, since raw handwriting
+  OCR is unreliable on its own.
+
+Both signals are timestamped and merged into one stream of "what was said or
+shown, and when," which is what every downstream method (symbolic and
+neural alike) actually consumes. The [ablation below](#ablation-does-the-board-ocr-actually-matter)
+measures how much that handwriting signal is actually worth.
 
 Three independent methods build that graph, and each is scored against a
 human-written answer key so the comparison isn't just qualitative:
